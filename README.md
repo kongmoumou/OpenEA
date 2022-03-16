@@ -5,7 +5,7 @@
 [![made-with-Tensorflow](https://img.shields.io/badge/Made%20with-Tensorflow-orange.svg?style=flat-square)](https://www.tensorflow.org/)
 [![Paper](https://img.shields.io/badge/VLDB%202020-PDF-yellow.svg?style=flat-square)](http://www.vldb.org/pvldb/vol13/p2326-sun.pdf)
 
-> Entity alignment seeks to find entities in different knowledge graphs (KGs) that refer to the same real-world object. Recent advancement in KG embedding impels the advent of embedding-based entity alignment, which encodes entities in a continuous embedding space and measures entity similarities based on the learned embeddings. In this paper, we conduct a comprehensive experimental study of this emerging field. This study surveys 23 recent embedding-based entity alignment approaches and categorizes them based on their techniques and characteristics. We further observe that current approaches use different datasets in evaluation, and the degree distributions of entities in these datasets are inconsistent with real KGs. Hence, we propose a new KG sampling algorithm, with which we generate a set of dedicated benchmark datasets with various heterogeneity and distributions for a realistic evaluation. This study also produces an open-source library, which includes 12 representative embedding-based entity alignment approaches. We extensively evaluate these approaches on the generated datasets, to understand their strengths and limitations. Additionally, for several directions that have not been explored in current approaches, we perform exploratory experiments and report our preliminary findings for future studies. The benchmark datasets, open-source library and experimental results are all accessible online and will be duly maintained. 
+> 实体对齐寻求在不同的知识图（KG）中找到实体，这些知识图指的是同一个真实世界的对象。KG嵌入的最新进展推动了基于嵌入的实体对齐技术的出现，该技术在连续嵌入空间中对实体进行编码，并基于学习到的嵌入来测量实体的相似性。本文对这一新兴领域进行了全面的实验研究。本研究调查了最近23种基于嵌入的实体对齐方法，并根据它们的技术和特点对它们进行了分类。我们进一步观察到，当前的方法在评估中使用不同的数据集，这些数据集中实体的度分布与实际KG不一致。因此，我们提出了一种新的KG抽样算法，通过该算法，我们生成了一组具有各种异质性和分布的专用基准数据集，用于现实评估。本研究还生成了一个开源库，其中包括12种具有代表性的基于嵌入的实体对齐方法。我们在生成的数据集上广泛评估这些方法，以了解它们的优点和局限性。此外，对于当前方法中尚未探索的几个方向，我们进行探索性实验，并报告我们的初步发现，以供未来研究。基准数据集、开源库和实验结果都可以在线访问，并将得到适当的维护。
 
 *** **UPDATE** ***
 
@@ -20,55 +20,55 @@
 - Sep. 24, 2020: add AliNet.
 
 ## Table of contents
-1. [Library for Embedding-based Entity Alignment](#library-for-embedding-based-entity-alignment)
-    1. [Overview](#overview)
-    2. [Getting Started](#getting-started)
-        1. [Code Package Description](#package-description)
-        2. [Dependencies](#dependencies)
-        3. [Installation](#installation)
-        4. [Usage](#usage)
-2. [KG Sampling Method and Datasets](#kg-sampling-method-and-datasets)
-    1. [Iterative Degree-based Sampling](#iterative-degree-based-sampling)
-    2. [Dataset Overview](#dataset-overview)
-    2. [Dataset Description](#dataset-description)
-3. [Experiment and Results](#experiment-and-results)
-    1. [Experiment Settings](#experiment-settings)
-    2. [Detailed Results](#detailed-results)
+1. [基于嵌入的实体对齐](#library-for-embedding-based-entity-alignment)
+    1. [概览](#overview)
+    2. [上手](#getting-started)
+        1. [代码包描述](#package-description)
+        2. [依赖](#dependencies)
+        3. [安装](#installation)
+        4. [用法](#usage)
+2. [KG 采样方法与数据](#kg-sampling-method-and-datasets)
+    1. [基于度的迭代采样](#iterative-degree-based-sampling)
+    2. [数据集概览](#dataset-overview)
+    2. [数据集描述](#dataset-description)
+3. [实验与结果](#experiment-and-results)
+    1. [实验设置](#experiment-settings)
+    2. [详细结果](#detailed-results)
 4. [License](#license)
 5. [Citation](#citation)
 
-## Library for Embedding-based Entity Alignment
+## 基于嵌入的实体对齐
 
-### Overview
+### 概览
 
-We use [Python](https://www.python.org/) and [Tensorflow](https://www.tensorflow.org/) to develop an open-source library, namely **OpenEA**, for embedding-based entity alignment. The software architecture is illustrated in the following Figure. 
+我们使用 [Python](https://www.python.org/) 与 [Tensorflow](https://www.tensorflow.org/) 开发了一个开源库，叫 **OpenEA**, 实现了基于嵌入的实体对齐。架构如下图所示：
 
 <p>
-  <img width="70%" src="https://github.com/nju-websoft/OpenEA/blob/master/docs/stack.png" />
+  <img width="70%" src="https://cdn.jsdelivr.net/gh/nju-websoft/OpenEA/docs/stack.png" />
 </p>
 
-The design goals and features of OpenEA include three aspects, i.e., loose coupling, functionality and extensibility, and off-the-shelf solutions.
+OpenEA 设计目标包括三个方面：松耦合，功能性与扩展性，现有解决方案。
 
-* **Loose coupling**. The implementations of embedding and alignment modules are independent to each other. OpenEA provides a framework template with pre-defined input and output data structures to make the three modules as an integral pipeline. Users can freely call and combine different techniques in these modules.
+* **松耦合**. 嵌入与对齐模块互相独立。OpenEA提供了一个带有预定义输入和输出数据结构的框架模板，使这三个模块成为一个完整的管道。用户可以在这些模块中自由调用和组合不同的技术。
 
-* **Functionality and extensibility**. OpenEA implements a set of necessary functions as its underlying components, including initialization functions, loss functions and negative sampling methods in the embedding module; combination and learning strategies in the interaction mode; as well as distance metrics and alignment inference strategies in the alignment module. On top of those, OpenEA also provides a set of flexible and high-level functions with configuration options to call the underlying components. In this way, new functions can be easily integrated by adding new configuration options.
+* **功能性与扩展性**. OpenEA实现了一组必要的函数作为其底层组件，包括嵌入模块中的初始化函数、丢失函数和负采样方法；互动模式下的组合与学习策略；以及校准模块中的距离度量和校准推理策略。除此之外，OpenEA还提供了一组灵活的高级功能，以及调用底层组件的配置选项。通过这种方式，可以通过添加新的配置选项轻松集成新功能。
 
-* **Off-the-shelf solutions**. To facilitate the use of OpenEA in diverse scenarios, we try our best to integrate or re-build a majority of existing embedding-based entity alignment approaches. Currently, OpenEA has integrated the following embedding-based entity alignment approaches:
+* **Off-the-shelf solutions**. 为了便于在不同的场景中使用OpenEA，我们尽最大努力集成或重建大多数现有的基于嵌入的实体对齐方法。目前，OpenEA集成了以下基于嵌入的实体对齐方法:
     1. **MTransE**: [Multilingual Knowledge Graph Embeddings for Cross-lingual Knowledge Alignment](https://www.ijcai.org/proceedings/2017/0209.pdf). IJCAI 2017.
-    1. **IPTransE**: [Iterative Entity Alignment via Joint Knowledge Embeddings](https://www.ijcai.org/proceedings/2017/0595.pdf). IJCAI 2017.
-    1. **JAPE**: [Cross-Lingual Entity Alignment via Joint Attribute-Preserving Embedding](https://link.springer.com/chapter/10.1007/978-3-319-68288-4_37). ISWC 2017.
-    1. **KDCoE**: [Co-training Embeddings of Knowledge Graphs and Entity Descriptions for Cross-lingual Entity Alignment](https://www.ijcai.org/proceedings/2018/0556.pdf). IJCAI 2018.
-    1. **BootEA**: [Bootstrapping Entity Alignment with Knowledge Graph Embedding](https://www.ijcai.org/proceedings/2018/0611.pdf). IJCAI 2018.
-    1. **GCN-Align**: [Cross-lingual Knowledge Graph Alignment via Graph Convolutional Networks](https://www.aclweb.org/anthology/D18-1032). EMNLP 2018.
-    1. **AttrE**: [Entity Alignment between Knowledge Graphs Using Attribute Embeddings](https://people.eng.unimelb.edu.au/jianzhongq/papers/AAAI2019_EntityAlignment.pdf). AAAI 2019.
-    1. **IMUSE**: [Unsupervised Entity Alignment Using Attribute Triples and Relation Triples](https://link.springer.com/content/pdf/10.1007%2F978-3-030-18576-3_22.pdf). DASFAA 2019.
-    1. **SEA**: [Semi-Supervised Entity Alignment via Knowledge Graph Embedding with Awareness of Degree Difference](https://dl.acm.org/citation.cfm?id=3313646). WWW 2019.
-    1. **RSN4EA**: [Learning to Exploit Long-term Relational Dependencies in Knowledge Graphs](http://proceedings.mlr.press/v97/guo19c/guo19c.pdf). ICML 2019.
-    1. **MultiKE**: [Multi-view Knowledge Graph Embedding for Entity Alignment](https://www.ijcai.org/proceedings/2019/0754.pdf). IJCAI 2019.
-    1. **RDGCN**: [Relation-Aware Entity Alignment for Heterogeneous Knowledge Graphs](https://www.ijcai.org/proceedings/2019/0733.pdf). IJCAI 2019.
-    1. **AliNet**: [Knowledge Graph Alignment Network with Gated Multi-hop Neighborhood Aggregation](https://aaai.org/ojs/index.php/AAAI/article/view/5354). AAAI 2020.
+    2. **IPTransE**: [Iterative Entity Alignment via Joint Knowledge Embeddings](https://www.ijcai.org/proceedings/2017/0595.pdf). IJCAI 2017.
+    3. **JAPE**: [Cross-Lingual Entity Alignment via Joint Attribute-Preserving Embedding](https://link.springer.com/chapter/10.1007/978-3-319-68288-4_37). ISWC 2017.
+    4. **KDCoE**: [Co-training Embeddings of Knowledge Graphs and Entity Descriptions for Cross-lingual Entity Alignment](https://www.ijcai.org/proceedings/2018/0556.pdf). IJCAI 2018.
+    5. **BootEA**: [Bootstrapping Entity Alignment with Knowledge Graph Embedding](https://www.ijcai.org/proceedings/2018/0611.pdf). IJCAI 2018.
+    6. **GCN-Align**: [Cross-lingual Knowledge Graph Alignment via Graph Convolutional Networks](https://www.aclweb.org/anthology/D18-1032). EMNLP 2018.
+    7. **AttrE**: [Entity Alignment between Knowledge Graphs Using Attribute Embeddings](https://people.eng.unimelb.edu.au/jianzhongq/papers/AAAI2019_EntityAlignment.pdf). AAAI 2019.
+    8. **IMUSE**: [Unsupervised Entity Alignment Using Attribute Triples and Relation Triples](https://link.springer.com/content/pdf/10.1007%2F978-3-030-18576-3_22.pdf). DASFAA 2019.
+    9. **SEA**: [Semi-Supervised Entity Alignment via Knowledge Graph Embedding with Awareness of Degree Difference](https://dl.acm.org/citation.cfm?id=3313646). WWW 2019.
+    10. **RSN4EA**: [Learning to Exploit Long-term Relational Dependencies in Knowledge Graphs](http://proceedings.mlr.press/v97/guo19c/guo19c.pdf). ICML 2019.
+    11. **MultiKE**: [Multi-view Knowledge Graph Embedding for Entity Alignment](https://www.ijcai.org/proceedings/2019/0754.pdf). IJCAI 2019.
+    12. **RDGCN**: [Relation-Aware Entity Alignment for Heterogeneous Knowledge Graphs](https://www.ijcai.org/proceedings/2019/0733.pdf). IJCAI 2019.
+    13. **AliNet**: [Knowledge Graph Alignment Network with Gated Multi-hop Neighborhood Aggregation](https://aaai.org/ojs/index.php/AAAI/article/view/5354). AAAI 2020.
     
-* OpenEA has also integrated the following relationship embedding models and two attribute embedding models (AC2Vec and Label2vec ) in the embedding module:
+* OpenEA还在嵌入模块中集成了以下关系嵌入模型和两个属性嵌入模型（AC2Vec和Label2vec）:
     1. **TransH**: [Knowledge Graph Embedding by Translating on Hyperplanes](https://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8531/8546). AAAI 2014.
     1. **TransR**: [Learning Entity and Relation Embeddings for Knowledge Graph Completion](https://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9571/9523). AAAI 2015.
     1. **TransD**: [Knowledge Graph Embedding via Dynamic Mapping Matrix](https://aclweb.org/anthology/P15-1067). ACL 2015.
@@ -78,33 +78,34 @@ The design goals and features of OpenEA include three aspects, i.e., loose coupl
     1. **SimplE**: [SimplE Embedding for Link Prediction in Knowledge Graphs](https://papers.nips.cc/paper/7682-simple-embedding-for-link-prediction-in-knowledge-graphs.pdf). NeurIPS 2018.
     1. **RotatE**: [RotatE: Knowledge Graph Embedding by Relational Rotation in Complex Space](https://openreview.net/pdf?id=HkgEQnRqYQ). ICLR 2019.
 
-### Getting Started
-These instructions cover how to get a copy of the library and how to install and run it on your local machine for development and testing purposes. It also provides an overview of the package structure of the source code.
+### 上手
+这些说明包括如何获取库的副本，以及如何在本地计算机上安装和运行库，以用于开发和测试。它还概述了源代码的包结构。
 
-#### Package Description
+#### 包描述
 
 ```
 src/
 ├── openea/
-│   ├── approaches/: package of the implementations for existing embedding-based entity alignment approaches
-│   ├── models/: package of the implementations for unexplored relationship embedding models
-│   ├── modules/: package of the implementations for the framework of embedding module, alignment module, and their interaction
-│   ├── expriment/: package of the implementations for evalution methods
+│   ├── approaches/: 现有嵌入实体对齐模型实现
+│   ├── models/: 未探索关系嵌入模型实现
+│   ├── modules/: 嵌入模块、对齐模块及其交互框架的实现包
+│   ├── expriment/: 评估方法的实现包
 ```
 
-#### Dependencies
+#### 依赖
 * Python 3.x (tested on Python 3.6)
 * Tensorflow 1.x (tested on Tensorflow 1.8 and 1.12)
 * Scipy
 * Numpy
-* Graph-tool or igraph or NetworkX
+* Graph-tool == 2.29 or igraph or NetworkX
 * Pandas
 * Scikit-learn
 * Matching==0.1.1
 * Gensim
 
-#### Installation
-We recommend creating a new conda environment to install and run OpenEA. You should first install tensorflow-gpu (tested on 1.8 and 1.12), graph-tool (tested on 2.27 and 2.29,  the latest version would cause a bug), and python-igraph using conda:
+#### 安装
+我们建议创建一个新的conda环境来安装和运行OpenEA。您应该首先使用conda安装tensorflow gpu（在1.8和1.12上测试）、graph tool（在2.27和2.29上测试，最新版本会导致错误）和python igraph：
+
 ```bash
 conda create -n openea python=3.6
 conda activate openea
@@ -113,7 +114,7 @@ conda install -c conda-forge graph-tool==2.29
 conda install -c conda-forge python-igraph
 ```
 
-Then, OpenEA can be installed using pip with the following steps:
+然后使用以下步骤安装OpenEA：
 
 ```bash
 git clone https://github.com/nju-websoft/OpenEA.git OpenEA
@@ -121,8 +122,9 @@ cd OpenEA
 pip install -e .
 ```
 
-#### Usage
-The following is an example about how to use OpenEA in Python (We assume that you have already downloaded our datasets and configured the hyperparameters as in the [examples](https://github.com/nju-websoft/OpenEA/tree/master/run/args).)
+#### 用法
+下面是一个关于如何在Python中使用OpenEA的示例（我们假设您已经下载了我们的数据集，并按照[examples](https://github.com/nju-websoft/OpenEA/tree/master/run/args)中的说明配置了超参数）
+
 ```python
 import openea as oa
 
@@ -137,33 +139,34 @@ model.test()
 model.save()
 
 ```
-More examples are available [here](https://github.com/nju-websoft/OpenEA/tree/master/run)
+[更多示例](https://github.com/nju-websoft/OpenEA/tree/master/run)
 
-To run the off-the-shelf approaches on our datasets and reproduce our experiments, change into the ./run/ directory and use the following script:
+要在我们的数据集上运行现成的方法并重现我们的实验，cd 进 ./run 目录并使用以下脚本：
 
 ```bash
 python main_from_args.py "predefined_arguments" "dataset_name" "split"
 ```
 
-For example, if you want to run BootEA on D-W-15K (V1) using the first split, please execute the following script:
+例如，如果要在D-W-15K（V1）的 first split 上运行BootEA，请执行以下脚本：
 
 ```bash
 python main_from_args.py ./args/bootea_args_15K.json D_W_15K_V1 721_5fold/1/
 ```
 
-## KG Sampling Method and Datasets
-As the current widely-used datasets are quite different from real-world KGs, we present a new dataset sampling algorithm to generate a benchmark dataset for embedding-based entity alignment.
+## KG 采样方法和数据集
 
-### Iterative Degree-based Sampling
-The proposed iterative degree-based sampling (IDS) algorithm simultaneously deletes entities in two source KGs with reference alignment until achieving the desired size, meanwhile retaining a similar degree distribution of the sampled dataset as the source KG. The following figure describes the sampling procedure. 
+由于当前广泛使用的数据集与现实世界中的KG有很大不同，我们提出了一种新的数据集采样算法来生成基于嵌入的实体对齐的基准数据集。
+
+### 基于度的迭代采样
+提出的基于度的迭代采样（IDS）算法通过参考对齐同时删除两个源KG中的实体，直到达到所需的大小，同时保留采样数据集与源KG相似的度分布。下图描述了取样程序。
 
 <p>
-  <img width="50%" src="https://github.com/nju-websoft/OpenEA/blob/master/docs/KG_sampling.png" />
+  <img width="50%" src="https://cdn.jsdelivr.net/gh/nju-websoft/OpenEA/docs/KG_sampling.png" />
 </p>
 
-### Dataset Overview
-
-We choose three well-known KGs as our sources: DBpedia (2016-10),Wikidata (20160801) and YAGO3. Also, we consider two cross-lingual versions of DBpedia: English--French and English--German. We follow the conventions in JAPE and BootEA to generate datasets of two sizes with 15K and 100K entities, using the IDS algorithm:
+### 数据集概览
+ 
+我们选择了三个著名的KG作为我们的来源：DBpedia（2016-10）、Wikidata（20160801）和YAGO3。此外，我们考虑两种跨语言版本的DBPedia:英语-法语和英语-德语。我们遵循JAPE和BootEA中的约定，使用IDS算法生成两种大小的数据集，其中包含15K和100K个实体：
 
 *#* Entities | Languages | Dataset names
 :---: | :---: | :---: 
@@ -172,22 +175,25 @@ We choose three well-known KGs as our sources: DBpedia (2016-10),Wikidata (20160
 100K | Cross-lingual | EN-FR-100K, EN-DE-100K
 100K | English-lingual | D-W-100K, D-Y-100K
 
-The v1.1 datasets used in this paper can be downloaded from [figshare](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/2), [Dropbox](https://www.dropbox.com/s/nzjxbam47f9yk3d/OpenEA_dataset_v1.1.zip?dl=0) or [Baidu Wangpan](https://pan.baidu.com/s/1Wb4xMds3PT0IaKCJrPR8Lw) (password: 9feb). (**Note that**, we have fixed a minor format issue in YAGO of our v1.0 datasets. Please download our v1.1 datasets from the above links and use this version for evaluation.)
+v1.1 数据集可以在此下载 [figshare](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/2), [Dropbox](https://www.dropbox.com/s/nzjxbam47f9yk3d/OpenEA_dataset_v1.1.zip?dl=0) or [Baidu Wangpan](https://pan.baidu.com/s/1Wb4xMds3PT0IaKCJrPR8Lw) (password: 9feb). (**注意**, 我们在V1.0数据集的Yago中修复了一个小型格式问题。请从上面的链接下载我们的V1.1数据集，并使用此版本进行评估)
 
-(**Recommended**) The v2.0 datasets can be downloaded from [figshare](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3), [Dropbox](https://www.dropbox.com/s/xfehqm4pcd9yw0v/OpenEA_dataset_v2.0.zip?dl=0) or [Baidu Wangpan](https://pan.baidu.com/s/19RlM9OqwhIz4Lnogrp74tg) (password: nub1). 
+(**推荐？**) v2.0 数据集可以在此下载 [figshare](https://figshare.com/articles/dataset/OpenEA_dataset_v1_1/19258760/3), [Dropbox](https://www.dropbox.com/s/xfehqm4pcd9yw0v/OpenEA_dataset_v2.0.zip?dl=0) or [Baidu Wangpan](https://pan.baidu.com/s/19RlM9OqwhIz4Lnogrp74tg) (password: nub1). 
 
 
 
-### Dataset Statistics
-We generate two versions of datasets for each pair of KGs to be aligned. V1 is generated by directly using the IDS algorithm. For V2, we first randomly delete entities with low degrees (d <= 5) in the source KG to make the average degree doubled, and
-then execute IDS to fit the new KG. The statistics of the datasets are shown below.  
+### 数据集统计信息
+ 
+我们为每对要对齐的KG生成两个版本的数据集。V1是直接使用IDS算法生成的。对于V2，我们首先随机删除源KG中度数较低（d<=5）的实体，使平均度数加倍，然后
+
+然后执行IDS以适应新的KG。数据集的统计数据如下所示。
 
 <p>
-  <img src="https://github.com/nju-websoft/OpenEA/blob/master/docs/Dataset_Statistics.png" />
+  <img src="https://cdn.jsdelivr.net/gh/nju-websoft/OpenEA/docs/Dataset_Statistics.png" />
 </p>
 
-### Dataset Description
+### 数据集介绍
 We hereby take the EN_FR_15K_V1 dataset as an example to introduce the files in each dataset. In the *721_5fold* folder, we divide the reference entity alignment into five disjoint folds, each of which accounts for 20% of the total alignment. For each fold, we pick this fold (20%) as training data and leave the remaining (80%) for validation (10%) and testing (70%). The directory structure of each dataset is listed as follows:
+在此，我们以EN_FR_15K_V1数据集为例，介绍每个数据集中的文件。在*721_5fold*文件夹中，我们将参考实体对齐划分为五个不相交的fold，每个fold占总路线的20%。对于每个fold，我们选择这个fold（20%）作为训练数据，剩下的（80%）用于验证（10%）和测试（70%）。每个数据集的目录结构如下所示：
 
 ```
 EN_FR_15K_V1/
@@ -207,10 +213,10 @@ EN_FR_15K_V1/
 │   ├── 5/
 ```
 
-## Experiment and Results
+## 实验及结果
 
-### Experiment Settings
-The common hyper-parameters used for OpenEA are shown below.
+### 实验设置
+OpenEA使用的常见超参数如下所示。
 
 <table style="text-align:center">
     <tr>
@@ -224,7 +230,7 @@ The common hyper-parameters used for OpenEA are shown below.
         <td style="text-align:center">20,000</td>
     </tr>
     <tr>
-        <td style="text-align:center">Termination condition</td>
+        <td style="text-align:center">终止条件 (Termination condition)</td>
         <td style="text-align:center" colspan="2">Early stop when the Hits@1 score begins to drop on <br>
             the validation sets, checked every 10 epochs.</td>
     </tr>
@@ -234,15 +240,15 @@ The common hyper-parameters used for OpenEA are shown below.
     </tr>
 </table>
 
-Besides, it is well-recognized to split a dataset into training, validation and test sets. 
-The details are shown below.
+此外，将数据集分成培训，验证和测试集，得到了很好的认可
+细节如下
 
 | *#* Ref. alignment | *#* Training | *#* Validation | *#* Test |
 |:------------------:|:------------:|:--------------:|:--------:|
 |        15K         |    3,000     |     1,500      |  10,500  |
 |        100K        |    20,000    |     10,000     |  70,000  |
 
-We use Hits@m (m = 1, 5, 10, 50), mean rank (MR) and mean reciprocal rank (MRR) as the evaluation metrics.  Higher Hits@m and MRR scores as well as lower MR scores indicate better performance.
+我们使用 Hits@m (m = 1, 5, 10, 50), mean rank (MR) and mean reciprocal rank (MRR) 作为评估指标。 更高的 Hits@m 和 MRR scores 以及 更低的 MR 分数意味着更好的性能。
 
 ### Detailed Results
 The detailed and supplementary experimental results are list as follows:
