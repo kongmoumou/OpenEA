@@ -14,7 +14,7 @@ def sort_elements(triples, elements_set):
     for s, p, o in triples:
         if s in elements_set:
             dic[s] = dic.get(s, 0) + 1
-        if p in elements_set:
+        if p in elements_set: # ???
             dic[p] = dic.get(p, 0) + 1
         if o in elements_set:
             dic[o] = dic.get(o, 0) + 1
@@ -23,8 +23,8 @@ def sort_elements(triples, elements_set):
         if e not in dic:
             dic[e] = 0
     # firstly sort by values (i.e., frequencies), if equal, by keys (i.e, URIs)
-    sorted_list = sorted(dic.items(), key=lambda x: (x[1], x[0]), reverse=True)
-    ordered_elements = [x[0] for x in sorted_list]
+    sorted_list = sorted(dic.items(), key=lambda x: (x[1], x[0]), reverse=True) # (e, f_num) 高到底排序
+    ordered_elements = [x[0] for x in sorted_list] # 排序好的实体
     assert len(dic) == len(elements_set)
     return ordered_elements, dic
 
@@ -71,8 +71,8 @@ def generate_mapping_id(kg1_triples, kg1_elements, kg2_triples, kg2_elements, or
         n = max(n1, n2)
         for i in range(n):
             if i < n1 and i < n2:
-                ids1[kg1_ordered_elements[i]] = i * 2
-                ids2[kg2_ordered_elements[i]] = i * 2 + 1
+                ids1[kg1_ordered_elements[i]] = i * 2 # id 映射 2n
+                ids2[kg2_ordered_elements[i]] = i * 2 + 1 # 2n+1
             elif i >= n1:
                 ids2[kg2_ordered_elements[i]] = n1 * 2 + (i - n1)
             else:
@@ -219,31 +219,31 @@ def generate_sup_attribute_triples(sup_links, av_dict1, av_dict2):
 #     return kgs
 
 
-def read_relation_triples(file_path):
+def read_relation_triples(file_path): # 读关系三元组
     print("read relation triples:", file_path)
     if file_path is None:
         return set(), set(), set()
     triples = set()
-    entities, relations = set(), set()
+    entities, relations = set(), set() #实体集合 关系集合
     file = open(file_path, 'r', encoding='utf8')
-    for line in file.readlines():
-        params = line.strip('\n').split('\t')
-        assert len(params) == 3
-        h = params[0].strip()
+    for line in file.readlines(): # 逐行读取
+        params = line.strip('\n').split('\t') # 去除首尾 切分
+        assert len(params) == 3 # 确保三元组
+        h = params[0].strip() # 去除首尾空格
         r = params[1].strip()
         t = params[2].strip()
-        triples.add((h, r, t))
+        triples.add((h, r, t)) # 添加进三元组集合
         entities.add(h)
         entities.add(t)
         relations.add(r)
     return triples, entities, relations
 
 
-def read_links(file_path):
+def read_links(file_path): # 读取对齐
     print("read links:", file_path)
-    links = list()
-    refs = list()
-    reft = list()
+    links = list() # 对齐 tuple
+    refs = list() # 来源实体
+    reft = list() # 目标实体
     file = open(file_path, 'r', encoding='utf8')
     for line in file.readlines():
         params = line.strip('\n').split('\t')

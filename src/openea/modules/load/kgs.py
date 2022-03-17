@@ -84,7 +84,7 @@ def read_kgs_from_folder(training_data_folder, division, mode, ordered, remove_u
     kg1_attribute_triples, _, _ = read_attribute_triples(training_data_folder + 'attr_triples_1')
     kg2_attribute_triples, _, _ = read_attribute_triples(training_data_folder + 'attr_triples_2')
 
-    train_links = read_links(training_data_folder + division + 'train_links')
+    train_links = read_links(training_data_folder + division + 'train_links') # 训练对齐 tuple 数组
     valid_links = read_links(training_data_folder + division + 'valid_links')
     test_links = read_links(training_data_folder + division + 'test_links')
 

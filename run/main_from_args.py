@@ -78,7 +78,7 @@ def get_model(model_name):
 
 if __name__ == '__main__':
     t = time.time()
-    args = load_args(sys.argv[1])
+    args = load_args(sys.argv[1]) # json 读参数
     args.training_data = args.training_data + sys.argv[2] + '/'
     args.dataset_division = sys.argv[3]
     print(args.embedding_module)

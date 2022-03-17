@@ -8,33 +8,33 @@ def parse_triples(triples):
 
 
 class KG:
-    def __init__(self, relation_triples, attribute_triples):
+    def __init__(self, relation_triples, attribute_triples): # 关系三元组
 
-        self.entities_set, self.entities_list = None, None
-        self.relations_set, self.relations_list = None, None
+        self.entities_set, self.entities_list = None, None # 实体集合 实体数组
+        self.relations_set, self.relations_list = None, None # 关系类型
         self.attributes_set, self.attributes_list = None, None
-        self.entities_num, self.relations_num, self.attributes_num = None, None, None
-        self.relation_triples_num, self.attribute_triples_num = None, None
+        self.entities_num, self.relations_num, self.attributes_num = None, None, None # 实体数量 关系类型数量 属性数量
+        self.relation_triples_num, self.attribute_triples_num = None, None # 关系三元组数量
         self.local_relation_triples_num, self.local_attribute_triples_num = None, None
 
         self.entities_id_dict = None
         self.relations_id_dict = None
         self.attributes_id_dict = None
 
-        self.rt_dict, self.hr_dict = None, None
-        self.entity_relations_dict = None
-        self.entity_attributes_dict = None
-        self.av_dict = None
+        self.rt_dict, self.hr_dict = None, None # { h: {(r, t),...} } { t: {(r, t),...} }
+        self.entity_relations_dict = None # 头实体包含关系集合 { h: {r,...} }
+        self.entity_attributes_dict = None # # 属性集合字典 { h: {attr,...} }
+        self.av_dict = None # 属性值字典 { h: {(attr, val),...} }
 
         self.sup_relation_triples_set, self.sup_relation_triples_list = None, None
         self.sup_attribute_triples_set, self.sup_attribute_triples_list = None, None
 
-        self.relation_triples_set = None
+        self.relation_triples_set = None # 关系三元组tuple ((h,r,t),...)
         self.attribute_triples_set = None
         self.relation_triples_list = None
         self.attribute_triples_list = None
 
-        self.local_relation_triples_set = None
+        self.local_relation_triples_set = None # == self.relation_triples_set
         self.local_relation_triples_list = None
         self.local_attribute_triples_set = None
         self.local_attribute_triples_list = None
@@ -53,14 +53,14 @@ class KG:
         print("Number of local attribute triples:", self.local_attribute_triples_num)
         print()
 
-    def set_relations(self, relation_triples):
+    def set_relations(self, relation_triples): # 关系三元组数组
         self.relation_triples_set = set(relation_triples)
         self.relation_triples_list = list(self.relation_triples_set)
         self.local_relation_triples_set = self.relation_triples_set
         self.local_relation_triples_list = self.relation_triples_list
 
         heads, relations, tails = parse_triples(self.relation_triples_set)
-        self.entities_set = heads | tails
+        self.entities_set = heads | tails # 实体集合（头实体 + 尾实体）
         self.relations_set = relations
         self.entities_list = list(self.entities_set)
         self.relations_list = list(self.relations_set)
