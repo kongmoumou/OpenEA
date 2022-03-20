@@ -20,15 +20,25 @@ def find_potential_alignment_mwgm(sim_mat, sim_th, k, heuristic=True):
     else:
         selected_aligned_pairs = mwgm(potential_aligned_pairs, sim_mat, mwgm_igraph)
     check_new_alignment(selected_aligned_pairs, context="after mwgm")
+    # TODO: only for test
+    force_right_alignment(selected_aligned_pairs)
+    check_new_alignment(selected_aligned_pairs, context="after force right")
     print("mwgm costs time: {:.3f} s".format(time.time() - t1))
     print("selecting potential alignment costs time: {:.3f} s".format(time.time() - t))
     return selected_aligned_pairs
+
+def force_right_alignment(aligned_pairs):
+    for x, y in aligned_pairs:
+        if x != y: # 强制正确
+            aligned_pairs.remove((x, y))
+            aligned_pairs.add((x, x))
+    return aligned_pairs
 
 
 def find_alignment(sim_mat, sim_th, k):
     """
     Find potential pairs of aligned entities from the similarity matrix.
-    The potential pair (x, y) should satisfy: 1) sim(x, y) > sim_th; 2) y is among the nearest-k neighbors of x.
+    The potential pair (x, y) should satisfy: 1) ____sim(x, y) > sim_th____; 2) y is among the nearest-k neighbors of x.
 
     Parameters
     ----------
@@ -44,14 +54,14 @@ def find_alignment(sim_mat, sim_th, k):
     if k <= 0:
         return potential_aligned_pairs
     nearest_k_neighbors = search_nearest_k(sim_mat, k)
-    potential_aligned_pairs &= nearest_k_neighbors
+    potential_aligned_pairs &= nearest_k_neighbors # 从 k 个最近邻居找对齐
     if len(potential_aligned_pairs) == 0:
         return None
     check_new_alignment(potential_aligned_pairs, context="after filtering by sim and nearest k")
     return potential_aligned_pairs
 
 
-def filter_sim_mat(mat, threshold, greater=True, equal=False):
+def filter_sim_mat(mat, threshold, greater=True, equal=False): # 从相似矩阵相似度找大于阈值的
     if greater and equal:
         x, y = np.where(mat >= threshold)
     elif greater and not equal:
@@ -143,6 +153,6 @@ def check_new_alignment(aligned_pairs, context="check alignment"):
         return
     num = 0
     for x, y in aligned_pairs:
-        if x == y:
+        if x == y: # IMPORTANT: 逐行读取数据保证了对齐实体在相似度矩阵对角线上
             num += 1
     print("{}, right alignment: {}/{}={:.3f}".format(context, num, len(aligned_pairs), num / len(aligned_pairs)))
