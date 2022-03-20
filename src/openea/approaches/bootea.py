@@ -158,7 +158,7 @@ class BootEA(AlignE):
         self.ref_ent1 = None
         self.ref_ent2 = None
 
-    def init(self):
+    def init(self): # 模型初始化 
         self._define_variables()
         self._define_embed_graph()
         self._define_alignment_graph()
@@ -212,7 +212,7 @@ class BootEA(AlignE):
                                                        opt=self.args.optimizer)
 
     def eval_ref_sim_mat(self):
-        refs1_embeddings = tf.nn.embedding_lookup(self.ent_embeds, self.ref_ent1)
+        refs1_embeddings = tf.nn.embedding_lookup(self.ent_embeds, self.ref_ent1) # shape=(12000, 100)
         refs2_embeddings = tf.nn.embedding_lookup(self.ent_embeds, self.ref_ent2)
         refs1_embeddings = tf.nn.l2_normalize(refs1_embeddings, 1).eval(session=self.session)
         refs2_embeddings = tf.nn.l2_normalize(refs2_embeddings, 1).eval(session=self.session)
@@ -225,7 +225,7 @@ class BootEA(AlignE):
             self.launch_triple_training_1epo(epoch, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                                              neighbors2)
 
-    def train_alignment(self, kg1: KG, kg2: KG, entities1, entities2, training_epochs):
+    def train_alignment(self, kg1: KG, kg2: KG, entities1, entities2, training_epochs): # 训练对齐
         if entities1 is None or len(entities1) == 0:
             return
         newly_tris1, newly_tris2 = generate_supervised_triples(kg1.rt_dict, kg1.hr_dict, kg2.rt_dict, kg2.hr_dict,
@@ -281,9 +281,9 @@ class BootEA(AlignE):
             print("\niteration", i)
             self.launch_training_k_epo(i, sub_num, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                                        neighbors2)
-            if i * sub_num >= self.args.start_valid:
+            if i * sub_num >= self.args.start_valid: # > 100 验证 default，第一次迭代不验证， 第 10 次开始验证
                 flag = self.valid(self.args.stop_metric)
-                self.flag1, self.flag2, self.early_stop = early_stop(self.flag1, self.flag2, flag)
+                self.flag1, self.flag2, self.early_stop = early_stop(self.flag1, self.flag2, flag) # 结果连续下降两次终止迭代
                 if self.early_stop or i == iter_nums:
                     break
             labeled_align, entities1, entities2 = bootstrapping(self.eval_ref_sim_mat(),

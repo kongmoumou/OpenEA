@@ -37,7 +37,7 @@ class AlignE(BasicModel):
         assert self.args.truncated_epsilon > 0.0
         assert self.args.learning_rate >= 0.01
 
-    def _define_variables(self):
+    def _define_variables(self): # 定义 tf 变量,  嵌入初始化
         with tf.variable_scope('relational' + 'embeddings'):
             self.ent_embeds = init_embeddings([self.kgs.entities_num, self.args.dim], 'ent_embeds',
                                               self.args.init, self.args.ent_l2_norm)

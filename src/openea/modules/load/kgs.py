@@ -13,40 +13,40 @@ class KGs:
                                                        kg2.attribute_triples_set, kg2.attributes_set, ordered=ordered)
         else:
             ent_ids1, ent_ids2 = generate_mapping_id(kg1.relation_triples_set, kg1.entities_set,
-                                                     kg2.relation_triples_set, kg2.entities_set, ordered=ordered)
+                                                     kg2.relation_triples_set, kg2.entities_set, ordered=ordered) # { ent_str_id : num_id }
             rel_ids1, rel_ids2 = generate_mapping_id(kg1.relation_triples_set, kg1.relations_set,
-                                                     kg2.relation_triples_set, kg2.relations_set, ordered=ordered)
+                                                     kg2.relation_triples_set, kg2.relations_set, ordered=ordered) # { rel_str_id : num_id }
             attr_ids1, attr_ids2 = generate_mapping_id(kg1.attribute_triples_set, kg1.attributes_set,
-                                                       kg2.attribute_triples_set, kg2.attributes_set, ordered=ordered)
+                                                       kg2.attribute_triples_set, kg2.attributes_set, ordered=ordered) # { attr_str_id : num_id }
 
-        id_relation_triples1 = uris_relation_triple_2ids(kg1.relation_triples_set, ent_ids1, rel_ids1)
+        id_relation_triples1 = uris_relation_triple_2ids(kg1.relation_triples_set, ent_ids1, rel_ids1) # 生成 id 三元组 [(h_id, r_id, t_id), ...]
         id_relation_triples2 = uris_relation_triple_2ids(kg2.relation_triples_set, ent_ids2, rel_ids2)
 
-        id_attribute_triples1 = uris_attribute_triple_2ids(kg1.attribute_triples_set, ent_ids1, attr_ids1)
+        id_attribute_triples1 = uris_attribute_triple_2ids(kg1.attribute_triples_set, ent_ids1, attr_ids1) # 生成属性 id 三元组 [(h_id, attr_id, attr_val), ...]
         id_attribute_triples2 = uris_attribute_triple_2ids(kg2.attribute_triples_set, ent_ids2, attr_ids2)
 
         self.uri_kg1 = kg1
         self.uri_kg2 = kg2
 
-        kg1 = KG(id_relation_triples1, id_attribute_triples1)
+        kg1 = KG(id_relation_triples1, id_attribute_triples1) # 根据 id 三元组重新生成 KG <class KG>
         kg2 = KG(id_relation_triples2, id_attribute_triples2)
         kg1.set_id_dict(ent_ids1, rel_ids1, attr_ids1)
         kg2.set_id_dict(ent_ids2, rel_ids2, attr_ids2)
 
-        self.uri_train_links = train_links
+        self.uri_train_links = train_links # [(source_ent_str_id, target_ent_str_id), ...] default: 20%
         self.uri_test_links = test_links
-        self.train_links = uris_pair_2ids(self.uri_train_links, ent_ids1, ent_ids2)
+        self.train_links = uris_pair_2ids(self.uri_train_links, ent_ids1, ent_ids2) # 转成数字 id 对齐 [(kg1_ent_num_id, kg2_ent_num_id), ...]
         self.test_links = uris_pair_2ids(self.uri_test_links, ent_ids1, ent_ids2)
-        self.train_entities1 = [link[0] for link in self.train_links]
+        self.train_entities1 = [link[0] for link in self.train_links] # 生成数组， index 对应对齐 train_entities1[i] <-> train_entities1[i]
         self.train_entities2 = [link[1] for link in self.train_links]
         self.test_entities1 = [link[0] for link in self.test_links]
         self.test_entities2 = [link[1] for link in self.test_links]
 
-        if mode == 'swapping':
+        if mode == 'swapping': # most default mode
             sup_triples1, sup_triples2 = generate_sup_relation_triples(self.train_links,
                                                                        kg1.rt_dict, kg1.hr_dict,
                                                                        kg2.rt_dict, kg2.hr_dict)
-            kg1.add_sup_relation_triples(sup_triples1)
+            kg1.add_sup_relation_triples(sup_triples1) # 监督三元组，已交换对齐实体
             kg2.add_sup_relation_triples(sup_triples2)
 
             sup_triples1, sup_triples2 = generate_sup_attribute_triples(self.train_links, kg1.av_dict, kg2.av_dict)
@@ -56,7 +56,7 @@ class KGs:
         self.kg1 = kg1
         self.kg2 = kg2
 
-        self.valid_links = list()
+        self.valid_links = list() # 验证集
         self.valid_entities1 = list()
         self.valid_entities2 = list()
         if valid_links is not None:
@@ -68,8 +68,8 @@ class KGs:
         # self.useful_entities_list1 = self.train_entities1 + self.valid_entities1 + self.test_entities1
         # self.useful_entities_list2 = self.train_entities2 + self.valid_entities2 + self.test_entities2
 
-        self.useful_entities_list1 = self.kg1.entities_list
-        self.useful_entities_list2 = self.kg2.entities_list
+        self.useful_entities_list1 = self.kg1.entities_list # [kg1_ent_num_id, ...]
+        self.useful_entities_list2 = self.kg2.entities_list # [kg2_ent_num_id, ...]
 
         self.entities_num = len(self.kg1.entities_set | self.kg2.entities_set)
         self.relations_num = len(self.kg1.relations_set | self.kg2.relations_set)

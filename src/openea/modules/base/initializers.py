@@ -10,7 +10,7 @@ def init_embeddings(shape, name, init, is_l2_norm, dtype=tf.float32):
     embeds = None
     if init == 'xavier':
         embeds = xavier_init(shape, name, is_l2_norm, dtype=dtype)
-    elif init == 'normal':
+    elif init == 'normal': # bootea
         embeds = truncated_normal_init(shape, name, is_l2_norm, dtype=dtype)
     elif init == 'uniform':
         embeds = random_uniform_init(shape, name, is_l2_norm, dtype=dtype)
@@ -26,12 +26,12 @@ def xavier_init(shape, name, is_l2_norm, dtype=None):
     return tf.nn.l2_normalize(embeddings, 1) if is_l2_norm else embeddings
 
 
-def truncated_normal_init(shape, name, is_l2_norm, dtype=None):
+def truncated_normal_init(shape, name, is_l2_norm, dtype=None): # shape=[30000, 100]
     with tf.name_scope('truncated_normal'):
-        std = 1.0 / math.sqrt(shape[1])
+        std = 1.0 / math.sqrt(shape[1]) # 0.1
         embeddings = tf.get_variable(name, shape=shape, dtype=dtype,
                                      initializer=tf.initializers.truncated_normal(stddev=std))
-    return tf.nn.l2_normalize(embeddings, 1) if is_l2_norm else embeddings
+    return tf.nn.l2_normalize(embeddings, 1) if is_l2_norm else embeddings # l2_normalize
 
 
 def random_uniform_init(shape, name, is_l2_norm, minval=0, maxval=None, dtype=None):

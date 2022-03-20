@@ -14,7 +14,7 @@ def sort_elements(triples, elements_set):
     for s, p, o in triples:
         if s in elements_set:
             dic[s] = dic.get(s, 0) + 1
-        if p in elements_set: # ???
+        if p in elements_set: # 关系 or 属性 排序
             dic[p] = dic.get(p, 0) + 1
         if o in elements_set:
             dic[o] = dic.get(o, 0) + 1
@@ -64,17 +64,17 @@ def generate_sharing_id(train_links, kg1_triples, kg1_elements, kg2_triples, kg2
 def generate_mapping_id(kg1_triples, kg1_elements, kg2_triples, kg2_elements, ordered=True):
     ids1, ids2 = dict(), dict()
     if ordered:
-        kg1_ordered_elements, _ = sort_elements(kg1_triples, kg1_elements)
+        kg1_ordered_elements, _ = sort_elements(kg1_triples, kg1_elements) # 排序生成 id
         kg2_ordered_elements, _ = sort_elements(kg2_triples, kg2_elements)
         n1 = len(kg1_ordered_elements)
         n2 = len(kg2_ordered_elements)
         n = max(n1, n2)
         for i in range(n):
             if i < n1 and i < n2:
-                ids1[kg1_ordered_elements[i]] = i * 2 # id 映射 2n
-                ids2[kg2_ordered_elements[i]] = i * 2 + 1 # 2n+1
+                ids1[kg1_ordered_elements[i]] = i * 2 # 来源图谱 id 映射 2n
+                ids2[kg2_ordered_elements[i]] = i * 2 + 1 # 目标图谱 2n+1
             elif i >= n1:
-                ids2[kg2_ordered_elements[i]] = n1 * 2 + (i - n1)
+                ids2[kg2_ordered_elements[i]] = n1 * 2 + (i - n1) # 超出部分 2n + i，i 累加 1
             else:
                 ids1[kg1_ordered_elements[i]] = n2 * 2 + (i - n2)
     else:
@@ -133,7 +133,7 @@ def uris_attribute_triple_2ids(uris, ent_ids, attr_ids):
     return id_uris
     
     
-def generate_sup_relation_triples_one_link(e1, e2, rt_dict, hr_dict):
+def generate_sup_relation_triples_one_link(e1, e2, rt_dict, hr_dict): # 使用对齐 e2 替换三元组 (e1, r, t) -> (e2, r, t)
     new_triples = set()
     for r, t in rt_dict.get(e1, set()):
         new_triples.add((e2, r, t))
@@ -151,7 +151,7 @@ def generate_sup_relation_triples(sup_links, rt_dict1, hr_dict1, rt_dict2, hr_di
     return new_triples1, new_triples2
 
 
-def generate_sup_attribute_triples_one_link(e1, e2, av_dict):
+def generate_sup_attribute_triples_one_link(e1, e2, av_dict): # 使用对齐 e2 替换三元组 (e1, attr, value) -> (e2, attr, value)
     new_triples = set()
     for a, v in av_dict.get(e1, set()):
         new_triples.add((e2, a, v))
