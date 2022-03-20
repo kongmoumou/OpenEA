@@ -17,9 +17,12 @@ class KG:
         self.relation_triples_num, self.attribute_triples_num = None, None # 关系三元组数量
         self.local_relation_triples_num, self.local_attribute_triples_num = None, None
 
+        # 字符串 id 到 数字 id 映射字典
         self.entities_id_dict = None
         self.relations_id_dict = None
         self.attributes_id_dict = None
+        # 数字 id 到 字符串 id 映射字典
+        self.entities_id_name_dict = None
 
         self.rt_dict, self.hr_dict = None, None # { h: {(r, t),...} } { t: {(r, t),...} }
         self.entity_relations_dict = None # 头实体包含关系集合 { h: {r,...} }
@@ -130,6 +133,8 @@ class KG:
 
     def set_id_dict(self, entities_id_dict, relations_id_dict, attributes_id_dict):
         self.entities_id_dict = entities_id_dict
+        # 数字 id 到 名字 id 映射
+        self.entities_id_name_dict = dict(((v, k) for k, v in entities_id_dict.items()))
         self.relations_id_dict = relations_id_dict
         self.attributes_id_dict = attributes_id_dict
 
