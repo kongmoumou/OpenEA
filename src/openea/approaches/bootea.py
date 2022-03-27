@@ -16,8 +16,10 @@ from openea.modules.load.kg import KG
 from openea.modules.utils.util import load_session
 
 
-def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k):
-    curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k)
+def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict):
+    curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
+                            kg1_entity_ids = unaligned_entities1, kg2_entity_ids = unaligned_entities2,
+                            kg1_dict = kg1_dict, kg2_dict = kg2_dict)
     if curr_labeled_alignment is not None:
         labeled_alignment = update_labeled_alignment_x(labeled_alignment, curr_labeled_alignment, sim_mat)
         labeled_alignment = update_labeled_alignment_y(labeled_alignment, sim_mat)
@@ -288,7 +290,9 @@ class BootEA(AlignE):
                     break
             labeled_align, entities1, entities2 = bootstrapping(self.eval_ref_sim_mat(),
                                                                 self.ref_ent1, self.ref_ent2, labeled_align,
-                                                                self.args.sim_th, self.args.k)
+                                                                self.args.sim_th, self.args.k,
+                                                                kg1_dict=self.kgs.kg1.entities_id_name_dict,
+                                                                kg2_dict=self.kgs.kg2.entities_id_name_dict)
             self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, 1)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:

@@ -9,7 +9,10 @@ def find_potential_alignment_greedily(sim_mat, sim_th):
     return find_alignment(sim_mat, sim_th, 1)
 
 
-def find_potential_alignment_mwgm(sim_mat, sim_th, k, heuristic=True):
+def find_potential_alignment_mwgm(sim_mat, sim_th, k, 
+    kg1_entity_ids, kg2_entity_ids,
+    kg1_dict, kg2_dict,
+    heuristic=True):
     t = time.time()
     potential_aligned_pairs = find_alignment(sim_mat, sim_th, k)
     if potential_aligned_pairs is None:
@@ -20,12 +23,29 @@ def find_potential_alignment_mwgm(sim_mat, sim_th, k, heuristic=True):
     else:
         selected_aligned_pairs = mwgm(potential_aligned_pairs, sim_mat, mwgm_igraph)
     check_new_alignment(selected_aligned_pairs, context="after mwgm")
+    # 输出错误对齐
+    print_wrong_alignment(selected_aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dict, kg2_dict, sim_mat)
     # TODO: only for test
     force_right_alignment(selected_aligned_pairs)
     check_new_alignment(selected_aligned_pairs, context="after force right")
     print("mwgm costs time: {:.3f} s".format(time.time() - t1))
     print("selecting potential alignment costs time: {:.3f} s".format(time.time() - t))
     return selected_aligned_pairs
+
+def print_wrong_alignment(aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dict, kg2_dict, sim_mat):
+    print('========== worng alignment')
+    for x, y in [(x, y) for x, y in aligned_pairs if x != y][0:10]:
+        if x != y: # 输出错误
+            print('({}, {}, sim: {:.3f}) -> ({}, {}, sim: {:.3f})'.format(
+                kg1_dict[kg1_entity_ids[x]],
+                kg2_dict[kg2_entity_ids[y]],
+                sim_mat[x][y],
+                kg1_dict[kg1_entity_ids[x]],
+                kg2_dict[kg2_entity_ids[x]],
+                sim_mat[x][x],
+            ))
+    print('==========')
+
 
 def force_right_alignment(aligned_pairs):
     for x, y in aligned_pairs:
