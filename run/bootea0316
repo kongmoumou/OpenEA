@@ -1,0 +1,1399 @@
+load arguments: {'training_data': '../../datasets/', 'output': '../../output/results/', 'dataset_division': '721_5fold', 'embedding_module': 'BootEA', 'alignment_module': 'swapping', 'search_module': 'greedy', 'dim': 100, 'init': 'normal', 'ent_l2_norm': True, 'rel_l2_norm': True, 'loss': 'limited', 'loss_norm': 'L2', 'learning_rate': 0.01, 'optimizer': 'Adagrad', 'max_epoch': 2000, 'batch_size': 5000, 'pos_margin': 0.01, 'neg_margin': 2.0, 'neg_margin_balance': 0.2, 'neg_sampling': 'truncated', 'neg_triple_num': 10, 'truncated_epsilon': 0.9, 'truncated_freq': 10, 'batch_threads_num': 2, 'test_threads_num': 4, 'ordered': True, 'start_valid': 100, 'eval_freq': 10, 'stop_metric': 'hits1', 'eval_metric': 'inner', 'csls': 10, 'top_k': [1, 5, 10, 50], 'is_save': True, 'eval_norm': False, 'sim_th': 0.7, 'k': 10, 'likelihood_slice': 10, 'sub_epoch': 10}
+BootEA
+<openea.modules.args.args_hander.ARGs object at 0x7f50117fb9b0>
+read relation triples: ../../datasets/D_Y_15K_V1/rel_triples_1
+read relation triples: ../../datasets/D_Y_15K_V1/rel_triples_2
+read attribute triples: ../../datasets/D_Y_15K_V1/attr_triples_1
+read attribute triples: ../../datasets/D_Y_15K_V1/attr_triples_2
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/train_links
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/valid_links
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/test_links
+Number of rt_dict: 10796
+Number of hr_dict: 6407
+entity relations dict: 10796
+Number of av_dict: 14649
+entity attributes dict: 14649
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 165
+Number of attributes: 257
+Number of relation triples: 30291
+Number of attribute triples: 71716
+Number of local relation triples: 30291
+Number of local attribute triples: 71716
+
+Number of rt_dict: 7437
+Number of hr_dict: 8394
+entity relations dict: 7437
+Number of av_dict: 15000
+entity attributes dict: 15000
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 28
+Number of attributes: 35
+Number of relation triples: 26638
+Number of attribute triples: 132114
+Number of local relation triples: 26638
+Number of local attribute triples: 132114
+
+Number of rt_dict: 10796
+Number of hr_dict: 6407
+entity relations dict: 10796
+Number of av_dict: 14649
+entity attributes dict: 14649
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 165
+Number of attributes: 257
+Number of relation triples: 30291
+Number of attribute triples: 71716
+Number of local relation triples: 30291
+Number of local attribute triples: 71716
+
+Number of rt_dict: 7437
+Number of hr_dict: 8394
+entity relations dict: 7437
+Number of av_dict: 15000
+entity attributes dict: 15000
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 28
+Number of attributes: 35
+Number of relation triples: 26638
+Number of attribute triples: 132114
+Number of local relation triples: 26638
+Number of local attribute triples: 132114
+
+supervised relation triples: 12105, 10658
+supervised attribute triples: 14093, 25594
+../../output/results/ ../../datasets/D_Y_15K_V1/ ['..', '..', 'datasets', 'D_Y_15K_V1'] 721_5fold/1/ BootEA
+results output folder: ../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/
+
+iteration 1
+epoch 1, avg. triple loss: 2.7506, cost time: 1.8367s
+epoch 2, avg. triple loss: 2.2430, cost time: 2.1433s
+epoch 3, avg. triple loss: 1.9610, cost time: 2.0977s
+epoch 4, avg. triple loss: 1.7723, cost time: 2.2338s
+epoch 5, avg. triple loss: 1.6344, cost time: 2.0261s
+epoch 6, avg. triple loss: 1.5264, cost time: 2.0552s
+epoch 7, avg. triple loss: 1.4386, cost time: 1.9688s
+epoch 8, avg. triple loss: 1.3641, cost time: 1.9866s
+epoch 9, avg. triple loss: 1.2999, cost time: 2.0544s
+epoch 10, avg. triple loss: 1.2434, cost time: 2.0388s
+generating neighbors of 30000 entities costs 13.430 s.
+
+iteration 2
+epoch 11, avg. triple loss: 1.3939, cost time: 3.0444s
+epoch 12, avg. triple loss: 1.3378, cost time: 3.4151s
+epoch 13, avg. triple loss: 1.2916, cost time: 3.2944s
+epoch 14, avg. triple loss: 1.2504, cost time: 3.5265s
+epoch 15, avg. triple loss: 1.2143, cost time: 3.4245s
+epoch 16, avg. triple loss: 1.1820, cost time: 3.3004s
+epoch 17, avg. triple loss: 1.1521, cost time: 3.2998s
+epoch 18, avg. triple loss: 1.1236, cost time: 3.3324s
+epoch 19, avg. triple loss: 1.0974, cost time: 3.2701s
+epoch 20, avg. triple loss: 1.0744, cost time: 3.3112s
+after filtering by sim threshold, right alignment: 34/36=0.944
+after filtering by sim and nearest k, right alignment: 34/36=0.944
+graph via graph_tool <Graph object, directed, with 71 vertices and 36 edges at 0x7f5010160da0>
+after mwgm, right alignment: 34/35=0.971
+mwgm costs time: 1.108 s
+selecting potential alignment costs time: 4.245 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 34/35=0.971
+after editing (->), right alignment: 34/35=0.971
+newly triples: 145, 120
+alignment_loss = 1.337, time = 0.090 s
+generating neighbors of 30000 entities costs 13.893 s.
+
+iteration 3
+epoch 21, avg. triple loss: 1.0553, cost time: 3.2180s
+epoch 22, avg. triple loss: 1.0347, cost time: 3.2219s
+epoch 23, avg. triple loss: 1.0146, cost time: 3.3762s
+epoch 24, avg. triple loss: 0.9977, cost time: 3.3729s
+epoch 25, avg. triple loss: 0.9803, cost time: 3.7138s
+epoch 26, avg. triple loss: 0.9645, cost time: 3.4514s
+epoch 27, avg. triple loss: 0.9502, cost time: 3.5289s
+epoch 28, avg. triple loss: 0.9356, cost time: 3.6828s
+epoch 29, avg. triple loss: 0.9223, cost time: 3.6667s
+epoch 30, avg. triple loss: 0.9094, cost time: 3.5048s
+after filtering by sim threshold, right alignment: 251/434=0.578
+after filtering by sim and nearest k, right alignment: 251/434=0.578
+graph via graph_tool <Graph object, directed, with 604 vertices and 434 edges at 0x7f5010160da0>
+after mwgm, right alignment: 217/275=0.789
+mwgm costs time: 0.063 s
+selecting potential alignment costs time: 3.437 s
+update wrongly:  0 greedy update wrongly:  1
+after editing (<-), right alignment: 218/275=0.793
+after editing (->), right alignment: 218/273=0.799
+newly triples: 1263, 1165
+alignment_loss = 1.309, time = 0.006 s
+generating neighbors of 30000 entities costs 15.119 s.
+
+iteration 4
+epoch 31, avg. triple loss: 0.9076, cost time: 3.6747s
+epoch 32, avg. triple loss: 0.8945, cost time: 3.7976s
+epoch 33, avg. triple loss: 0.8832, cost time: 3.7221s
+epoch 34, avg. triple loss: 0.8722, cost time: 4.1716s
+epoch 35, avg. triple loss: 0.8624, cost time: 3.8220s
+epoch 36, avg. triple loss: 0.8526, cost time: 3.6835s
+epoch 37, avg. triple loss: 0.8434, cost time: 3.7278s
+epoch 38, avg. triple loss: 0.8358, cost time: 3.6999s
+epoch 39, avg. triple loss: 0.8271, cost time: 3.9918s
+epoch 40, avg. triple loss: 0.8188, cost time: 3.9121s
+after filtering by sim threshold, right alignment: 796/1990=0.400
+after filtering by sim and nearest k, right alignment: 793/1896=0.418
+graph via graph_tool <Graph object, directed, with 1859 vertices and 1896 edges at 0x7f4e0940e240>
+after mwgm, right alignment: 609/848=0.718
+mwgm costs time: 0.253 s
+selecting potential alignment costs time: 3.943 s
+update wrongly:  1 greedy update wrongly:  21
+after editing (<-), right alignment: 623/851=0.732
+after editing (->), right alignment: 612/810=0.756
+newly triples: 3611, 3531
+alignment_loss = 1.272, time = 0.025 s
+generating neighbors of 30000 entities costs 15.769 s.
+
+iteration 5
+epoch 41, avg. triple loss: 0.8199, cost time: 3.8059s
+epoch 42, avg. triple loss: 0.8094, cost time: 3.4230s
+epoch 43, avg. triple loss: 0.8022, cost time: 3.4846s
+epoch 44, avg. triple loss: 0.7942, cost time: 3.4933s
+epoch 45, avg. triple loss: 0.7876, cost time: 3.5243s
+epoch 46, avg. triple loss: 0.7813, cost time: 3.4245s
+epoch 47, avg. triple loss: 0.7755, cost time: 3.3140s
+epoch 48, avg. triple loss: 0.7702, cost time: 3.3504s
+epoch 49, avg. triple loss: 0.7644, cost time: 3.4869s
+epoch 50, avg. triple loss: 0.7597, cost time: 3.6549s
+after filtering by sim threshold, right alignment: 1513/4464=0.339
+after filtering by sim and nearest k, right alignment: 1507/4202=0.359
+graph via graph_tool <Graph object, directed, with 3464 vertices and 4202 edges at 0x7f4ebecaf710>
+after mwgm, right alignment: 1123/1572=0.714
+mwgm costs time: 0.574 s
+selecting potential alignment costs time: 4.076 s
+update wrongly:  10 greedy update wrongly:  82
+after editing (<-), right alignment: 1164/1589=0.733
+after editing (->), right alignment: 1131/1449=0.781
+newly triples: 6353, 6128
+alignment_loss = 1.228, time = 0.017 s
+generating neighbors of 30000 entities costs 14.542 s.
+
+iteration 6
+epoch 51, avg. triple loss: 0.7622, cost time: 3.6243s
+epoch 52, avg. triple loss: 0.7551, cost time: 3.0826s
+epoch 53, avg. triple loss: 0.7488, cost time: 3.4359s
+epoch 54, avg. triple loss: 0.7436, cost time: 3.6747s
+epoch 55, avg. triple loss: 0.7379, cost time: 3.6474s
+epoch 56, avg. triple loss: 0.7336, cost time: 3.4130s
+epoch 57, avg. triple loss: 0.7286, cost time: 3.3890s
+epoch 58, avg. triple loss: 0.7254, cost time: 3.5140s
+epoch 59, avg. triple loss: 0.7204, cost time: 3.4987s
+epoch 60, avg. triple loss: 0.7176, cost time: 3.8012s
+after filtering by sim threshold, right alignment: 2285/7497=0.305
+after filtering by sim and nearest k, right alignment: 2277/6909=0.330
+graph via graph_tool <Graph object, directed, with 5173 vertices and 6909 edges at 0x7f5010160cf8>
+after mwgm, right alignment: 1653/2360=0.700
+mwgm costs time: 0.530 s
+selecting potential alignment costs time: 3.207 s
+update wrongly:  16 greedy update wrongly:  153
+after editing (<-), right alignment: 1751/2387=0.734
+after editing (->), right alignment: 1704/2157=0.790
+newly triples: 9354, 8974
+alignment_loss = 1.201, time = 0.027 s
+generating neighbors of 30000 entities costs 13.788 s.
+
+iteration 7
+epoch 61, avg. triple loss: 0.7230, cost time: 3.6867s
+epoch 62, avg. triple loss: 0.7168, cost time: 3.2374s
+epoch 63, avg. triple loss: 0.7117, cost time: 3.3253s
+epoch 64, avg. triple loss: 0.7073, cost time: 3.4010s
+epoch 65, avg. triple loss: 0.7031, cost time: 3.5549s
+epoch 66, avg. triple loss: 0.6991, cost time: 3.3902s
+epoch 67, avg. triple loss: 0.6959, cost time: 3.8699s
+epoch 68, avg. triple loss: 0.6923, cost time: 3.5919s
+epoch 69, avg. triple loss: 0.6892, cost time: 3.7318s
+epoch 70, avg. triple loss: 0.6859, cost time: 3.7840s
+after filtering by sim threshold, right alignment: 2996/11006=0.272
+after filtering by sim and nearest k, right alignment: 2977/9718=0.306
+graph via graph_tool <Graph object, directed, with 6685 vertices and 9718 edges at 0x7f514acaae80>
+after mwgm, right alignment: 2153/3064=0.703
+mwgm costs time: 1.227 s
+selecting potential alignment costs time: 4.806 s
+update wrongly:  18 greedy update wrongly:  207
+after editing (<-), right alignment: 2301/3114=0.739
+after editing (->), right alignment: 2237/2807=0.797
+newly triples: 12329, 11830
+alignment_loss = 1.175, time = 0.038 s
+generating neighbors of 30000 entities costs 15.739 s.
+
+iteration 8
+epoch 71, avg. triple loss: 0.6956, cost time: 3.5739s
+epoch 72, avg. triple loss: 0.6889, cost time: 3.5302s
+epoch 73, avg. triple loss: 0.6842, cost time: 3.6039s
+epoch 74, avg. triple loss: 0.6793, cost time: 3.5890s
+epoch 75, avg. triple loss: 0.6771, cost time: 3.4060s
+epoch 76, avg. triple loss: 0.6735, cost time: 3.6459s
+epoch 77, avg. triple loss: 0.6708, cost time: 3.2824s
+epoch 78, avg. triple loss: 0.6687, cost time: 3.4017s
+epoch 79, avg. triple loss: 0.6660, cost time: 3.6491s
+epoch 80, avg. triple loss: 0.6627, cost time: 3.5053s
+after filtering by sim threshold, right alignment: 3642/14504=0.251
+after filtering by sim and nearest k, right alignment: 3620/12588=0.288
+graph via graph_tool <Graph object, directed, with 8052 vertices and 12588 edges at 0x7f4dfb7c3ba8>
+after mwgm, right alignment: 2605/3678=0.708
+mwgm costs time: 0.942 s
+selecting potential alignment costs time: 4.106 s
+update wrongly:  30 greedy update wrongly:  288
+after editing (<-), right alignment: 2809/3758=0.747
+after editing (->), right alignment: 2737/3365=0.813
+newly triples: 14865, 14212
+alignment_loss = 1.152, time = 0.025 s
+generating neighbors of 30000 entities costs 14.834 s.
+
+iteration 9
+epoch 81, avg. triple loss: 0.6723, cost time: 3.6014s
+epoch 82, avg. triple loss: 0.6666, cost time: 3.5521s
+epoch 83, avg. triple loss: 0.6629, cost time: 3.4523s
+epoch 84, avg. triple loss: 0.6595, cost time: 3.7377s
+epoch 85, avg. triple loss: 0.6560, cost time: 3.3914s
+epoch 86, avg. triple loss: 0.6536, cost time: 3.3668s
+epoch 87, avg. triple loss: 0.6504, cost time: 3.4154s
+epoch 88, avg. triple loss: 0.6483, cost time: 3.3192s
+epoch 89, avg. triple loss: 0.6468, cost time: 3.7660s
+epoch 90, avg. triple loss: 0.6443, cost time: 3.4892s
+after filtering by sim threshold, right alignment: 4220/17688=0.239
+after filtering by sim and nearest k, right alignment: 4199/15281=0.275
+graph via graph_tool <Graph object, directed, with 9238 vertices and 15281 edges at 0x7f4ebcbe7cc0>
+after mwgm, right alignment: 3018/4246=0.711
+mwgm costs time: 1.131 s
+selecting potential alignment costs time: 3.925 s
+update wrongly:  34 greedy update wrongly:  341
+after editing (<-), right alignment: 3286/4329=0.759
+after editing (->), right alignment: 3206/3893=0.824
+newly triples: 17424, 16530
+alignment_loss = 1.130, time = 0.027 s
+generating neighbors of 30000 entities costs 13.855 s.
+
+iteration 10
+epoch 91, avg. triple loss: 0.6550, cost time: 3.7801s
+epoch 92, avg. triple loss: 0.6496, cost time: 3.6007s
+epoch 93, avg. triple loss: 0.6462, cost time: 3.6293s
+epoch 94, avg. triple loss: 0.6428, cost time: 3.9107s
+epoch 95, avg. triple loss: 0.6400, cost time: 3.6116s
+epoch 96, avg. triple loss: 0.6379, cost time: 3.5694s
+epoch 97, avg. triple loss: 0.6348, cost time: 3.6390s
+epoch 98, avg. triple loss: 0.6330, cost time: 3.4749s
+epoch 99, avg. triple loss: 0.6316, cost time: 3.6619s
+epoch 100, avg. triple loss: 0.6295, cost time: 3.5739s
+quick results: hits@[1, 5, 10, 50] = [40.    59.333 64.733 70.867]%, time = 0.987 s 
+after filtering by sim threshold, right alignment: 4760/20997=0.227
+after filtering by sim and nearest k, right alignment: 4732/18058=0.262
+graph via graph_tool <Graph object, directed, with 10405 vertices and 18058 edges at 0x7f514acc1eb8>
+after mwgm, right alignment: 3457/4787=0.722
+mwgm costs time: 2.152 s
+selecting potential alignment costs time: 5.601 s
+update wrongly:  41 greedy update wrongly:  391
+after editing (<-), right alignment: 3760/4874=0.771
+after editing (->), right alignment: 3678/4415=0.833
+newly triples: 19933, 18799
+alignment_loss = 1.116, time = 0.045 s
+quick results: hits@[1, 5, 10, 50] = [41.733 61.133 66.    71.667]%, time = 1.026 s 
+generating neighbors of 30000 entities costs 15.712 s.
+
+iteration 11
+epoch 101, avg. triple loss: 0.6412, cost time: 3.8259s
+epoch 102, avg. triple loss: 0.6359, cost time: 3.6787s
+epoch 103, avg. triple loss: 0.6326, cost time: 3.6209s
+epoch 104, avg. triple loss: 0.6288, cost time: 3.4903s
+epoch 105, avg. triple loss: 0.6260, cost time: 3.3457s
+epoch 106, avg. triple loss: 0.6241, cost time: 3.3227s
+epoch 107, avg. triple loss: 0.6223, cost time: 3.2658s
+epoch 108, avg. triple loss: 0.6207, cost time: 3.4246s
+epoch 109, avg. triple loss: 0.6185, cost time: 3.5092s
+epoch 110, avg. triple loss: 0.6168, cost time: 3.3518s
+quick results: hits@[1, 5, 10, 50] = [42.467 62.333 67.2   73.2  ]%, time = 1.136 s 
+after filtering by sim threshold, right alignment: 5228/24358=0.215
+after filtering by sim and nearest k, right alignment: 5198/20845=0.249
+graph via graph_tool <Graph object, directed, with 11384 vertices and 20845 edges at 0x7f4e79fdfda0>
+after mwgm, right alignment: 3768/5261=0.716
+mwgm costs time: 2.531 s
+selecting potential alignment costs time: 6.122 s
+update wrongly:  60 greedy update wrongly:  475
+after editing (<-), right alignment: 4134/5374=0.769
+after editing (->), right alignment: 4040/4832=0.836
+newly triples: 21958, 20678
+alignment_loss = 1.101, time = 0.060 s
+quick results: hits@[1, 5, 10, 50] = [44.4   63.733 68.6   74.2  ]%, time = 1.083 s 
+generating neighbors of 30000 entities costs 14.390 s.
+
+iteration 12
+epoch 111, avg. triple loss: 0.6288, cost time: 3.6226s
+epoch 112, avg. triple loss: 0.6254, cost time: 3.7798s
+epoch 113, avg. triple loss: 0.6215, cost time: 3.4397s
+epoch 114, avg. triple loss: 0.6179, cost time: 3.4305s
+epoch 115, avg. triple loss: 0.6150, cost time: 3.6322s
+epoch 116, avg. triple loss: 0.6129, cost time: 3.5669s
+epoch 117, avg. triple loss: 0.6110, cost time: 3.4774s
+epoch 118, avg. triple loss: 0.6093, cost time: 3.2702s
+epoch 119, avg. triple loss: 0.6073, cost time: 3.6523s
+epoch 120, avg. triple loss: 0.6063, cost time: 3.5002s
+quick results: hits@[1, 5, 10, 50] = [44.733 64.533 69.267 75.2  ]%, time = 1.214 s 
+after filtering by sim threshold, right alignment: 5650/27704=0.204
+after filtering by sim and nearest k, right alignment: 5616/23564=0.238
+graph via graph_tool <Graph object, directed, with 12285 vertices and 23564 edges at 0x7f4e766c6f98>
+after mwgm, right alignment: 4150/5680=0.731
+mwgm costs time: 2.828 s
+selecting potential alignment costs time: 6.397 s
+update wrongly:  52 greedy update wrongly:  476
+after editing (<-), right alignment: 4501/5788=0.778
+after editing (->), right alignment: 4398/5231=0.841
+newly triples: 23631, 22352
+alignment_loss = 1.087, time = 0.057 s
+quick results: hits@[1, 5, 10, 50] = [46.667 65.8   70.533 76.067]%, time = 1.017 s 
+generating neighbors of 30000 entities costs 14.941 s.
+
+iteration 13
+epoch 121, avg. triple loss: 0.6193, cost time: 3.5127s
+epoch 122, avg. triple loss: 0.6151, cost time: 3.5505s
+epoch 123, avg. triple loss: 0.6105, cost time: 3.3855s
+epoch 124, avg. triple loss: 0.6084, cost time: 3.4277s
+epoch 125, avg. triple loss: 0.6059, cost time: 3.4489s
+epoch 126, avg. triple loss: 0.6033, cost time: 3.5281s
+epoch 127, avg. triple loss: 0.6020, cost time: 3.3937s
+epoch 128, avg. triple loss: 0.6011, cost time: 3.4271s
+epoch 129, avg. triple loss: 0.5989, cost time: 3.4466s
+epoch 130, avg. triple loss: 0.5978, cost time: 3.4771s
+quick results: hits@[1, 5, 10, 50] = [46.6   66.467 71.2   76.933]%, time = 1.250 s 
+after filtering by sim threshold, right alignment: 6039/31017=0.195
+after filtering by sim and nearest k, right alignment: 5996/26164=0.229
+graph via graph_tool <Graph object, directed, with 13044 vertices and 26164 edges at 0x7f514acc1eb8>
+after mwgm, right alignment: 4492/6054=0.742
+mwgm costs time: 1.942 s
+selecting potential alignment costs time: 5.206 s
+update wrongly:  59 greedy update wrongly:  477
+after editing (<-), right alignment: 4843/6173=0.785
+after editing (->), right alignment: 4739/5586=0.848
+newly triples: 25092, 23648
+alignment_loss = 1.073, time = 0.058 s
+quick results: hits@[1, 5, 10, 50] = [48.667 67.933 72.2   77.533]%, time = 1.266 s 
+generating neighbors of 30000 entities costs 14.176 s.
+
+iteration 14
+epoch 131, avg. triple loss: 0.6101, cost time: 3.5863s
+epoch 132, avg. triple loss: 0.6058, cost time: 3.2992s
+epoch 133, avg. triple loss: 0.6028, cost time: 3.5535s
+epoch 134, avg. triple loss: 0.5994, cost time: 3.6496s
+epoch 135, avg. triple loss: 0.5973, cost time: 3.2645s
+epoch 136, avg. triple loss: 0.5959, cost time: 3.5213s
+epoch 137, avg. triple loss: 0.5947, cost time: 3.6704s
+epoch 138, avg. triple loss: 0.5930, cost time: 3.5463s
+epoch 139, avg. triple loss: 0.5909, cost time: 3.4050s
+epoch 140, avg. triple loss: 0.5901, cost time: 3.2917s
+quick results: hits@[1, 5, 10, 50] = [49.4   68.2   72.667 78.133]%, time = 1.080 s 
+after filtering by sim threshold, right alignment: 6379/34036=0.187
+after filtering by sim and nearest k, right alignment: 6337/28451=0.223
+graph via graph_tool <Graph object, directed, with 13718 vertices and 28451 edges at 0x7f4e79fdfda0>
+after mwgm, right alignment: 4665/6398=0.729
+mwgm costs time: 3.560 s
+selecting potential alignment costs time: 7.042 s
+update wrongly:  60 greedy update wrongly:  552
+after editing (<-), right alignment: 5127/6529=0.785
+after editing (->), right alignment: 5047/5928=0.851
+newly triples: 26502, 24963
+alignment_loss = 1.062, time = 0.076 s
+quick results: hits@[1, 5, 10, 50] = [50.733 69.467 73.733 78.267]%, time = 1.176 s 
+generating neighbors of 30000 entities costs 14.886 s.
+
+iteration 15
+epoch 141, avg. triple loss: 0.6025, cost time: 3.7972s
+epoch 142, avg. triple loss: 0.5983, cost time: 3.5510s
+epoch 143, avg. triple loss: 0.5952, cost time: 3.2841s
+epoch 144, avg. triple loss: 0.5923, cost time: 3.9302s
+epoch 145, avg. triple loss: 0.5908, cost time: 3.5315s
+epoch 146, avg. triple loss: 0.5885, cost time: 3.5161s
+epoch 147, avg. triple loss: 0.5875, cost time: 3.6844s
+epoch 148, avg. triple loss: 0.5867, cost time: 3.6872s
+epoch 149, avg. triple loss: 0.5843, cost time: 4.0638s
+epoch 150, avg. triple loss: 0.5828, cost time: 3.5268s
+quick results: hits@[1, 5, 10, 50] = [51.267 69.6   74.333 79.   ]%, time = 1.142 s 
+after filtering by sim threshold, right alignment: 6702/36903=0.182
+after filtering by sim and nearest k, right alignment: 6662/30629=0.218
+graph via graph_tool <Graph object, directed, with 14415 vertices and 30629 edges at 0x7f4e7319bd30>
+after mwgm, right alignment: 5021/6733=0.746
+mwgm costs time: 2.247 s
+selecting potential alignment costs time: 5.100 s
+update wrongly:  57 greedy update wrongly:  537
+after editing (<-), right alignment: 5454/6876=0.793
+after editing (->), right alignment: 5364/6261=0.857
+newly triples: 27799, 26255
+alignment_loss = 1.055, time = 0.061 s
+quick results: hits@[1, 5, 10, 50] = [52.333 70.6   74.6   79.333]%, time = 1.030 s 
+generating neighbors of 30000 entities costs 14.195 s.
+
+iteration 16
+epoch 151, avg. triple loss: 0.5965, cost time: 3.7556s
+epoch 152, avg. triple loss: 0.5917, cost time: 3.5983s
+epoch 153, avg. triple loss: 0.5895, cost time: 3.7896s
+epoch 154, avg. triple loss: 0.5857, cost time: 3.3952s
+epoch 155, avg. triple loss: 0.5851, cost time: 3.4573s
+epoch 156, avg. triple loss: 0.5827, cost time: 3.4326s
+epoch 157, avg. triple loss: 0.5806, cost time: 3.3384s
+epoch 158, avg. triple loss: 0.5795, cost time: 3.7610s
+epoch 159, avg. triple loss: 0.5790, cost time: 3.8317s
+epoch 160, avg. triple loss: 0.5775, cost time: 3.5126s
+quick results: hits@[1, 5, 10, 50] = [52.533 70.6   75.267 80.133]%, time = 1.093 s 
+after filtering by sim threshold, right alignment: 6970/39848=0.175
+after filtering by sim and nearest k, right alignment: 6930/32794=0.211
+graph via graph_tool <Graph object, directed, with 14957 vertices and 32794 edges at 0x7f4df3539e48>
+after mwgm, right alignment: 5250/6984=0.752
+mwgm costs time: 4.267 s
+selecting potential alignment costs time: 7.927 s
+update wrongly:  67 greedy update wrongly:  557
+after editing (<-), right alignment: 5714/7124=0.802
+after editing (->), right alignment: 5607/6530=0.859
+newly triples: 28986, 27233
+alignment_loss = 1.046, time = 0.065 s
+quick results: hits@[1, 5, 10, 50] = [53.667 71.4   75.6   80.467]%, time = 1.310 s 
+generating neighbors of 30000 entities costs 15.458 s.
+
+iteration 17
+epoch 161, avg. triple loss: 0.5900, cost time: 3.9721s
+epoch 162, avg. triple loss: 0.5866, cost time: 3.5382s
+epoch 163, avg. triple loss: 0.5831, cost time: 3.6462s
+epoch 164, avg. triple loss: 0.5811, cost time: 3.7859s
+epoch 165, avg. triple loss: 0.5791, cost time: 3.6340s
+epoch 166, avg. triple loss: 0.5774, cost time: 3.5726s
+epoch 167, avg. triple loss: 0.5763, cost time: 3.5848s
+epoch 168, avg. triple loss: 0.5748, cost time: 3.5748s
+epoch 169, avg. triple loss: 0.5737, cost time: 3.7381s
+epoch 170, avg. triple loss: 0.5727, cost time: 3.5798s
+quick results: hits@[1, 5, 10, 50] = [54.267 71.733 76.    81.   ]%, time = 0.927 s 
+after filtering by sim threshold, right alignment: 7230/42666=0.169
+after filtering by sim and nearest k, right alignment: 7189/34809=0.207
+graph via graph_tool <Graph object, directed, with 15492 vertices and 34809 edges at 0x7f4df3629f98>
+after mwgm, right alignment: 5490/7256=0.757
+mwgm costs time: 2.552 s
+selecting potential alignment costs time: 5.602 s
+update wrongly:  60 greedy update wrongly:  570
+after editing (<-), right alignment: 5963/7407=0.805
+after editing (->), right alignment: 5858/6781=0.864
+newly triples: 29831, 28096
+alignment_loss = 1.038, time = 0.074 s
+quick results: hits@[1, 5, 10, 50] = [55.2   72.533 76.533 81.267]%, time = 0.889 s 
+generating neighbors of 30000 entities costs 12.986 s.
+
+iteration 18
+epoch 171, avg. triple loss: 0.5841, cost time: 4.0279s
+epoch 172, avg. triple loss: 0.5811, cost time: 3.6941s
+epoch 173, avg. triple loss: 0.5784, cost time: 3.6083s
+epoch 174, avg. triple loss: 0.5759, cost time: 3.9195s
+epoch 175, avg. triple loss: 0.5744, cost time: 3.9167s
+epoch 176, avg. triple loss: 0.5730, cost time: 3.6365s
+epoch 177, avg. triple loss: 0.5711, cost time: 3.8648s
+epoch 178, avg. triple loss: 0.5705, cost time: 3.4384s
+epoch 179, avg. triple loss: 0.5691, cost time: 3.5857s
+epoch 180, avg. triple loss: 0.5680, cost time: 3.4601s
+quick results: hits@[1, 5, 10, 50] = [55.4   72.733 76.867 81.733]%, time = 1.149 s 
+after filtering by sim threshold, right alignment: 7465/45358=0.165
+after filtering by sim and nearest k, right alignment: 7417/36671=0.202
+graph via graph_tool <Graph object, directed, with 15933 vertices and 36671 edges at 0x7f4e72066be0>
+after mwgm, right alignment: 5671/7472=0.759
+mwgm costs time: 4.361 s
+selecting potential alignment costs time: 7.976 s
+update wrongly:  77 greedy update wrongly:  604
+after editing (<-), right alignment: 6162/7635=0.807
+after editing (->), right alignment: 6067/7008=0.866
+newly triples: 30799, 28952
+alignment_loss = 1.033, time = 0.080 s
+quick results: hits@[1, 5, 10, 50] = [56.733 73.333 77.533 81.733]%, time = 0.977 s 
+generating neighbors of 30000 entities costs 13.082 s.
+
+iteration 19
+epoch 181, avg. triple loss: 0.5801, cost time: 4.4585s
+epoch 182, avg. triple loss: 0.5776, cost time: 3.4139s
+epoch 183, avg. triple loss: 0.5743, cost time: 3.3880s
+epoch 184, avg. triple loss: 0.5719, cost time: 3.4476s
+epoch 185, avg. triple loss: 0.5699, cost time: 3.4835s
+epoch 186, avg. triple loss: 0.5685, cost time: 3.9074s
+epoch 187, avg. triple loss: 0.5670, cost time: 3.7532s
+epoch 188, avg. triple loss: 0.5659, cost time: 3.7880s
+epoch 189, avg. triple loss: 0.5651, cost time: 3.8681s
+epoch 190, avg. triple loss: 0.5641, cost time: 3.8745s
+quick results: hits@[1, 5, 10, 50] = [57.267 73.667 77.667 82.6  ]%, time = 1.459 s 
+after filtering by sim threshold, right alignment: 7675/47962=0.160
+after filtering by sim and nearest k, right alignment: 7628/38435=0.198
+graph via graph_tool <Graph object, directed, with 16328 vertices and 38435 edges at 0x7f4e72066be0>
+after mwgm, right alignment: 5816/7686=0.757
+mwgm costs time: 2.858 s
+selecting potential alignment costs time: 6.392 s
+update wrongly:  74 greedy update wrongly:  640
+after editing (<-), right alignment: 6359/7858=0.809
+after editing (->), right alignment: 6257/7193=0.870
+newly triples: 31466, 29547
+alignment_loss = 1.025, time = 0.064 s
+quick results: hits@[1, 5, 10, 50] = [58.2   74.2   78.333 82.6  ]%, time = 1.127 s 
+generating neighbors of 30000 entities costs 15.456 s.
+
+iteration 20
+epoch 191, avg. triple loss: 0.5755, cost time: 3.4376s
+epoch 192, avg. triple loss: 0.5719, cost time: 3.5905s
+epoch 193, avg. triple loss: 0.5695, cost time: 3.6084s
+epoch 194, avg. triple loss: 0.5676, cost time: 3.8038s
+epoch 195, avg. triple loss: 0.5663, cost time: 4.0546s
+epoch 196, avg. triple loss: 0.5643, cost time: 4.0545s
+epoch 197, avg. triple loss: 0.5629, cost time: 3.8313s
+epoch 198, avg. triple loss: 0.5620, cost time: 3.5142s
+epoch 199, avg. triple loss: 0.5613, cost time: 3.5982s
+epoch 200, avg. triple loss: 0.5604, cost time: 3.6483s
+quick results: hits@[1, 5, 10, 50] = [58.267 74.467 78.4   83.   ]%, time = 1.080 s 
+after filtering by sim threshold, right alignment: 7871/50491=0.156
+after filtering by sim and nearest k, right alignment: 7824/40159=0.195
+graph via graph_tool <Graph object, directed, with 16715 vertices and 40159 edges at 0x7f4e6dd7bd30>
+after mwgm, right alignment: 5994/7874=0.761
+mwgm costs time: 3.059 s
+selecting potential alignment costs time: 6.587 s
+update wrongly:  59 greedy update wrongly:  636
+after editing (<-), right alignment: 6555/8044=0.815
+after editing (->), right alignment: 6448/7430=0.868
+newly triples: 32298, 30319
+alignment_loss = 1.020, time = 0.080 s
+quick results: hits@[1, 5, 10, 50] = [59.    75.133 78.733 83.067]%, time = 1.076 s 
+generating neighbors of 30000 entities costs 13.716 s.
+
+iteration 21
+epoch 201, avg. triple loss: 0.5721, cost time: 3.5401s
+epoch 202, avg. triple loss: 0.5690, cost time: 3.9463s
+epoch 203, avg. triple loss: 0.5672, cost time: 3.4699s
+epoch 204, avg. triple loss: 0.5644, cost time: 3.5601s
+epoch 205, avg. triple loss: 0.5618, cost time: 3.5211s
+epoch 206, avg. triple loss: 0.5616, cost time: 3.7337s
+epoch 207, avg. triple loss: 0.5603, cost time: 3.6812s
+epoch 208, avg. triple loss: 0.5589, cost time: 3.7878s
+epoch 209, avg. triple loss: 0.5577, cost time: 3.6772s
+epoch 210, avg. triple loss: 0.5574, cost time: 3.5056s
+quick results: hits@[1, 5, 10, 50] = [59.067 75.133 79.067 83.267]%, time = 1.018 s 
+after filtering by sim threshold, right alignment: 8054/53026=0.152
+after filtering by sim and nearest k, right alignment: 8007/41796=0.192
+graph via graph_tool <Graph object, directed, with 17085 vertices and 41796 edges at 0x7f4df31f0c88>
+after mwgm, right alignment: 6214/8054=0.772
+mwgm costs time: 5.150 s
+selecting potential alignment costs time: 8.792 s
+update wrongly:  55 greedy update wrongly:  605
+after editing (<-), right alignment: 6737/8233=0.818
+after editing (->), right alignment: 6638/7598=0.874
+newly triples: 32881, 30865
+alignment_loss = 1.015, time = 0.087 s
+quick results: hits@[1, 5, 10, 50] = [59.733 76.    79.267 83.533]%, time = 1.263 s 
+generating neighbors of 30000 entities costs 15.036 s.
+
+iteration 22
+epoch 211, avg. triple loss: 0.5684, cost time: 3.6217s
+epoch 212, avg. triple loss: 0.5665, cost time: 3.6268s
+epoch 213, avg. triple loss: 0.5630, cost time: 3.5674s
+epoch 214, avg. triple loss: 0.5611, cost time: 3.6851s
+epoch 215, avg. triple loss: 0.5589, cost time: 3.4050s
+epoch 216, avg. triple loss: 0.5579, cost time: 3.5225s
+epoch 217, avg. triple loss: 0.5573, cost time: 3.4032s
+epoch 218, avg. triple loss: 0.5562, cost time: 3.5527s
+epoch 219, avg. triple loss: 0.5545, cost time: 3.4248s
+epoch 220, avg. triple loss: 0.5547, cost time: 3.6218s
+quick results: hits@[1, 5, 10, 50] = [59.8   75.867 79.6   83.867]%, time = 1.126 s 
+after filtering by sim threshold, right alignment: 8219/55426=0.148
+after filtering by sim and nearest k, right alignment: 8172/43367=0.188
+graph via graph_tool <Graph object, directed, with 17390 vertices and 43367 edges at 0x7f4df31f0c88>
+after mwgm, right alignment: 6361/8221=0.774
+mwgm costs time: 4.521 s
+selecting potential alignment costs time: 8.372 s
+update wrongly:  70 greedy update wrongly:  647
+after editing (<-), right alignment: 6919/8410=0.823
+after editing (->), right alignment: 6814/7764=0.878
+newly triples: 33413, 31363
+alignment_loss = 1.011, time = 0.088 s
+quick results: hits@[1, 5, 10, 50] = [60.333 76.467 79.8   83.933]%, time = 1.312 s 
+generating neighbors of 30000 entities costs 13.591 s.
+
+iteration 23
+epoch 221, avg. triple loss: 0.5654, cost time: 3.6363s
+epoch 222, avg. triple loss: 0.5617, cost time: 3.5241s
+epoch 223, avg. triple loss: 0.5596, cost time: 3.6844s
+epoch 224, avg. triple loss: 0.5578, cost time: 3.3720s
+epoch 225, avg. triple loss: 0.5566, cost time: 3.4199s
+epoch 226, avg. triple loss: 0.5558, cost time: 3.6935s
+epoch 227, avg. triple loss: 0.5540, cost time: 3.2814s
+epoch 228, avg. triple loss: 0.5534, cost time: 3.3560s
+epoch 229, avg. triple loss: 0.5519, cost time: 3.3415s
+epoch 230, avg. triple loss: 0.5519, cost time: 3.4274s
+quick results: hits@[1, 5, 10, 50] = [60.467 76.8   79.867 84.467]%, time = 1.275 s 
+after filtering by sim threshold, right alignment: 8351/57586=0.145
+after filtering by sim and nearest k, right alignment: 8305/44711=0.186
+graph via graph_tool <Graph object, directed, with 17673 vertices and 44711 edges at 0x7f4df3539e48>
+after mwgm, right alignment: 6562/8363=0.785
+mwgm costs time: 5.368 s
+selecting potential alignment costs time: 9.174 s
+update wrongly:  81 greedy update wrongly:  617
+after editing (<-), right alignment: 7058/8528=0.828
+after editing (->), right alignment: 6953/7881=0.882
+newly triples: 33910, 31773
+alignment_loss = 1.007, time = 0.084 s
+quick results: hits@[1, 5, 10, 50] = [61.533 77.    80.067 84.467]%, time = 1.042 s 
+generating neighbors of 30000 entities costs 14.370 s.
+
+iteration 24
+epoch 231, avg. triple loss: 0.5625, cost time: 3.5068s
+epoch 232, avg. triple loss: 0.5598, cost time: 3.1831s
+epoch 233, avg. triple loss: 0.5573, cost time: 3.5208s
+epoch 234, avg. triple loss: 0.5562, cost time: 3.6822s
+epoch 235, avg. triple loss: 0.5544, cost time: 3.6360s
+epoch 236, avg. triple loss: 0.5530, cost time: 4.0041s
+epoch 237, avg. triple loss: 0.5514, cost time: 3.2827s
+epoch 238, avg. triple loss: 0.5499, cost time: 3.4158s
+epoch 239, avg. triple loss: 0.5494, cost time: 3.7568s
+epoch 240, avg. triple loss: 0.5491, cost time: 3.7654s
+quick results: hits@[1, 5, 10, 50] = [61.333 77.067 80.533 84.667]%, time = 1.369 s 
+after filtering by sim threshold, right alignment: 8489/59683=0.142
+after filtering by sim and nearest k, right alignment: 8444/45999=0.184
+graph via graph_tool <Graph object, directed, with 17943 vertices and 45999 edges at 0x7f4df3164be0>
+after mwgm, right alignment: 6668/8487=0.786
+mwgm costs time: 3.392 s
+selecting potential alignment costs time: 6.644 s
+update wrongly:  70 greedy update wrongly:  630
+after editing (<-), right alignment: 7214/8668=0.832
+after editing (->), right alignment: 7107/8044=0.884
+newly triples: 34481, 32276
+alignment_loss = 1.004, time = 0.059 s
+quick results: hits@[1, 5, 10, 50] = [62.4   77.667 81.    84.8  ]%, time = 1.102 s 
+generating neighbors of 30000 entities costs 15.564 s.
+
+iteration 25
+epoch 241, avg. triple loss: 0.5602, cost time: 3.4569s
+epoch 242, avg. triple loss: 0.5569, cost time: 3.4058s
+epoch 243, avg. triple loss: 0.5546, cost time: 3.5810s
+epoch 244, avg. triple loss: 0.5534, cost time: 3.4364s
+epoch 245, avg. triple loss: 0.5520, cost time: 3.7069s
+epoch 246, avg. triple loss: 0.5504, cost time: 3.5255s
+epoch 247, avg. triple loss: 0.5490, cost time: 3.5641s
+epoch 248, avg. triple loss: 0.5486, cost time: 3.7278s
+epoch 249, avg. triple loss: 0.5474, cost time: 3.5753s
+epoch 250, avg. triple loss: 0.5468, cost time: 3.2767s
+quick results: hits@[1, 5, 10, 50] = [62.333 77.8   81.333 85.133]%, time = 1.175 s 
+after filtering by sim threshold, right alignment: 8615/61760=0.139
+after filtering by sim and nearest k, right alignment: 8572/47273=0.181
+graph via graph_tool <Graph object, directed, with 18203 vertices and 47273 edges at 0x7f4df10fcd30>
+after mwgm, right alignment: 6755/8631=0.783
+mwgm costs time: 4.594 s
+selecting potential alignment costs time: 8.165 s
+update wrongly:  82 greedy update wrongly:  674
+after editing (<-), right alignment: 7331/8814=0.832
+after editing (->), right alignment: 7237/8184=0.884
+newly triples: 35062, 32788
+alignment_loss = 1.001, time = 0.073 s
+quick results: hits@[1, 5, 10, 50] = [63.6   77.867 81.667 85.133]%, time = 1.070 s 
+generating neighbors of 30000 entities costs 15.467 s.
+
+iteration 26
+epoch 251, avg. triple loss: 0.5574, cost time: 3.0663s
+epoch 252, avg. triple loss: 0.5549, cost time: 3.4450s
+epoch 253, avg. triple loss: 0.5529, cost time: 3.4639s
+epoch 254, avg. triple loss: 0.5503, cost time: 3.3957s
+epoch 255, avg. triple loss: 0.5490, cost time: 3.4123s
+epoch 256, avg. triple loss: 0.5490, cost time: 3.4969s
+epoch 257, avg. triple loss: 0.5478, cost time: 3.5553s
+epoch 258, avg. triple loss: 0.5462, cost time: 3.8070s
+epoch 259, avg. triple loss: 0.5455, cost time: 3.6568s
+epoch 260, avg. triple loss: 0.5441, cost time: 3.7859s
+quick results: hits@[1, 5, 10, 50] = [63.2   78.    81.733 85.467]%, time = 1.688 s 
+after filtering by sim threshold, right alignment: 8728/63779=0.137
+after filtering by sim and nearest k, right alignment: 8685/48429=0.179
+graph via graph_tool <Graph object, directed, with 18411 vertices and 48429 edges at 0x7f4df3270390>
+after mwgm, right alignment: 6947/8736=0.795
+mwgm costs time: 5.892 s
+selecting potential alignment costs time: 9.562 s
+update wrongly:  84 greedy update wrongly:  612
+after editing (<-), right alignment: 7450/8911=0.836
+after editing (->), right alignment: 7343/8287=0.886
+newly triples: 35374, 33083
+alignment_loss = 0.997, time = 0.077 s
+quick results: hits@[1, 5, 10, 50] = [64.067 78.267 82.    85.533]%, time = 0.903 s 
+generating neighbors of 30000 entities costs 14.000 s.
+
+iteration 27
+epoch 261, avg. triple loss: 0.5548, cost time: 3.3848s
+epoch 262, avg. triple loss: 0.5516, cost time: 3.3993s
+epoch 263, avg. triple loss: 0.5504, cost time: 3.2923s
+epoch 264, avg. triple loss: 0.5492, cost time: 3.3711s
+epoch 265, avg. triple loss: 0.5474, cost time: 3.3926s
+epoch 266, avg. triple loss: 0.5463, cost time: 3.7583s
+epoch 267, avg. triple loss: 0.5454, cost time: 3.5279s
+epoch 268, avg. triple loss: 0.5444, cost time: 3.6341s
+epoch 269, avg. triple loss: 0.5435, cost time: 3.4614s
+epoch 270, avg. triple loss: 0.5432, cost time: 3.5310s
+quick results: hits@[1, 5, 10, 50] = [63.733 78.6   82.333 85.667]%, time = 1.222 s 
+after filtering by sim threshold, right alignment: 8846/65728=0.135
+after filtering by sim and nearest k, right alignment: 8804/49591=0.178
+graph via graph_tool <Graph object, directed, with 18637 vertices and 49591 edges at 0x7f4df10d9ac8>
+after mwgm, right alignment: 7053/8862=0.796
+mwgm costs time: 6.161 s
+selecting potential alignment costs time: 9.213 s
+update wrongly:  75 greedy update wrongly:  627
+after editing (<-), right alignment: 7582/9039=0.839
+after editing (->), right alignment: 7481/8411=0.889
+newly triples: 35770, 33465
+alignment_loss = 0.994, time = 0.095 s
+quick results: hits@[1, 5, 10, 50] = [64.333 78.667 82.667 85.933]%, time = 0.968 s 
+generating neighbors of 30000 entities costs 15.423 s.
+
+iteration 28
+epoch 271, avg. triple loss: 0.5535, cost time: 3.4902s
+epoch 272, avg. triple loss: 0.5505, cost time: 3.3905s
+epoch 273, avg. triple loss: 0.5485, cost time: 3.4467s
+epoch 274, avg. triple loss: 0.5464, cost time: 3.4166s
+epoch 275, avg. triple loss: 0.5455, cost time: 3.4813s
+epoch 276, avg. triple loss: 0.5442, cost time: 3.4080s
+epoch 277, avg. triple loss: 0.5434, cost time: 3.5845s
+epoch 278, avg. triple loss: 0.5431, cost time: 3.3562s
+epoch 279, avg. triple loss: 0.5408, cost time: 3.5034s
+epoch 280, avg. triple loss: 0.5408, cost time: 3.5813s
+quick results: hits@[1, 5, 10, 50] = [64.133 78.733 82.733 86.067]%, time = 1.136 s 
+after filtering by sim threshold, right alignment: 8933/67536=0.132
+after filtering by sim and nearest k, right alignment: 8884/50658=0.175
+graph via graph_tool <Graph object, directed, with 18811 vertices and 50658 edges at 0x7f4df0fffd30>
+after mwgm, right alignment: 7156/8921=0.802
+mwgm costs time: 3.711 s
+selecting potential alignment costs time: 7.275 s
+update wrongly:  78 greedy update wrongly:  620
+after editing (<-), right alignment: 7672/9089=0.844
+after editing (->), right alignment: 7565/8511=0.889
+newly triples: 36084, 33763
+alignment_loss = 0.991, time = 0.095 s
+quick results: hits@[1, 5, 10, 50] = [65.067 79.133 82.933 86.133]%, time = 1.242 s 
+generating neighbors of 30000 entities costs 14.876 s.
+
+iteration 29
+epoch 281, avg. triple loss: 0.5511, cost time: 3.7474s
+epoch 282, avg. triple loss: 0.5492, cost time: 3.5753s
+epoch 283, avg. triple loss: 0.5458, cost time: 3.3775s
+epoch 284, avg. triple loss: 0.5451, cost time: 3.6712s
+epoch 285, avg. triple loss: 0.5438, cost time: 3.3664s
+epoch 286, avg. triple loss: 0.5420, cost time: 3.5282s
+epoch 287, avg. triple loss: 0.5408, cost time: 3.5802s
+epoch 288, avg. triple loss: 0.5401, cost time: 3.6319s
+epoch 289, avg. triple loss: 0.5402, cost time: 3.5776s
+epoch 290, avg. triple loss: 0.5395, cost time: 3.5355s
+quick results: hits@[1, 5, 10, 50] = [65.2   79.333 83.067 86.467]%, time = 1.040 s 
+after filtering by sim threshold, right alignment: 9031/69304=0.130
+after filtering by sim and nearest k, right alignment: 8985/51629=0.174
+graph via graph_tool <Graph object, directed, with 18992 vertices and 51629 edges at 0x7f4df0fffd30>
+after mwgm, right alignment: 7219/9026=0.800
+mwgm costs time: 4.704 s
+selecting potential alignment costs time: 8.391 s
+update wrongly:  70 greedy update wrongly:  620
+after editing (<-), right alignment: 7749/9184=0.844
+after editing (->), right alignment: 7658/8605=0.890
+newly triples: 36459, 34090
+alignment_loss = 0.988, time = 0.074 s
+quick results: hits@[1, 5, 10, 50] = [65.733 79.6   83.333 86.467]%, time = 1.103 s 
+generating neighbors of 30000 entities costs 14.875 s.
+
+iteration 30
+epoch 291, avg. triple loss: 0.5492, cost time: 4.3293s
+epoch 292, avg. triple loss: 0.5467, cost time: 3.7306s
+epoch 293, avg. triple loss: 0.5449, cost time: 4.0210s
+epoch 294, avg. triple loss: 0.5438, cost time: 3.8359s
+epoch 295, avg. triple loss: 0.5422, cost time: 4.1170s
+epoch 296, avg. triple loss: 0.5407, cost time: 3.7458s
+epoch 297, avg. triple loss: 0.5399, cost time: 3.7781s
+epoch 298, avg. triple loss: 0.5391, cost time: 3.5541s
+epoch 299, avg. triple loss: 0.5378, cost time: 3.6896s
+epoch 300, avg. triple loss: 0.5370, cost time: 3.6024s
+quick results: hits@[1, 5, 10, 50] = [65.533 79.733 83.533 87.   ]%, time = 1.207 s 
+after filtering by sim threshold, right alignment: 9106/71055=0.128
+after filtering by sim and nearest k, right alignment: 9057/52626=0.172
+graph via graph_tool <Graph object, directed, with 19129 vertices and 52626 edges at 0x7f4e65ba5b70>
+after mwgm, right alignment: 7228/9107=0.794
+mwgm costs time: 6.368 s
+selecting potential alignment costs time: 9.981 s
+update wrongly:  85 greedy update wrongly:  686
+after editing (<-), right alignment: 7830/9286=0.843
+after editing (->), right alignment: 7722/8672=0.890
+newly triples: 36661, 34339
+alignment_loss = 0.986, time = 0.090 s
+quick results: hits@[1, 5, 10, 50] = [65.933 79.933 83.6   87.2  ]%, time = 0.902 s 
+generating neighbors of 30000 entities costs 14.697 s.
+
+iteration 31
+epoch 301, avg. triple loss: 0.5472, cost time: 3.5124s
+epoch 302, avg. triple loss: 0.5451, cost time: 3.3799s
+epoch 303, avg. triple loss: 0.5435, cost time: 3.1264s
+epoch 304, avg. triple loss: 0.5420, cost time: 3.5193s
+epoch 305, avg. triple loss: 0.5406, cost time: 3.4412s
+epoch 306, avg. triple loss: 0.5391, cost time: 3.4265s
+epoch 307, avg. triple loss: 0.5385, cost time: 3.3855s
+epoch 308, avg. triple loss: 0.5365, cost time: 3.4489s
+epoch 309, avg. triple loss: 0.5370, cost time: 3.3586s
+epoch 310, avg. triple loss: 0.5365, cost time: 3.3969s
+quick results: hits@[1, 5, 10, 50] = [66.333 80.067 83.733 87.4  ]%, time = 1.056 s 
+after filtering by sim threshold, right alignment: 9195/72747=0.126
+after filtering by sim and nearest k, right alignment: 9142/53595=0.171
+graph via graph_tool <Graph object, directed, with 19273 vertices and 53595 edges at 0x7f4df0dbc630>
+after mwgm, right alignment: 7350/9180=0.801
+mwgm costs time: 3.875 s
+selecting potential alignment costs time: 7.095 s
+update wrongly:  86 greedy update wrongly:  646
+after editing (<-), right alignment: 7893/9340=0.845
+after editing (->), right alignment: 7800/8759=0.891
+newly triples: 36995, 34610
+alignment_loss = 0.984, time = 0.082 s
+quick results: hits@[1, 5, 10, 50] = [66.8   80.6   83.933 87.333]%, time = 1.010 s 
+generating neighbors of 30000 entities costs 15.195 s.
+
+iteration 32
+epoch 311, avg. triple loss: 0.5455, cost time: 3.6946s
+epoch 312, avg. triple loss: 0.5435, cost time: 3.5635s
+epoch 313, avg. triple loss: 0.5421, cost time: 3.4863s
+epoch 314, avg. triple loss: 0.5406, cost time: 3.9750s
+epoch 315, avg. triple loss: 0.5394, cost time: 3.5633s
+epoch 316, avg. triple loss: 0.5376, cost time: 3.9048s
+epoch 317, avg. triple loss: 0.5372, cost time: 4.0380s
+epoch 318, avg. triple loss: 0.5364, cost time: 3.8300s
+epoch 319, avg. triple loss: 0.5355, cost time: 3.8214s
+epoch 320, avg. triple loss: 0.5341, cost time: 3.5887s
+quick results: hits@[1, 5, 10, 50] = [66.867 80.667 84.067 87.533]%, time = 1.507 s 
+after filtering by sim threshold, right alignment: 9259/74303=0.125
+after filtering by sim and nearest k, right alignment: 9207/54421=0.169
+graph via graph_tool <Graph object, directed, with 19397 vertices and 54421 edges at 0x7f4df0fffd30>
+after mwgm, right alignment: 7452/9261=0.805
+mwgm costs time: 6.595 s
+selecting potential alignment costs time: 10.295 s
+update wrongly:  70 greedy update wrongly:  597
+after editing (<-), right alignment: 7976/9425=0.846
+after editing (->), right alignment: 7879/8833=0.892
+newly triples: 37171, 34819
+alignment_loss = 0.981, time = 0.088 s
+quick results: hits@[1, 5, 10, 50] = [67.533 80.933 84.133 87.533]%, time = 1.288 s 
+generating neighbors of 30000 entities costs 13.802 s.
+
+iteration 33
+epoch 321, avg. triple loss: 0.5442, cost time: 3.4488s
+epoch 322, avg. triple loss: 0.5425, cost time: 3.3910s
+epoch 323, avg. triple loss: 0.5405, cost time: 3.4105s
+epoch 324, avg. triple loss: 0.5389, cost time: 3.6280s
+epoch 325, avg. triple loss: 0.5376, cost time: 3.6824s
+epoch 326, avg. triple loss: 0.5365, cost time: 3.5466s
+epoch 327, avg. triple loss: 0.5352, cost time: 3.5150s
+epoch 328, avg. triple loss: 0.5349, cost time: 3.4242s
+epoch 329, avg. triple loss: 0.5344, cost time: 3.7820s
+epoch 330, avg. triple loss: 0.5330, cost time: 3.2302s
+quick results: hits@[1, 5, 10, 50] = [67.533 81.133 84.333 87.667]%, time = 1.737 s 
+after filtering by sim threshold, right alignment: 9307/75728=0.123
+after filtering by sim and nearest k, right alignment: 9254/55234=0.168
+graph via graph_tool <Graph object, directed, with 19518 vertices and 55234 edges at 0x7f4e6175edd8>
+after mwgm, right alignment: 7490/9306=0.805
+mwgm costs time: 6.640 s
+selecting potential alignment costs time: 10.255 s
+update wrongly:  72 greedy update wrongly:  618
+after editing (<-), right alignment: 8023/9461=0.848
+after editing (->), right alignment: 7934/8896=0.892
+newly triples: 37346, 34993
+alignment_loss = 0.979, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [67.933 81.133 84.467 87.6  ]%, time = 1.106 s 
+generating neighbors of 30000 entities costs 14.406 s.
+
+iteration 34
+epoch 331, avg. triple loss: 0.5433, cost time: 3.6781s
+epoch 332, avg. triple loss: 0.5415, cost time: 3.1398s
+epoch 333, avg. triple loss: 0.5389, cost time: 3.3513s
+epoch 334, avg. triple loss: 0.5371, cost time: 3.2123s
+epoch 335, avg. triple loss: 0.5364, cost time: 3.4681s
+epoch 336, avg. triple loss: 0.5346, cost time: 3.6334s
+epoch 337, avg. triple loss: 0.5336, cost time: 3.7114s
+epoch 338, avg. triple loss: 0.5332, cost time: 3.7302s
+epoch 339, avg. triple loss: 0.5324, cost time: 3.6831s
+epoch 340, avg. triple loss: 0.5323, cost time: 3.3936s
+quick results: hits@[1, 5, 10, 50] = [67.667 81.267 84.733 87.8  ]%, time = 0.939 s 
+after filtering by sim threshold, right alignment: 9381/77158=0.122
+after filtering by sim and nearest k, right alignment: 9330/56039=0.166
+graph via graph_tool <Graph object, directed, with 19649 vertices and 56039 edges at 0x7f4e625c8710>
+after mwgm, right alignment: 7587/9369=0.810
+mwgm costs time: 5.464 s
+selecting potential alignment costs time: 9.087 s
+update wrongly:  82 greedy update wrongly:  603
+after editing (<-), right alignment: 8098/9539=0.849
+after editing (->), right alignment: 7996/8967=0.892
+newly triples: 37687, 35216
+alignment_loss = 0.978, time = 0.081 s
+quick results: hits@[1, 5, 10, 50] = [67.933 81.533 84.933 87.867]%, time = 1.067 s 
+generating neighbors of 30000 entities costs 15.898 s.
+
+iteration 35
+epoch 341, avg. triple loss: 0.5412, cost time: 3.6611s
+epoch 342, avg. triple loss: 0.5391, cost time: 3.5412s
+epoch 343, avg. triple loss: 0.5380, cost time: 3.9284s
+epoch 344, avg. triple loss: 0.5365, cost time: 3.3294s
+epoch 345, avg. triple loss: 0.5349, cost time: 3.5022s
+epoch 346, avg. triple loss: 0.5335, cost time: 3.4434s
+epoch 347, avg. triple loss: 0.5329, cost time: 3.3998s
+epoch 348, avg. triple loss: 0.5328, cost time: 3.4405s
+epoch 349, avg. triple loss: 0.5311, cost time: 3.4040s
+epoch 350, avg. triple loss: 0.5308, cost time: 3.3933s
+quick results: hits@[1, 5, 10, 50] = [67.933 81.8   85.133 87.933]%, time = 0.994 s 
+after filtering by sim threshold, right alignment: 9432/78596=0.120
+after filtering by sim and nearest k, right alignment: 9384/56761=0.165
+graph via graph_tool <Graph object, directed, with 19746 vertices and 56761 edges at 0x7f4e5e4ee978>
+after mwgm, right alignment: 7679/9429=0.814
+mwgm costs time: 4.562 s
+selecting potential alignment costs time: 7.822 s
+update wrongly:  74 greedy update wrongly:  608
+after editing (<-), right alignment: 8170/9582=0.853
+after editing (->), right alignment: 8073/9025=0.895
+newly triples: 37822, 35352
+alignment_loss = 0.976, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [68.8 82.  85.2 88. ]%, time = 1.269 s 
+generating neighbors of 30000 entities costs 15.178 s.
+
+iteration 36
+epoch 351, avg. triple loss: 0.5399, cost time: 3.5368s
+epoch 352, avg. triple loss: 0.5385, cost time: 3.3484s
+epoch 353, avg. triple loss: 0.5357, cost time: 3.1895s
+epoch 354, avg. triple loss: 0.5357, cost time: 3.3771s
+epoch 355, avg. triple loss: 0.5341, cost time: 3.4069s
+epoch 356, avg. triple loss: 0.5320, cost time: 3.5151s
+epoch 357, avg. triple loss: 0.5312, cost time: 3.6819s
+epoch 358, avg. triple loss: 0.5313, cost time: 3.3683s
+epoch 359, avg. triple loss: 0.5293, cost time: 3.9659s
+epoch 360, avg. triple loss: 0.5292, cost time: 3.5966s
+quick results: hits@[1, 5, 10, 50] = [69.    81.733 85.133 88.133]%, time = 1.820 s 
+after filtering by sim threshold, right alignment: 9471/79972=0.118
+after filtering by sim and nearest k, right alignment: 9423/57475=0.164
+graph via graph_tool <Graph object, directed, with 19833 vertices and 57475 edges at 0x7f4df0cf4518>
+after mwgm, right alignment: 7635/9477=0.806
+mwgm costs time: 4.171 s
+selecting potential alignment costs time: 6.916 s
+update wrongly:  98 greedy update wrongly:  666
+after editing (<-), right alignment: 8179/9655=0.847
+after editing (->), right alignment: 8067/9082=0.888
+newly triples: 38041, 35530
+alignment_loss = 0.974, time = 0.093 s
+quick results: hits@[1, 5, 10, 50] = [69.4   82.2   85.333 88.067]%, time = 1.023 s 
+generating neighbors of 30000 entities costs 14.935 s.
+
+iteration 37
+epoch 361, avg. triple loss: 0.5388, cost time: 3.8198s
+epoch 362, avg. triple loss: 0.5373, cost time: 3.5683s
+epoch 363, avg. triple loss: 0.5350, cost time: 3.5409s
+epoch 364, avg. triple loss: 0.5337, cost time: 3.3798s
+epoch 365, avg. triple loss: 0.5329, cost time: 3.3435s
+epoch 366, avg. triple loss: 0.5318, cost time: 3.4387s
+epoch 367, avg. triple loss: 0.5308, cost time: 3.7141s
+epoch 368, avg. triple loss: 0.5300, cost time: 3.7904s
+epoch 369, avg. triple loss: 0.5290, cost time: 3.5533s
+epoch 370, avg. triple loss: 0.5284, cost time: 3.4414s
+quick results: hits@[1, 5, 10, 50] = [68.8   82.267 85.267 88.267]%, time = 1.476 s 
+after filtering by sim threshold, right alignment: 9532/81244=0.117
+after filtering by sim and nearest k, right alignment: 9484/58165=0.163
+graph via graph_tool <Graph object, directed, with 19943 vertices and 58165 edges at 0x7f4e625c8da0>
+after mwgm, right alignment: 7719/9525=0.810
+mwgm costs time: 7.272 s
+selecting potential alignment costs time: 10.922 s
+update wrongly:  80 greedy update wrongly:  620
+after editing (<-), right alignment: 8225/9711=0.847
+after editing (->), right alignment: 8113/9118=0.890
+newly triples: 38129, 35641
+alignment_loss = 0.973, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [69.2   82.267 85.467 88.267]%, time = 1.112 s 
+generating neighbors of 30000 entities costs 15.293 s.
+
+iteration 38
+epoch 371, avg. triple loss: 0.5377, cost time: 3.6459s
+epoch 372, avg. triple loss: 0.5362, cost time: 3.4088s
+epoch 373, avg. triple loss: 0.5339, cost time: 3.3945s
+epoch 374, avg. triple loss: 0.5325, cost time: 3.8507s
+epoch 375, avg. triple loss: 0.5315, cost time: 3.4998s
+epoch 376, avg. triple loss: 0.5311, cost time: 3.4120s
+epoch 377, avg. triple loss: 0.5290, cost time: 3.4269s
+epoch 378, avg. triple loss: 0.5284, cost time: 3.3984s
+epoch 379, avg. triple loss: 0.5274, cost time: 3.5789s
+epoch 380, avg. triple loss: 0.5275, cost time: 3.2315s
+quick results: hits@[1, 5, 10, 50] = [69.267 82.533 85.4   88.467]%, time = 1.271 s 
+after filtering by sim threshold, right alignment: 9579/82532=0.116
+after filtering by sim and nearest k, right alignment: 9528/58792=0.162
+graph via graph_tool <Graph object, directed, with 20041 vertices and 58792 edges at 0x7f4e5e4eeeb8>
+after mwgm, right alignment: 7752/9573=0.810
+mwgm costs time: 7.104 s
+selecting potential alignment costs time: 10.815 s
+update wrongly:  74 greedy update wrongly:  617
+after editing (<-), right alignment: 8269/9765=0.847
+after editing (->), right alignment: 8171/9156=0.892
+newly triples: 38256, 35747
+alignment_loss = 0.971, time = 0.114 s
+quick results: hits@[1, 5, 10, 50] = [69.533 83.    85.667 88.533]%, time = 1.089 s 
+generating neighbors of 30000 entities costs 15.252 s.
+
+iteration 39
+epoch 381, avg. triple loss: 0.5360, cost time: 3.5480s
+epoch 382, avg. triple loss: 0.5345, cost time: 3.5377s
+epoch 383, avg. triple loss: 0.5330, cost time: 4.2630s
+epoch 384, avg. triple loss: 0.5322, cost time: 3.4527s
+epoch 385, avg. triple loss: 0.5308, cost time: 3.6536s
+epoch 386, avg. triple loss: 0.5289, cost time: 3.8772s
+epoch 387, avg. triple loss: 0.5284, cost time: 3.6915s
+epoch 388, avg. triple loss: 0.5276, cost time: 3.7073s
+epoch 389, avg. triple loss: 0.5272, cost time: 3.8202s
+epoch 390, avg. triple loss: 0.5263, cost time: 3.5121s
+quick results: hits@[1, 5, 10, 50] = [69.333 82.733 85.6   88.667]%, time = 0.991 s 
+after filtering by sim threshold, right alignment: 9625/83766=0.115
+after filtering by sim and nearest k, right alignment: 9572/59386=0.161
+graph via graph_tool <Graph object, directed, with 20135 vertices and 59386 edges at 0x7f4df0b35c88>
+after mwgm, right alignment: 7828/9633=0.813
+mwgm costs time: 7.271 s
+selecting potential alignment costs time: 10.970 s
+update wrongly:  80 greedy update wrongly:  634
+after editing (<-), right alignment: 8334/9807=0.850
+after editing (->), right alignment: 8223/9206=0.893
+newly triples: 38507, 35896
+alignment_loss = 0.971, time = 0.089 s
+quick results: hits@[1, 5, 10, 50] = [69.733 83.067 85.8   88.6  ]%, time = 1.061 s 
+generating neighbors of 30000 entities costs 15.813 s.
+
+iteration 40
+epoch 391, avg. triple loss: 0.5356, cost time: 3.9006s
+epoch 392, avg. triple loss: 0.5330, cost time: 3.6960s
+epoch 393, avg. triple loss: 0.5317, cost time: 3.6541s
+epoch 394, avg. triple loss: 0.5308, cost time: 3.5570s
+epoch 395, avg. triple loss: 0.5298, cost time: 3.5361s
+epoch 396, avg. triple loss: 0.5287, cost time: 3.7131s
+epoch 397, avg. triple loss: 0.5270, cost time: 3.6679s
+epoch 398, avg. triple loss: 0.5270, cost time: 3.4609s
+epoch 399, avg. triple loss: 0.5261, cost time: 3.4618s
+epoch 400, avg. triple loss: 0.5257, cost time: 3.4404s
+quick results: hits@[1, 5, 10, 50] = [69.6   83.267 85.667 88.8  ]%, time = 1.301 s 
+after filtering by sim threshold, right alignment: 9677/85075=0.114
+after filtering by sim and nearest k, right alignment: 9623/60013=0.160
+graph via graph_tool <Graph object, directed, with 20244 vertices and 60013 edges at 0x7f4e5d323eb8>
+after mwgm, right alignment: 7814/9687=0.807
+mwgm costs time: 5.178 s
+selecting potential alignment costs time: 8.721 s
+update wrongly:  75 greedy update wrongly:  653
+after editing (<-), right alignment: 8380/9868=0.849
+after editing (->), right alignment: 8275/9272=0.892
+newly triples: 38720, 36098
+alignment_loss = 0.970, time = 0.103 s
+quick results: hits@[1, 5, 10, 50] = [70.    83.6   85.867 88.8  ]%, time = 1.161 s 
+generating neighbors of 30000 entities costs 13.624 s.
+
+iteration 41
+epoch 401, avg. triple loss: 0.5333, cost time: 4.0976s
+epoch 402, avg. triple loss: 0.5326, cost time: 3.6216s
+epoch 403, avg. triple loss: 0.5311, cost time: 3.5262s
+epoch 404, avg. triple loss: 0.5294, cost time: 3.2126s
+epoch 405, avg. triple loss: 0.5283, cost time: 3.3180s
+epoch 406, avg. triple loss: 0.5279, cost time: 2.9935s
+epoch 407, avg. triple loss: 0.5264, cost time: 3.4859s
+epoch 408, avg. triple loss: 0.5265, cost time: 3.4679s
+epoch 409, avg. triple loss: 0.5253, cost time: 3.1745s
+epoch 410, avg. triple loss: 0.5250, cost time: 3.6799s
+quick results: hits@[1, 5, 10, 50] = [69.8 83.4 85.8 88.8]%, time = 0.896 s 
+after filtering by sim threshold, right alignment: 9727/86276=0.113
+after filtering by sim and nearest k, right alignment: 9670/60641=0.159
+graph via graph_tool <Graph object, directed, with 20340 vertices and 60641 edges at 0x7f4df0b35c88>
+after mwgm, right alignment: 7926/9734=0.814
+mwgm costs time: 7.529 s
+selecting potential alignment costs time: 11.184 s
+update wrongly:  77 greedy update wrongly:  627
+after editing (<-), right alignment: 8441/9910=0.852
+after editing (->), right alignment: 8319/9326=0.892
+newly triples: 38859, 36215
+alignment_loss = 0.969, time = 0.085 s
+quick results: hits@[1, 5, 10, 50] = [70.4   83.6   85.933 88.8  ]%, time = 0.823 s 
+generating neighbors of 30000 entities costs 14.418 s.
+
+iteration 42
+epoch 411, avg. triple loss: 0.5337, cost time: 3.7677s
+epoch 412, avg. triple loss: 0.5323, cost time: 3.3287s
+epoch 413, avg. triple loss: 0.5304, cost time: 3.1821s
+epoch 414, avg. triple loss: 0.5286, cost time: 3.3523s
+epoch 415, avg. triple loss: 0.5285, cost time: 3.3986s
+epoch 416, avg. triple loss: 0.5260, cost time: 3.3312s
+epoch 417, avg. triple loss: 0.5260, cost time: 3.5264s
+epoch 418, avg. triple loss: 0.5257, cost time: 3.4350s
+epoch 419, avg. triple loss: 0.5250, cost time: 3.8315s
+epoch 420, avg. triple loss: 0.5238, cost time: 3.5351s
+quick results: hits@[1, 5, 10, 50] = [70.333 83.733 85.867 88.867]%, time = 1.594 s 
+after filtering by sim threshold, right alignment: 9775/87493=0.112
+after filtering by sim and nearest k, right alignment: 9718/61241=0.159
+graph via graph_tool <Graph object, directed, with 20426 vertices and 61241 edges at 0x7f4e5d323eb8>
+after mwgm, right alignment: 7923/9784=0.810
+mwgm costs time: 7.617 s
+selecting potential alignment costs time: 11.431 s
+update wrongly:  81 greedy update wrongly:  665
+after editing (<-), right alignment: 8477/9960=0.851
+after editing (->), right alignment: 8363/9343=0.895
+newly triples: 38923, 36340
+alignment_loss = 0.967, time = 0.116 s
+quick results: hits@[1, 5, 10, 50] = [70.467 83.733 85.933 88.933]%, time = 1.330 s 
+generating neighbors of 30000 entities costs 15.432 s.
+
+iteration 43
+epoch 421, avg. triple loss: 0.5331, cost time: 3.6131s
+epoch 422, avg. triple loss: 0.5309, cost time: 3.5512s
+epoch 423, avg. triple loss: 0.5291, cost time: 3.4210s
+epoch 424, avg. triple loss: 0.5279, cost time: 3.4846s
+epoch 425, avg. triple loss: 0.5273, cost time: 3.4644s
+epoch 426, avg. triple loss: 0.5264, cost time: 3.4991s
+epoch 427, avg. triple loss: 0.5251, cost time: 3.3909s
+epoch 428, avg. triple loss: 0.5243, cost time: 3.2272s
+epoch 429, avg. triple loss: 0.5238, cost time: 3.2967s
+epoch 430, avg. triple loss: 0.5230, cost time: 3.4760s
+quick results: hits@[1, 5, 10, 50] = [70.8   83.6   85.867 89.   ]%, time = 1.054 s 
+after filtering by sim threshold, right alignment: 9830/88580=0.111
+after filtering by sim and nearest k, right alignment: 9771/61795=0.158
+graph via graph_tool <Graph object, directed, with 20517 vertices and 61795 edges at 0x7f4e50816fd0>
+after mwgm, right alignment: 7968/9824=0.811
+mwgm costs time: 4.566 s
+selecting potential alignment costs time: 7.807 s
+update wrongly:  91 greedy update wrongly:  626
+after editing (<-), right alignment: 8483/10007=0.848
+after editing (->), right alignment: 8380/9411=0.890
+newly triples: 39246, 36573
+alignment_loss = 0.967, time = 0.091 s
+quick results: hits@[1, 5, 10, 50] = [71.    83.6   86.067 89.   ]%, time = 0.975 s 
+generating neighbors of 30000 entities costs 15.307 s.
+
+iteration 44
+epoch 431, avg. triple loss: 0.5317, cost time: 3.4476s
+epoch 432, avg. triple loss: 0.5302, cost time: 3.6979s
+epoch 433, avg. triple loss: 0.5294, cost time: 3.4574s
+epoch 434, avg. triple loss: 0.5267, cost time: 3.5409s
+epoch 435, avg. triple loss: 0.5267, cost time: 3.4059s
+epoch 436, avg. triple loss: 0.5255, cost time: 3.3746s
+epoch 437, avg. triple loss: 0.5241, cost time: 3.4136s
+epoch 438, avg. triple loss: 0.5235, cost time: 3.3800s
+epoch 439, avg. triple loss: 0.5228, cost time: 3.2589s
+epoch 440, avg. triple loss: 0.5225, cost time: 3.2393s
+quick results: hits@[1, 5, 10, 50] = [71.133 83.8   85.933 89.   ]%, time = 1.158 s 
+after filtering by sim threshold, right alignment: 9871/89734=0.110
+after filtering by sim and nearest k, right alignment: 9813/62375=0.157
+graph via graph_tool <Graph object, directed, with 20574 vertices and 62375 edges at 0x7f4e50816fd0>
+after mwgm, right alignment: 8002/9862=0.811
+mwgm costs time: 4.528 s
+selecting potential alignment costs time: 7.795 s
+update wrongly:  76 greedy update wrongly:  641
+after editing (<-), right alignment: 8521/10025=0.850
+after editing (->), right alignment: 8423/9432=0.893
+newly triples: 39230, 36587
+alignment_loss = 0.965, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [71.267 83.733 86.    89.   ]%, time = 1.135 s 
+generating neighbors of 30000 entities costs 14.265 s.
+
+iteration 45
+epoch 441, avg. triple loss: 0.5310, cost time: 4.0711s
+epoch 442, avg. triple loss: 0.5287, cost time: 3.7469s
+epoch 443, avg. triple loss: 0.5282, cost time: 3.8707s
+epoch 444, avg. triple loss: 0.5260, cost time: 4.0114s
+epoch 445, avg. triple loss: 0.5260, cost time: 3.6991s
+epoch 446, avg. triple loss: 0.5250, cost time: 3.7381s
+epoch 447, avg. triple loss: 0.5243, cost time: 3.5280s
+epoch 448, avg. triple loss: 0.5229, cost time: 3.6088s
+epoch 449, avg. triple loss: 0.5226, cost time: 3.7048s
+epoch 450, avg. triple loss: 0.5213, cost time: 3.8582s
+quick results: hits@[1, 5, 10, 50] = [71.    83.867 85.933 89.133]%, time = 1.146 s 
+after filtering by sim threshold, right alignment: 9911/90849=0.109
+after filtering by sim and nearest k, right alignment: 9850/62907=0.157
+graph via graph_tool <Graph object, directed, with 20640 vertices and 62907 edges at 0x7f4e5b16ed68>
+after mwgm, right alignment: 8057/9905=0.813
+mwgm costs time: 7.577 s
+selecting potential alignment costs time: 11.239 s
+update wrongly:  74 greedy update wrongly:  626
+after editing (<-), right alignment: 8579/10081=0.851
+after editing (->), right alignment: 8478/9522=0.890
+newly triples: 39540, 36792
+alignment_loss = 0.965, time = 0.093 s
+quick results: hits@[1, 5, 10, 50] = [71.4   83.867 86.133 89.133]%, time = 1.448 s 
+generating neighbors of 30000 entities costs 13.751 s.
+
+iteration 46
+epoch 451, avg. triple loss: 0.5307, cost time: 3.5595s
+epoch 452, avg. triple loss: 0.5287, cost time: 3.4090s
+epoch 453, avg. triple loss: 0.5263, cost time: 3.4206s
+epoch 454, avg. triple loss: 0.5250, cost time: 3.3167s
+epoch 455, avg. triple loss: 0.5242, cost time: 3.4767s
+epoch 456, avg. triple loss: 0.5229, cost time: 3.4297s
+epoch 457, avg. triple loss: 0.5230, cost time: 3.6551s
+epoch 458, avg. triple loss: 0.5224, cost time: 3.4596s
+epoch 459, avg. triple loss: 0.5212, cost time: 3.3084s
+epoch 460, avg. triple loss: 0.5213, cost time: 3.2343s
+quick results: hits@[1, 5, 10, 50] = [71.4   83.933 86.133 89.133]%, time = 1.131 s 
+after filtering by sim threshold, right alignment: 9940/91965=0.108
+after filtering by sim and nearest k, right alignment: 9878/63460=0.156
+graph via graph_tool <Graph object, directed, with 20681 vertices and 63460 edges at 0x7f4df08e72e8>
+after mwgm, right alignment: 8084/9935=0.814
+mwgm costs time: 6.168 s
+selecting potential alignment costs time: 9.765 s
+update wrongly:  85 greedy update wrongly:  619
+after editing (<-), right alignment: 8604/10103=0.852
+after editing (->), right alignment: 8502/9535=0.892
+newly triples: 39600, 36863
+alignment_loss = 0.964, time = 0.094 s
+quick results: hits@[1, 5, 10, 50] = [71.6   83.933 86.4   89.133]%, time = 1.161 s 
+generating neighbors of 30000 entities costs 14.623 s.
+
+iteration 47
+epoch 461, avg. triple loss: 0.5291, cost time: 4.0078s
+epoch 462, avg. triple loss: 0.5274, cost time: 3.7222s
+epoch 463, avg. triple loss: 0.5262, cost time: 3.5546s
+epoch 464, avg. triple loss: 0.5247, cost time: 3.5406s
+epoch 465, avg. triple loss: 0.5240, cost time: 3.5362s
+epoch 466, avg. triple loss: 0.5229, cost time: 3.3951s
+epoch 467, avg. triple loss: 0.5228, cost time: 3.3689s
+epoch 468, avg. triple loss: 0.5215, cost time: 3.2771s
+epoch 469, avg. triple loss: 0.5213, cost time: 3.6102s
+epoch 470, avg. triple loss: 0.5198, cost time: 3.4559s
+quick results: hits@[1, 5, 10, 50] = [71.6   83.933 86.333 89.133]%, time = 1.074 s 
+after filtering by sim threshold, right alignment: 9960/92953=0.107
+after filtering by sim and nearest k, right alignment: 9899/63906=0.155
+graph via graph_tool <Graph object, directed, with 20731 vertices and 63906 edges at 0x7f4df07ef978>
+after mwgm, right alignment: 8120/9957=0.816
+mwgm costs time: 7.640 s
+selecting potential alignment costs time: 11.413 s
+update wrongly:  87 greedy update wrongly:  638
+after editing (<-), right alignment: 8639/10133=0.853
+after editing (->), right alignment: 8523/9558=0.892
+newly triples: 39639, 36918
+alignment_loss = 0.962, time = 0.091 s
+quick results: hits@[1, 5, 10, 50] = [71.667 84.067 86.667 89.133]%, time = 1.129 s 
+generating neighbors of 30000 entities costs 15.360 s.
+
+iteration 48
+epoch 471, avg. triple loss: 0.5283, cost time: 3.5865s
+epoch 472, avg. triple loss: 0.5263, cost time: 3.4821s
+epoch 473, avg. triple loss: 0.5251, cost time: 3.7097s
+epoch 474, avg. triple loss: 0.5241, cost time: 3.5910s
+epoch 475, avg. triple loss: 0.5236, cost time: 3.6525s
+epoch 476, avg. triple loss: 0.5219, cost time: 3.4850s
+epoch 477, avg. triple loss: 0.5221, cost time: 3.4823s
+epoch 478, avg. triple loss: 0.5206, cost time: 3.6301s
+epoch 479, avg. triple loss: 0.5201, cost time: 3.4551s
+epoch 480, avg. triple loss: 0.5197, cost time: 3.7238s
+quick results: hits@[1, 5, 10, 50] = [71.733 84.    86.6   89.267]%, time = 1.151 s 
+after filtering by sim threshold, right alignment: 9983/93989=0.106
+after filtering by sim and nearest k, right alignment: 9920/64396=0.154
+graph via graph_tool <Graph object, directed, with 20784 vertices and 64396 edges at 0x7f4e5b16ed68>
+after mwgm, right alignment: 8145/9969=0.817
+mwgm costs time: 7.545 s
+selecting potential alignment costs time: 10.690 s
+update wrongly:  95 greedy update wrongly:  594
+after editing (<-), right alignment: 8642/10154=0.851
+after editing (->), right alignment: 8524/9590=0.889
+newly triples: 39654, 37017
+alignment_loss = 0.960, time = 0.097 s
+quick results: hits@[1, 5, 10, 50] = [71.533 84.067 86.733 89.2  ]%, time = 1.215 s 
+generating neighbors of 30000 entities costs 15.625 s.
+
+iteration 49
+epoch 481, avg. triple loss: 0.5281, cost time: 3.7133s
+epoch 482, avg. triple loss: 0.5257, cost time: 3.7108s
+epoch 483, avg. triple loss: 0.5258, cost time: 3.5524s
+epoch 484, avg. triple loss: 0.5238, cost time: 3.4535s
+epoch 485, avg. triple loss: 0.5222, cost time: 3.5427s
+epoch 486, avg. triple loss: 0.5216, cost time: 3.4097s
+epoch 487, avg. triple loss: 0.5211, cost time: 3.5925s
+epoch 488, avg. triple loss: 0.5196, cost time: 3.5357s
+epoch 489, avg. triple loss: 0.5194, cost time: 3.3981s
+epoch 490, avg. triple loss: 0.5187, cost time: 3.3256s
+quick results: hits@[1, 5, 10, 50] = [71.733 83.933 86.6   89.267]%, time = 1.208 s 
+after filtering by sim threshold, right alignment: 10009/94917=0.105
+after filtering by sim and nearest k, right alignment: 9946/64788=0.154
+graph via graph_tool <Graph object, directed, with 20828 vertices and 64788 edges at 0x7f4df07ef978>
+after mwgm, right alignment: 8183/10017=0.817
+mwgm costs time: 7.918 s
+selecting potential alignment costs time: 11.613 s
+update wrongly:  74 greedy update wrongly:  603
+after editing (<-), right alignment: 8677/10181=0.852
+after editing (->), right alignment: 8559/9614=0.890
+newly triples: 39762, 37065
+alignment_loss = 0.959, time = 0.104 s
+quick results: hits@[1, 5, 10, 50] = [71.733 84.133 86.733 89.267]%, time = 1.246 s 
+generating neighbors of 30000 entities costs 14.031 s.
+
+iteration 50
+epoch 491, avg. triple loss: 0.5268, cost time: 3.2205s
+epoch 492, avg. triple loss: 0.5258, cost time: 3.2296s
+epoch 493, avg. triple loss: 0.5242, cost time: 3.4344s
+epoch 494, avg. triple loss: 0.5233, cost time: 3.3899s
+epoch 495, avg. triple loss: 0.5223, cost time: 3.4963s
+epoch 496, avg. triple loss: 0.5215, cost time: 3.3993s
+epoch 497, avg. triple loss: 0.5208, cost time: 3.5837s
+epoch 498, avg. triple loss: 0.5192, cost time: 3.5114s
+epoch 499, avg. triple loss: 0.5182, cost time: 3.4539s
+epoch 500, avg. triple loss: 0.5184, cost time: 3.2909s
+quick results: hits@[1, 5, 10, 50] = [71.933 84.    86.533 89.333]%, time = 1.075 s 
+after filtering by sim threshold, right alignment: 10029/95830=0.105
+after filtering by sim and nearest k, right alignment: 9967/65189=0.153
+graph via graph_tool <Graph object, directed, with 20858 vertices and 65189 edges at 0x7f4e45262898>
+after mwgm, right alignment: 8239/10023=0.822
+mwgm costs time: 7.824 s
+selecting potential alignment costs time: 11.446 s
+update wrongly:  80 greedy update wrongly:  565
+after editing (<-), right alignment: 8694/10208=0.852
+after editing (->), right alignment: 8584/9646=0.890
+newly triples: 39967, 37220
+alignment_loss = 0.959, time = 0.097 s
+quick results: hits@[1, 5, 10, 50] = [71.8   84.333 86.667 89.333]%, time = 1.089 s 
+generating neighbors of 30000 entities costs 14.413 s.
+
+iteration 51
+epoch 501, avg. triple loss: 0.5260, cost time: 3.6471s
+epoch 502, avg. triple loss: 0.5247, cost time: 3.4371s
+epoch 503, avg. triple loss: 0.5237, cost time: 3.4610s
+epoch 504, avg. triple loss: 0.5221, cost time: 3.5662s
+epoch 505, avg. triple loss: 0.5218, cost time: 3.7346s
+epoch 506, avg. triple loss: 0.5206, cost time: 3.4377s
+epoch 507, avg. triple loss: 0.5203, cost time: 3.5015s
+epoch 508, avg. triple loss: 0.5182, cost time: 3.4137s
+epoch 509, avg. triple loss: 0.5185, cost time: 3.6013s
+epoch 510, avg. triple loss: 0.5178, cost time: 3.4066s
+quick results: hits@[1, 5, 10, 50] = [71.867 84.267 86.533 89.4  ]%, time = 1.014 s 
+after filtering by sim threshold, right alignment: 10050/96765=0.104
+after filtering by sim and nearest k, right alignment: 9983/65607=0.152
+graph via graph_tool <Graph object, directed, with 20899 vertices and 65607 edges at 0x7f4df08e72e8>
+after mwgm, right alignment: 8208/10042=0.817
+mwgm costs time: 4.768 s
+selecting potential alignment costs time: 8.107 s
+update wrongly:  75 greedy update wrongly:  601
+after editing (<-), right alignment: 8698/10207=0.852
+after editing (->), right alignment: 8603/9655=0.891
+newly triples: 39949, 37223
+alignment_loss = 0.958, time = 0.085 s
+quick results: hits@[1, 5, 10, 50] = [72.133 84.533 86.667 89.4  ]%, time = 1.177 s 
+generating neighbors of 30000 entities costs 15.302 s.
+
+iteration 52
+epoch 511, avg. triple loss: 0.5263, cost time: 3.6579s
+epoch 512, avg. triple loss: 0.5240, cost time: 3.4941s
+epoch 513, avg. triple loss: 0.5227, cost time: 3.4926s
+epoch 514, avg. triple loss: 0.5219, cost time: 3.5086s
+epoch 515, avg. triple loss: 0.5204, cost time: 3.6017s
+epoch 516, avg. triple loss: 0.5197, cost time: 3.6185s
+epoch 517, avg. triple loss: 0.5188, cost time: 3.5534s
+epoch 518, avg. triple loss: 0.5176, cost time: 3.4334s
+epoch 519, avg. triple loss: 0.5169, cost time: 3.3484s
+epoch 520, avg. triple loss: 0.5181, cost time: 3.3998s
+quick results: hits@[1, 5, 10, 50] = [71.533 84.267 86.667 89.4  ]%, time = 1.082 s 
+
+ == should early stop == 
+
+Training ends. Total time = 3324.788 s.
+accurate results: hits@[1, 5, 10, 50] = [74.229 84.876 87.286 89.467]%, mr = 345.389, mrr = 0.789540, time = 5.589 s 
+accurate results with csls: csls=10, hits@[1, 5, 10, 50] = [74.086 86.105 88.076 90.21 ]%, mr = 94.007, mrr = 0.793502, time = 10.455 s 
+Results saved!
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg1_ent_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg2_ent_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg1_rel_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg2_rel_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg1_attr_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220316103855/kg2_attr_ids saved.
+Embeddings saved!
+Total run time = 3353.337 s.

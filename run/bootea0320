@@ -1,0 +1,2001 @@
+load arguments: {'training_data': '../../datasets/', 'output': '../../output/results/', 'dataset_division': '721_5fold', 'embedding_module': 'BootEA', 'alignment_module': 'swapping', 'search_module': 'greedy', 'dim': 100, 'init': 'normal', 'ent_l2_norm': True, 'rel_l2_norm': True, 'loss': 'limited', 'loss_norm': 'L2', 'learning_rate': 0.01, 'optimizer': 'Adagrad', 'max_epoch': 2000, 'batch_size': 5000, 'pos_margin': 0.01, 'neg_margin': 2.0, 'neg_margin_balance': 0.2, 'neg_sampling': 'truncated', 'neg_triple_num': 10, 'truncated_epsilon': 0.9, 'truncated_freq': 10, 'batch_threads_num': 2, 'test_threads_num': 4, 'ordered': True, 'start_valid': 100, 'eval_freq': 10, 'stop_metric': 'hits1', 'eval_metric': 'inner', 'csls': 10, 'top_k': [1, 5, 10, 50], 'is_save': True, 'eval_norm': False, 'sim_th': 0.7, 'k': 10, 'likelihood_slice': 10, 'sub_epoch': 10}
+BootEA
+<openea.modules.args.args_hander.ARGs object at 0x7f721ea460f0>
+read relation triples: ../../datasets/D_Y_15K_V1/rel_triples_1
+read relation triples: ../../datasets/D_Y_15K_V1/rel_triples_2
+read attribute triples: ../../datasets/D_Y_15K_V1/attr_triples_1
+read attribute triples: ../../datasets/D_Y_15K_V1/attr_triples_2
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/train_links
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/valid_links
+read links: ../../datasets/D_Y_15K_V1/721_5fold/1/test_links
+Number of rt_dict: 10796
+Number of hr_dict: 6407
+entity relations dict: 10796
+Number of av_dict: 14649
+entity attributes dict: 14649
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 165
+Number of attributes: 257
+Number of relation triples: 30291
+Number of attribute triples: 71716
+Number of local relation triples: 30291
+Number of local attribute triples: 71716
+
+Number of rt_dict: 7437
+Number of hr_dict: 8394
+entity relations dict: 7437
+Number of av_dict: 15000
+entity attributes dict: 15000
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 28
+Number of attributes: 35
+Number of relation triples: 26638
+Number of attribute triples: 132114
+Number of local relation triples: 26638
+Number of local attribute triples: 132114
+
+Number of rt_dict: 10796
+Number of hr_dict: 6407
+entity relations dict: 10796
+Number of av_dict: 14649
+entity attributes dict: 14649
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 165
+Number of attributes: 257
+Number of relation triples: 30291
+Number of attribute triples: 71716
+Number of local relation triples: 30291
+Number of local attribute triples: 71716
+
+Number of rt_dict: 7437
+Number of hr_dict: 8394
+entity relations dict: 7437
+Number of av_dict: 15000
+entity attributes dict: 15000
+
+KG statistics:
+Number of entities: 15000
+Number of relations: 28
+Number of attributes: 35
+Number of relation triples: 26638
+Number of attribute triples: 132114
+Number of local relation triples: 26638
+Number of local attribute triples: 132114
+
+supervised relation triples: 12105, 10658
+supervised attribute triples: 14093, 25594
+../../output/results/ ../../datasets/D_Y_15K_V1/ ['..', '..', 'datasets', 'D_Y_15K_V1'] 721_5fold/1/ BootEA
+results output folder: ../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/
+
+iteration 1
+epoch 1, avg. triple loss: 2.7552, cost time: 1.2743s
+epoch 2, avg. triple loss: 2.2465, cost time: 1.1861s
+epoch 3, avg. triple loss: 1.9641, cost time: 1.1872s
+epoch 4, avg. triple loss: 1.7762, cost time: 1.1768s
+epoch 5, avg. triple loss: 1.6384, cost time: 1.1581s
+epoch 6, avg. triple loss: 1.5307, cost time: 1.1600s
+epoch 7, avg. triple loss: 1.4424, cost time: 1.1571s
+epoch 8, avg. triple loss: 1.3674, cost time: 1.1319s
+epoch 9, avg. triple loss: 1.3038, cost time: 1.1720s
+epoch 10, avg. triple loss: 1.2474, cost time: 1.1788s
+generating neighbors of 30000 entities costs 9.754 s.
+
+iteration 2
+epoch 11, avg. triple loss: 1.3951, cost time: 2.4541s
+epoch 12, avg. triple loss: 1.3384, cost time: 2.2828s
+epoch 13, avg. triple loss: 1.2912, cost time: 2.1903s
+epoch 14, avg. triple loss: 1.2516, cost time: 2.0431s
+epoch 15, avg. triple loss: 1.2153, cost time: 2.2160s
+epoch 16, avg. triple loss: 1.1830, cost time: 2.2858s
+epoch 17, avg. triple loss: 1.1524, cost time: 2.3622s
+epoch 18, avg. triple loss: 1.1244, cost time: 2.3236s
+epoch 19, avg. triple loss: 1.0979, cost time: 2.2112s
+epoch 20, avg. triple loss: 1.0743, cost time: 2.2633s
+after filtering by sim threshold, right alignment: 25/26=0.962
+after filtering by sim and nearest k, right alignment: 25/26=0.962
+graph via graph_tool <Graph object, directed, with 52 vertices and 26 edges at 0x7f708bc5b128>
+after mwgm, right alignment: 25/26=0.962
+========== worng alignment
+(http://dbpedia.org/resource/Nothing_to_Gein, Fall_into_Sleep, sim: 0.707) -> (http://dbpedia.org/resource/Nothing_to_Gein, Nothing_to_Gein, sim: 0.648)
+==========
+after force right, right alignment: 26/26=1.000
+mwgm costs time: 1.102 s
+selecting potential alignment costs time: 3.291 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26/26=1.000
+after editing (->), right alignment: 26/26=1.000
+newly triples: 103, 82
+alignment_loss = 1.321, time = 0.060 s
+generating neighbors of 30000 entities costs 10.455 s.
+
+iteration 3
+epoch 21, avg. triple loss: 1.0560, cost time: 2.4731s
+epoch 22, avg. triple loss: 1.0354, cost time: 2.2929s
+epoch 23, avg. triple loss: 1.0168, cost time: 2.3371s
+epoch 24, avg. triple loss: 0.9989, cost time: 2.2745s
+epoch 25, avg. triple loss: 0.9825, cost time: 2.2564s
+epoch 26, avg. triple loss: 0.9665, cost time: 2.2365s
+epoch 27, avg. triple loss: 0.9509, cost time: 2.3581s
+epoch 28, avg. triple loss: 0.9360, cost time: 2.1311s
+epoch 29, avg. triple loss: 0.9235, cost time: 2.1134s
+epoch 30, avg. triple loss: 0.9105, cost time: 2.4248s
+after filtering by sim threshold, right alignment: 223/331=0.674
+after filtering by sim and nearest k, right alignment: 223/331=0.674
+graph via graph_tool <Graph object, directed, with 532 vertices and 331 edges at 0x7f708bc5b128>
+after mwgm, right alignment: 196/246=0.797
+========== worng alignment
+(http://dbpedia.org/resource/Stéphane_Rideau, Gaël_Morel, sim: 0.705) -> (http://dbpedia.org/resource/Stéphane_Rideau, Stéphane_Rideau, sim: 0.680)
+(http://dbpedia.org/resource/A_Virus_Knows_No_Morals, Red_Love, sim: 0.801) -> (http://dbpedia.org/resource/A_Virus_Knows_No_Morals, A_Virus_Knows_No_Morals, sim: 0.861)
+(http://dbpedia.org/resource/Khatam_County, Chahak_Rural_District, sim: 0.707) -> (http://dbpedia.org/resource/Khatam_County, Khatam_County, sim: 0.691)
+(http://dbpedia.org/resource/Cats'_Play, Another_Way_(film), sim: 0.765) -> (http://dbpedia.org/resource/Cats'_Play, Cats'_Play, sim: 0.625)
+(http://dbpedia.org/resource/I_Cut_Like_a_Buffalo, Die_by_the_Drop, sim: 0.745) -> (http://dbpedia.org/resource/I_Cut_Like_a_Buffalo, I_Cut_Like_a_Buffalo, sim: 0.744)
+(http://dbpedia.org/resource/Follow_That_Camel, Carry_On_Cleo, sim: 0.754) -> (http://dbpedia.org/resource/Follow_That_Camel, Follow_That_Camel, sim: 0.691)
+(http://dbpedia.org/resource/The_Pleasure_Seekers_(song), Coming_to_America_(Nile_Rodgers_song), sim: 0.700) -> (http://dbpedia.org/resource/The_Pleasure_Seekers_(song), The_Pleasure_Seekers_(song), sim: 0.532)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.754) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.704)
+(http://dbpedia.org/resource/Mike_Rutherford, Genesis_(band), sim: 0.717) -> (http://dbpedia.org/resource/Mike_Rutherford, Mike_Rutherford, sim: 0.679)
+(http://dbpedia.org/resource/Mazhin, Esmaili-ye_Olya,_Ilam, sim: 0.709) -> (http://dbpedia.org/resource/Mazhin, Mazhin, sim: 0.667)
+==========
+after force right, right alignment: 246/246=1.000
+mwgm costs time: 0.032 s
+selecting potential alignment costs time: 2.224 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 246/246=1.000
+after editing (->), right alignment: 246/246=1.000
+newly triples: 1062, 923
+alignment_loss = 1.311, time = 0.005 s
+generating neighbors of 30000 entities costs 10.679 s.
+
+iteration 4
+epoch 31, avg. triple loss: 0.9087, cost time: 2.7358s
+epoch 32, avg. triple loss: 0.8955, cost time: 2.3939s
+epoch 33, avg. triple loss: 0.8845, cost time: 2.1469s
+epoch 34, avg. triple loss: 0.8734, cost time: 2.2114s
+epoch 35, avg. triple loss: 0.8634, cost time: 2.1606s
+epoch 36, avg. triple loss: 0.8541, cost time: 2.2815s
+epoch 37, avg. triple loss: 0.8447, cost time: 2.4861s
+epoch 38, avg. triple loss: 0.8361, cost time: 2.2803s
+epoch 39, avg. triple loss: 0.8279, cost time: 2.1362s
+epoch 40, avg. triple loss: 0.8204, cost time: 2.2605s
+after filtering by sim threshold, right alignment: 785/1845=0.425
+after filtering by sim and nearest k, right alignment: 784/1813=0.432
+graph via graph_tool <Graph object, directed, with 1817 vertices and 1813 edges at 0x7f70d4e6c898>
+after mwgm, right alignment: 613/828=0.740
+========== worng alignment
+(http://dbpedia.org/resource/Joe_Cobb, Mickey_Daniels, sim: 0.704) -> (http://dbpedia.org/resource/Joe_Cobb, Joe_Cobb, sim: 0.749)
+(http://dbpedia.org/resource/Hail_Caesar_(song), Rock_'N_Roll_Train, sim: 0.703) -> (http://dbpedia.org/resource/Hail_Caesar_(song), Hail_Caesar_(song), sim: 0.602)
+(http://dbpedia.org/resource/Sultan_Rahi, Ilyas_Kashmiri_(actor), sim: 0.719) -> (http://dbpedia.org/resource/Sultan_Rahi, Sultan_Rahi, sim: 0.746)
+(http://dbpedia.org/resource/William_Arboleda, David_Montoya, sim: 0.740) -> (http://dbpedia.org/resource/William_Arboleda, William_Arboleda, sim: 0.608)
+(http://dbpedia.org/resource/Rupert_Ryan_(footballer), Perry_Cotton, sim: 0.770) -> (http://dbpedia.org/resource/Rupert_Ryan_(footballer), Rupert_Ryan_(footballer), sim: 0.728)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.870) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.836)
+(http://dbpedia.org/resource/Andy_Samuel, Jackie_Condon, sim: 0.731) -> (http://dbpedia.org/resource/Andy_Samuel, Andy_Samuel, sim: 0.726)
+(http://dbpedia.org/resource/Mike_Rutherford, Genesis_(band), sim: 0.862) -> (http://dbpedia.org/resource/Mike_Rutherford, Mike_Rutherford, sim: 0.861)
+(http://dbpedia.org/resource/Rock_or_Bust_(song), Cover_You_in_Oil, sim: 0.762) -> (http://dbpedia.org/resource/Rock_or_Bust_(song), Rock_or_Bust_(song), sim: 0.756)
+(http://dbpedia.org/resource/Rolando_Blackburn, Mario_Méndez_(Panamanian_footballer), sim: 0.722) -> (http://dbpedia.org/resource/Rolando_Blackburn, Rolando_Blackburn, sim: 0.693)
+==========
+after force right, right alignment: 828/828=1.000
+mwgm costs time: 0.126 s
+selecting potential alignment costs time: 2.337 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 831/831=1.000
+after editing (->), right alignment: 831/831=1.000
+newly triples: 3515, 3401
+alignment_loss = 1.268, time = 0.010 s
+generating neighbors of 30000 entities costs 10.850 s.
+
+iteration 5
+epoch 41, avg. triple loss: 0.8205, cost time: 2.1136s
+epoch 42, avg. triple loss: 0.8114, cost time: 2.0232s
+epoch 43, avg. triple loss: 0.8029, cost time: 2.0717s
+epoch 44, avg. triple loss: 0.7959, cost time: 2.0249s
+epoch 45, avg. triple loss: 0.7887, cost time: 1.9900s
+epoch 46, avg. triple loss: 0.7821, cost time: 2.1314s
+epoch 47, avg. triple loss: 0.7761, cost time: 2.0843s
+epoch 48, avg. triple loss: 0.7716, cost time: 1.9991s
+epoch 49, avg. triple loss: 0.7651, cost time: 2.0916s
+epoch 50, avg. triple loss: 0.7601, cost time: 1.9698s
+after filtering by sim threshold, right alignment: 1496/4333=0.345
+after filtering by sim and nearest k, right alignment: 1491/4065=0.367
+graph via graph_tool <Graph object, directed, with 3433 vertices and 4065 edges at 0x7f721d39f160>
+after mwgm, right alignment: 1123/1570=0.715
+========== worng alignment
+(http://dbpedia.org/resource/Rupert_Ryan_(footballer), Perry_Cotton, sim: 0.833) -> (http://dbpedia.org/resource/Rupert_Ryan_(footballer), Rupert_Ryan_(footballer), sim: 0.827)
+(http://dbpedia.org/resource/Salvatore_Nobile, Alejandro_Aragao_Da_Cruz, sim: 0.741) -> (http://dbpedia.org/resource/Salvatore_Nobile, Salvatore_Nobile, sim: 0.766)
+(http://dbpedia.org/resource/Pasolini_(film), Adão_e_Eva, sim: 0.766) -> (http://dbpedia.org/resource/Pasolini_(film), Pasolini_(film), sim: 0.818)
+(http://dbpedia.org/resource/Sagar_Mitchell, James_Kenyon_(cinematographer), sim: 0.719) -> (http://dbpedia.org/resource/Sagar_Mitchell, Sagar_Mitchell, sim: 0.736)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.763) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.828)
+(http://dbpedia.org/resource/Leonel_Parris, Armando_Dely_Valdés, sim: 0.775) -> (http://dbpedia.org/resource/Leonel_Parris, Leonel_Parris, sim: 0.773)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.771) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.644)
+(http://dbpedia.org/resource/A_Song_for_You, Money,_Money, sim: 0.723) -> (http://dbpedia.org/resource/A_Song_for_You, A_Song_for_You, sim: 0.720)
+(http://dbpedia.org/resource/Hamid_Kazemi, Omid_Abolhassani, sim: 0.845) -> (http://dbpedia.org/resource/Hamid_Kazemi, Hamid_Kazemi, sim: 0.843)
+(http://dbpedia.org/resource/Exile_(American_band), J.P._Pennington, sim: 0.811) -> (http://dbpedia.org/resource/Exile_(American_band), Exile_(American_band), sim: 0.837)
+==========
+after force right, right alignment: 1570/1570=1.000
+mwgm costs time: 0.278 s
+selecting potential alignment costs time: 2.516 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1588/1588=1.000
+after editing (->), right alignment: 1588/1588=1.000
+newly triples: 6876, 6565
+alignment_loss = 1.236, time = 0.015 s
+generating neighbors of 30000 entities costs 10.913 s.
+
+iteration 6
+epoch 51, avg. triple loss: 0.7652, cost time: 2.1281s
+epoch 52, avg. triple loss: 0.7571, cost time: 1.9679s
+epoch 53, avg. triple loss: 0.7503, cost time: 2.2395s
+epoch 54, avg. triple loss: 0.7443, cost time: 1.9786s
+epoch 55, avg. triple loss: 0.7397, cost time: 2.0058s
+epoch 56, avg. triple loss: 0.7348, cost time: 1.9986s
+epoch 57, avg. triple loss: 0.7298, cost time: 2.0144s
+epoch 58, avg. triple loss: 0.7258, cost time: 1.9633s
+epoch 59, avg. triple loss: 0.7225, cost time: 1.9941s
+epoch 60, avg. triple loss: 0.7176, cost time: 1.9838s
+after filtering by sim threshold, right alignment: 2264/7461=0.303
+after filtering by sim and nearest k, right alignment: 2255/6885=0.328
+graph via graph_tool <Graph object, directed, with 5028 vertices and 6885 edges at 0x7f721d3b7d68>
+after mwgm, right alignment: 1692/2313=0.732
+========== worng alignment
+(http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Bad_Sneakers, sim: 0.949) -> (http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Rikki_Don't_Lose_That_Number, sim: 0.942)
+(http://dbpedia.org/resource/Annabelle_Lascar, Jonathan_Chimier, sim: 0.723) -> (http://dbpedia.org/resource/Annabelle_Lascar, Annabelle_Lascar, sim: 0.640)
+(http://dbpedia.org/resource/Roman_Teryokhin, Aleksandr_Lobkov, sim: 0.762) -> (http://dbpedia.org/resource/Roman_Teryokhin, Roman_Teryokhin, sim: 0.906)
+(http://dbpedia.org/resource/FC_Uralets_Nizhny_Tagil, Rinat_Vasikov, sim: 0.743) -> (http://dbpedia.org/resource/FC_Uralets_Nizhny_Tagil, FC_Uralets_Nizhny_Tagil, sim: 0.904)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.877) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.895)
+(http://dbpedia.org/resource/Salvatore_Nobile, Alejandro_Aragao_Da_Cruz, sim: 0.834) -> (http://dbpedia.org/resource/Salvatore_Nobile, Salvatore_Nobile, sim: 0.847)
+(http://dbpedia.org/resource/Kix_Brooks, Ronnie_Dunn, sim: 0.786) -> (http://dbpedia.org/resource/Kix_Brooks, Kix_Brooks, sim: 0.758)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.825) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.888)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.836) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.760)
+(http://dbpedia.org/resource/Break_Up_(song), What_Them_Girls_Like, sim: 0.851) -> (http://dbpedia.org/resource/Break_Up_(song), Break_Up_(song), sim: 0.591)
+==========
+after force right, right alignment: 2313/2313=1.000
+mwgm costs time: 0.465 s
+selecting potential alignment costs time: 2.720 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2355/2355=1.000
+after editing (->), right alignment: 2355/2355=1.000
+newly triples: 10222, 9712
+alignment_loss = 1.199, time = 0.020 s
+generating neighbors of 30000 entities costs 10.793 s.
+
+iteration 7
+epoch 61, avg. triple loss: 0.7251, cost time: 2.1923s
+epoch 62, avg. triple loss: 0.7186, cost time: 2.0581s
+epoch 63, avg. triple loss: 0.7123, cost time: 2.0636s
+epoch 64, avg. triple loss: 0.7081, cost time: 2.2278s
+epoch 65, avg. triple loss: 0.7037, cost time: 2.0134s
+epoch 66, avg. triple loss: 0.6997, cost time: 1.9781s
+epoch 67, avg. triple loss: 0.6970, cost time: 1.9426s
+epoch 68, avg. triple loss: 0.6933, cost time: 1.9623s
+epoch 69, avg. triple loss: 0.6904, cost time: 1.9501s
+epoch 70, avg. triple loss: 0.6869, cost time: 1.9713s
+after filtering by sim threshold, right alignment: 2985/10748=0.278
+after filtering by sim and nearest k, right alignment: 2978/9714=0.307
+graph via graph_tool <Graph object, directed, with 6544 vertices and 9714 edges at 0x7f7008defef0>
+after mwgm, right alignment: 2240/3019=0.742
+========== worng alignment
+(http://dbpedia.org/resource/Olga_Petrova, Bridges_Burned, sim: 0.789) -> (http://dbpedia.org/resource/Olga_Petrova, Olga_Petrova, sim: 0.958)
+(http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Bad_Sneakers, sim: 0.964) -> (http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Rikki_Don't_Lose_That_Number, sim: 0.962)
+(http://dbpedia.org/resource/Lost_in_the_Supermarket, Paper_Planes, sim: 0.704) -> (http://dbpedia.org/resource/Lost_in_the_Supermarket, Lost_in_the_Supermarket, sim: 0.666)
+(http://dbpedia.org/resource/Pattanakke_Banda_Pathniyaru, Shrimanthana_Magalu, sim: 0.773) -> (http://dbpedia.org/resource/Pattanakke_Banda_Pathniyaru, Pattanakke_Banda_Pathniyaru, sim: 0.630)
+(http://dbpedia.org/resource/Dahiri,_Ivory_Coast, Niorouhio, sim: 0.785) -> (http://dbpedia.org/resource/Dahiri,_Ivory_Coast, Dahiri,_Ivory_Coast, sim: 0.728)
+(http://dbpedia.org/resource/Denis_Šme, Dino_Martinović, sim: 0.705) -> (http://dbpedia.org/resource/Denis_Šme, Denis_Šme, sim: 0.740)
+(http://dbpedia.org/resource/Oh..._Rosalinda!!, The_Thief_of_Bagdad_(1940_film), sim: 0.727) -> (http://dbpedia.org/resource/Oh..._Rosalinda!!, Oh..._Rosalinda!!, sim: 0.879)
+(http://dbpedia.org/resource/Kyp_Malone, TV_on_the_Radio, sim: 0.749) -> (http://dbpedia.org/resource/Kyp_Malone, Kyp_Malone, sim: 0.722)
+(http://dbpedia.org/resource/Anerood_Jugnauth, Ashok_Jugnauth, sim: 0.718) -> (http://dbpedia.org/resource/Anerood_Jugnauth, Anerood_Jugnauth, sim: 0.674)
+(http://dbpedia.org/resource/Run_for_Your_Life_(The_Fray_song), Syndicate_(song), sim: 0.890) -> (http://dbpedia.org/resource/Run_for_Your_Life_(The_Fray_song), Run_for_Your_Life_(The_Fray_song), sim: 0.902)
+==========
+after force right, right alignment: 3019/3019=1.000
+mwgm costs time: 0.653 s
+selecting potential alignment costs time: 2.918 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3079/3079=1.000
+after editing (->), right alignment: 3079/3079=1.000
+newly triples: 13403, 12561
+alignment_loss = 1.172, time = 0.028 s
+generating neighbors of 30000 entities costs 10.629 s.
+
+iteration 8
+epoch 71, avg. triple loss: 0.6960, cost time: 2.0777s
+epoch 72, avg. triple loss: 0.6908, cost time: 1.9063s
+epoch 73, avg. triple loss: 0.6851, cost time: 1.9034s
+epoch 74, avg. triple loss: 0.6812, cost time: 1.9297s
+epoch 75, avg. triple loss: 0.6770, cost time: 1.9275s
+epoch 76, avg. triple loss: 0.6748, cost time: 1.9210s
+epoch 77, avg. triple loss: 0.6711, cost time: 1.9188s
+epoch 78, avg. triple loss: 0.6685, cost time: 1.9414s
+epoch 79, avg. triple loss: 0.6663, cost time: 1.9284s
+epoch 80, avg. triple loss: 0.6638, cost time: 1.8951s
+after filtering by sim threshold, right alignment: 3670/14228=0.258
+after filtering by sim and nearest k, right alignment: 3662/12719=0.288
+graph via graph_tool <Graph object, directed, with 8038 vertices and 12719 edges at 0x7f735fef1f28>
+after mwgm, right alignment: 2816/3706=0.760
+========== worng alignment
+(http://dbpedia.org/resource/Tamil_National_Alliance, Sri_Lanka_Railways, sim: 0.738) -> (http://dbpedia.org/resource/Tamil_National_Alliance, Tamil_National_Alliance, sim: 0.686)
+(http://dbpedia.org/resource/The_Girl_of_the_Golden_West_(1938_film), Maytime_(1937_film), sim: 0.716) -> (http://dbpedia.org/resource/The_Girl_of_the_Golden_West_(1938_film), The_Girl_of_the_Golden_West_(1938_film), sim: 0.680)
+(http://dbpedia.org/resource/Kalateh-ye_Aliabad,_South_Khorasan, Kalateh-ye_Seyyed_Ali,_South_Khorasan, sim: 0.792) -> (http://dbpedia.org/resource/Kalateh-ye_Aliabad,_South_Khorasan, Kalateh-ye_Aliabad,_South_Khorasan, sim: 0.924)
+(http://dbpedia.org/resource/Prayers_for_Bobby, Company_Man_(film), sim: 0.721) -> (http://dbpedia.org/resource/Prayers_for_Bobby, Prayers_for_Bobby, sim: 0.814)
+(http://dbpedia.org/resource/Main_Hoon_Na, Happy_New_Year_(2014_film), sim: 0.830) -> (http://dbpedia.org/resource/Main_Hoon_Na, Main_Hoon_Na, sim: 0.713)
+(http://dbpedia.org/resource/Here_(Rascal_Flatts_song), Why_(Rascal_Flatts_song), sim: 0.716) -> (http://dbpedia.org/resource/Here_(Rascal_Flatts_song), Here_(Rascal_Flatts_song), sim: 0.758)
+(http://dbpedia.org/resource/The_Man_Who_Loved_Women_(1983_film), The_Perfect_Furlough, sim: 0.799) -> (http://dbpedia.org/resource/The_Man_Who_Loved_Women_(1983_film), The_Man_Who_Loved_Women_(1983_film), sim: 0.906)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.938) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.928)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.916) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.947)
+(http://dbpedia.org/resource/Leonel_Parris, Armando_Dely_Valdés, sim: 0.923) -> (http://dbpedia.org/resource/Leonel_Parris, Leonel_Parris, sim: 0.952)
+==========
+after force right, right alignment: 3706/3706=1.000
+mwgm costs time: 0.882 s
+selecting potential alignment costs time: 3.121 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3803/3803=1.000
+after editing (->), right alignment: 3803/3803=1.000
+newly triples: 16588, 15631
+alignment_loss = 1.154, time = 0.033 s
+generating neighbors of 30000 entities costs 10.629 s.
+
+iteration 9
+epoch 81, avg. triple loss: 0.6741, cost time: 2.0141s
+epoch 82, avg. triple loss: 0.6682, cost time: 1.8942s
+epoch 83, avg. triple loss: 0.6638, cost time: 1.8921s
+epoch 84, avg. triple loss: 0.6598, cost time: 1.9048s
+epoch 85, avg. triple loss: 0.6563, cost time: 1.9073s
+epoch 86, avg. triple loss: 0.6541, cost time: 1.8951s
+epoch 87, avg. triple loss: 0.6517, cost time: 1.8906s
+epoch 88, avg. triple loss: 0.6490, cost time: 1.8791s
+epoch 89, avg. triple loss: 0.6475, cost time: 2.0165s
+epoch 90, avg. triple loss: 0.6448, cost time: 1.9061s
+after filtering by sim threshold, right alignment: 4289/17983=0.239
+after filtering by sim and nearest k, right alignment: 4270/15693=0.272
+graph via graph_tool <Graph object, directed, with 9300 vertices and 15693 edges at 0x7f70d4e6cb00>
+after mwgm, right alignment: 3271/4306=0.760
+========== worng alignment
+(http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Bad_Sneakers, sim: 0.983) -> (http://dbpedia.org/resource/Rikki_Don't_Lose_That_Number, Rikki_Don't_Lose_That_Number, sim: 0.981)
+(http://dbpedia.org/resource/Tamil_National_Alliance, Sri_Lanka_Railways, sim: 0.796) -> (http://dbpedia.org/resource/Tamil_National_Alliance, Tamil_National_Alliance, sim: 0.782)
+(http://dbpedia.org/resource/Dassioko, Niorouhio, sim: 0.918) -> (http://dbpedia.org/resource/Dassioko, Dassioko, sim: 0.923)
+(http://dbpedia.org/resource/Soma_Novothny, Márton_Lorentz, sim: 0.713) -> (http://dbpedia.org/resource/Soma_Novothny, Soma_Novothny, sim: 0.603)
+(http://dbpedia.org/resource/The_Hungry_Heart, Audrey_(1916_film), sim: 0.856) -> (http://dbpedia.org/resource/The_Hungry_Heart, The_Hungry_Heart, sim: 0.831)
+(http://dbpedia.org/resource/Denis_Šme, Dino_Martinović, sim: 0.811) -> (http://dbpedia.org/resource/Denis_Šme, Denis_Šme, sim: 0.863)
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.826) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.706)
+(http://dbpedia.org/resource/Central_District_(Khoshab_County), Tabas_Rural_District, sim: 0.789) -> (http://dbpedia.org/resource/Central_District_(Khoshab_County), Central_District_(Khoshab_County), sim: 0.763)
+(http://dbpedia.org/resource/Somebody_to_You, All_About_You_(Hilary_Duff_song), sim: 0.777) -> (http://dbpedia.org/resource/Somebody_to_You, Somebody_to_You, sim: 0.881)
+(http://dbpedia.org/resource/FC_Uralets_Nizhny_Tagil, Rinat_Vasikov, sim: 0.831) -> (http://dbpedia.org/resource/FC_Uralets_Nizhny_Tagil, FC_Uralets_Nizhny_Tagil, sim: 0.966)
+==========
+after force right, right alignment: 4306/4306=1.000
+mwgm costs time: 1.032 s
+selecting potential alignment costs time: 3.261 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 4430/4430=1.000
+after editing (->), right alignment: 4430/4430=1.000
+newly triples: 19534, 18288
+alignment_loss = 1.138, time = 0.045 s
+generating neighbors of 30000 entities costs 10.695 s.
+
+iteration 10
+epoch 91, avg. triple loss: 0.6573, cost time: 2.1333s
+epoch 92, avg. triple loss: 0.6517, cost time: 2.0535s
+epoch 93, avg. triple loss: 0.6467, cost time: 2.2522s
+epoch 94, avg. triple loss: 0.6438, cost time: 2.1316s
+epoch 95, avg. triple loss: 0.6409, cost time: 1.9391s
+epoch 96, avg. triple loss: 0.6379, cost time: 1.9214s
+epoch 97, avg. triple loss: 0.6358, cost time: 1.9350s
+epoch 98, avg. triple loss: 0.6342, cost time: 1.8995s
+epoch 99, avg. triple loss: 0.6318, cost time: 1.9311s
+epoch 100, avg. triple loss: 0.6296, cost time: 2.1469s
+quick results: hits@[1, 5, 10, 50] = [44.667 60.533 65.4   71.067]%, time = 0.736 s 
+after filtering by sim threshold, right alignment: 4855/21473=0.226
+after filtering by sim and nearest k, right alignment: 4831/18480=0.261
+graph via graph_tool <Graph object, directed, with 10477 vertices and 18480 edges at 0x7f7089d20dd8>
+after mwgm, right alignment: 3830/4864=0.787
+========== worng alignment
+(http://dbpedia.org/resource/Dassioko, Niorouhio, sim: 0.940) -> (http://dbpedia.org/resource/Dassioko, Dassioko, sim: 0.944)
+(http://dbpedia.org/resource/The_Hungry_Heart, Audrey_(1916_film), sim: 0.885) -> (http://dbpedia.org/resource/The_Hungry_Heart, The_Hungry_Heart, sim: 0.868)
+(http://dbpedia.org/resource/Esther_(1999_film), The_Stendhal_Syndrome, sim: 0.765) -> (http://dbpedia.org/resource/Esther_(1999_film), Esther_(1999_film), sim: 0.717)
+(http://dbpedia.org/resource/Darwaaza_Bandh_Rakho, Bhoot_Returns, sim: 0.865) -> (http://dbpedia.org/resource/Darwaaza_Bandh_Rakho, Darwaaza_Bandh_Rakho, sim: 0.838)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.934) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.929)
+(http://dbpedia.org/resource/Andy_Samuel, Jackie_Condon, sim: 0.968) -> (http://dbpedia.org/resource/Andy_Samuel, Andy_Samuel, sim: 0.975)
+(http://dbpedia.org/resource/Body_(Ja_Rule_song), Put_It_on_Me_(Ja_Rule_song), sim: 0.730) -> (http://dbpedia.org/resource/Body_(Ja_Rule_song), Body_(Ja_Rule_song), sim: 0.360)
+(http://dbpedia.org/resource/The_Case_of_the_Lucky_Legs, Stage_Struck_(1936_film), sim: 0.749) -> (http://dbpedia.org/resource/The_Case_of_the_Lucky_Legs, The_Case_of_the_Lucky_Legs, sim: 0.729)
+(http://dbpedia.org/resource/Dog_Eat_Dog_(song), Big_Jack_(song), sim: 0.961) -> (http://dbpedia.org/resource/Dog_Eat_Dog_(song), Dog_Eat_Dog_(song), sim: 0.965)
+(http://dbpedia.org/resource/The_Ghost_of_St._Michael's, Sailors_Three, sim: 0.719) -> (http://dbpedia.org/resource/The_Ghost_of_St._Michael's, The_Ghost_of_St._Michael's, sim: 0.885)
+==========
+after force right, right alignment: 4864/4864=1.000
+mwgm costs time: 1.186 s
+selecting potential alignment costs time: 3.413 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 5007/5007=1.000
+after editing (->), right alignment: 5007/5007=1.000
+newly triples: 22270, 20735
+alignment_loss = 1.123, time = 0.052 s
+quick results: hits@[1, 5, 10, 50] = [47.267 62.6   66.933 72.067]%, time = 0.755 s 
+generating neighbors of 30000 entities costs 10.517 s.
+
+iteration 11
+epoch 101, avg. triple loss: 0.6430, cost time: 2.0172s
+epoch 102, avg. triple loss: 0.6376, cost time: 1.8957s
+epoch 103, avg. triple loss: 0.6333, cost time: 2.0388s
+epoch 104, avg. triple loss: 0.6296, cost time: 2.0832s
+epoch 105, avg. triple loss: 0.6276, cost time: 2.0558s
+epoch 106, avg. triple loss: 0.6251, cost time: 1.9167s
+epoch 107, avg. triple loss: 0.6228, cost time: 2.0472s
+epoch 108, avg. triple loss: 0.6207, cost time: 2.0289s
+epoch 109, avg. triple loss: 0.6190, cost time: 2.0232s
+epoch 110, avg. triple loss: 0.6171, cost time: 2.0316s
+quick results: hits@[1, 5, 10, 50] = [47.667 63.667 68.133 73.133]%, time = 0.730 s 
+after filtering by sim threshold, right alignment: 5336/25097=0.213
+after filtering by sim and nearest k, right alignment: 5309/21339=0.249
+graph via graph_tool <Graph object, directed, with 11468 vertices and 21339 edges at 0x7f721d3a35c0>
+after mwgm, right alignment: 4163/5362=0.776
+========== worng alignment
+(http://dbpedia.org/resource/I_Was_a_Convict, Love_Is_on_the_Air, sim: 0.720) -> (http://dbpedia.org/resource/I_Was_a_Convict, I_Was_a_Convict, sim: 0.903)
+(http://dbpedia.org/resource/George_Piper_(footballer), Michael_Gash, sim: 0.802) -> (http://dbpedia.org/resource/George_Piper_(footballer), George_Piper_(footballer), sim: 0.943)
+(http://dbpedia.org/resource/Revolution_(Judas_Priest_song), Locked_In_(song), sim: 0.981) -> (http://dbpedia.org/resource/Revolution_(Judas_Priest_song), Revolution_(Judas_Priest_song), sim: 0.969)
+(http://dbpedia.org/resource/The_Bitter_Tears_of_Petra_von_Kant, Katzelmacher, sim: 0.835) -> (http://dbpedia.org/resource/The_Bitter_Tears_of_Petra_von_Kant, The_Bitter_Tears_of_Petra_von_Kant, sim: 0.784)
+(http://dbpedia.org/resource/Hymn_(Ultravox_song), The_Damned_Don't_Cry_(song), sim: 0.876) -> (http://dbpedia.org/resource/Hymn_(Ultravox_song), Hymn_(Ultravox_song), sim: 0.980)
+(http://dbpedia.org/resource/The_Hungry_Heart, Audrey_(1916_film), sim: 0.907) -> (http://dbpedia.org/resource/The_Hungry_Heart, The_Hungry_Heart, sim: 0.894)
+(http://dbpedia.org/resource/Avtomobilist_Yekaterinburg, Filipp_Metlyuk, sim: 0.700) -> (http://dbpedia.org/resource/Avtomobilist_Yekaterinburg, Avtomobilist_Yekaterinburg, sim: -0.010)
+(http://dbpedia.org/resource/Panama_(song), Why_Can't_This_Be_Love, sim: 0.753) -> (http://dbpedia.org/resource/Panama_(song), Panama_(song), sim: 0.681)
+(http://dbpedia.org/resource/Central_District_(Khoshab_County), Tabas_Rural_District, sim: 0.919) -> (http://dbpedia.org/resource/Central_District_(Khoshab_County), Central_District_(Khoshab_County), sim: 0.917)
+(http://dbpedia.org/resource/Darwaaza_Bandh_Rakho, Bhoot_Returns, sim: 0.875) -> (http://dbpedia.org/resource/Darwaaza_Bandh_Rakho, Darwaaza_Bandh_Rakho, sim: 0.872)
+==========
+after force right, right alignment: 5362/5362=1.000
+mwgm costs time: 1.387 s
+selecting potential alignment costs time: 3.631 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 5515/5515=1.000
+after editing (->), right alignment: 5515/5515=1.000
+newly triples: 24678, 22819
+alignment_loss = 1.110, time = 0.052 s
+quick results: hits@[1, 5, 10, 50] = [50.933 65.667 69.467 74.2  ]%, time = 0.746 s 
+generating neighbors of 30000 entities costs 10.544 s.
+
+iteration 12
+epoch 111, avg. triple loss: 0.6306, cost time: 2.0554s
+epoch 112, avg. triple loss: 0.6252, cost time: 1.8969s
+epoch 113, avg. triple loss: 0.6228, cost time: 1.9058s
+epoch 114, avg. triple loss: 0.6186, cost time: 1.8979s
+epoch 115, avg. triple loss: 0.6155, cost time: 2.2030s
+epoch 116, avg. triple loss: 0.6137, cost time: 2.0712s
+epoch 117, avg. triple loss: 0.6122, cost time: 2.0511s
+epoch 118, avg. triple loss: 0.6101, cost time: 2.0520s
+epoch 119, avg. triple loss: 0.6084, cost time: 2.0501s
+epoch 120, avg. triple loss: 0.6063, cost time: 1.9061s
+quick results: hits@[1, 5, 10, 50] = [51.133 65.933 70.067 75.467]%, time = 0.787 s 
+after filtering by sim threshold, right alignment: 5832/28699=0.203
+after filtering by sim and nearest k, right alignment: 5805/24117=0.241
+graph via graph_tool <Graph object, directed, with 12468 vertices and 24117 edges at 0x7f721d3a35c0>
+after mwgm, right alignment: 4582/5852=0.783
+========== worng alignment
+(http://dbpedia.org/resource/Kyp_Malone, TV_on_the_Radio, sim: 0.866) -> (http://dbpedia.org/resource/Kyp_Malone, Kyp_Malone, sim: 0.928)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.982) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.984)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.935) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.932)
+(http://dbpedia.org/resource/Hennadiy_Skidan, Roman_Voynarovskyi, sim: 0.701) -> (http://dbpedia.org/resource/Hennadiy_Skidan, Hennadiy_Skidan, sim: 0.659)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.973) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.970)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.813) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.218)
+(http://dbpedia.org/resource/The_Mummy's_Hand, I_Live_on_Danger, sim: 0.702) -> (http://dbpedia.org/resource/The_Mummy's_Hand, The_Mummy's_Hand, sim: 0.654)
+(http://dbpedia.org/resource/László_Raffinsky, Zdravko_Kovačević, sim: 0.705) -> (http://dbpedia.org/resource/László_Raffinsky, László_Raffinsky, sim: 0.761)
+(http://dbpedia.org/resource/Johann_Durand, Yohan_Di_Tommaso, sim: 0.740) -> (http://dbpedia.org/resource/Johann_Durand, Johann_Durand, sim: 0.824)
+(http://dbpedia.org/resource/Sensuela, Alexander_Pushkin, sim: 0.743) -> (http://dbpedia.org/resource/Sensuela, Sensuela, sim: 0.254)
+==========
+after force right, right alignment: 5852/5852=1.000
+mwgm costs time: 1.575 s
+selecting potential alignment costs time: 3.841 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6034/6034=1.000
+after editing (->), right alignment: 6034/6034=1.000
+newly triples: 26913, 24894
+alignment_loss = 1.098, time = 0.061 s
+quick results: hits@[1, 5, 10, 50] = [53.533 67.933 71.533 76.667]%, time = 0.759 s 
+generating neighbors of 30000 entities costs 10.937 s.
+
+iteration 13
+epoch 121, avg. triple loss: 0.6205, cost time: 2.4695s
+epoch 122, avg. triple loss: 0.6161, cost time: 2.0973s
+epoch 123, avg. triple loss: 0.6121, cost time: 2.0798s
+epoch 124, avg. triple loss: 0.6087, cost time: 2.0320s
+epoch 125, avg. triple loss: 0.6066, cost time: 2.0915s
+epoch 126, avg. triple loss: 0.6044, cost time: 2.0154s
+epoch 127, avg. triple loss: 0.6019, cost time: 1.9782s
+epoch 128, avg. triple loss: 0.6007, cost time: 1.9839s
+epoch 129, avg. triple loss: 0.5991, cost time: 2.0828s
+epoch 130, avg. triple loss: 0.5972, cost time: 2.0871s
+quick results: hits@[1, 5, 10, 50] = [53.067 68.067 72.267 77.6  ]%, time = 0.782 s 
+after filtering by sim threshold, right alignment: 6246/32072=0.195
+after filtering by sim and nearest k, right alignment: 6223/26768=0.232
+graph via graph_tool <Graph object, directed, with 13286 vertices and 26768 edges at 0x7f70008b69b0>
+after mwgm, right alignment: 5000/6255=0.799
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.787) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.796)
+(http://dbpedia.org/resource/The_Bitter_Tears_of_Petra_von_Kant, Katzelmacher, sim: 0.921) -> (http://dbpedia.org/resource/The_Bitter_Tears_of_Petra_von_Kant, The_Bitter_Tears_of_Petra_von_Kant, sim: 0.917)
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.897) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.847)
+(http://dbpedia.org/resource/Can't_Feel_My_Face, I_Really_Like_You, sim: 0.725) -> (http://dbpedia.org/resource/Can't_Feel_My_Face, Can't_Feel_My_Face, sim: 0.602)
+(http://dbpedia.org/resource/The_Thief_of_Bagdad_(1940_film), A_Modern_Dubarry, sim: 0.788) -> (http://dbpedia.org/resource/The_Thief_of_Bagdad_(1940_film), The_Thief_of_Bagdad_(1940_film), sim: 0.939)
+(http://dbpedia.org/resource/Erwin_Schrödinger, Yemima_Avidar-Tchernovitz, sim: 0.730) -> (http://dbpedia.org/resource/Erwin_Schrödinger, Erwin_Schrödinger, sim: 0.726)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.934) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.932)
+(http://dbpedia.org/resource/Hennadiy_Skidan, Roman_Voynarovskyi, sim: 0.765) -> (http://dbpedia.org/resource/Hennadiy_Skidan, Hennadiy_Skidan, sim: 0.756)
+(http://dbpedia.org/resource/Adoration_(1928_film), Jane_(1915_film), sim: 0.880) -> (http://dbpedia.org/resource/Adoration_(1928_film), Adoration_(1928_film), sim: 0.814)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.965) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.983)
+==========
+after force right, right alignment: 6255/6255=1.000
+mwgm costs time: 1.933 s
+selecting potential alignment costs time: 4.211 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6444/6444=1.000
+after editing (->), right alignment: 6444/6444=1.000
+newly triples: 28599, 26354
+alignment_loss = 1.084, time = 0.061 s
+quick results: hits@[1, 5, 10, 50] = [55.733 70.4   73.667 78.267]%, time = 0.746 s 
+generating neighbors of 30000 entities costs 10.723 s.
+
+iteration 14
+epoch 131, avg. triple loss: 0.6123, cost time: 2.1249s
+epoch 132, avg. triple loss: 0.6072, cost time: 2.1195s
+epoch 133, avg. triple loss: 0.6039, cost time: 2.0052s
+epoch 134, avg. triple loss: 0.6010, cost time: 1.9536s
+epoch 135, avg. triple loss: 0.5977, cost time: 1.9142s
+epoch 136, avg. triple loss: 0.5964, cost time: 2.0605s
+epoch 137, avg. triple loss: 0.5950, cost time: 1.9124s
+epoch 138, avg. triple loss: 0.5927, cost time: 1.9700s
+epoch 139, avg. triple loss: 0.5920, cost time: 1.9277s
+epoch 140, avg. triple loss: 0.5908, cost time: 1.9296s
+quick results: hits@[1, 5, 10, 50] = [55.267 70.4   74.    78.867]%, time = 0.765 s 
+after filtering by sim threshold, right alignment: 6646/35435=0.188
+after filtering by sim and nearest k, right alignment: 6621/29289=0.226
+graph via graph_tool <Graph object, directed, with 14025 vertices and 29289 edges at 0x7f721d39f320>
+after mwgm, right alignment: 5291/6635=0.797
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.841) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.844)
+(http://dbpedia.org/resource/Can't_Feel_My_Face, I_Really_Like_You, sim: 0.766) -> (http://dbpedia.org/resource/Can't_Feel_My_Face, Can't_Feel_My_Face, sim: 0.699)
+(http://dbpedia.org/resource/Toto_(band), Bad_Sneakers, sim: 0.723) -> (http://dbpedia.org/resource/Toto_(band), Toto_(band), sim: 0.717)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.938) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.935)
+(http://dbpedia.org/resource/Tiago_Gonçalves, André_Micael, sim: 0.767) -> (http://dbpedia.org/resource/Tiago_Gonçalves, Tiago_Gonçalves, sim: 0.745)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.964) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.947)
+(http://dbpedia.org/resource/A_Great_Big_Sled, Joel_the_Lump_of_Coal, sim: 0.936) -> (http://dbpedia.org/resource/A_Great_Big_Sled, A_Great_Big_Sled, sim: 0.937)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.966) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.978)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.977) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.975)
+(http://dbpedia.org/resource/Andriy_Kiva, Galina_Prozumenshchikova, sim: 0.867) -> (http://dbpedia.org/resource/Andriy_Kiva, Andriy_Kiva, sim: 0.955)
+==========
+after force right, right alignment: 6635/6635=1.000
+mwgm costs time: 2.040 s
+selecting potential alignment costs time: 4.410 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6834/6834=1.000
+after editing (->), right alignment: 6834/6834=1.000
+newly triples: 30149, 27728
+alignment_loss = 1.073, time = 0.066 s
+quick results: hits@[1, 5, 10, 50] = [57.8   72.333 74.867 79.4  ]%, time = 0.806 s 
+generating neighbors of 30000 entities costs 10.969 s.
+
+iteration 15
+epoch 141, avg. triple loss: 0.6040, cost time: 2.7461s
+epoch 142, avg. triple loss: 0.6002, cost time: 2.3256s
+epoch 143, avg. triple loss: 0.5959, cost time: 2.2998s
+epoch 144, avg. triple loss: 0.5934, cost time: 2.0440s
+epoch 145, avg. triple loss: 0.5914, cost time: 2.0451s
+epoch 146, avg. triple loss: 0.5897, cost time: 2.0093s
+epoch 147, avg. triple loss: 0.5881, cost time: 2.0112s
+epoch 148, avg. triple loss: 0.5860, cost time: 2.1601s
+epoch 149, avg. triple loss: 0.5850, cost time: 2.0184s
+epoch 150, avg. triple loss: 0.5836, cost time: 2.1620s
+quick results: hits@[1, 5, 10, 50] = [56.933 72.467 75.2   80.133]%, time = 0.793 s 
+after filtering by sim threshold, right alignment: 7010/38677=0.181
+after filtering by sim and nearest k, right alignment: 6985/31722=0.220
+graph via graph_tool <Graph object, directed, with 14726 vertices and 31722 edges at 0x7f70008b69b0>
+after mwgm, right alignment: 5616/6989=0.804
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.875) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.870)
+(http://dbpedia.org/resource/George_Piper_(footballer), Michael_Gash, sim: 0.865) -> (http://dbpedia.org/resource/George_Piper_(footballer), George_Piper_(footballer), sim: 0.980)
+(http://dbpedia.org/resource/David_Montoya, Juan_Manuel_Azconzábal, sim: 0.897) -> (http://dbpedia.org/resource/David_Montoya, David_Montoya, sim: 0.990)
+(http://dbpedia.org/resource/Dean_DeBlois, Gift_of_the_Night_Fury, sim: 0.706) -> (http://dbpedia.org/resource/Dean_DeBlois, Dean_DeBlois, sim: 0.705)
+(http://dbpedia.org/resource/Carry_On_Dick, Carry_On_Doctor, sim: 0.991) -> (http://dbpedia.org/resource/Carry_On_Dick, Carry_On_Dick, sim: 0.993)
+(http://dbpedia.org/resource/Ben_Sahar, Gerd_Roggensack, sim: 0.778) -> (http://dbpedia.org/resource/Ben_Sahar, Ben_Sahar, sim: 0.820)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.967) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.952)
+(http://dbpedia.org/resource/Yordan_Bozdanski, Ildefons_Lima, sim: 0.794) -> (http://dbpedia.org/resource/Yordan_Bozdanski, Yordan_Bozdanski, sim: 0.980)
+(http://dbpedia.org/resource/A_Great_Big_Sled, Joel_the_Lump_of_Coal, sim: 0.952) -> (http://dbpedia.org/resource/A_Great_Big_Sled, A_Great_Big_Sled, sim: 0.954)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.978) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.976)
+==========
+after force right, right alignment: 6989/6989=1.000
+mwgm costs time: 2.062 s
+selecting potential alignment costs time: 4.346 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7208/7208=1.000
+after editing (->), right alignment: 7208/7208=1.000
+newly triples: 31628, 29011
+alignment_loss = 1.065, time = 0.066 s
+quick results: hits@[1, 5, 10, 50] = [59.067 73.333 76.4   80.733]%, time = 0.817 s 
+generating neighbors of 30000 entities costs 11.110 s.
+
+iteration 16
+epoch 151, avg. triple loss: 0.5970, cost time: 2.2229s
+epoch 152, avg. triple loss: 0.5932, cost time: 2.2603s
+epoch 153, avg. triple loss: 0.5899, cost time: 2.3874s
+epoch 154, avg. triple loss: 0.5873, cost time: 2.1366s
+epoch 155, avg. triple loss: 0.5853, cost time: 2.0355s
+epoch 156, avg. triple loss: 0.5835, cost time: 2.0241s
+epoch 157, avg. triple loss: 0.5816, cost time: 1.9937s
+epoch 158, avg. triple loss: 0.5804, cost time: 2.0967s
+epoch 159, avg. triple loss: 0.5790, cost time: 2.0026s
+epoch 160, avg. triple loss: 0.5773, cost time: 1.9826s
+quick results: hits@[1, 5, 10, 50] = [59.    73.2   76.667 81.133]%, time = 0.774 s 
+after filtering by sim threshold, right alignment: 7294/41689=0.175
+after filtering by sim and nearest k, right alignment: 7270/33873=0.215
+graph via graph_tool <Graph object, directed, with 15292 vertices and 33873 edges at 0x7f700075be48>
+after mwgm, right alignment: 5902/7273=0.811
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.902) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.894)
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.705) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.105)
+(http://dbpedia.org/resource/Darko_Karapetrović, Marko_Jakolić, sim: 0.815) -> (http://dbpedia.org/resource/Darko_Karapetrović, Darko_Karapetrović, sim: 0.942)
+(http://dbpedia.org/resource/Can't_Feel_My_Face, I_Really_Like_You, sim: 0.806) -> (http://dbpedia.org/resource/Can't_Feel_My_Face, Can't_Feel_My_Face, sim: 0.791)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.972) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.988)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.970) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.955)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.980) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.978)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.952) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.967)
+(http://dbpedia.org/resource/Homicidal, The_Houston_Story, sim: 0.717) -> (http://dbpedia.org/resource/Homicidal, Homicidal, sim: 0.897)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.853) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.509)
+==========
+after force right, right alignment: 7273/7273=1.000
+mwgm costs time: 2.194 s
+selecting potential alignment costs time: 4.472 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7515/7515=1.000
+after editing (->), right alignment: 7515/7515=1.000
+newly triples: 32875, 30113
+alignment_loss = 1.058, time = 0.075 s
+quick results: hits@[1, 5, 10, 50] = [60.6   74.6   77.4   81.533]%, time = 0.743 s 
+generating neighbors of 30000 entities costs 10.689 s.
+
+iteration 17
+epoch 161, avg. triple loss: 0.5914, cost time: 2.4463s
+epoch 162, avg. triple loss: 0.5871, cost time: 2.6329s
+epoch 163, avg. triple loss: 0.5845, cost time: 2.1332s
+epoch 164, avg. triple loss: 0.5813, cost time: 2.1637s
+epoch 165, avg. triple loss: 0.5801, cost time: 2.1333s
+epoch 166, avg. triple loss: 0.5783, cost time: 2.1174s
+epoch 167, avg. triple loss: 0.5767, cost time: 2.0975s
+epoch 168, avg. triple loss: 0.5746, cost time: 2.0750s
+epoch 169, avg. triple loss: 0.5741, cost time: 2.2314s
+epoch 170, avg. triple loss: 0.5729, cost time: 2.1758s
+quick results: hits@[1, 5, 10, 50] = [60.6   75.    78.    82.467]%, time = 0.798 s 
+after filtering by sim threshold, right alignment: 7571/44699=0.169
+after filtering by sim and nearest k, right alignment: 7546/35987=0.210
+graph via graph_tool <Graph object, directed, with 15820 vertices and 35987 edges at 0x7f70349af2e8>
+after mwgm, right alignment: 6176/7547=0.818
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.920) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.909)
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.720) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.240)
+(http://dbpedia.org/resource/Carl_Finnigan, Bob_Kelso_(footballer), sim: 0.802) -> (http://dbpedia.org/resource/Carl_Finnigan, Carl_Finnigan, sim: 0.983)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.990) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.992)
+(http://dbpedia.org/resource/Adoration_(1928_film), Jane_(1915_film), sim: 0.895) -> (http://dbpedia.org/resource/Adoration_(1928_film), Adoration_(1928_film), sim: 0.883)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.972) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.989)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.863) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.862)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.972) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.959)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.990) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.990)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.973) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.985)
+==========
+after force right, right alignment: 7547/7547=1.000
+mwgm costs time: 2.330 s
+selecting potential alignment costs time: 4.645 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7786/7786=1.000
+after editing (->), right alignment: 7786/7786=1.000
+newly triples: 34087, 31157
+alignment_loss = 1.054, time = 0.065 s
+quick results: hits@[1, 5, 10, 50] = [62.333 75.867 79.267 83.133]%, time = 0.761 s 
+generating neighbors of 30000 entities costs 11.387 s.
+
+iteration 18
+epoch 171, avg. triple loss: 0.5856, cost time: 2.1252s
+epoch 172, avg. triple loss: 0.5827, cost time: 2.0837s
+epoch 173, avg. triple loss: 0.5798, cost time: 2.0397s
+epoch 174, avg. triple loss: 0.5770, cost time: 2.0273s
+epoch 175, avg. triple loss: 0.5751, cost time: 2.2142s
+epoch 176, avg. triple loss: 0.5737, cost time: 2.3097s
+epoch 177, avg. triple loss: 0.5713, cost time: 2.2915s
+epoch 178, avg. triple loss: 0.5704, cost time: 2.1366s
+epoch 179, avg. triple loss: 0.5694, cost time: 2.0179s
+epoch 180, avg. triple loss: 0.5684, cost time: 2.0162s
+quick results: hits@[1, 5, 10, 50] = [61.8   76.133 79.333 83.533]%, time = 0.801 s 
+after filtering by sim threshold, right alignment: 7796/47344=0.165
+after filtering by sim and nearest k, right alignment: 7775/37823=0.206
+graph via graph_tool <Graph object, directed, with 16289 vertices and 37823 edges at 0x7f70005f1da0>
+after mwgm, right alignment: 6373/7770=0.820
+========== worng alignment
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.918) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.891)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.748) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.691)
+(http://dbpedia.org/resource/Tulip_Fever, Carnage_(2011_film), sim: 0.734) -> (http://dbpedia.org/resource/Tulip_Fever, Tulip_Fever, sim: 0.981)
+(http://dbpedia.org/resource/Dallas_Americans, Louisville_Thunder, sim: 0.973) -> (http://dbpedia.org/resource/Dallas_Americans, Dallas_Americans, sim: 0.990)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.974) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.961)
+(http://dbpedia.org/resource/Gold_Diggers_in_Paris, Convention_City, sim: 0.876) -> (http://dbpedia.org/resource/Gold_Diggers_in_Paris, Gold_Diggers_in_Paris, sim: 0.985)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.864) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.592)
+(http://dbpedia.org/resource/Sidney_Gilliat, Frank_Launder, sim: 0.955) -> (http://dbpedia.org/resource/Sidney_Gilliat, Sidney_Gilliat, sim: 0.936)
+(http://dbpedia.org/resource/Andrei_Vaștag, Apostol_Muzac, sim: 0.911) -> (http://dbpedia.org/resource/Andrei_Vaștag, Andrei_Vaștag, sim: 0.955)
+(http://dbpedia.org/resource/Rhodes_University, Cape_Province, sim: 0.807) -> (http://dbpedia.org/resource/Rhodes_University, Rhodes_University, sim: 0.902)
+==========
+after force right, right alignment: 7770/7770=1.000
+mwgm costs time: 2.824 s
+selecting potential alignment costs time: 5.154 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8016/8016=1.000
+after editing (->), right alignment: 8016/8016=1.000
+newly triples: 34985, 31920
+alignment_loss = 1.046, time = 0.072 s
+quick results: hits@[1, 5, 10, 50] = [63.8   76.733 80.333 83.867]%, time = 0.764 s 
+generating neighbors of 30000 entities costs 10.854 s.
+
+iteration 19
+epoch 181, avg. triple loss: 0.5817, cost time: 2.0814s
+epoch 182, avg. triple loss: 0.5782, cost time: 2.0082s
+epoch 183, avg. triple loss: 0.5749, cost time: 1.9736s
+epoch 184, avg. triple loss: 0.5733, cost time: 2.2578s
+epoch 185, avg. triple loss: 0.5706, cost time: 2.2734s
+epoch 186, avg. triple loss: 0.5694, cost time: 2.1169s
+epoch 187, avg. triple loss: 0.5679, cost time: 2.1821s
+epoch 188, avg. triple loss: 0.5661, cost time: 2.2275s
+epoch 189, avg. triple loss: 0.5658, cost time: 2.0138s
+epoch 190, avg. triple loss: 0.5641, cost time: 2.1821s
+quick results: hits@[1, 5, 10, 50] = [63.333 76.8   80.6   84.133]%, time = 0.773 s 
+after filtering by sim threshold, right alignment: 8012/49963=0.160
+after filtering by sim and nearest k, right alignment: 7992/39630=0.202
+graph via graph_tool <Graph object, directed, with 16743 vertices and 39630 edges at 0x7f721d3a35c0>
+after mwgm, right alignment: 6553/7996=0.820
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.942) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.934)
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.727) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.388)
+(http://dbpedia.org/resource/Chongqing_F.C., Grêmio_Esportivo_Anápolis, sim: 0.725) -> (http://dbpedia.org/resource/Chongqing_F.C., Chongqing_F.C., sim: 0.723)
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.919) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.894)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.934) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.934)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.818) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.792)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.991) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.991)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.977) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.986)
+(http://dbpedia.org/resource/Carl_Finnigan, Craig_O'Reilly, sim: 0.825) -> (http://dbpedia.org/resource/Carl_Finnigan, Carl_Finnigan, sim: 0.984)
+(http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), The_Siege_of_Sidney_Street, sim: 0.707) -> (http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), Third_Time_Lucky_(1949_film), sim: 0.674)
+==========
+after force right, right alignment: 7996/7996=1.000
+mwgm costs time: 2.664 s
+selecting potential alignment costs time: 4.973 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8224/8224=1.000
+after editing (->), right alignment: 8224/8224=1.000
+newly triples: 35741, 32573
+alignment_loss = 1.039, time = 0.068 s
+quick results: hits@[1, 5, 10, 50] = [64.933 78.067 81.067 84.6  ]%, time = 0.751 s 
+generating neighbors of 30000 entities costs 10.713 s.
+
+iteration 20
+epoch 191, avg. triple loss: 0.5771, cost time: 2.4519s
+epoch 192, avg. triple loss: 0.5741, cost time: 1.9801s
+epoch 193, avg. triple loss: 0.5710, cost time: 2.1348s
+epoch 194, avg. triple loss: 0.5686, cost time: 2.1804s
+epoch 195, avg. triple loss: 0.5671, cost time: 2.0966s
+epoch 196, avg. triple loss: 0.5651, cost time: 1.9690s
+epoch 197, avg. triple loss: 0.5634, cost time: 2.0558s
+epoch 198, avg. triple loss: 0.5634, cost time: 2.1076s
+epoch 199, avg. triple loss: 0.5613, cost time: 1.9699s
+epoch 200, avg. triple loss: 0.5606, cost time: 1.9459s
+quick results: hits@[1, 5, 10, 50] = [64.467 78.267 81.2   84.867]%, time = 0.774 s 
+after filtering by sim threshold, right alignment: 8259/52471=0.157
+after filtering by sim and nearest k, right alignment: 8239/41356=0.199
+graph via graph_tool <Graph object, directed, with 17183 vertices and 41356 edges at 0x7f7000667e10>
+after mwgm, right alignment: 6854/8217=0.834
+========== worng alignment
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.992) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.992)
+(http://dbpedia.org/resource/A_Great_Big_Sled, Joel_the_Lump_of_Coal, sim: 0.982) -> (http://dbpedia.org/resource/A_Great_Big_Sled, A_Great_Big_Sled, sim: 0.986)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.978) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.987)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.983) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.981)
+(http://dbpedia.org/resource/Sensuela, Alexander_Pushkin, sim: 0.763) -> (http://dbpedia.org/resource/Sensuela, Sensuela, sim: 0.620)
+(http://dbpedia.org/resource/Oleg_Mekhov, Sergei_Dzodziyev, sim: 0.722) -> (http://dbpedia.org/resource/Oleg_Mekhov, Oleg_Mekhov, sim: 0.907)
+(http://dbpedia.org/resource/Judson_Augusto_do_Bonfim_Santos, Andrés_Malango, sim: 0.760) -> (http://dbpedia.org/resource/Judson_Augusto_do_Bonfim_Santos, Judson_Augusto_do_Bonfim_Santos, sim: 0.961)
+(http://dbpedia.org/resource/Just_Blaze, Boy_(I_Need_You), sim: 0.745) -> (http://dbpedia.org/resource/Just_Blaze, Just_Blaze, sim: 0.910)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.987) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.988)
+(http://dbpedia.org/resource/Knutzy_Knights, Hot_Stuff_(1956_film), sim: 0.997) -> (http://dbpedia.org/resource/Knutzy_Knights, Knutzy_Knights, sim: 0.997)
+==========
+after force right, right alignment: 8217/8217=1.000
+mwgm costs time: 2.625 s
+selecting potential alignment costs time: 4.906 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8463/8463=1.000
+after editing (->), right alignment: 8463/8463=1.000
+newly triples: 36541, 33281
+alignment_loss = 1.033, time = 0.075 s
+quick results: hits@[1, 5, 10, 50] = [65.867 79.    82.067 85.333]%, time = 0.776 s 
+generating neighbors of 30000 entities costs 10.812 s.
+
+iteration 21
+epoch 201, avg. triple loss: 0.5744, cost time: 2.5492s
+epoch 202, avg. triple loss: 0.5694, cost time: 2.0926s
+epoch 203, avg. triple loss: 0.5680, cost time: 2.1584s
+epoch 204, avg. triple loss: 0.5647, cost time: 2.0288s
+epoch 205, avg. triple loss: 0.5632, cost time: 2.1059s
+epoch 206, avg. triple loss: 0.5615, cost time: 2.1814s
+epoch 207, avg. triple loss: 0.5610, cost time: 2.1574s
+epoch 208, avg. triple loss: 0.5591, cost time: 2.1638s
+epoch 209, avg. triple loss: 0.5588, cost time: 2.2439s
+epoch 210, avg. triple loss: 0.5576, cost time: 2.2669s
+quick results: hits@[1, 5, 10, 50] = [65.533 79.067 82.133 85.667]%, time = 0.789 s 
+after filtering by sim threshold, right alignment: 8464/55070=0.154
+after filtering by sim and nearest k, right alignment: 8445/43107=0.196
+graph via graph_tool <Graph object, directed, with 17545 vertices and 43107 edges at 0x7f7000475630>
+after mwgm, right alignment: 7004/8417=0.832
+========== worng alignment
+(http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), Billy_Reed, sim: 0.889) -> (http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), John_Lewis_(footballer,_born_1955), sim: 0.965)
+(http://dbpedia.org/resource/Hymn_(Ultravox_song), The_Damned_Don't_Cry_(song), sim: 0.954) -> (http://dbpedia.org/resource/Hymn_(Ultravox_song), Hymn_(Ultravox_song), sim: 0.990)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.939) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/Tulip_Fever, Carnage_(2011_film), sim: 0.753) -> (http://dbpedia.org/resource/Tulip_Fever, Tulip_Fever, sim: 0.983)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.993) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.987)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.980) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.967)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.993) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.993)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.983) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.982)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.877) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.670)
+(http://dbpedia.org/resource/Central_Norte, Sportivo_Italiano, sim: 0.900) -> (http://dbpedia.org/resource/Central_Norte, Central_Norte, sim: 0.847)
+==========
+after force right, right alignment: 8417/8417=1.000
+mwgm costs time: 2.967 s
+selecting potential alignment costs time: 5.267 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8654/8654=1.000
+after editing (->), right alignment: 8654/8654=1.000
+newly triples: 37220, 33892
+alignment_loss = 1.028, time = 0.080 s
+quick results: hits@[1, 5, 10, 50] = [66.867 80.133 82.6   86.067]%, time = 0.755 s 
+generating neighbors of 30000 entities costs 10.566 s.
+
+iteration 22
+epoch 211, avg. triple loss: 0.5701, cost time: 2.3366s
+epoch 212, avg. triple loss: 0.5662, cost time: 2.0212s
+epoch 213, avg. triple loss: 0.5638, cost time: 1.9792s
+epoch 214, avg. triple loss: 0.5618, cost time: 2.1398s
+epoch 215, avg. triple loss: 0.5600, cost time: 1.9730s
+epoch 216, avg. triple loss: 0.5589, cost time: 1.9711s
+epoch 217, avg. triple loss: 0.5575, cost time: 1.9497s
+epoch 218, avg. triple loss: 0.5570, cost time: 1.9608s
+epoch 219, avg. triple loss: 0.5550, cost time: 1.9642s
+epoch 220, avg. triple loss: 0.5537, cost time: 1.9687s
+quick results: hits@[1, 5, 10, 50] = [66.6   79.933 82.8   86.2  ]%, time = 0.791 s 
+after filtering by sim threshold, right alignment: 8623/57468=0.150
+after filtering by sim and nearest k, right alignment: 8602/44646=0.193
+graph via graph_tool <Graph object, directed, with 17828 vertices and 44646 edges at 0x7f7081c9af60>
+after mwgm, right alignment: 7188/8591=0.837
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.960) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.954)
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.735) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.514)
+(http://dbpedia.org/resource/Private_Hell_36, The_Five_Pennies, sim: 0.770) -> (http://dbpedia.org/resource/Private_Hell_36, Private_Hell_36, sim: 0.945)
+(http://dbpedia.org/resource/Nanna_Preethiya_Hudugi, Shrimanthana_Magalu, sim: 0.722) -> (http://dbpedia.org/resource/Nanna_Preethiya_Hudugi, Nanna_Preethiya_Hudugi, sim: 0.429)
+(http://dbpedia.org/resource/Erwin_Schrödinger, Yemima_Avidar-Tchernovitz, sim: 0.893) -> (http://dbpedia.org/resource/Erwin_Schrödinger, Erwin_Schrödinger, sim: 0.938)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.890) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.901)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.993) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.993)
+(http://dbpedia.org/resource/Klondike_Fury, The_First_Year, sim: 0.708) -> (http://dbpedia.org/resource/Klondike_Fury, Klondike_Fury, sim: 0.882)
+(http://dbpedia.org/resource/Sensuela, Alexander_Pushkin, sim: 0.754) -> (http://dbpedia.org/resource/Sensuela, Sensuela, sim: 0.682)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.902) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.654)
+==========
+after force right, right alignment: 8591/8591=1.000
+mwgm costs time: 2.868 s
+selecting potential alignment costs time: 5.200 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8820/8820=1.000
+after editing (->), right alignment: 8820/8820=1.000
+newly triples: 37792, 34412
+alignment_loss = 1.023, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [68.4   81.2   83.467 86.6  ]%, time = 0.766 s 
+generating neighbors of 30000 entities costs 10.931 s.
+
+iteration 23
+epoch 221, avg. triple loss: 0.5667, cost time: 1.9925s
+epoch 222, avg. triple loss: 0.5642, cost time: 2.0588s
+epoch 223, avg. triple loss: 0.5616, cost time: 2.0113s
+epoch 224, avg. triple loss: 0.5601, cost time: 2.0102s
+epoch 225, avg. triple loss: 0.5579, cost time: 2.0231s
+epoch 226, avg. triple loss: 0.5562, cost time: 1.9661s
+epoch 227, avg. triple loss: 0.5548, cost time: 1.9112s
+epoch 228, avg. triple loss: 0.5535, cost time: 2.0524s
+epoch 229, avg. triple loss: 0.5527, cost time: 2.0530s
+epoch 230, avg. triple loss: 0.5519, cost time: 1.9995s
+quick results: hits@[1, 5, 10, 50] = [67.267 81.067 83.533 86.933]%, time = 0.766 s 
+after filtering by sim threshold, right alignment: 8793/59810=0.147
+after filtering by sim and nearest k, right alignment: 8773/46118=0.190
+graph via graph_tool <Graph object, directed, with 18124 vertices and 46118 edges at 0x7f7000475630>
+after mwgm, right alignment: 7329/8746=0.838
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.964) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.956)
+(http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), Billy_Reed, sim: 0.921) -> (http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), John_Lewis_(footballer,_born_1955), sim: 0.975)
+(http://dbpedia.org/resource/Can't_Feel_My_Face, I_Really_Like_You, sim: 0.871) -> (http://dbpedia.org/resource/Can't_Feel_My_Face, Can't_Feel_My_Face, sim: 0.924)
+(http://dbpedia.org/resource/Nick_Gilbert, Jamie_Lowery, sim: 0.897) -> (http://dbpedia.org/resource/Nick_Gilbert, Nick_Gilbert, sim: 0.989)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.936) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.935)
+(http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), The_Siege_of_Sidney_Street, sim: 0.755) -> (http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), Third_Time_Lucky_(1949_film), sim: 0.837)
+(http://dbpedia.org/resource/Klondike_Fury, The_First_Year, sim: 0.724) -> (http://dbpedia.org/resource/Klondike_Fury, Klondike_Fury, sim: 0.896)
+(http://dbpedia.org/resource/Johann_Durand, Yohan_Di_Tommaso, sim: 0.920) -> (http://dbpedia.org/resource/Johann_Durand, Johann_Durand, sim: 0.977)
+(http://dbpedia.org/resource/Sensuela, Alexander_Pushkin, sim: 0.752) -> (http://dbpedia.org/resource/Sensuela, Sensuela, sim: 0.707)
+(http://dbpedia.org/resource/Toros_Ab, Kalateh-ye_Aliabad,_South_Khorasan, sim: 0.993) -> (http://dbpedia.org/resource/Toros_Ab, Toros_Ab, sim: 0.993)
+==========
+after force right, right alignment: 8746/8746=1.000
+mwgm costs time: 2.957 s
+selecting potential alignment costs time: 5.280 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8973/8973=1.000
+after editing (->), right alignment: 8973/8973=1.000
+newly triples: 38329, 34847
+alignment_loss = 1.018, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [68.533 81.6   84.067 87.133]%, time = 0.759 s 
+generating neighbors of 30000 entities costs 10.857 s.
+
+iteration 24
+epoch 231, avg. triple loss: 0.5640, cost time: 2.8100s
+epoch 232, avg. triple loss: 0.5607, cost time: 2.4048s
+epoch 233, avg. triple loss: 0.5587, cost time: 2.3145s
+epoch 234, avg. triple loss: 0.5567, cost time: 2.1764s
+epoch 235, avg. triple loss: 0.5550, cost time: 2.1665s
+epoch 236, avg. triple loss: 0.5540, cost time: 2.1688s
+epoch 237, avg. triple loss: 0.5525, cost time: 2.1903s
+epoch 238, avg. triple loss: 0.5511, cost time: 2.1242s
+epoch 239, avg. triple loss: 0.5502, cost time: 2.1198s
+epoch 240, avg. triple loss: 0.5488, cost time: 2.2432s
+quick results: hits@[1, 5, 10, 50] = [68.733 81.467 84.133 87.333]%, time = 0.833 s 
+after filtering by sim threshold, right alignment: 8928/61980=0.144
+after filtering by sim and nearest k, right alignment: 8909/47485=0.188
+graph via graph_tool <Graph object, directed, with 18407 vertices and 47485 edges at 0x7f7000667e10>
+after mwgm, right alignment: 7502/8881=0.845
+========== worng alignment
+(http://dbpedia.org/resource/David_Montoya, Juan_Manuel_Azconzábal, sim: 0.918) -> (http://dbpedia.org/resource/David_Montoya, David_Montoya, sim: 0.997)
+(http://dbpedia.org/resource/Once_Upon_a_Time_in_China_III, All's_Well,_Ends_Well_Too, sim: 0.790) -> (http://dbpedia.org/resource/Once_Upon_a_Time_in_China_III, Once_Upon_a_Time_in_China_III, sim: 0.991)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.993) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.993)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.994) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.995)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.938) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/Nim's_Island, P.S._I_Love_You_(film), sim: 0.713) -> (http://dbpedia.org/resource/Nim's_Island, Nim's_Island, sim: 0.870)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.982) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.970)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.994) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.993)
+(http://dbpedia.org/resource/Black_Sheep_(duo), Mobb_Deep, sim: 0.751) -> (http://dbpedia.org/resource/Black_Sheep_(duo), Black_Sheep_(duo), sim: 0.156)
+(http://dbpedia.org/resource/Klondike_Fury, The_First_Year, sim: 0.744) -> (http://dbpedia.org/resource/Klondike_Fury, Klondike_Fury, sim: 0.907)
+==========
+after force right, right alignment: 8881/8881=1.000
+mwgm costs time: 3.496 s
+selecting potential alignment costs time: 5.972 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9105/9105=1.000
+after editing (->), right alignment: 9105/9105=1.000
+newly triples: 38822, 35253
+alignment_loss = 1.014, time = 0.078 s
+quick results: hits@[1, 5, 10, 50] = [69.8   82.    84.8   87.533]%, time = 0.772 s 
+generating neighbors of 30000 entities costs 11.605 s.
+
+iteration 25
+epoch 241, avg. triple loss: 0.5616, cost time: 2.0615s
+epoch 242, avg. triple loss: 0.5582, cost time: 2.1712s
+epoch 243, avg. triple loss: 0.5563, cost time: 1.9870s
+epoch 244, avg. triple loss: 0.5543, cost time: 1.9411s
+epoch 245, avg. triple loss: 0.5530, cost time: 2.2561s
+epoch 246, avg. triple loss: 0.5512, cost time: 2.2673s
+epoch 247, avg. triple loss: 0.5498, cost time: 2.2570s
+epoch 248, avg. triple loss: 0.5486, cost time: 2.2890s
+epoch 249, avg. triple loss: 0.5482, cost time: 2.1465s
+epoch 250, avg. triple loss: 0.5474, cost time: 2.1310s
+quick results: hits@[1, 5, 10, 50] = [69.933 81.733 84.467 87.8  ]%, time = 0.788 s 
+after filtering by sim threshold, right alignment: 9053/63996=0.141
+after filtering by sim and nearest k, right alignment: 9033/48746=0.185
+graph via graph_tool <Graph object, directed, with 18652 vertices and 48746 edges at 0x7f7080ce7a58>
+after mwgm, right alignment: 7680/9015=0.852
+========== worng alignment
+(http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), Billy_Reed, sim: 0.938) -> (http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), John_Lewis_(footballer,_born_1955), sim: 0.981)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.994) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.995)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.937) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Midnight_Run_for_Your_Life, Happy_Gilmore, sim: 0.703) -> (http://dbpedia.org/resource/Midnight_Run_for_Your_Life, Midnight_Run_for_Your_Life, sim: 0.710)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.985) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.983)
+(http://dbpedia.org/resource/No.20_Madras_Mail, Indrajaalam, sim: 0.730) -> (http://dbpedia.org/resource/No.20_Madras_Mail, No.20_Madras_Mail, sim: 0.709)
+(http://dbpedia.org/resource/Hassan_Koeman_Sesay, Gibril_Sankoh, sim: 0.951) -> (http://dbpedia.org/resource/Hassan_Koeman_Sesay, Hassan_Koeman_Sesay, sim: 0.982)
+(http://dbpedia.org/resource/Robert_Palmer_(singer), Todd_Rundgren, sim: 0.811) -> (http://dbpedia.org/resource/Robert_Palmer_(singer), Robert_Palmer_(singer), sim: 0.937)
+(http://dbpedia.org/resource/Charles_Dorian, All_Night_(film), sim: 0.706) -> (http://dbpedia.org/resource/Charles_Dorian, Charles_Dorian, sim: 0.948)
+(http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Impermanent_Resonance, sim: 0.809) -> (http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Suspended_Animation_(John_Petrucci_album), sim: 0.990)
+==========
+after force right, right alignment: 9015/9015=1.000
+mwgm costs time: 3.176 s
+selecting potential alignment costs time: 5.552 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9230/9230=1.000
+after editing (->), right alignment: 9230/9230=1.000
+newly triples: 39253, 35651
+alignment_loss = 1.011, time = 0.079 s
+quick results: hits@[1, 5, 10, 50] = [70.667 82.533 85.333 88.   ]%, time = 0.772 s 
+generating neighbors of 30000 entities costs 11.144 s.
+
+iteration 26
+epoch 251, avg. triple loss: 0.5584, cost time: 2.4400s
+epoch 252, avg. triple loss: 0.5562, cost time: 2.0909s
+epoch 253, avg. triple loss: 0.5536, cost time: 2.2501s
+epoch 254, avg. triple loss: 0.5514, cost time: 2.2870s
+epoch 255, avg. triple loss: 0.5502, cost time: 1.9991s
+epoch 256, avg. triple loss: 0.5489, cost time: 2.1510s
+epoch 257, avg. triple loss: 0.5480, cost time: 1.9993s
+epoch 258, avg. triple loss: 0.5461, cost time: 2.2320s
+epoch 259, avg. triple loss: 0.5460, cost time: 2.1621s
+epoch 260, avg. triple loss: 0.5445, cost time: 2.1221s
+quick results: hits@[1, 5, 10, 50] = [69.867 82.333 85.    88.267]%, time = 0.765 s 
+after filtering by sim threshold, right alignment: 9169/66071=0.139
+after filtering by sim and nearest k, right alignment: 9148/50020=0.183
+graph via graph_tool <Graph object, directed, with 18883 vertices and 50020 edges at 0x7f7080ce7a58>
+after mwgm, right alignment: 7741/9132=0.848
+========== worng alignment
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.733) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.636)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.994) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.994)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.900) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.913)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.984) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.972)
+(http://dbpedia.org/resource/Carl_Finnigan, Craig_O'Reilly, sim: 0.853) -> (http://dbpedia.org/resource/Carl_Finnigan, Carl_Finnigan, sim: 0.992)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.957) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.970)
+(http://dbpedia.org/resource/Sidney_Gilliat, Frank_Launder, sim: 0.970) -> (http://dbpedia.org/resource/Sidney_Gilliat, Sidney_Gilliat, sim: 0.967)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.909) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.681)
+(http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.995) -> (http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), Real_Life_(Bon_Jovi_song), sim: 0.993)
+(http://dbpedia.org/resource/Welcome_to_My_Nightmare_(song), Strange_Kind_of_Woman, sim: 0.700) -> (http://dbpedia.org/resource/Welcome_to_My_Nightmare_(song), Welcome_to_My_Nightmare_(song), sim: 0.384)
+==========
+after force right, right alignment: 9132/9132=1.000
+mwgm costs time: 3.449 s
+selecting potential alignment costs time: 5.823 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9346/9346=1.000
+after editing (->), right alignment: 9346/9346=1.000
+newly triples: 39623, 36001
+alignment_loss = 1.007, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [71.333 83.267 85.6   88.467]%, time = 0.733 s 
+generating neighbors of 30000 entities costs 10.688 s.
+
+iteration 27
+epoch 261, avg. triple loss: 0.5563, cost time: 2.1719s
+epoch 262, avg. triple loss: 0.5537, cost time: 1.9347s
+epoch 263, avg. triple loss: 0.5512, cost time: 1.9259s
+epoch 264, avg. triple loss: 0.5494, cost time: 1.9138s
+epoch 265, avg. triple loss: 0.5483, cost time: 1.9411s
+epoch 266, avg. triple loss: 0.5468, cost time: 1.9398s
+epoch 267, avg. triple loss: 0.5456, cost time: 1.9989s
+epoch 268, avg. triple loss: 0.5450, cost time: 1.9427s
+epoch 269, avg. triple loss: 0.5439, cost time: 2.1588s
+epoch 270, avg. triple loss: 0.5427, cost time: 2.0874s
+quick results: hits@[1, 5, 10, 50] = [71.2 83.  85.6 88.6]%, time = 0.775 s 
+after filtering by sim threshold, right alignment: 9287/68015=0.137
+after filtering by sim and nearest k, right alignment: 9266/51126=0.181
+graph via graph_tool <Graph object, directed, with 19098 vertices and 51126 edges at 0x7f6ffe2fa080>
+after mwgm, right alignment: 7896/9247=0.854
+========== worng alignment
+(http://dbpedia.org/resource/Nick_Gilbert, Jamie_Lowery, sim: 0.912) -> (http://dbpedia.org/resource/Nick_Gilbert, Nick_Gilbert, sim: 0.991)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.996) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.991)
+(http://dbpedia.org/resource/Welcome_to_My_Nightmare_(song), Strange_Kind_of_Woman, sim: 0.703) -> (http://dbpedia.org/resource/Welcome_to_My_Nightmare_(song), Welcome_to_My_Nightmare_(song), sim: 0.443)
+(http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Cecilio_Waterman, sim: 0.998) -> (http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Ismael_Díaz_(Panamanian_footballer), sim: 0.998)
+(http://dbpedia.org/resource/Robert_Palmer_(singer), Todd_Rundgren, sim: 0.816) -> (http://dbpedia.org/resource/Robert_Palmer_(singer), Robert_Palmer_(singer), sim: 0.941)
+(http://dbpedia.org/resource/Charles_Dorian, All_Night_(film), sim: 0.728) -> (http://dbpedia.org/resource/Charles_Dorian, Charles_Dorian, sim: 0.955)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.993) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.993)
+(http://dbpedia.org/resource/Knutzy_Knights, Hot_Stuff_(1956_film), sim: 0.998) -> (http://dbpedia.org/resource/Knutzy_Knights, Knutzy_Knights, sim: 0.998)
+(http://dbpedia.org/resource/The_End_of_the_Day, The_Man_Who_Loved_Women_(1977_film), sim: 0.996) -> (http://dbpedia.org/resource/The_End_of_the_Day, The_End_of_the_Day, sim: 0.996)
+(http://dbpedia.org/resource/Heath_Town, New_Cross_Hospital, sim: 0.839) -> (http://dbpedia.org/resource/Heath_Town, Heath_Town, sim: 0.907)
+==========
+after force right, right alignment: 9247/9247=1.000
+mwgm costs time: 3.493 s
+selecting potential alignment costs time: 5.841 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9450/9450=1.000
+after editing (->), right alignment: 9450/9450=1.000
+newly triples: 39968, 36311
+alignment_loss = 1.004, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [72.467 83.733 86.067 88.733]%, time = 0.787 s 
+generating neighbors of 30000 entities costs 10.731 s.
+
+iteration 28
+epoch 271, avg. triple loss: 0.5548, cost time: 2.0908s
+epoch 272, avg. triple loss: 0.5516, cost time: 2.5012s
+epoch 273, avg. triple loss: 0.5494, cost time: 2.0535s
+epoch 274, avg. triple loss: 0.5477, cost time: 2.0082s
+epoch 275, avg. triple loss: 0.5458, cost time: 2.2595s
+epoch 276, avg. triple loss: 0.5450, cost time: 2.2763s
+epoch 277, avg. triple loss: 0.5441, cost time: 2.1909s
+epoch 278, avg. triple loss: 0.5425, cost time: 2.2037s
+epoch 279, avg. triple loss: 0.5419, cost time: 2.1657s
+epoch 280, avg. triple loss: 0.5411, cost time: 2.1750s
+quick results: hits@[1, 5, 10, 50] = [72.067 83.667 86.133 89.067]%, time = 0.779 s 
+after filtering by sim threshold, right alignment: 9397/69862=0.135
+after filtering by sim and nearest k, right alignment: 9377/52238=0.180
+graph via graph_tool <Graph object, directed, with 19286 vertices and 52238 edges at 0x7f707acca128>
+after mwgm, right alignment: 7991/9352=0.854
+========== worng alignment
+(http://dbpedia.org/resource/Nick_Gilbert, Jamie_Lowery, sim: 0.915) -> (http://dbpedia.org/resource/Nick_Gilbert, Nick_Gilbert, sim: 0.992)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.904) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.917)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.985) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.980)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.986) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.984)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.914) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.691)
+(http://dbpedia.org/resource/Lonestar, Brooks_&_Dunn, sim: 0.744) -> (http://dbpedia.org/resource/Lonestar, Lonestar, sim: 0.940)
+(http://dbpedia.org/resource/Twenty_Four_Seven_(film), Small_Time, sim: 0.908) -> (http://dbpedia.org/resource/Twenty_Four_Seven_(film), Twenty_Four_Seven_(film), sim: 0.980)
+(http://dbpedia.org/resource/Major_Saab, Bhai_(1997_film), sim: 0.811) -> (http://dbpedia.org/resource/Major_Saab, Major_Saab, sim: 0.948)
+(http://dbpedia.org/resource/ABBA, Steps_(group), sim: 0.894) -> (http://dbpedia.org/resource/ABBA, ABBA, sim: 0.949)
+==========
+after force right, right alignment: 9352/9352=1.000
+mwgm costs time: 3.395 s
+selecting potential alignment costs time: 5.758 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9550/9550=1.000
+after editing (->), right alignment: 9550/9550=1.000
+newly triples: 40330, 36604
+alignment_loss = 1.001, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [72.933 84.267 86.333 89.   ]%, time = 0.785 s 
+generating neighbors of 30000 entities costs 10.813 s.
+
+iteration 29
+epoch 281, avg. triple loss: 0.5524, cost time: 2.3268s
+epoch 282, avg. triple loss: 0.5502, cost time: 2.0858s
+epoch 283, avg. triple loss: 0.5476, cost time: 2.0698s
+epoch 284, avg. triple loss: 0.5465, cost time: 2.2122s
+epoch 285, avg. triple loss: 0.5444, cost time: 1.9997s
+epoch 286, avg. triple loss: 0.5427, cost time: 2.1704s
+epoch 287, avg. triple loss: 0.5424, cost time: 2.0791s
+epoch 288, avg. triple loss: 0.5412, cost time: 2.0586s
+epoch 289, avg. triple loss: 0.5405, cost time: 2.1767s
+epoch 290, avg. triple loss: 0.5397, cost time: 2.1626s
+quick results: hits@[1, 5, 10, 50] = [73.267 84.133 86.4   89.267]%, time = 0.771 s 
+after filtering by sim threshold, right alignment: 9489/71601=0.133
+after filtering by sim and nearest k, right alignment: 9470/53262=0.178
+graph via graph_tool <Graph object, directed, with 19472 vertices and 53262 edges at 0x7f700046bcc0>
+after mwgm, right alignment: 8089/9450=0.856
+========== worng alignment
+(http://dbpedia.org/resource/Shakira, Jerry_Duplessis, sim: 0.722) -> (http://dbpedia.org/resource/Shakira, Shakira, sim: 0.708)
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.942) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.953)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.940) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.939)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.904) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.919)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.996) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.992)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.901) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.791)
+(http://dbpedia.org/resource/Sidney_Gilliat, Frank_Launder, sim: 0.972) -> (http://dbpedia.org/resource/Sidney_Gilliat, Sidney_Gilliat, sim: 0.971)
+(http://dbpedia.org/resource/Twenty_Four_Seven_(film), Small_Time, sim: 0.914) -> (http://dbpedia.org/resource/Twenty_Four_Seven_(film), Twenty_Four_Seven_(film), sim: 0.982)
+(http://dbpedia.org/resource/Mirko_Grabovac, Sudiat_Dali, sim: 0.746) -> (http://dbpedia.org/resource/Mirko_Grabovac, Mirko_Grabovac, sim: 0.779)
+==========
+after force right, right alignment: 9450/9450=1.000
+mwgm costs time: 3.443 s
+selecting potential alignment costs time: 5.813 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9646/9646=1.000
+after editing (->), right alignment: 9646/9646=1.000
+newly triples: 40639, 36908
+alignment_loss = 0.998, time = 0.084 s
+quick results: hits@[1, 5, 10, 50] = [74.133 84.733 86.6   89.333]%, time = 0.746 s 
+generating neighbors of 30000 entities costs 10.819 s.
+
+iteration 30
+epoch 291, avg. triple loss: 0.5506, cost time: 2.2241s
+epoch 292, avg. triple loss: 0.5482, cost time: 2.0996s
+epoch 293, avg. triple loss: 0.5456, cost time: 2.0822s
+epoch 294, avg. triple loss: 0.5441, cost time: 2.0207s
+epoch 295, avg. triple loss: 0.5426, cost time: 1.9614s
+epoch 296, avg. triple loss: 0.5414, cost time: 2.0789s
+epoch 297, avg. triple loss: 0.5404, cost time: 1.9412s
+epoch 298, avg. triple loss: 0.5399, cost time: 1.9209s
+epoch 299, avg. triple loss: 0.5385, cost time: 1.9279s
+epoch 300, avg. triple loss: 0.5375, cost time: 1.9262s
+quick results: hits@[1, 5, 10, 50] = [73.467 84.6   86.6   89.4  ]%, time = 0.790 s 
+after filtering by sim threshold, right alignment: 9572/73186=0.131
+after filtering by sim and nearest k, right alignment: 9553/54173=0.176
+graph via graph_tool <Graph object, directed, with 19628 vertices and 54173 edges at 0x7f707acca128>
+after mwgm, right alignment: 8200/9538=0.860
+========== worng alignment
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.994) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.994)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.997) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.993)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.769) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.886)
+(http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), The_Siege_of_Sidney_Street, sim: 0.790) -> (http://dbpedia.org/resource/Third_Time_Lucky_(1949_film), Third_Time_Lucky_(1949_film), sim: 0.923)
+(http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), You're_Gonna_Miss_Me_When_I'm_Gone, sim: 0.977) -> (http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), Believe_(Brooks_&_Dunn_song), sim: 0.974)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.918) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.706)
+(http://dbpedia.org/resource/Twenty_Four_Seven_(film), Small_Time, sim: 0.920) -> (http://dbpedia.org/resource/Twenty_Four_Seven_(film), Twenty_Four_Seven_(film), sim: 0.983)
+(http://dbpedia.org/resource/I_Wouldn't_Be_a_Man, You_Turn_Me_On_(Like_a_Radio), sim: 0.819) -> (http://dbpedia.org/resource/I_Wouldn't_Be_a_Man, I_Wouldn't_Be_a_Man, sim: 0.993)
+(http://dbpedia.org/resource/ABBA, Steps_(group), sim: 0.900) -> (http://dbpedia.org/resource/ABBA, ABBA, sim: 0.950)
+==========
+after force right, right alignment: 9538/9538=1.000
+mwgm costs time: 3.569 s
+selecting potential alignment costs time: 5.938 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9725/9725=1.000
+after editing (->), right alignment: 9725/9725=1.000
+newly triples: 40930, 37115
+alignment_loss = 0.996, time = 0.082 s
+quick results: hits@[1, 5, 10, 50] = [74.133 85.2   86.8   89.4  ]%, time = 0.807 s 
+generating neighbors of 30000 entities costs 10.782 s.
+
+iteration 31
+epoch 301, avg. triple loss: 0.5486, cost time: 2.2037s
+epoch 302, avg. triple loss: 0.5464, cost time: 2.1105s
+epoch 303, avg. triple loss: 0.5440, cost time: 2.2026s
+epoch 304, avg. triple loss: 0.5431, cost time: 2.0075s
+epoch 305, avg. triple loss: 0.5411, cost time: 2.0900s
+epoch 306, avg. triple loss: 0.5401, cost time: 2.0938s
+epoch 307, avg. triple loss: 0.5394, cost time: 2.1045s
+epoch 308, avg. triple loss: 0.5381, cost time: 2.1486s
+epoch 309, avg. triple loss: 0.5371, cost time: 2.2216s
+epoch 310, avg. triple loss: 0.5364, cost time: 2.0528s
+quick results: hits@[1, 5, 10, 50] = [73.6   85.333 86.8   89.533]%, time = 0.780 s 
+after filtering by sim threshold, right alignment: 9655/74967=0.129
+after filtering by sim and nearest k, right alignment: 9636/55175=0.175
+graph via graph_tool <Graph object, directed, with 19778 vertices and 55175 edges at 0x7f6ffe0581d0>
+after mwgm, right alignment: 8221/9619=0.855
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.980) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.976)
+(http://dbpedia.org/resource/Hymn_(Ultravox_song), The_Damned_Don't_Cry_(song), sim: 0.964) -> (http://dbpedia.org/resource/Hymn_(Ultravox_song), Hymn_(Ultravox_song), sim: 0.988)
+(http://dbpedia.org/resource/Chongqing_F.C., Grêmio_Esportivo_Anápolis, sim: 0.826) -> (http://dbpedia.org/resource/Chongqing_F.C., Chongqing_F.C., sim: 0.958)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.940) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/A_Great_Big_Sled, Joel_the_Lump_of_Coal, sim: 0.992) -> (http://dbpedia.org/resource/A_Great_Big_Sled, A_Great_Big_Sled, sim: 0.996)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.986) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.961) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.972)
+(http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), You're_Gonna_Miss_Me_When_I'm_Gone, sim: 0.979) -> (http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), Believe_(Brooks_&_Dunn_song), sim: 0.975)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.920) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.706)
+==========
+after force right, right alignment: 9619/9619=1.000
+mwgm costs time: 3.609 s
+selecting potential alignment costs time: 6.009 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9804/9804=1.000
+after editing (->), right alignment: 9804/9804=1.000
+newly triples: 41148, 37346
+alignment_loss = 0.993, time = 0.085 s
+quick results: hits@[1, 5, 10, 50] = [74.533 85.6   87.    89.6  ]%, time = 0.779 s 
+generating neighbors of 30000 entities costs 10.955 s.
+
+iteration 32
+epoch 311, avg. triple loss: 0.5469, cost time: 2.1684s
+epoch 312, avg. triple loss: 0.5449, cost time: 1.9916s
+epoch 313, avg. triple loss: 0.5429, cost time: 2.1526s
+epoch 314, avg. triple loss: 0.5408, cost time: 2.2576s
+epoch 315, avg. triple loss: 0.5399, cost time: 2.1986s
+epoch 316, avg. triple loss: 0.5390, cost time: 2.1476s
+epoch 317, avg. triple loss: 0.5374, cost time: 2.1500s
+epoch 318, avg. triple loss: 0.5361, cost time: 2.0847s
+epoch 319, avg. triple loss: 0.5350, cost time: 2.0215s
+epoch 320, avg. triple loss: 0.5348, cost time: 1.9955s
+quick results: hits@[1, 5, 10, 50] = [74.467 85.667 87.067 89.867]%, time = 0.752 s 
+after filtering by sim threshold, right alignment: 9726/76606=0.127
+after filtering by sim and nearest k, right alignment: 9704/56089=0.173
+graph via graph_tool <Graph object, directed, with 19891 vertices and 56089 edges at 0x7f7077895c50>
+after mwgm, right alignment: 8278/9664=0.857
+========== worng alignment
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.957) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.965)
+(http://dbpedia.org/resource/Kyp_Malone, TV_on_the_Radio, sim: 0.902) -> (http://dbpedia.org/resource/Kyp_Malone, Kyp_Malone, sim: 0.959)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.995) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.994)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.995) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.997)
+(http://dbpedia.org/resource/Nim's_Island, P.S._I_Love_You_(film), sim: 0.740) -> (http://dbpedia.org/resource/Nim's_Island, Nim's_Island, sim: 0.910)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.997) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.993)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.818) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.909)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.986) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Giorgio_Moroder, Philip_Oakey, sim: 0.906) -> (http://dbpedia.org/resource/Giorgio_Moroder, Giorgio_Moroder, sim: 0.816)
+==========
+after force right, right alignment: 9664/9664=1.000
+mwgm costs time: 3.681 s
+selecting potential alignment costs time: 6.043 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9857/9857=1.000
+after editing (->), right alignment: 9857/9857=1.000
+newly triples: 41300, 37477
+alignment_loss = 0.990, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [75.533 85.867 87.467 89.8  ]%, time = 0.763 s 
+generating neighbors of 30000 entities costs 10.835 s.
+
+iteration 33
+epoch 321, avg. triple loss: 0.5456, cost time: 2.0952s
+epoch 322, avg. triple loss: 0.5426, cost time: 2.0555s
+epoch 323, avg. triple loss: 0.5412, cost time: 1.9793s
+epoch 324, avg. triple loss: 0.5392, cost time: 1.9786s
+epoch 325, avg. triple loss: 0.5382, cost time: 1.9429s
+epoch 326, avg. triple loss: 0.5378, cost time: 1.9384s
+epoch 327, avg. triple loss: 0.5359, cost time: 1.9629s
+epoch 328, avg. triple loss: 0.5356, cost time: 1.9664s
+epoch 329, avg. triple loss: 0.5341, cost time: 1.9810s
+epoch 330, avg. triple loss: 0.5333, cost time: 1.9821s
+quick results: hits@[1, 5, 10, 50] = [74.667 85.667 87.533 90.   ]%, time = 0.771 s 
+after filtering by sim threshold, right alignment: 9802/78154=0.125
+after filtering by sim and nearest k, right alignment: 9781/56921=0.172
+graph via graph_tool <Graph object, directed, with 20046 vertices and 56921 edges at 0x7f6ffe17bef0>
+after mwgm, right alignment: 8380/9748=0.860
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.982) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.979)
+(http://dbpedia.org/resource/Carry_On_Dick, Carry_On_Doctor, sim: 0.995) -> (http://dbpedia.org/resource/Carry_On_Dick, Carry_On_Dick, sim: 0.997)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.995) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.994)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.977) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.979)
+(http://dbpedia.org/resource/Nim's_Island, P.S._I_Love_You_(film), sim: 0.740) -> (http://dbpedia.org/resource/Nim's_Island, Nim's_Island, sim: 0.911)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.909) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.923)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.985) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.992)
+(http://dbpedia.org/resource/Luke_Bryan, Good_Directions, sim: 0.792) -> (http://dbpedia.org/resource/Luke_Bryan, Luke_Bryan, sim: 0.951)
+(http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Impermanent_Resonance, sim: 0.881) -> (http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Suspended_Animation_(John_Petrucci_album), sim: 0.991)
+(http://dbpedia.org/resource/The_Music_Lovers, Knight_Without_Armour, sim: 0.726) -> (http://dbpedia.org/resource/The_Music_Lovers, The_Music_Lovers, sim: 0.993)
+==========
+after force right, right alignment: 9748/9748=1.000
+mwgm costs time: 3.666 s
+selecting potential alignment costs time: 6.088 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9929/9929=1.000
+after editing (->), right alignment: 9929/9929=1.000
+newly triples: 41528, 37665
+alignment_loss = 0.988, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [75.667 86.133 87.733 90.   ]%, time = 0.753 s 
+generating neighbors of 30000 entities costs 11.153 s.
+
+iteration 34
+epoch 331, avg. triple loss: 0.5436, cost time: 2.6153s
+epoch 332, avg. triple loss: 0.5416, cost time: 2.1788s
+epoch 333, avg. triple loss: 0.5404, cost time: 2.1893s
+epoch 334, avg. triple loss: 0.5379, cost time: 2.2342s
+epoch 335, avg. triple loss: 0.5365, cost time: 2.1460s
+epoch 336, avg. triple loss: 0.5363, cost time: 2.3276s
+epoch 337, avg. triple loss: 0.5346, cost time: 2.2660s
+epoch 338, avg. triple loss: 0.5339, cost time: 2.3236s
+epoch 339, avg. triple loss: 0.5329, cost time: 2.1469s
+epoch 340, avg. triple loss: 0.5324, cost time: 2.1683s
+quick results: hits@[1, 5, 10, 50] = [75.333 85.933 87.6   90.133]%, time = 0.796 s 
+after filtering by sim threshold, right alignment: 9874/79599=0.124
+after filtering by sim and nearest k, right alignment: 9853/57715=0.171
+graph via graph_tool <Graph object, directed, with 20181 vertices and 57715 edges at 0x7f6ffdef24a8>
+after mwgm, right alignment: 8481/9824=0.863
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.982) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.980)
+(http://dbpedia.org/resource/Nick_Gilbert, Jamie_Lowery, sim: 0.927) -> (http://dbpedia.org/resource/Nick_Gilbert, Nick_Gilbert, sim: 0.993)
+(http://dbpedia.org/resource/Isolation_(Joy_Division_song), Feel_Every_Beat, sim: 0.935) -> (http://dbpedia.org/resource/Isolation_(Joy_Division_song), Isolation_(Joy_Division_song), sim: 0.923)
+(http://dbpedia.org/resource/Tulip_Fever, Carnage_(2011_film), sim: 0.775) -> (http://dbpedia.org/resource/Tulip_Fever, Tulip_Fever, sim: 0.981)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.996)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.987) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Major_Saab, Bhai_(1997_film), sim: 0.877) -> (http://dbpedia.org/resource/Major_Saab, Major_Saab, sim: 0.972)
+(http://dbpedia.org/resource/Wésley_Brasilia, Roniel_Costa, sim: 0.729) -> (http://dbpedia.org/resource/Wésley_Brasilia, Wésley_Brasilia, sim: 0.771)
+(http://dbpedia.org/resource/Big_Sean, DJ_Mustard, sim: 0.946) -> (http://dbpedia.org/resource/Big_Sean, Big_Sean, sim: 0.945)
+(http://dbpedia.org/resource/Charlie_Adams_(English_footballer), Greg_Ranjitsingh, sim: 0.972) -> (http://dbpedia.org/resource/Charlie_Adams_(English_footballer), Charlie_Adams_(English_footballer), sim: 0.888)
+==========
+after force right, right alignment: 9824/9824=1.000
+mwgm costs time: 3.842 s
+selecting potential alignment costs time: 6.308 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 9999/9999=1.000
+after editing (->), right alignment: 9999/9999=1.000
+newly triples: 41781, 37879
+alignment_loss = 0.987, time = 0.084 s
+quick results: hits@[1, 5, 10, 50] = [76.4   86.733 88.133 90.133]%, time = 0.778 s 
+generating neighbors of 30000 entities costs 11.337 s.
+
+iteration 35
+epoch 341, avg. triple loss: 0.5429, cost time: 2.3391s
+epoch 342, avg. triple loss: 0.5400, cost time: 2.1229s
+epoch 343, avg. triple loss: 0.5388, cost time: 2.1773s
+epoch 344, avg. triple loss: 0.5372, cost time: 2.0721s
+epoch 345, avg. triple loss: 0.5355, cost time: 2.0319s
+epoch 346, avg. triple loss: 0.5344, cost time: 2.2041s
+epoch 347, avg. triple loss: 0.5331, cost time: 2.1871s
+epoch 348, avg. triple loss: 0.5330, cost time: 2.0859s
+epoch 349, avg. triple loss: 0.5318, cost time: 2.0768s
+epoch 350, avg. triple loss: 0.5311, cost time: 1.9751s
+quick results: hits@[1, 5, 10, 50] = [76.    86.267 88.133 90.267]%, time = 0.796 s 
+after filtering by sim threshold, right alignment: 9932/81018=0.123
+after filtering by sim and nearest k, right alignment: 9910/58446=0.170
+graph via graph_tool <Graph object, directed, with 20286 vertices and 58446 edges at 0x7f707c9042e8>
+after mwgm, right alignment: 8531/9886=0.863
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.983) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.981)
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.964) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.971)
+(http://dbpedia.org/resource/Nanna_Preethiya_Hudugi, Shrimanthana_Magalu, sim: 0.758) -> (http://dbpedia.org/resource/Nanna_Preethiya_Hudugi, Nanna_Preethiya_Hudugi, sim: 0.721)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.996) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.997)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.940) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.912) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.924)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.990) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.988)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.996)
+(http://dbpedia.org/resource/Black_Sheep_(duo), Mobb_Deep, sim: 0.751) -> (http://dbpedia.org/resource/Black_Sheep_(duo), Black_Sheep_(duo), sim: 0.702)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.987) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+==========
+after force right, right alignment: 9886/9886=1.000
+mwgm costs time: 3.776 s
+selecting potential alignment costs time: 6.183 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10060/10060=1.000
+after editing (->), right alignment: 10060/10060=1.000
+newly triples: 41975, 38051
+alignment_loss = 0.985, time = 0.087 s
+quick results: hits@[1, 5, 10, 50] = [77.2   86.667 88.533 90.333]%, time = 0.793 s 
+generating neighbors of 30000 entities costs 11.235 s.
+
+iteration 36
+epoch 351, avg. triple loss: 0.5404, cost time: 2.1877s
+epoch 352, avg. triple loss: 0.5390, cost time: 2.1662s
+epoch 353, avg. triple loss: 0.5372, cost time: 2.1363s
+epoch 354, avg. triple loss: 0.5353, cost time: 2.1849s
+epoch 355, avg. triple loss: 0.5342, cost time: 2.0600s
+epoch 356, avg. triple loss: 0.5334, cost time: 2.2699s
+epoch 357, avg. triple loss: 0.5324, cost time: 2.0512s
+epoch 358, avg. triple loss: 0.5319, cost time: 2.2320s
+epoch 359, avg. triple loss: 0.5314, cost time: 2.0804s
+epoch 360, avg. triple loss: 0.5300, cost time: 2.1590s
+quick results: hits@[1, 5, 10, 50] = [76.867 86.6   88.4   90.6  ]%, time = 0.778 s 
+after filtering by sim threshold, right alignment: 9986/82368=0.121
+after filtering by sim and nearest k, right alignment: 9966/59121=0.169
+graph via graph_tool <Graph object, directed, with 20382 vertices and 59121 edges at 0x7f6ffdef24a8>
+after mwgm, right alignment: 8511/9925=0.858
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.983) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.981)
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.966) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.972)
+(http://dbpedia.org/resource/C.O.D._(film), The_Man_in_the_Mirror_(1936_film), sim: 0.773) -> (http://dbpedia.org/resource/C.O.D._(film), C.O.D._(film), sim: 0.998)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.995) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.994)
+(http://dbpedia.org/resource/Nim's_Island, P.S._I_Love_You_(film), sim: 0.741) -> (http://dbpedia.org/resource/Nim's_Island, Nim's_Island, sim: 0.919)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.997) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.994)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.911) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.925)
+(http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.996) -> (http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), Real_Life_(Bon_Jovi_song), sim: 0.995)
+(http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Cecilio_Waterman, sim: 0.999) -> (http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Ismael_Díaz_(Panamanian_footballer), sim: 0.999)
+(http://dbpedia.org/resource/Chester_Conklin, Wallace_MacDonald, sim: 0.740) -> (http://dbpedia.org/resource/Chester_Conklin, Chester_Conklin, sim: 0.989)
+==========
+after force right, right alignment: 9925/9925=1.000
+mwgm costs time: 4.321 s
+selecting potential alignment costs time: 6.729 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10102/10102=1.000
+after editing (->), right alignment: 10102/10102=1.000
+newly triples: 42101, 38168
+alignment_loss = 0.983, time = 0.089 s
+quick results: hits@[1, 5, 10, 50] = [77.667 87.133 88.533 90.733]%, time = 0.771 s 
+generating neighbors of 30000 entities costs 10.912 s.
+
+iteration 37
+epoch 361, avg. triple loss: 0.5399, cost time: 2.2258s
+epoch 362, avg. triple loss: 0.5378, cost time: 2.1223s
+epoch 363, avg. triple loss: 0.5367, cost time: 1.9551s
+epoch 364, avg. triple loss: 0.5347, cost time: 1.9622s
+epoch 365, avg. triple loss: 0.5330, cost time: 1.9542s
+epoch 366, avg. triple loss: 0.5320, cost time: 1.9424s
+epoch 367, avg. triple loss: 0.5311, cost time: 1.9334s
+epoch 368, avg. triple loss: 0.5297, cost time: 2.0846s
+epoch 369, avg. triple loss: 0.5304, cost time: 2.1578s
+epoch 370, avg. triple loss: 0.5290, cost time: 2.2098s
+quick results: hits@[1, 5, 10, 50] = [76.933 86.8   88.467 91.   ]%, time = 0.902 s 
+after filtering by sim threshold, right alignment: 10056/83728=0.120
+after filtering by sim and nearest k, right alignment: 10033/59858=0.168
+graph via graph_tool <Graph object, directed, with 20494 vertices and 59858 edges at 0x7f6ffe065dd8>
+after mwgm, right alignment: 8675/9999=0.868
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.984) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.981)
+(http://dbpedia.org/resource/Alexandre_Faioli, Kieza, sim: 0.841) -> (http://dbpedia.org/resource/Alexandre_Faioli, Alexandre_Faioli, sim: 0.955)
+(http://dbpedia.org/resource/Diego_Hernán_Morales, Felipe_De_la_Riva, sim: 0.917) -> (http://dbpedia.org/resource/Diego_Hernán_Morales, Diego_Hernán_Morales, sim: 0.995)
+(http://dbpedia.org/resource/There_Must_Be_More_to_Love_Than_This, Lost_in_the_Fifties_Tonight_(In_the_Still_of_the_Night), sim: 0.701) -> (http://dbpedia.org/resource/There_Must_Be_More_to_Love_Than_This, There_Must_Be_More_to_Love_Than_This, sim: 0.690)
+(http://dbpedia.org/resource/Barracas_Central, Estudiantes_de_Buenos_Aires, sim: 0.960) -> (http://dbpedia.org/resource/Barracas_Central, Barracas_Central, sim: 0.984)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.986) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.957) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.969)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.926) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.718)
+(http://dbpedia.org/resource/Rizal, Isabela_(province), sim: 0.872) -> (http://dbpedia.org/resource/Rizal, Rizal, sim: 0.867)
+(http://dbpedia.org/resource/Major_Saab, Bhai_(1997_film), sim: 0.891) -> (http://dbpedia.org/resource/Major_Saab, Major_Saab, sim: 0.978)
+==========
+after force right, right alignment: 9999/9999=1.000
+mwgm costs time: 4.141 s
+selecting potential alignment costs time: 6.551 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10164/10164=1.000
+after editing (->), right alignment: 10164/10164=1.000
+newly triples: 42267, 38331
+alignment_loss = 0.981, time = 0.096 s
+quick results: hits@[1, 5, 10, 50] = [77.933 87.2   88.6   91.   ]%, time = 0.754 s 
+generating neighbors of 30000 entities costs 10.803 s.
+
+iteration 38
+epoch 371, avg. triple loss: 0.5386, cost time: 2.1698s
+epoch 372, avg. triple loss: 0.5369, cost time: 2.0812s
+epoch 373, avg. triple loss: 0.5357, cost time: 2.0844s
+epoch 374, avg. triple loss: 0.5328, cost time: 2.0129s
+epoch 375, avg. triple loss: 0.5323, cost time: 2.1502s
+epoch 376, avg. triple loss: 0.5312, cost time: 2.1179s
+epoch 377, avg. triple loss: 0.5302, cost time: 2.1107s
+epoch 378, avg. triple loss: 0.5294, cost time: 2.0577s
+epoch 379, avg. triple loss: 0.5282, cost time: 2.1166s
+epoch 380, avg. triple loss: 0.5281, cost time: 2.1448s
+quick results: hits@[1, 5, 10, 50] = [77.467 86.933 88.667 91.067]%, time = 0.772 s 
+after filtering by sim threshold, right alignment: 10100/85098=0.119
+after filtering by sim and nearest k, right alignment: 10075/60561=0.166
+graph via graph_tool <Graph object, directed, with 20576 vertices and 60561 edges at 0x7f6ffde62e80>
+after mwgm, right alignment: 8679/10043=0.864
+========== worng alignment
+(http://dbpedia.org/resource/George_Piper_(footballer), Michael_Gash, sim: 0.928) -> (http://dbpedia.org/resource/George_Piper_(footballer), George_Piper_(footballer), sim: 0.998)
+(http://dbpedia.org/resource/Hymn_(Ultravox_song), The_Damned_Don't_Cry_(song), sim: 0.966) -> (http://dbpedia.org/resource/Hymn_(Ultravox_song), Hymn_(Ultravox_song), sim: 0.988)
+(http://dbpedia.org/resource/Stuart_Cary_Welch, Sorachi_Subprefecture, sim: 0.755) -> (http://dbpedia.org/resource/Stuart_Cary_Welch, Stuart_Cary_Welch, sim: 0.967)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.996) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.996)
+(http://dbpedia.org/resource/Diego_Hernán_Morales, Felipe_De_la_Riva, sim: 0.918) -> (http://dbpedia.org/resource/Diego_Hernán_Morales, Diego_Hernán_Morales, sim: 0.995)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.938) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Montpellier_Handball, Dunaferr_SE_(men's_handball), sim: 0.707) -> (http://dbpedia.org/resource/Montpellier_Handball, Montpellier_Handball, sim: 0.956)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.997) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.995)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.996) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.900) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.933)
+==========
+after force right, right alignment: 10043/10043=1.000
+mwgm costs time: 3.945 s
+selecting potential alignment costs time: 6.346 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10203/10203=1.000
+after editing (->), right alignment: 10203/10203=1.000
+newly triples: 42417, 38441
+alignment_loss = 0.980, time = 0.093 s
+quick results: hits@[1, 5, 10, 50] = [78.4   87.4   88.933 91.067]%, time = 0.758 s 
+generating neighbors of 30000 entities costs 10.906 s.
+
+iteration 39
+epoch 381, avg. triple loss: 0.5379, cost time: 2.2577s
+epoch 382, avg. triple loss: 0.5354, cost time: 1.9932s
+epoch 383, avg. triple loss: 0.5341, cost time: 1.9805s
+epoch 384, avg. triple loss: 0.5330, cost time: 1.9392s
+epoch 385, avg. triple loss: 0.5309, cost time: 1.9469s
+epoch 386, avg. triple loss: 0.5299, cost time: 2.0333s
+epoch 387, avg. triple loss: 0.5291, cost time: 2.1801s
+epoch 388, avg. triple loss: 0.5283, cost time: 2.1224s
+epoch 389, avg. triple loss: 0.5281, cost time: 2.0883s
+epoch 390, avg. triple loss: 0.5279, cost time: 1.9641s
+quick results: hits@[1, 5, 10, 50] = [77.533 87.4   88.8   91.2  ]%, time = 0.758 s 
+after filtering by sim threshold, right alignment: 10150/86282=0.118
+after filtering by sim and nearest k, right alignment: 10124/61185=0.165
+graph via graph_tool <Graph object, directed, with 20672 vertices and 61185 edges at 0x7f707c904898>
+after mwgm, right alignment: 8719/10104=0.863
+========== worng alignment
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.936) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.920)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.939) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.939)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.998) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.995)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.988) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.993)
+(http://dbpedia.org/resource/Sony_Music_Latin, Livin'_la_Vida_Loca, sim: 0.727) -> (http://dbpedia.org/resource/Sony_Music_Latin, Sony_Music_Latin, sim: 0.376)
+(http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), You're_Gonna_Miss_Me_When_I'm_Gone, sim: 0.982) -> (http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), Believe_(Brooks_&_Dunn_song), sim: 0.979)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.928) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.727)
+(http://dbpedia.org/resource/ABBA, Steps_(group), sim: 0.908) -> (http://dbpedia.org/resource/ABBA, ABBA, sim: 0.949)
+(http://dbpedia.org/resource/Jan_Simulambo, Jonathan_Armogam, sim: 0.870) -> (http://dbpedia.org/resource/Jan_Simulambo, Jan_Simulambo, sim: 0.682)
+(http://dbpedia.org/resource/Chester_Conklin, Wallace_MacDonald, sim: 0.742) -> (http://dbpedia.org/resource/Chester_Conklin, Chester_Conklin, sim: 0.990)
+==========
+after force right, right alignment: 10104/10104=1.000
+mwgm costs time: 4.309 s
+selecting potential alignment costs time: 6.746 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10257/10257=1.000
+after editing (->), right alignment: 10257/10257=1.000
+newly triples: 42565, 38574
+alignment_loss = 0.978, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [78.2   87.867 89.2   91.2  ]%, time = 0.755 s 
+generating neighbors of 30000 entities costs 10.920 s.
+
+iteration 40
+epoch 391, avg. triple loss: 0.5365, cost time: 2.0182s
+epoch 392, avg. triple loss: 0.5346, cost time: 1.9391s
+epoch 393, avg. triple loss: 0.5326, cost time: 1.9592s
+epoch 394, avg. triple loss: 0.5310, cost time: 1.9224s
+epoch 395, avg. triple loss: 0.5308, cost time: 1.9534s
+epoch 396, avg. triple loss: 0.5292, cost time: 2.0668s
+epoch 397, avg. triple loss: 0.5281, cost time: 2.0005s
+epoch 398, avg. triple loss: 0.5275, cost time: 1.9638s
+epoch 399, avg. triple loss: 0.5279, cost time: 1.9354s
+epoch 400, avg. triple loss: 0.5265, cost time: 1.9519s
+quick results: hits@[1, 5, 10, 50] = [78.067 87.667 89.267 91.333]%, time = 0.778 s 
+after filtering by sim threshold, right alignment: 10196/87551=0.116
+after filtering by sim and nearest k, right alignment: 10169/61789=0.165
+graph via graph_tool <Graph object, directed, with 20751 vertices and 61789 edges at 0x7f6ffdd9dfd0>
+after mwgm, right alignment: 8768/10146=0.864
+========== worng alignment
+(http://dbpedia.org/resource/Hymn_(Ultravox_song), The_Damned_Don't_Cry_(song), sim: 0.968) -> (http://dbpedia.org/resource/Hymn_(Ultravox_song), Hymn_(Ultravox_song), sim: 0.988)
+(http://dbpedia.org/resource/Dean_DeBlois, Gift_of_the_Night_Fury, sim: 0.825) -> (http://dbpedia.org/resource/Dean_DeBlois, Dean_DeBlois, sim: 0.970)
+(http://dbpedia.org/resource/Isolation_(Joy_Division_song), Feel_Every_Beat, sim: 0.962) -> (http://dbpedia.org/resource/Isolation_(Joy_Division_song), Isolation_(Joy_Division_song), sim: 0.957)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.937) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.998) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.995)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.995) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.987) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), You're_Gonna_Miss_Me_When_I'm_Gone, sim: 0.981) -> (http://dbpedia.org/resource/Believe_(Brooks_&_Dunn_song), Believe_(Brooks_&_Dunn_song), sim: 0.980)
+(http://dbpedia.org/resource/ABBA, Steps_(group), sim: 0.909) -> (http://dbpedia.org/resource/ABBA, ABBA, sim: 0.950)
+(http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Cecilio_Waterman, sim: 0.999) -> (http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Ismael_Díaz_(Panamanian_footballer), sim: 0.999)
+==========
+after force right, right alignment: 10146/10146=1.000
+mwgm costs time: 3.958 s
+selecting potential alignment costs time: 6.348 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10298/10298=1.000
+after editing (->), right alignment: 10298/10298=1.000
+newly triples: 42729, 38697
+alignment_loss = 0.977, time = 0.084 s
+quick results: hits@[1, 5, 10, 50] = [78.8   88.067 89.467 91.333]%, time = 0.752 s 
+generating neighbors of 30000 entities costs 10.840 s.
+
+iteration 41
+epoch 401, avg. triple loss: 0.5361, cost time: 2.2536s
+epoch 402, avg. triple loss: 0.5333, cost time: 2.0904s
+epoch 403, avg. triple loss: 0.5308, cost time: 2.5063s
+epoch 404, avg. triple loss: 0.5314, cost time: 2.0775s
+epoch 405, avg. triple loss: 0.5295, cost time: 2.0801s
+epoch 406, avg. triple loss: 0.5288, cost time: 2.1040s
+epoch 407, avg. triple loss: 0.5274, cost time: 2.0691s
+epoch 408, avg. triple loss: 0.5260, cost time: 2.0921s
+epoch 409, avg. triple loss: 0.5257, cost time: 2.0970s
+epoch 410, avg. triple loss: 0.5250, cost time: 2.0664s
+quick results: hits@[1, 5, 10, 50] = [78.267 88.067 89.533 91.6  ]%, time = 0.771 s 
+after filtering by sim threshold, right alignment: 10240/88703=0.115
+after filtering by sim and nearest k, right alignment: 10214/62378=0.164
+graph via graph_tool <Graph object, directed, with 20820 vertices and 62378 edges at 0x7f6ffdcb6e10>
+after mwgm, right alignment: 8861/10185=0.870
+========== worng alignment
+(http://dbpedia.org/resource/Tyronne_Fernando, Balu_Mahendra, sim: 0.844) -> (http://dbpedia.org/resource/Tyronne_Fernando, Tyronne_Fernando, sim: 0.989)
+(http://dbpedia.org/resource/Sleeping_Ute_(song), Yet_Again, sim: 0.996) -> (http://dbpedia.org/resource/Sleeping_Ute_(song), Sleeping_Ute_(song), sim: 0.996)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.937) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.992) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.991)
+(http://dbpedia.org/resource/A_Great_Big_Sled, Joel_the_Lump_of_Coal, sim: 0.994) -> (http://dbpedia.org/resource/A_Great_Big_Sled, A_Great_Big_Sled, sim: 0.997)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.927) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.943)
+(http://dbpedia.org/resource/Hoseynabad-e_Arabkhaneh, Khosravi,_Nehbandan, sim: 0.996) -> (http://dbpedia.org/resource/Hoseynabad-e_Arabkhaneh, Hoseynabad-e_Arabkhaneh, sim: 0.996)
+(http://dbpedia.org/resource/Namaklwe, Mong_La, sim: 0.984) -> (http://dbpedia.org/resource/Namaklwe, Namaklwe, sim: 0.982)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.928) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.730)
+(http://dbpedia.org/resource/Robert_Palmer_(singer), Todd_Rundgren, sim: 0.822) -> (http://dbpedia.org/resource/Robert_Palmer_(singer), Robert_Palmer_(singer), sim: 0.944)
+==========
+after force right, right alignment: 10185/10185=1.000
+mwgm costs time: 4.036 s
+selecting potential alignment costs time: 6.435 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10338/10338=1.000
+after editing (->), right alignment: 10338/10338=1.000
+newly triples: 42875, 38803
+alignment_loss = 0.976, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [79.133 88.4   89.733 91.533]%, time = 0.761 s 
+generating neighbors of 30000 entities costs 10.725 s.
+
+iteration 42
+epoch 411, avg. triple loss: 0.5343, cost time: 2.0205s
+epoch 412, avg. triple loss: 0.5321, cost time: 1.9192s
+epoch 413, avg. triple loss: 0.5312, cost time: 1.9111s
+epoch 414, avg. triple loss: 0.5296, cost time: 1.8959s
+epoch 415, avg. triple loss: 0.5284, cost time: 1.9332s
+epoch 416, avg. triple loss: 0.5279, cost time: 1.9205s
+epoch 417, avg. triple loss: 0.5265, cost time: 1.9156s
+epoch 418, avg. triple loss: 0.5252, cost time: 1.9101s
+epoch 419, avg. triple loss: 0.5253, cost time: 1.8802s
+epoch 420, avg. triple loss: 0.5247, cost time: 1.8849s
+quick results: hits@[1, 5, 10, 50] = [78.533 88.4   89.667 91.6  ]%, time = 0.748 s 
+after filtering by sim threshold, right alignment: 10268/89857=0.114
+after filtering by sim and nearest k, right alignment: 10243/62945=0.163
+graph via graph_tool <Graph object, directed, with 20883 vertices and 62945 edges at 0x7f6ffde62e80>
+after mwgm, right alignment: 8890/10212=0.871
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.986) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.984)
+(http://dbpedia.org/resource/George_Piper_(footballer), Michael_Gash, sim: 0.930) -> (http://dbpedia.org/resource/George_Piper_(footballer), George_Piper_(footballer), sim: 0.998)
+(http://dbpedia.org/resource/Solo_(2011_film), Khaleja, sim: 0.881) -> (http://dbpedia.org/resource/Solo_(2011_film), Solo_(2011_film), sim: 0.987)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.995) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.995)
+(http://dbpedia.org/resource/Isolation_(Joy_Division_song), Feel_Every_Beat, sim: 0.969) -> (http://dbpedia.org/resource/Isolation_(Joy_Division_song), Isolation_(Joy_Division_song), sim: 0.964)
+(http://dbpedia.org/resource/Scotland_women's_national_football_team, Manchester_City_W.F.C., sim: 0.888) -> (http://dbpedia.org/resource/Scotland_women's_national_football_team, Scotland_women's_national_football_team, sim: 0.991)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.938) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.980) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.982)
+(http://dbpedia.org/resource/Fernando_Lewis, Michel_Doesburg, sim: 0.998) -> (http://dbpedia.org/resource/Fernando_Lewis, Fernando_Lewis, sim: 0.996)
+(http://dbpedia.org/resource/Chester_Conklin, Wallace_MacDonald, sim: 0.744) -> (http://dbpedia.org/resource/Chester_Conklin, Chester_Conklin, sim: 0.991)
+==========
+after force right, right alignment: 10212/10212=1.000
+mwgm costs time: 4.363 s
+selecting potential alignment costs time: 6.794 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10368/10368=1.000
+after editing (->), right alignment: 10368/10368=1.000
+newly triples: 43006, 38930
+alignment_loss = 0.975, time = 0.089 s
+quick results: hits@[1, 5, 10, 50] = [79.    88.6   89.933 91.6  ]%, time = 0.761 s 
+generating neighbors of 30000 entities costs 10.844 s.
+
+iteration 43
+epoch 421, avg. triple loss: 0.5339, cost time: 2.0536s
+epoch 422, avg. triple loss: 0.5316, cost time: 1.8954s
+epoch 423, avg. triple loss: 0.5301, cost time: 1.8996s
+epoch 424, avg. triple loss: 0.5289, cost time: 1.9260s
+epoch 425, avg. triple loss: 0.5270, cost time: 2.0482s
+epoch 426, avg. triple loss: 0.5266, cost time: 2.0714s
+epoch 427, avg. triple loss: 0.5256, cost time: 1.9311s
+epoch 428, avg. triple loss: 0.5250, cost time: 1.9291s
+epoch 429, avg. triple loss: 0.5242, cost time: 1.9423s
+epoch 430, avg. triple loss: 0.5238, cost time: 1.9053s
+quick results: hits@[1, 5, 10, 50] = [79.    88.467 90.    91.6  ]%, time = 0.765 s 
+after filtering by sim threshold, right alignment: 10301/90956=0.113
+after filtering by sim and nearest k, right alignment: 10275/63442=0.162
+graph via graph_tool <Graph object, directed, with 20946 vertices and 63442 edges at 0x7f6ffdcd1dd8>
+after mwgm, right alignment: 8921/10246=0.871
+========== worng alignment
+(http://dbpedia.org/resource/Red_Love, A_Virus_Knows_No_Morals, sim: 0.971) -> (http://dbpedia.org/resource/Red_Love, Red_Love, sim: 0.984)
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.938) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.921)
+(http://dbpedia.org/resource/Kahurani_Gevash, Kushat-e_Avval, sim: 0.996) -> (http://dbpedia.org/resource/Kahurani_Gevash, Kahurani_Gevash, sim: 0.995)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.987) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.985)
+(http://dbpedia.org/resource/Best_of_You, Mantra_(Dave_Grohl_song), sim: 0.714) -> (http://dbpedia.org/resource/Best_of_You, Best_of_You, sim: 0.958)
+(http://dbpedia.org/resource/Super_Buddies_(film), Camp_Cucamonga, sim: 0.785) -> (http://dbpedia.org/resource/Super_Buddies_(film), Super_Buddies_(film), sim: 0.996)
+(http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Cecilio_Waterman, sim: 0.999) -> (http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Ismael_Díaz_(Panamanian_footballer), sim: 0.999)
+(http://dbpedia.org/resource/Robert_Palmer_(singer), Todd_Rundgren, sim: 0.825) -> (http://dbpedia.org/resource/Robert_Palmer_(singer), Robert_Palmer_(singer), sim: 0.946)
+(http://dbpedia.org/resource/All_These_Things_That_I've_Done, Smile_Like_You_Mean_It, sim: 0.944) -> (http://dbpedia.org/resource/All_These_Things_That_I've_Done, All_These_Things_That_I've_Done, sim: 0.961)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.996) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.996)
+==========
+after force right, right alignment: 10246/10246=1.000
+mwgm costs time: 4.079 s
+selecting potential alignment costs time: 6.481 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10398/10398=1.000
+after editing (->), right alignment: 10398/10398=1.000
+newly triples: 43099, 39008
+alignment_loss = 0.973, time = 0.089 s
+quick results: hits@[1, 5, 10, 50] = [79.667 88.933 90.333 91.6  ]%, time = 0.765 s 
+generating neighbors of 30000 entities costs 10.861 s.
+
+iteration 44
+epoch 431, avg. triple loss: 0.5326, cost time: 2.2849s
+epoch 432, avg. triple loss: 0.5312, cost time: 1.9192s
+epoch 433, avg. triple loss: 0.5289, cost time: 1.8941s
+epoch 434, avg. triple loss: 0.5275, cost time: 1.9181s
+epoch 435, avg. triple loss: 0.5270, cost time: 1.9241s
+epoch 436, avg. triple loss: 0.5255, cost time: 1.9198s
+epoch 437, avg. triple loss: 0.5249, cost time: 1.9204s
+epoch 438, avg. triple loss: 0.5240, cost time: 1.9199s
+epoch 439, avg. triple loss: 0.5229, cost time: 2.1973s
+epoch 440, avg. triple loss: 0.5228, cost time: 2.1753s
+quick results: hits@[1, 5, 10, 50] = [79.533 88.667 90.333 91.667]%, time = 0.766 s 
+after filtering by sim threshold, right alignment: 10338/92034=0.112
+after filtering by sim and nearest k, right alignment: 10313/63944=0.161
+graph via graph_tool <Graph object, directed, with 21015 vertices and 63944 edges at 0x7f7070519358>
+after mwgm, right alignment: 8913/10288=0.866
+========== worng alignment
+(http://dbpedia.org/resource/Diego_Hernán_Morales, Felipe_De_la_Riva, sim: 0.921) -> (http://dbpedia.org/resource/Diego_Hernán_Morales, Diego_Hernán_Morales, sim: 0.995)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.937) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.981) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.982)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.915) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.925)
+(http://dbpedia.org/resource/Mario_Cecchi_Gori, Piero_De_Bernardi, sim: 0.931) -> (http://dbpedia.org/resource/Mario_Cecchi_Gori, Mario_Cecchi_Gori, sim: 0.735)
+(http://dbpedia.org/resource/Rizal, Isabela_(province), sim: 0.910) -> (http://dbpedia.org/resource/Rizal, Rizal, sim: 0.901)
+(http://dbpedia.org/resource/Michel_Audiard, Jacques_Audiard, sim: 0.709) -> (http://dbpedia.org/resource/Michel_Audiard, Michel_Audiard, sim: 0.949)
+(http://dbpedia.org/resource/Mirko_Grabovac, Sudiat_Dali, sim: 0.758) -> (http://dbpedia.org/resource/Mirko_Grabovac, Mirko_Grabovac, sim: 0.788)
+(http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Impermanent_Resonance, sim: 0.929) -> (http://dbpedia.org/resource/Suspended_Animation_(John_Petrucci_album), Suspended_Animation_(John_Petrucci_album), sim: 0.993)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.996) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.996)
+==========
+after force right, right alignment: 10288/10288=1.000
+mwgm costs time: 4.125 s
+selecting potential alignment costs time: 6.526 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10435/10435=1.000
+after editing (->), right alignment: 10435/10435=1.000
+newly triples: 43213, 39117
+alignment_loss = 0.972, time = 0.093 s
+quick results: hits@[1, 5, 10, 50] = [79.8   89.    90.4   91.667]%, time = 0.756 s 
+generating neighbors of 30000 entities costs 10.936 s.
+
+iteration 45
+epoch 441, avg. triple loss: 0.5323, cost time: 2.1116s
+epoch 442, avg. triple loss: 0.5292, cost time: 1.9663s
+epoch 443, avg. triple loss: 0.5285, cost time: 2.0731s
+epoch 444, avg. triple loss: 0.5269, cost time: 2.0512s
+epoch 445, avg. triple loss: 0.5262, cost time: 2.0542s
+epoch 446, avg. triple loss: 0.5244, cost time: 2.0564s
+epoch 447, avg. triple loss: 0.5242, cost time: 2.0164s
+epoch 448, avg. triple loss: 0.5239, cost time: 2.0043s
+epoch 449, avg. triple loss: 0.5229, cost time: 2.0113s
+epoch 450, avg. triple loss: 0.5226, cost time: 2.0192s
+quick results: hits@[1, 5, 10, 50] = [79.4   89.067 90.4   91.8  ]%, time = 0.758 s 
+after filtering by sim threshold, right alignment: 10373/93129=0.111
+after filtering by sim and nearest k, right alignment: 10348/64478=0.160
+graph via graph_tool <Graph object, directed, with 21076 vertices and 64478 edges at 0x7f707c904898>
+after mwgm, right alignment: 8977/10325=0.869
+========== worng alignment
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.975) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.979)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.936) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.937)
+(http://dbpedia.org/resource/Scott_Weiland, Eric_Kretz, sim: 0.981) -> (http://dbpedia.org/resource/Scott_Weiland, Scott_Weiland, sim: 0.983)
+(http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Bad_Sneakers, sim: 0.968) -> (http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Do_It_Again_(Steely_Dan_song), sim: 0.982)
+(http://dbpedia.org/resource/Super_Buddies_(film), Camp_Cucamonga, sim: 0.801) -> (http://dbpedia.org/resource/Super_Buddies_(film), Super_Buddies_(film), sim: 0.996)
+(http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.996) -> (http://dbpedia.org/resource/Real_Life_(Bon_Jovi_song), Real_Life_(Bon_Jovi_song), sim: 0.995)
+(http://dbpedia.org/resource/Michel_Audiard, Jacques_Audiard, sim: 0.715) -> (http://dbpedia.org/resource/Michel_Audiard, Michel_Audiard, sim: 0.949)
+(http://dbpedia.org/resource/University_of_Ceylon, Royal_College,_Colombo, sim: 0.971) -> (http://dbpedia.org/resource/University_of_Ceylon, University_of_Ceylon, sim: 0.978)
+(http://dbpedia.org/resource/Ab_Anbar_Maldari, Omri,_Iran, sim: 0.996) -> (http://dbpedia.org/resource/Ab_Anbar_Maldari, Ab_Anbar_Maldari, sim: 0.996)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.996) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.996)
+==========
+after force right, right alignment: 10325/10325=1.000
+mwgm costs time: 4.105 s
+selecting potential alignment costs time: 6.514 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10467/10467=1.000
+after editing (->), right alignment: 10467/10467=1.000
+newly triples: 43299, 39204
+alignment_loss = 0.971, time = 0.087 s
+quick results: hits@[1, 5, 10, 50] = [79.667 89.267 90.467 91.733]%, time = 0.754 s 
+generating neighbors of 30000 entities costs 10.831 s.
+
+iteration 46
+epoch 451, avg. triple loss: 0.5314, cost time: 2.0440s
+epoch 452, avg. triple loss: 0.5293, cost time: 1.9155s
+epoch 453, avg. triple loss: 0.5274, cost time: 1.8992s
+epoch 454, avg. triple loss: 0.5265, cost time: 2.1457s
+epoch 455, avg. triple loss: 0.5256, cost time: 2.0740s
+epoch 456, avg. triple loss: 0.5234, cost time: 2.0745s
+epoch 457, avg. triple loss: 0.5240, cost time: 2.0468s
+epoch 458, avg. triple loss: 0.5226, cost time: 2.0638s
+epoch 459, avg. triple loss: 0.5217, cost time: 1.9445s
+epoch 460, avg. triple loss: 0.5211, cost time: 2.1170s
+quick results: hits@[1, 5, 10, 50] = [79.6   89.    90.467 91.867]%, time = 0.786 s 
+after filtering by sim threshold, right alignment: 10404/94101=0.111
+after filtering by sim and nearest k, right alignment: 10380/64952=0.160
+graph via graph_tool <Graph object, directed, with 21129 vertices and 64952 edges at 0x7f6ffdb283c8>
+after mwgm, right alignment: 9080/10363=0.876
+========== worng alignment
+(http://dbpedia.org/resource/Courteney_Cox, David_Arquette, sim: 0.975) -> (http://dbpedia.org/resource/Courteney_Cox, Courteney_Cox, sim: 0.979)
+(http://dbpedia.org/resource/Isolation_(Joy_Division_song), Feel_Every_Beat, sim: 0.975) -> (http://dbpedia.org/resource/Isolation_(Joy_Division_song), Isolation_(Joy_Division_song), sim: 0.972)
+(http://dbpedia.org/resource/Nim's_Island, P.S._I_Love_You_(film), sim: 0.748) -> (http://dbpedia.org/resource/Nim's_Island, Nim's_Island, sim: 0.925)
+(http://dbpedia.org/resource/Slovenia_national_under-21_football_team, NK_Šmartno_1928, sim: 0.811) -> (http://dbpedia.org/resource/Slovenia_national_under-21_football_team, Slovenia_national_under-21_football_team, sim: 0.996)
+(http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Bad_Sneakers, sim: 0.968) -> (http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Do_It_Again_(Steely_Dan_song), sim: 0.982)
+(http://dbpedia.org/resource/Rizal, Isabela_(province), sim: 0.914) -> (http://dbpedia.org/resource/Rizal, Rizal, sim: 0.907)
+(http://dbpedia.org/resource/Big_Sean, DJ_Mustard, sim: 0.952) -> (http://dbpedia.org/resource/Big_Sean, Big_Sean, sim: 0.952)
+(http://dbpedia.org/resource/Abdulaziz_Majrashi, Ernest_Webnje_Nfor, sim: 0.869) -> (http://dbpedia.org/resource/Abdulaziz_Majrashi, Abdulaziz_Majrashi, sim: 0.948)
+(http://dbpedia.org/resource/The_End_of_the_Day, The_Man_Who_Loved_Women_(1977_film), sim: 0.998) -> (http://dbpedia.org/resource/The_End_of_the_Day, The_End_of_the_Day, sim: 0.998)
+(http://dbpedia.org/resource/Johnny_Marr, Bernard_Sumner, sim: 0.947) -> (http://dbpedia.org/resource/Johnny_Marr, Johnny_Marr, sim: 0.956)
+==========
+after force right, right alignment: 10363/10363=1.000
+mwgm costs time: 4.192 s
+selecting potential alignment costs time: 6.618 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10490/10490=1.000
+after editing (->), right alignment: 10490/10490=1.000
+newly triples: 43394, 39268
+alignment_loss = 0.969, time = 0.086 s
+quick results: hits@[1, 5, 10, 50] = [80.267 89.333 90.533 91.867]%, time = 0.800 s 
+generating neighbors of 30000 entities costs 11.082 s.
+
+iteration 47
+epoch 461, avg. triple loss: 0.5298, cost time: 2.0871s
+epoch 462, avg. triple loss: 0.5290, cost time: 1.9464s
+epoch 463, avg. triple loss: 0.5270, cost time: 1.9692s
+epoch 464, avg. triple loss: 0.5251, cost time: 1.9878s
+epoch 465, avg. triple loss: 0.5245, cost time: 1.9669s
+epoch 466, avg. triple loss: 0.5243, cost time: 2.1082s
+epoch 467, avg. triple loss: 0.5233, cost time: 1.9607s
+epoch 468, avg. triple loss: 0.5225, cost time: 1.9404s
+epoch 469, avg. triple loss: 0.5210, cost time: 1.9492s
+epoch 470, avg. triple loss: 0.5205, cost time: 1.9410s
+quick results: hits@[1, 5, 10, 50] = [79.533 89.4   90.4   91.933]%, time = 0.788 s 
+after filtering by sim threshold, right alignment: 10435/95092=0.110
+after filtering by sim and nearest k, right alignment: 10409/65436=0.159
+graph via graph_tool <Graph object, directed, with 21177 vertices and 65436 edges at 0x7f7067729dd8>
+after mwgm, right alignment: 9089/10387=0.875
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.987) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.986)
+(http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), Billy_Reed, sim: 0.975) -> (http://dbpedia.org/resource/John_Lewis_(footballer,_born_1955), John_Lewis_(footballer,_born_1955), sim: 0.994)
+(http://dbpedia.org/resource/Cecilia_Parker, Ann_Rutherford, sim: 0.940) -> (http://dbpedia.org/resource/Cecilia_Parker, Cecilia_Parker, sim: 0.923)
+(http://dbpedia.org/resource/Tyronne_Fernando, Balu_Mahendra, sim: 0.865) -> (http://dbpedia.org/resource/Tyronne_Fernando, Tyronne_Fernando, sim: 0.990)
+(http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Shahriari-ye_Sofla, sim: 0.995) -> (http://dbpedia.org/resource/Chah-e_Vali_Eserkandar, Chah-e_Vali_Eserkandar, sim: 0.996)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.941) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.940)
+(http://dbpedia.org/resource/Daughter_of_Don_Q, Sons_of_Adventure, sim: 0.875) -> (http://dbpedia.org/resource/Daughter_of_Don_Q, Daughter_of_Don_Q, sim: 0.993)
+(http://dbpedia.org/resource/Rhodes_University, Cape_Province, sim: 0.860) -> (http://dbpedia.org/resource/Rhodes_University, Rhodes_University, sim: 0.931)
+(http://dbpedia.org/resource/Chester_Conklin, Wallace_MacDonald, sim: 0.749) -> (http://dbpedia.org/resource/Chester_Conklin, Chester_Conklin, sim: 0.992)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.996) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.996)
+==========
+after force right, right alignment: 10387/10387=1.000
+mwgm costs time: 4.453 s
+selecting potential alignment costs time: 6.887 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10510/10510=1.000
+after editing (->), right alignment: 10510/10510=1.000
+newly triples: 43458, 39332
+alignment_loss = 0.968, time = 0.092 s
+quick results: hits@[1, 5, 10, 50] = [80.4   89.467 90.6   91.867]%, time = 0.763 s 
+generating neighbors of 30000 entities costs 11.113 s.
+
+iteration 48
+epoch 471, avg. triple loss: 0.5291, cost time: 2.1978s
+epoch 472, avg. triple loss: 0.5278, cost time: 2.2012s
+epoch 473, avg. triple loss: 0.5264, cost time: 2.2961s
+epoch 474, avg. triple loss: 0.5255, cost time: 2.0111s
+epoch 475, avg. triple loss: 0.5233, cost time: 2.0243s
+epoch 476, avg. triple loss: 0.5225, cost time: 2.0185s
+epoch 477, avg. triple loss: 0.5217, cost time: 2.1774s
+epoch 478, avg. triple loss: 0.5218, cost time: 2.0134s
+epoch 479, avg. triple loss: 0.5205, cost time: 2.0158s
+epoch 480, avg. triple loss: 0.5203, cost time: 2.1249s
+quick results: hits@[1, 5, 10, 50] = [80.333 89.4   90.467 92.067]%, time = 0.767 s 
+after filtering by sim threshold, right alignment: 10460/96005=0.109
+after filtering by sim and nearest k, right alignment: 10434/65854=0.158
+graph via graph_tool <Graph object, directed, with 21228 vertices and 65854 edges at 0x7f6ffdcb6e10>
+after mwgm, right alignment: 9051/10409=0.870
+========== worng alignment
+(http://dbpedia.org/resource/Tyronne_Fernando, Balu_Mahendra, sim: 0.866) -> (http://dbpedia.org/resource/Tyronne_Fernando, Tyronne_Fernando, sim: 0.990)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.941) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.939)
+(http://dbpedia.org/resource/All_About_You_(Hilary_Duff_song), Really_Don't_Care, sim: 0.707) -> (http://dbpedia.org/resource/All_About_You_(Hilary_Duff_song), All_About_You_(Hilary_Duff_song), sim: 0.858)
+(http://dbpedia.org/resource/Dave_(film), Ghostbusters, sim: 0.918) -> (http://dbpedia.org/resource/Dave_(film), Dave_(film), sim: 0.926)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.948) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.953)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.989) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.994)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.955) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.966)
+(http://dbpedia.org/resource/Michel_Audiard, Jacques_Audiard, sim: 0.722) -> (http://dbpedia.org/resource/Michel_Audiard, Michel_Audiard, sim: 0.954)
+(http://dbpedia.org/resource/Gilmar_Jose_da_Silva_Filho, Huenes_Marcelo_Lemos, sim: 0.986) -> (http://dbpedia.org/resource/Gilmar_Jose_da_Silva_Filho, Gilmar_Jose_da_Silva_Filho, sim: 0.990)
+(http://dbpedia.org/resource/The_End_of_the_Day, The_Man_Who_Loved_Women_(1977_film), sim: 0.998) -> (http://dbpedia.org/resource/The_End_of_the_Day, The_End_of_the_Day, sim: 0.998)
+==========
+after force right, right alignment: 10409/10409=1.000
+mwgm costs time: 4.461 s
+selecting potential alignment costs time: 6.881 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10540/10540=1.000
+after editing (->), right alignment: 10540/10540=1.000
+newly triples: 43546, 39420
+alignment_loss = 0.967, time = 0.087 s
+quick results: hits@[1, 5, 10, 50] = [81.267 89.6   90.667 92.   ]%, time = 0.773 s 
+generating neighbors of 30000 entities costs 10.839 s.
+
+iteration 49
+epoch 481, avg. triple loss: 0.5289, cost time: 2.0120s
+epoch 482, avg. triple loss: 0.5273, cost time: 1.9394s
+epoch 483, avg. triple loss: 0.5255, cost time: 1.9551s
+epoch 484, avg. triple loss: 0.5245, cost time: 2.0768s
+epoch 485, avg. triple loss: 0.5231, cost time: 1.9636s
+epoch 486, avg. triple loss: 0.5222, cost time: 1.9698s
+epoch 487, avg. triple loss: 0.5217, cost time: 1.9864s
+epoch 488, avg. triple loss: 0.5208, cost time: 2.0721s
+epoch 489, avg. triple loss: 0.5202, cost time: 2.0793s
+epoch 490, avg. triple loss: 0.5196, cost time: 2.2406s
+quick results: hits@[1, 5, 10, 50] = [80.467 89.533 90.533 92.267]%, time = 0.774 s 
+after filtering by sim threshold, right alignment: 10483/96950=0.108
+after filtering by sim and nearest k, right alignment: 10457/66281=0.158
+graph via graph_tool <Graph object, directed, with 21276 vertices and 66281 edges at 0x7f6ffda35d68>
+after mwgm, right alignment: 9088/10440=0.870
+========== worng alignment
+(http://dbpedia.org/resource/Santha_Thukaram, Mohini_Bhasmasura, sim: 0.988) -> (http://dbpedia.org/resource/Santha_Thukaram, Santha_Thukaram, sim: 0.987)
+(http://dbpedia.org/resource/Ryan_Martinie, Greg_Tribbett, sim: 0.940) -> (http://dbpedia.org/resource/Ryan_Martinie, Ryan_Martinie, sim: 0.938)
+(http://dbpedia.org/resource/On_Down_the_Road, You_Could_Be_Mine, sim: 0.989) -> (http://dbpedia.org/resource/On_Down_the_Road, On_Down_the_Road, sim: 0.994)
+(http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Bad_Sneakers, sim: 0.968) -> (http://dbpedia.org/resource/Do_It_Again_(Steely_Dan_song), Do_It_Again_(Steely_Dan_song), sim: 0.981)
+(http://dbpedia.org/resource/Rizal, Isabela_(province), sim: 0.920) -> (http://dbpedia.org/resource/Rizal, Rizal, sim: 0.915)
+(http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Cecilio_Waterman, sim: 0.999) -> (http://dbpedia.org/resource/Ismael_Díaz_(Panamanian_footballer), Ismael_Díaz_(Panamanian_footballer), sim: 0.999)
+(http://dbpedia.org/resource/Chester_Conklin, Wallace_MacDonald, sim: 0.751) -> (http://dbpedia.org/resource/Chester_Conklin, Chester_Conklin, sim: 0.993)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.996) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.997)
+(http://dbpedia.org/resource/The_End_of_the_Day, The_Man_Who_Loved_Women_(1977_film), sim: 0.998) -> (http://dbpedia.org/resource/The_End_of_the_Day, The_End_of_the_Day, sim: 0.999)
+(http://dbpedia.org/resource/Emmanuelle_Chriqui, Connie_Britton, sim: 0.791) -> (http://dbpedia.org/resource/Emmanuelle_Chriqui, Emmanuelle_Chriqui, sim: 0.964)
+==========
+after force right, right alignment: 10440/10440=1.000
+mwgm costs time: 4.298 s
+selecting potential alignment costs time: 6.725 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10567/10567=1.000
+after editing (->), right alignment: 10567/10567=1.000
+newly triples: 43620, 39497
+alignment_loss = 0.966, time = 0.093 s
+quick results: hits@[1, 5, 10, 50] = [81.267 89.667 90.667 92.2  ]%, time = 0.770 s 
+generating neighbors of 30000 entities costs 10.883 s.
+
+iteration 50
+epoch 491, avg. triple loss: 0.5278, cost time: 2.2291s
+epoch 492, avg. triple loss: 0.5257, cost time: 2.0700s
+epoch 493, avg. triple loss: 0.5248, cost time: 2.0283s
+epoch 494, avg. triple loss: 0.5230, cost time: 1.9348s
+epoch 495, avg. triple loss: 0.5229, cost time: 1.9438s
+epoch 496, avg. triple loss: 0.5225, cost time: 1.9150s
+epoch 497, avg. triple loss: 0.5215, cost time: 1.9214s
+epoch 498, avg. triple loss: 0.5205, cost time: 1.9373s
+epoch 499, avg. triple loss: 0.5197, cost time: 2.1808s
+epoch 500, avg. triple loss: 0.5191, cost time: 1.9723s
+quick results: hits@[1, 5, 10, 50] = [80.4   89.6   90.533 92.2  ]%, time = 0.762 s 
+after filtering by sim threshold, right alignment: 10516/97805=0.108
+after filtering by sim and nearest k, right alignment: 10489/66690=0.157
+graph via graph_tool <Graph object, directed, with 21329 vertices and 66690 edges at 0x7f7065ebfcc0>
+after mwgm, right alignment: 9128/10462=0.872
+========== worng alignment
+(http://dbpedia.org/resource/Isolation_(Joy_Division_song), Feel_Every_Beat, sim: 0.979) -> (http://dbpedia.org/resource/Isolation_(Joy_Division_song), Isolation_(Joy_Division_song), sim: 0.977)
+(http://dbpedia.org/resource/Erwin_Schrödinger, Yemima_Avidar-Tchernovitz, sim: 0.935) -> (http://dbpedia.org/resource/Erwin_Schrödinger, Erwin_Schrödinger, sim: 0.969)
+(http://dbpedia.org/resource/Germany_women's_national_youth_football_team, SpVgg_SV_Weiden, sim: 0.764) -> (http://dbpedia.org/resource/Germany_women's_national_youth_football_team, Germany_women's_national_youth_football_team, sim: 0.883)
+(http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Brooklyn_Celtic, sim: 0.995) -> (http://dbpedia.org/resource/Paterson_F.C._(NAFBL), Paterson_F.C._(NAFBL), sim: 0.993)
+(http://dbpedia.org/resource/Felipe_Ribeiro, Daniel_Sarmiento_Melián, sim: 0.952) -> (http://dbpedia.org/resource/Felipe_Ribeiro, Felipe_Ribeiro, sim: 0.954)
+(http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), You_Give_Love_a_Bad_Name_(song), sim: 0.988) -> (http://dbpedia.org/resource/Misunderstood_(Bon_Jovi_song), Misunderstood_(Bon_Jovi_song), sim: 0.986)
+(http://dbpedia.org/resource/Who_Sold_Her_Out, Black_Fingernails,_Red_Wine_(song), sim: 0.956) -> (http://dbpedia.org/resource/Who_Sold_Her_Out, Who_Sold_Her_Out, sim: 0.966)
+(http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Pooviriyum_Pulari, sim: 0.997) -> (http://dbpedia.org/resource/Poochakkoru_Mookkuthi, Poochakkoru_Mookkuthi, sim: 0.997)
+(http://dbpedia.org/resource/Knutzy_Knights, Hot_Stuff_(1956_film), sim: 0.999) -> (http://dbpedia.org/resource/Knutzy_Knights, Knutzy_Knights, sim: 0.999)
+(http://dbpedia.org/resource/Johnny_Marr, Bernard_Sumner, sim: 0.952) -> (http://dbpedia.org/resource/Johnny_Marr, Johnny_Marr, sim: 0.960)
+==========
+after force right, right alignment: 10462/10462=1.000
+mwgm costs time: 4.360 s
+selecting potential alignment costs time: 6.984 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10592/10592=1.000
+after editing (->), right alignment: 10592/10592=1.000
+newly triples: 43701, 39559
+alignment_loss = 0.966, time = 0.098 s
+quick results: hits@[1, 5, 10, 50] = [81.    89.733 90.6   92.133]%, time = 0.793 s 
+generating neighbors of 30000 entities costs 11.227 s.
+
+iteration 51
+epoch 501, avg. triple loss: 0.5272, cost time: 2.2652s
+epoch 502, avg. triple loss: 0.5254, cost time: 2.1292s
+epoch 503, avg. triple loss: 0.5233, cost time: 2.0554s
+epoch 504, avg. triple loss: 0.5224, cost time: 2.2133s
+epoch 505, avg. triple loss: 0.5216, cost time: 2.0408s
+epoch 506, avg. triple loss: 0.5218, cost time: 2.1094s
+epoch 507, avg. triple loss: 0.5207, cost time: 2.0133s
+epoch 508, avg. triple loss: 0.5190, cost time: 1.9624s
+epoch 509, avg. triple loss: 0.5190, cost time: 1.9476s
+epoch 510, avg. triple loss: 0.5184, cost time: 2.0829s
+quick results: hits@[1, 5, 10, 50] = [80.333 89.667 90.6   92.2  ]%, time = 0.764 s 
+
+ == should early stop == 
+
+Training ends. Total time = 2102.648 s.
+accurate results: hits@[1, 5, 10, 50] = [80.705 89.457 90.648 91.867]%, mr = 269.979, mrr = 0.845660, time = 4.186 s 
+accurate results with csls: csls=10, hits@[1, 5, 10, 50] = [80.476 90.267 91.095 92.6  ]%, mr = 62.824, mrr = 0.848195, time = 7.714 s 
+Results saved!
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg1_ent_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg2_ent_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg1_rel_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg2_rel_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg1_attr_ids saved.
+../../output/results/BootEA/D_Y_15K_V1/721_5fold/1/20220320215230/kg2_attr_ids saved.
+Embeddings saved!
+Total run time = 2125.193 s.
