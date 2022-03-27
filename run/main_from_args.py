@@ -16,6 +16,7 @@ from openea.models.neural import ConvE
 from openea.models.neural import ProjE
 from openea.approaches import AlignE
 from openea.approaches import BootEA
+from openea.approaches import BootEAPro
 from openea.approaches import JAPE
 from openea.approaches import Attr2Vec
 from openea.approaches import MTransE
@@ -56,7 +57,8 @@ class ModelFamily(object):
     Attr2Vec = Attr2Vec
     JAPE = JAPE
     AlignE = AlignE
-    BootEA = BootEA
+    # BootEA = BootEA
+    BootEA = BootEAPro
     GCN_Align = GCN_Align
     GMNN = GMNN
     KDCoE = KDCoE
