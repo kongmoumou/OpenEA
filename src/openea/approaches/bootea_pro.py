@@ -18,21 +18,27 @@ from openea.modules.utils.util import load_session
 
 def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
-                            kg1_entity_ids = unaligned_entities1, kg2_entity_ids = unaligned_entities2,
-                            kg1_dict = kg1_dict, kg2_dict = kg2_dict)
+                                                           kg1_entity_ids=unaligned_entities1, kg2_entity_ids=unaligned_entities2,
+                                                           kg1_dict=kg1_dict, kg2_dict=kg2_dict)
     if curr_labeled_alignment is not None:
-        labeled_alignment = update_labeled_alignment_x(labeled_alignment, curr_labeled_alignment, sim_mat)
-        labeled_alignment = update_labeled_alignment_y(labeled_alignment, sim_mat)
+        labeled_alignment = update_labeled_alignment_x(
+            labeled_alignment, curr_labeled_alignment, sim_mat)
+        labeled_alignment = update_labeled_alignment_y(
+            labeled_alignment, sim_mat)
         del curr_labeled_alignment
     if labeled_alignment is not None:
-        newly_aligned_entities1 = [unaligned_entities1[pair[0]] for pair in labeled_alignment]
-        newly_aligned_entities2 = [unaligned_entities2[pair[1]] for pair in labeled_alignment]
+        newly_aligned_entities1, newly_aligned_entities2 = gen_aligned_entities(
+            unaligned_entities1, unaligned_entities2, labeled_alignment)
     else:
         newly_aligned_entities1, newly_aligned_entities2 = None, None
     del sim_mat
     gc.collect()
     return labeled_alignment, newly_aligned_entities1, newly_aligned_entities2
 
+def gen_aligned_entities(unaligned_entities1, unaligned_entities2, labeled_alignment):
+    newly_aligned_entities1 = [unaligned_entities1[pair[0]] for pair in labeled_alignment]
+    newly_aligned_entities2 = [unaligned_entities2[pair[1]] for pair in labeled_alignment]
+    return newly_aligned_entities1, newly_aligned_entities2
 
 def update_labeled_alignment_x(pre_labeled_alignment, curr_labeled_alignment, sim_mat):
     labeled_alignment_dict = dict(pre_labeled_alignment)
@@ -276,7 +282,8 @@ class BootEAPro(AlignE):
         manager = mp.Manager()
         training_batch_queue = manager.Queue()
         neighbors1, neighbors2 = None, None
-        labeled_align = set()
+        # labeled_align = set()
+        self.labeled_align = set()
         sub_num = self.args.sub_epoch
         iter_nums = self.args.max_epoch // sub_num
         for i in range(1, iter_nums + 1):
@@ -288,13 +295,25 @@ class BootEAPro(AlignE):
                 self.flag1, self.flag2, self.early_stop = early_stop(self.flag1, self.flag2, flag) # 结果连续下降两次终止迭代
                 if self.early_stop or i == iter_nums:
                     break
-            labeled_align, entities1, entities2 = bootstrapping(self.eval_ref_sim_mat(),
-                                                                self.ref_ent1, self.ref_ent2, labeled_align,
+            # 保存相似矩阵
+            self.sim_mat = self.eval_ref_sim_mat()
+            labeled_align, entities1, entities2 = bootstrapping(self.sim_mat,
+                                                                self.ref_ent1, self.ref_ent2, self.labeled_align,
                                                                 self.args.sim_th, self.args.k,
                                                                 kg1_dict=self.kgs.kg1.entities_id_name_dict,
                                                                 kg2_dict=self.kgs.kg2.entities_id_name_dict)
+            # 保存迭代对齐
+            self.labeled_align = labeled_align
             # use generator
-            yield list(entities1)                                                            
+            yield {
+                'labeled_align': [(int(x), int(y), self.sim_mat[x][y].item()) for x, y in labeled_align],
+                'entities1': entities1,
+                'entities2': entities2,
+            }
+            # 人工验证替换 self.labeled_align
+            entities1, entities2 = gen_aligned_entities(self.ref_ent1, self.ref_ent2, self.labeled_align)
+            check_new_alignment(self.labeled_align, context="after 人工验证 (->)")
+
             self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, 1)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:

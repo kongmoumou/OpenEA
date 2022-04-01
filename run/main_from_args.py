@@ -57,8 +57,8 @@ class ModelFamily(object):
     Attr2Vec = Attr2Vec
     JAPE = JAPE
     AlignE = AlignE
-    # BootEA = BootEA
-    BootEA = BootEAPro
+    BootEA = BootEA
+    BootEAPro = BootEAPro
     GCN_Align = GCN_Align
     GMNN = GMNN
     KDCoE = KDCoE
