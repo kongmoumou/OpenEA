@@ -1,0 +1,2315 @@
+load arguments: {'training_data': '../../datasets/', 'output': '../../output/results/', 'dataset_division': '721_5fold', 'embedding_module': 'BootEA', 'alignment_module': 'swapping', 'search_module': 'greedy', 'dim': 100, 'init': 'normal', 'ent_l2_norm': True, 'rel_l2_norm': True, 'loss': 'limited', 'loss_norm': 'L2', 'learning_rate': 0.01, 'optimizer': 'Adagrad', 'max_epoch': 2000, 'batch_size': 5000, 'pos_margin': 0.01, 'neg_margin': 2.0, 'neg_margin_balance': 0.2, 'neg_sampling': 'truncated', 'neg_triple_num': 10, 'truncated_epsilon': 0.9, 'truncated_freq': 10, 'batch_threads_num': 4, 'test_threads_num': 8, 'ordered': True, 'start_valid': 100, 'eval_freq': 10, 'stop_metric': 'hits1', 'eval_metric': 'inner', 'csls': 10, 'top_k': [1, 5, 10, 50], 'is_save': True, 'eval_norm': False, 'sim_th': 0.7, 'k': 10, 'likelihood_slice': 10, 'sub_epoch': 10}
+BootEA
+<openea.modules.args.args_hander.ARGs object at 0x7f041b71c2e8>
+read relation triples: ../../datasets/MED_BBK_9K/rel_triples_1
+read relation triples: ../../datasets/MED_BBK_9K/rel_triples_2
+read attribute triples: ../../datasets/MED_BBK_9K/attr_triples_1
+read attribute triples: ../../datasets/MED_BBK_9K/attr_triples_2
+read links: ../../datasets/MED_BBK_9K/721_5fold/1/train_links
+read links: ../../datasets/MED_BBK_9K/721_5fold/1/valid_links
+read links: ../../datasets/MED_BBK_9K/721_5fold/1/test_links
+Number of rt_dict: 9162
+Number of hr_dict: 4494
+entity relations dict: 9162
+Number of av_dict: 9162
+entity attributes dict: 9162
+
+KG statistics:
+Number of entities: 9162
+Number of relations: 20
+Number of attributes: 21
+Number of relation triples: 50307
+Number of attribute triples: 44987
+Number of local relation triples: 50307
+Number of local attribute triples: 44987
+
+Number of rt_dict: 9162
+Number of hr_dict: 8070
+entity relations dict: 9162
+Number of av_dict: 4161
+entity attributes dict: 4161
+
+KG statistics:
+Number of entities: 9162
+Number of relations: 32
+Number of attributes: 19
+Number of relation triples: 158357
+Number of attribute triples: 11467
+Number of local relation triples: 158357
+Number of local attribute triples: 11467
+
+Number of rt_dict: 9162
+Number of hr_dict: 4494
+entity relations dict: 9162
+Number of av_dict: 9162
+entity attributes dict: 9162
+
+KG statistics:
+Number of entities: 9162
+Number of relations: 20
+Number of attributes: 21
+Number of relation triples: 50307
+Number of attribute triples: 44987
+Number of local relation triples: 50307
+Number of local attribute triples: 44987
+
+Number of rt_dict: 9162
+Number of hr_dict: 8070
+entity relations dict: 9162
+Number of av_dict: 4161
+entity attributes dict: 4161
+
+KG statistics:
+Number of entities: 9162
+Number of relations: 32
+Number of attributes: 19
+Number of relation triples: 158357
+Number of attribute triples: 11467
+Number of local relation triples: 158357
+Number of local attribute triples: 11467
+
+supervised relation triples: 16163, 72609
+supervised attribute triples: 15643, 4067
+../../output/results/ ../../datasets/MED_BBK_9K/ ['..', '..', 'datasets', 'MED_BBK_9K'] 721_5fold/1/ BootEA
+results output folder: ../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/
+
+iteration 1
+epoch 1, avg. triple loss: 2.3506, cost time: 6.1914s
+epoch 2, avg. triple loss: 1.9720, cost time: 6.0463s
+epoch 3, avg. triple loss: 1.8261, cost time: 6.0964s
+epoch 4, avg. triple loss: 1.7252, cost time: 6.0907s
+epoch 5, avg. triple loss: 1.6464, cost time: 6.4301s
+epoch 6, avg. triple loss: 1.5816, cost time: 6.1363s
+epoch 7, avg. triple loss: 1.5265, cost time: 6.2616s
+epoch 8, avg. triple loss: 1.4803, cost time: 6.0004s
+epoch 9, avg. triple loss: 1.4407, cost time: 6.2587s
+epoch 10, avg. triple loss: 1.4071, cost time: 6.0239s
+generating neighbors of 18324 entities costs 5.841 s.
+
+iteration 2
+epoch 11, avg. triple loss: 1.7299, cost time: 6.2824s
+epoch 12, avg. triple loss: 1.6417, cost time: 6.5934s
+epoch 13, avg. triple loss: 1.5983, cost time: 6.3659s
+epoch 14, avg. triple loss: 1.5673, cost time: 6.5219s
+epoch 15, avg. triple loss: 1.5422, cost time: 6.2303s
+epoch 16, avg. triple loss: 1.5220, cost time: 6.0958s
+epoch 17, avg. triple loss: 1.5041, cost time: 6.2108s
+epoch 18, avg. triple loss: 1.4887, cost time: 6.2291s
+epoch 19, avg. triple loss: 1.4753, cost time: 6.2703s
+epoch 20, avg. triple loss: 1.4624, cost time: 6.4378s
+after filtering by sim threshold, right alignment: 4/14=0.286
+after filtering by sim and nearest k, right alignment: 4/14=0.286
+graph via graph_tool <Graph object, directed, with 18 vertices and 14 edges at 0x7f0416fb3e10>
+after mwgm, right alignment: 3/6=0.500
+========== worng alignment
+(1@@视力下降, 2@@眼痛, sim: 0.722) -> (1@@视力下降, 2@@看不清, sim: 0.661)
+(1@@心脏, 2@@a79403, sim: 0.713) -> (1@@心脏, 2@@a31308, sim: 0.677)
+(1@@眼痛, 2@@a14976, sim: 0.749) -> (1@@眼痛, 2@@眼痛, sim: 0.782)
+==========
+after force right, right alignment: 6/6=1.000
+mwgm costs time: 1.447 s
+selecting potential alignment costs time: 2.845 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6/6=1.000
+after editing (->), right alignment: 6/6=1.000
+newly triples: 630, 1063
+alignment_loss = 1.933, time = 0.082 s
+generating neighbors of 18324 entities costs 5.908 s.
+
+iteration 3
+epoch 21, avg. triple loss: 1.4930, cost time: 5.1999s
+epoch 22, avg. triple loss: 1.4800, cost time: 5.6882s
+epoch 23, avg. triple loss: 1.4703, cost time: 5.9706s
+epoch 24, avg. triple loss: 1.4612, cost time: 5.7557s
+epoch 25, avg. triple loss: 1.4546, cost time: 6.0435s
+epoch 26, avg. triple loss: 1.4474, cost time: 5.9102s
+epoch 27, avg. triple loss: 1.4410, cost time: 5.9727s
+epoch 28, avg. triple loss: 1.4360, cost time: 5.8724s
+epoch 29, avg. triple loss: 1.4302, cost time: 6.1139s
+epoch 30, avg. triple loss: 1.4263, cost time: 5.6713s
+after filtering by sim threshold, right alignment: 14/80=0.175
+after filtering by sim and nearest k, right alignment: 14/78=0.179
+graph via graph_tool <Graph object, directed, with 75 vertices and 78 edges at 0x7f03e8375a90>
+after mwgm, right alignment: 9/25=0.360
+========== worng alignment
+(1@@眼红, 2@@睫状充血, sim: 0.741) -> (1@@眼红, 2@@眼红, sim: 0.721)
+(1@@角膜水肿, 2@@眼压计测量法, sim: 0.718) -> (1@@角膜水肿, 2@@角膜水肿, sim: 0.536)
+(1@@桡骨骨折, 2@@按压痛, sim: 0.722) -> (1@@桡骨骨折, 2@@a34149, sim: 0.484)
+(1@@胆管, 2@@胆, sim: 0.721) -> (1@@胆管, 2@@胆管, sim: 0.746)
+(1@@畸形, 2@@后踝骨折, sim: 0.700) -> (1@@畸形, 2@@一边大一边小, sim: 0.522)
+(1@@急性间质性肺炎, 2@@慢阻肺, sim: 0.722) -> (1@@急性间质性肺炎, 2@@肺热症, sim: 0.607)
+(1@@睫状充血, 2@@a14976, sim: 0.764) -> (1@@睫状充血, 2@@睫状充血, sim: 0.837)
+(1@@急性下呼吸道感染, 2@@小叶肺炎, sim: 0.702) -> (1@@急性下呼吸道感染, 2@@a61773, sim: 0.431)
+(1@@血运障碍, 2@@lbo, sim: 0.822) -> (1@@血运障碍, 2@@血运障碍, sim: 0.861)
+(1@@心脏, 2@@a79403, sim: 0.752) -> (1@@心脏, 2@@a31308, sim: 0.785)
+==========
+after force right, right alignment: 25/25=1.000
+mwgm costs time: 0.010 s
+selecting potential alignment costs time: 1.106 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 25/25=1.000
+after editing (->), right alignment: 25/25=1.000
+newly triples: 1129, 2001
+alignment_loss = 1.771, time = 0.016 s
+generating neighbors of 18324 entities costs 7.647 s.
+
+iteration 4
+epoch 31, avg. triple loss: 1.4354, cost time: 6.2127s
+epoch 32, avg. triple loss: 1.4300, cost time: 6.9594s
+epoch 33, avg. triple loss: 1.4266, cost time: 6.4489s
+epoch 34, avg. triple loss: 1.4225, cost time: 6.3982s
+epoch 35, avg. triple loss: 1.4189, cost time: 6.2191s
+epoch 36, avg. triple loss: 1.4163, cost time: 5.9255s
+epoch 37, avg. triple loss: 1.4133, cost time: 5.9793s
+epoch 38, avg. triple loss: 1.4108, cost time: 6.1588s
+epoch 39, avg. triple loss: 1.4078, cost time: 6.4041s
+epoch 40, avg. triple loss: 1.4050, cost time: 5.8642s
+after filtering by sim threshold, right alignment: 41/252=0.163
+after filtering by sim and nearest k, right alignment: 41/235=0.174
+graph via graph_tool <Graph object, directed, with 202 vertices and 235 edges at 0x7f055cb907f0>
+after mwgm, right alignment: 16/62=0.258
+========== worng alignment
+(1@@阵发性腹痛, 2@@闭袢性肠梗阻, sim: 0.714) -> (1@@阵发性腹痛, 2@@阵发性腹痛, sim: 0.544)
+(1@@眼痛, 2@@a14976, sim: 0.817) -> (1@@眼痛, 2@@眼痛, sim: 0.889)
+(1@@吐酸, 2@@胃酸过多, sim: 0.718) -> (1@@吐酸, 2@@a60757, sim: 0.414)
+(1@@消石利胆胶囊, 2@@胆道造影, sim: 0.701) -> (1@@消石利胆胶囊, 2@@步长消石利胆成方, sim: 0.715)
+(1@@胰石症, 2@@pancreatic, sim: 0.713) -> (1@@胰石症, 2@@胰腺结石, sim: 0.626)
+(1@@耳痛, 2@@a27086, sim: 0.736) -> (1@@耳痛, 2@@耳朵痛, sim: 0.764)
+(1@@遗传性乳光牙, 2@@牙龈退缩, sim: 0.775) -> (1@@遗传性乳光牙, 2@@遗传性乳光牙本质, sim: 0.712)
+(1@@听力下降, 2@@耳朵痛, sim: 0.794) -> (1@@听力下降, 2@@a27086, sim: 0.832)
+(1@@桡骨骨折, 2@@按压痛, sim: 0.750) -> (1@@桡骨骨折, 2@@a34149, sim: 0.579)
+(1@@牙周萎缩, 2@@牙龈炎, sim: 0.722) -> (1@@牙周萎缩, 2@@牙龈退缩, sim: 0.853)
+==========
+after force right, right alignment: 62/62=1.000
+mwgm costs time: 0.034 s
+selecting potential alignment costs time: 1.661 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 63/63=1.000
+after editing (->), right alignment: 63/63=1.000
+newly triples: 2808, 4210
+alignment_loss = 1.732, time = 0.014 s
+generating neighbors of 18324 entities costs 6.667 s.
+
+iteration 5
+epoch 41, avg. triple loss: 1.4085, cost time: 6.0267s
+epoch 42, avg. triple loss: 1.4039, cost time: 6.4242s
+epoch 43, avg. triple loss: 1.4010, cost time: 6.2602s
+epoch 44, avg. triple loss: 1.3997, cost time: 6.0183s
+epoch 45, avg. triple loss: 1.3975, cost time: 6.0694s
+epoch 46, avg. triple loss: 1.3944, cost time: 5.9651s
+epoch 47, avg. triple loss: 1.3936, cost time: 5.8898s
+epoch 48, avg. triple loss: 1.3913, cost time: 6.0190s
+epoch 49, avg. triple loss: 1.3903, cost time: 5.6697s
+epoch 50, avg. triple loss: 1.3890, cost time: 6.0516s
+after filtering by sim threshold, right alignment: 73/570=0.128
+after filtering by sim and nearest k, right alignment: 73/470=0.155
+graph via graph_tool <Graph object, directed, with 368 vertices and 470 edges at 0x7f0416f9a240>
+after mwgm, right alignment: 41/108=0.380
+========== worng alignment
+(1@@尿急, 2@@脓尿, sim: 0.728) -> (1@@尿急, 2@@尿裤子, sim: 0.811)
+(1@@吐酸, 2@@胃酸过多, sim: 0.780) -> (1@@吐酸, 2@@a60757, sim: 0.538)
+(1@@血运障碍, 2@@a72339, sim: 0.734) -> (1@@血运障碍, 2@@血运障碍, sim: 0.899)
+(1@@牙冠呈半透明乳光色, 2@@a92152, sim: 0.710) -> (1@@牙冠呈半透明乳光色, 2@@a90232, sim: 0.676)
+(1@@反酸, 2@@a73384, sim: 0.723) -> (1@@反酸, 2@@a38137, sim: 0.825)
+(1@@前房角切开术, 2@@a89154, sim: 0.701) -> (1@@前房角切开术, 2@@a77803, sim: 0.559)
+(1@@上呼吸道感染, 2@@a15246, sim: 0.742) -> (1@@上呼吸道感染, 2@@伤风, sim: 0.754)
+(1@@泌尿系统疾病, 2@@前列腺炎性疾病, sim: 0.706) -> (1@@泌尿系统疾病, 2@@a68077, sim: 0.674)
+(1@@外阴疼痛, 2@@a81038, sim: 0.735) -> (1@@外阴疼痛, 2@@a92302, sim: 0.307)
+(1@@牙齿松动, 2@@a38170, sim: 0.805) -> (1@@牙齿松动, 2@@a10722, sim: 0.635)
+==========
+after force right, right alignment: 108/108=1.000
+mwgm costs time: 0.039 s
+selecting potential alignment costs time: 1.003 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 110/110=1.000
+after editing (->), right alignment: 110/110=1.000
+newly triples: 3907, 7883
+alignment_loss = 1.669, time = 0.015 s
+generating neighbors of 18324 entities costs 6.644 s.
+
+iteration 6
+epoch 51, avg. triple loss: 1.3947, cost time: 6.0868s
+epoch 52, avg. triple loss: 1.3913, cost time: 5.6843s
+epoch 53, avg. triple loss: 1.3886, cost time: 5.8197s
+epoch 54, avg. triple loss: 1.3861, cost time: 5.6981s
+epoch 55, avg. triple loss: 1.3850, cost time: 5.8324s
+epoch 56, avg. triple loss: 1.3831, cost time: 6.0503s
+epoch 57, avg. triple loss: 1.3824, cost time: 5.8309s
+epoch 58, avg. triple loss: 1.3808, cost time: 5.8710s
+epoch 59, avg. triple loss: 1.3787, cost time: 5.7287s
+epoch 60, avg. triple loss: 1.3786, cost time: 5.8874s
+after filtering by sim threshold, right alignment: 122/1110=0.110
+after filtering by sim and nearest k, right alignment: 121/868=0.139
+graph via graph_tool <Graph object, directed, with 586 vertices and 868 edges at 0x7f02c5b08f60>
+after mwgm, right alignment: 68/180=0.378
+========== worng alignment
+(1@@尿急, 2@@排尿, sim: 0.705) -> (1@@尿急, 2@@尿裤子, sim: 0.857)
+(1@@甲状腺, 2@@腺瘤样甲状腺肿, sim: 0.758) -> (1@@甲状腺, 2@@甲状腺, sim: 0.852)
+(1@@吐酸, 2@@胃酸过多, sim: 0.816) -> (1@@吐酸, 2@@a60757, sim: 0.600)
+(1@@反酸, 2@@a73384, sim: 0.746) -> (1@@反酸, 2@@a38137, sim: 0.865)
+(1@@白带增多, 2@@a36938, sim: 0.710) -> (1@@白带增多, 2@@白带多, sim: 0.861)
+(1@@前房角切开术, 2@@睫状体, sim: 0.717) -> (1@@前房角切开术, 2@@a77803, sim: 0.665)
+(1@@角膜水肿, 2@@原发性幼年性青光眼, sim: 0.749) -> (1@@角膜水肿, 2@@角膜水肿, sim: 0.769)
+(1@@细菌性角膜溃疡, 2@@角膜真菌病, sim: 0.771) -> (1@@细菌性角膜溃疡, 2@@细菌性角膜炎, sim: 0.810)
+(1@@遗传性乳光牙, 2@@a66131, sim: 0.781) -> (1@@遗传性乳光牙, 2@@遗传性乳光牙本质, sim: 0.889)
+(1@@支气管炎, 2@@a96830, sim: 0.731) -> (1@@支气管炎, 2@@慢性支气管炎，慢支，老慢支, sim: 0.782)
+==========
+after force right, right alignment: 180/180=1.000
+mwgm costs time: 0.099 s
+selecting potential alignment costs time: 1.118 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 183/183=1.000
+after editing (->), right alignment: 183/183=1.000
+newly triples: 5523, 12259
+alignment_loss = 1.629, time = 0.040 s
+generating neighbors of 18324 entities costs 6.379 s.
+
+iteration 7
+epoch 61, avg. triple loss: 1.3866, cost time: 4.8121s
+epoch 62, avg. triple loss: 1.3825, cost time: 4.7246s
+epoch 63, avg. triple loss: 1.3806, cost time: 4.8065s
+epoch 64, avg. triple loss: 1.3779, cost time: 5.1129s
+epoch 65, avg. triple loss: 1.3770, cost time: 4.8306s
+epoch 66, avg. triple loss: 1.3756, cost time: 4.8383s
+epoch 67, avg. triple loss: 1.3741, cost time: 4.9238s
+epoch 68, avg. triple loss: 1.3726, cost time: 4.7894s
+epoch 69, avg. triple loss: 1.3718, cost time: 4.8636s
+epoch 70, avg. triple loss: 1.3716, cost time: 4.6358s
+after filtering by sim threshold, right alignment: 194/2209=0.088
+after filtering by sim and nearest k, right alignment: 191/1514=0.126
+graph via graph_tool <Graph object, directed, with 896 vertices and 1514 edges at 0x7f02c5b08cf8>
+after mwgm, right alignment: 90/273=0.330
+========== worng alignment
+(1@@吐酸, 2@@胃酸过多, sim: 0.833) -> (1@@吐酸, 2@@a60757, sim: 0.634)
+(1@@眼类肉瘤病, 2@@角膜真菌病, sim: 0.716) -> (1@@眼类肉瘤病, 2@@眼类肉状瘤病, sim: 0.439)
+(1@@胃石症, 2@@胃反, sim: 0.715) -> (1@@胃石症, 2@@胃石, sim: 0.604)
+(1@@基质性角膜炎, 2@@a40630, sim: 0.762) -> (1@@基质性角膜炎, 2@@a64993, sim: 0.835)
+(1@@烧心, 2@@a60757, sim: 0.749) -> (1@@烧心, 2@@a23662, sim: 0.819)
+(1@@胃食管反流病, 2@@食道炎, sim: 0.724) -> (1@@胃食管反流病, 2@@胃食管返流疾病, sim: 0.799)
+(1@@牙齿小而稀疏, 2@@a81284, sim: 0.745) -> (1@@牙齿小而稀疏, 2@@a20872, sim: 0.830)
+(1@@十二指肠息肉, 2@@慢性萎缩性胃炎，胃痞, sim: 0.707) -> (1@@十二指肠息肉, 2@@a94923, sim: 0.508)
+(1@@尿流中断, 2@@a64874, sim: 0.710) -> (1@@尿流中断, 2@@a53424, sim: 0.824)
+(1@@牙齿松动, 2@@a38170, sim: 0.847) -> (1@@牙齿松动, 2@@a10722, sim: 0.747)
+==========
+after force right, right alignment: 272/273=0.996
+mwgm costs time: 0.112 s
+selecting potential alignment costs time: 1.077 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 275/276=0.996
+after editing (->), right alignment: 275/275=1.000
+newly triples: 7668, 16647
+alignment_loss = 1.608, time = 0.032 s
+generating neighbors of 18324 entities costs 5.807 s.
+
+iteration 8
+epoch 71, avg. triple loss: 1.3818, cost time: 5.0448s
+epoch 72, avg. triple loss: 1.3766, cost time: 4.9769s
+epoch 73, avg. triple loss: 1.3746, cost time: 5.1728s
+epoch 74, avg. triple loss: 1.3729, cost time: 4.9160s
+epoch 75, avg. triple loss: 1.3717, cost time: 4.7353s
+epoch 76, avg. triple loss: 1.3704, cost time: 5.2639s
+epoch 77, avg. triple loss: 1.3692, cost time: 5.0719s
+epoch 78, avg. triple loss: 1.3683, cost time: 4.8892s
+epoch 79, avg. triple loss: 1.3675, cost time: 5.0246s
+epoch 80, avg. triple loss: 1.3667, cost time: 5.0850s
+after filtering by sim threshold, right alignment: 284/3576=0.079
+after filtering by sim and nearest k, right alignment: 274/2245=0.122
+graph via graph_tool <Graph object, directed, with 1194 vertices and 2245 edges at 0x7f0260a8ec88>
+after mwgm, right alignment: 124/369=0.336
+========== worng alignment
+(1@@结石, 2@@输尿管结石, sim: 0.741) -> (1@@结石, 2@@结石, sim: 0.724)
+(1@@眼压升高, 2@@a43443, sim: 0.700) -> (1@@眼压升高, 2@@眼压升高, sim: 0.786)
+(1@@过敏性阴道炎, 2@@蛲虫性阴道炎, sim: 0.712) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.732)
+(1@@牙齿松动, 2@@a38170, sim: 0.865) -> (1@@牙齿松动, 2@@a10722, sim: 0.768)
+(1@@对象, 2@@a82766, sim: 0.741) -> (1@@对象, 2@@对象, sim: 0.720)
+(1@@眼类肉瘤病, 2@@前房积脓性角膜溃疡, sim: 0.766) -> (1@@眼类肉瘤病, 2@@眼类肉状瘤病, sim: 0.493)
+(1@@白带增多, 2@@白带, sim: 0.772) -> (1@@白带增多, 2@@白带多, sim: 0.904)
+(1@@胰十二指肠切除术, 2@@胰头部, sim: 0.705) -> (1@@胰十二指肠切除术, 2@@胰十二指肠切除术, sim: 0.484)
+(1@@心脏, 2@@a93690, sim: 0.760) -> (1@@心脏, 2@@a31308, sim: 0.904)
+(1@@性交痛, 2@@阴道分泌物增多, sim: 0.708) -> (1@@性交痛, 2@@a38165, sim: 0.580)
+==========
+after force right, right alignment: 369/369=1.000
+mwgm costs time: 0.185 s
+selecting potential alignment costs time: 1.186 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 387/387=1.000
+after editing (->), right alignment: 387/387=1.000
+newly triples: 10735, 23600
+alignment_loss = 1.593, time = 0.056 s
+generating neighbors of 18324 entities costs 5.649 s.
+
+iteration 9
+epoch 81, avg. triple loss: 1.3800, cost time: 5.0705s
+epoch 82, avg. triple loss: 1.3742, cost time: 4.9039s
+epoch 83, avg. triple loss: 1.3714, cost time: 5.1255s
+epoch 84, avg. triple loss: 1.3698, cost time: 5.1063s
+epoch 85, avg. triple loss: 1.3680, cost time: 5.1284s
+epoch 86, avg. triple loss: 1.3671, cost time: 5.2174s
+epoch 87, avg. triple loss: 1.3657, cost time: 5.0830s
+epoch 88, avg. triple loss: 1.3650, cost time: 4.9246s
+epoch 89, avg. triple loss: 1.3640, cost time: 5.0467s
+epoch 90, avg. triple loss: 1.3629, cost time: 4.7799s
+after filtering by sim threshold, right alignment: 380/5112=0.074
+after filtering by sim and nearest k, right alignment: 368/3016=0.122
+graph via graph_tool <Graph object, directed, with 1483 vertices and 3016 edges at 0x7f0282aa8e48>
+after mwgm, right alignment: 179/473=0.378
+========== worng alignment
+(1@@单纯性牙周炎, 2@@龈炎和牙周疾病, sim: 0.889) -> (1@@单纯性牙周炎, 2@@成人牙周炎, sim: 0.926)
+(1@@胫骨后唇骨折, 2@@下肢骨折水平未特指, sim: 0.722) -> (1@@胫骨后唇骨折, 2@@后踝骨折, sim: 0.714)
+(1@@烧心, 2@@a60757, sim: 0.780) -> (1@@烧心, 2@@a23662, sim: 0.882)
+(1@@牙冠呈半透明乳光色, 2@@a92152, sim: 0.883) -> (1@@牙冠呈半透明乳光色, 2@@a90232, sim: 0.874)
+(1@@十二指肠息肉, 2@@慢性萎缩性胃炎，胃痞, sim: 0.765) -> (1@@十二指肠息肉, 2@@a94923, sim: 0.614)
+(1@@白带增多, 2@@白带, sim: 0.788) -> (1@@白带增多, 2@@白带多, sim: 0.915)
+(1@@胰十二指肠切除术, 2@@胰头部, sim: 0.711) -> (1@@胰十二指肠切除术, 2@@胰十二指肠切除术, sim: 0.532)
+(1@@智能障碍, 2@@dementia, sim: 0.765) -> (1@@智能障碍, 2@@a92607, sim: 0.745)
+(1@@咽部不适感, 2@@a80338, sim: 0.735) -> (1@@咽部不适感, 2@@a97906, sim: 0.357)
+(1@@玻璃体混浊, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.752) -> (1@@玻璃体混浊, 2@@飞蚊症, sim: 0.799)
+==========
+after force right, right alignment: 473/473=1.000
+mwgm costs time: 0.211 s
+selecting potential alignment costs time: 1.206 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 489/489=1.000
+after editing (->), right alignment: 489/489=1.000
+newly triples: 15062, 29679
+alignment_loss = 1.572, time = 0.047 s
+generating neighbors of 18324 entities costs 6.304 s.
+
+iteration 10
+epoch 91, avg. triple loss: 1.3772, cost time: 5.7811s
+epoch 92, avg. triple loss: 1.3724, cost time: 5.1881s
+epoch 93, avg. triple loss: 1.3697, cost time: 5.3577s
+epoch 94, avg. triple loss: 1.3677, cost time: 5.3059s
+epoch 95, avg. triple loss: 1.3661, cost time: 5.0851s
+epoch 96, avg. triple loss: 1.3651, cost time: 5.0633s
+epoch 97, avg. triple loss: 1.3636, cost time: 4.7271s
+epoch 98, avg. triple loss: 1.3622, cost time: 4.7193s
+epoch 99, avg. triple loss: 1.3619, cost time: 4.8185s
+epoch 100, avg. triple loss: 1.3612, cost time: 4.9875s
+quick results: hits@[1, 5, 10, 50] = [11.354 23.69  30.131 53.821]%, time = 0.652 s 
+after filtering by sim threshold, right alignment: 481/6652=0.072
+after filtering by sim and nearest k, right alignment: 466/3704=0.126
+graph via graph_tool <Graph object, directed, with 1753 vertices and 3704 edges at 0x7f03e8375a90>
+after mwgm, right alignment: 214/586=0.365
+========== worng alignment
+(1@@胡桃夹综合征, 2@@无症, sim: 0.708) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.466)
+(1@@胃痛, 2@@a38137, sim: 0.741) -> (1@@胃痛, 2@@胃区疼痛, sim: 0.564)
+(1@@胆脂瘤型中耳炎, 2@@陈旧性中耳炎, sim: 0.788) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.847)
+(1@@牙齿异常, 2@@a77791, sim: 0.754) -> (1@@牙齿异常, 2@@a10129, sim: 0.819)
+(1@@非细菌性前列腺炎, 2@@a65460, sim: 0.729) -> (1@@非细菌性前列腺炎, 2@@非细菌性前列腺炎, sim: 0.663)
+(1@@十二指肠息肉, 2@@慢性萎缩性胃炎，胃痞, sim: 0.783) -> (1@@十二指肠息肉, 2@@a94923, sim: 0.638)
+(1@@胸闷, 2@@a92218, sim: 0.767) -> (1@@胸闷, 2@@胸口堵, sim: 0.847)
+(1@@对象, 2@@a82766, sim: 0.759) -> (1@@对象, 2@@对象, sim: 0.776)
+(1@@宫颈外翻, 2@@宫颈上皮内瘤, sim: 0.716) -> (1@@宫颈外翻, 2@@子宫颈外翻, sim: 0.774)
+(1@@胰十二指肠切除术, 2@@胰头部, sim: 0.704) -> (1@@胰十二指肠切除术, 2@@胰十二指肠切除术, sim: 0.569)
+==========
+after force right, right alignment: 586/586=1.000
+mwgm costs time: 0.354 s
+selecting potential alignment costs time: 1.459 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 608/608=1.000
+after editing (->), right alignment: 608/608=1.000
+newly triples: 19431, 34932
+alignment_loss = 1.541, time = 0.083 s
+quick results: hits@[1, 5, 10, 50] = [12.009 24.345 31.55  55.24 ]%, time = 0.628 s 
+generating neighbors of 18324 entities costs 5.692 s.
+
+iteration 11
+epoch 101, avg. triple loss: 1.3757, cost time: 4.8075s
+epoch 102, avg. triple loss: 1.3710, cost time: 4.9258s
+epoch 103, avg. triple loss: 1.3674, cost time: 5.4885s
+epoch 104, avg. triple loss: 1.3654, cost time: 5.6587s
+epoch 105, avg. triple loss: 1.3637, cost time: 5.5883s
+epoch 106, avg. triple loss: 1.3627, cost time: 5.7080s
+epoch 107, avg. triple loss: 1.3612, cost time: 5.8588s
+epoch 108, avg. triple loss: 1.3598, cost time: 5.7791s
+epoch 109, avg. triple loss: 1.3590, cost time: 5.7774s
+epoch 110, avg. triple loss: 1.3592, cost time: 5.7269s
+quick results: hits@[1, 5, 10, 50] = [11.572 25.328 31.878 56.004]%, time = 0.771 s 
+after filtering by sim threshold, right alignment: 591/8216=0.072
+after filtering by sim and nearest k, right alignment: 572/4488=0.127
+graph via graph_tool <Graph object, directed, with 2075 vertices and 4488 edges at 0x7f03e8375a90>
+after mwgm, right alignment: 270/711=0.380
+========== worng alignment
+(1@@恶性肿瘤相关性肾损害, 2@@肾内梗阻, sim: 0.795) -> (1@@恶性肿瘤相关性肾损害, 2@@a84412, sim: 0.672)
+(1@@胸闷, 2@@a92218, sim: 0.815) -> (1@@胸闷, 2@@胸口堵, sim: 0.872)
+(1@@打喷嚏, 2@@a36338, sim: 0.733) -> (1@@打喷嚏, 2@@a64840, sim: 0.848)
+(1@@视神经乳头苍白, 2@@眼球疼痛, sim: 0.710) -> (1@@视神经乳头苍白, 2@@视神经乳头苍白, sim: 0.573)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.769) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.525)
+(1@@冷结节, 2@@a90530, sim: 0.773) -> (1@@冷结节, 2@@a11483, sim: 0.856)
+(1@@胰十二指肠切除术, 2@@胰头部, sim: 0.708) -> (1@@胰十二指肠切除术, 2@@胰十二指肠切除术, sim: 0.597)
+(1@@咽部不适感, 2@@a80338, sim: 0.768) -> (1@@咽部不适感, 2@@a97906, sim: 0.434)
+(1@@精蛋白锌重组人胰岛素混合注射液, 2@@门冬胰岛素, sim: 0.742) -> (1@@精蛋白锌重组人胰岛素混合注射液, 2@@优泌林70 30, sim: 0.756)
+(1@@牙齿发黄, 2@@a10935, sim: 0.702) -> (1@@牙齿发黄, 2@@a52594, sim: 0.675)
+==========
+after force right, right alignment: 711/711=1.000
+mwgm costs time: 0.407 s
+selecting potential alignment costs time: 2.447 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 740/740=1.000
+after editing (->), right alignment: 740/740=1.000
+newly triples: 21265, 40401
+alignment_loss = 1.519, time = 0.118 s
+quick results: hits@[1, 5, 10, 50] = [12.664 26.201 32.969 57.205]%, time = 0.647 s 
+generating neighbors of 18324 entities costs 6.582 s.
+
+iteration 12
+epoch 111, avg. triple loss: 1.3744, cost time: 5.7841s
+epoch 112, avg. triple loss: 1.3688, cost time: 5.7606s
+epoch 113, avg. triple loss: 1.3657, cost time: 5.6083s
+epoch 114, avg. triple loss: 1.3632, cost time: 5.5524s
+epoch 115, avg. triple loss: 1.3621, cost time: 5.5412s
+epoch 116, avg. triple loss: 1.3614, cost time: 5.8007s
+epoch 117, avg. triple loss: 1.3592, cost time: 5.5119s
+epoch 118, avg. triple loss: 1.3580, cost time: 5.5487s
+epoch 119, avg. triple loss: 1.3575, cost time: 5.7789s
+epoch 120, avg. triple loss: 1.3564, cost time: 5.6371s
+quick results: hits@[1, 5, 10, 50] = [12.336 26.638 34.061 57.642]%, time = 0.756 s 
+after filtering by sim threshold, right alignment: 696/9876=0.070
+after filtering by sim and nearest k, right alignment: 666/5329=0.125
+graph via graph_tool <Graph object, directed, with 2390 vertices and 5329 edges at 0x7f03e8375a90>
+after mwgm, right alignment: 342/839=0.408
+========== worng alignment
+(1@@牙齿发黄, 2@@a39669, sim: 0.743) -> (1@@牙齿发黄, 2@@a52594, sim: 0.755)
+(1@@反酸, 2@@a73384, sim: 0.803) -> (1@@反酸, 2@@a38137, sim: 0.923)
+(1@@肾动脉阻塞, 2@@输尿管肿瘤, sim: 0.795) -> (1@@肾动脉阻塞, 2@@肾动脉阻塞, sim: 0.870)
+(1@@胆脂瘤型中耳炎, 2@@陈旧性中耳炎, sim: 0.822) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.869)
+(1@@眼前黑影, 2@@punctateinnerchoroidopathy, sim: 0.778) -> (1@@眼前黑影, 2@@眼前黑影, sim: 0.901)
+(1@@慢性咽炎, 2@@a39324, sim: 0.702) -> (1@@慢性咽炎, 2@@a99626, sim: 0.808)
+(1@@牙齿松动, 2@@a38170, sim: 0.891) -> (1@@牙齿松动, 2@@a10722, sim: 0.831)
+(1@@眼类肉瘤病, 2@@前房积脓性角膜溃疡, sim: 0.806) -> (1@@眼类肉瘤病, 2@@眼类肉状瘤病, sim: 0.581)
+(1@@宫颈外翻, 2@@宫颈上皮内瘤, sim: 0.770) -> (1@@宫颈外翻, 2@@子宫颈外翻, sim: 0.837)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.789) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.561)
+==========
+after force right, right alignment: 839/839=1.000
+mwgm costs time: 0.445 s
+selecting potential alignment costs time: 2.450 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 873/873=1.000
+after editing (->), right alignment: 873/873=1.000
+newly triples: 22986, 46006
+alignment_loss = 1.510, time = 0.080 s
+quick results: hits@[1, 5, 10, 50] = [13.319 27.183 36.245 59.061]%, time = 0.650 s 
+generating neighbors of 18324 entities costs 5.881 s.
+
+iteration 13
+epoch 121, avg. triple loss: 1.3727, cost time: 5.6767s
+epoch 122, avg. triple loss: 1.3663, cost time: 5.6696s
+epoch 123, avg. triple loss: 1.3646, cost time: 5.5887s
+epoch 124, avg. triple loss: 1.3623, cost time: 5.5552s
+epoch 125, avg. triple loss: 1.3602, cost time: 5.6179s
+epoch 126, avg. triple loss: 1.3591, cost time: 5.6801s
+epoch 127, avg. triple loss: 1.3580, cost time: 5.3720s
+epoch 128, avg. triple loss: 1.3567, cost time: 5.3550s
+epoch 129, avg. triple loss: 1.3563, cost time: 5.5315s
+epoch 130, avg. triple loss: 1.3549, cost time: 5.7420s
+quick results: hits@[1, 5, 10, 50] = [12.773 27.838 36.681 59.389]%, time = 0.750 s 
+after filtering by sim threshold, right alignment: 801/11546=0.069
+after filtering by sim and nearest k, right alignment: 768/6176=0.124
+graph via graph_tool <Graph object, directed, with 2675 vertices and 6176 edges at 0x7f03e8375a90>
+after mwgm, right alignment: 381/955=0.399
+========== worng alignment
+(1@@耳屎多, 2@@耳源性眩晕, sim: 0.794) -> (1@@耳屎多, 2@@耳屎多, sim: 0.944)
+(1@@咽峡炎, 2@@a39324, sim: 0.702) -> (1@@咽峡炎, 2@@a13288, sim: 0.687)
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.808) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.753)
+(1@@牙齿发黄, 2@@a39669, sim: 0.776) -> (1@@牙齿发黄, 2@@a52594, sim: 0.800)
+(1@@脊柱, 2@@a60619, sim: 0.836) -> (1@@脊柱, 2@@脊柱, sim: 0.834)
+(1@@排尿不畅, 2@@尿裤子, sim: 0.764) -> (1@@排尿不畅, 2@@排尿, sim: 0.829)
+(1@@反酸, 2@@a73384, sim: 0.806) -> (1@@反酸, 2@@a38137, sim: 0.925)
+(1@@骨母细胞瘤, 2@@a59443, sim: 0.752) -> (1@@骨母细胞瘤, 2@@巨大骨样骨瘤, sim: 0.701)
+(1@@胆脂瘤型中耳炎, 2@@慢性中耳感染, sim: 0.871) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.875)
+(1@@上呼吸道感染, 2@@a15246, sim: 0.782) -> (1@@上呼吸道感染, 2@@伤风, sim: 0.888)
+==========
+after force right, right alignment: 955/955=1.000
+mwgm costs time: 0.446 s
+selecting potential alignment costs time: 1.506 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1003/1003=1.000
+after editing (->), right alignment: 1003/1003=1.000
+newly triples: 24296, 50954
+alignment_loss = 1.503, time = 0.116 s
+quick results: hits@[1, 5, 10, 50] = [14.192 29.148 37.555 60.917]%, time = 0.743 s 
+generating neighbors of 18324 entities costs 5.694 s.
+
+iteration 14
+epoch 131, avg. triple loss: 1.3709, cost time: 5.6437s
+epoch 132, avg. triple loss: 1.3659, cost time: 5.4319s
+epoch 133, avg. triple loss: 1.3632, cost time: 5.2156s
+epoch 134, avg. triple loss: 1.3600, cost time: 5.2790s
+epoch 135, avg. triple loss: 1.3595, cost time: 5.6460s
+epoch 136, avg. triple loss: 1.3577, cost time: 5.6989s
+epoch 137, avg. triple loss: 1.3566, cost time: 5.7895s
+epoch 138, avg. triple loss: 1.3564, cost time: 5.4577s
+epoch 139, avg. triple loss: 1.3552, cost time: 4.6941s
+epoch 140, avg. triple loss: 1.3549, cost time: 4.6684s
+quick results: hits@[1, 5, 10, 50] = [13.865 29.803 38.537 61.135]%, time = 0.750 s 
+after filtering by sim threshold, right alignment: 913/13196=0.069
+after filtering by sim and nearest k, right alignment: 886/7031=0.126
+graph via graph_tool <Graph object, directed, with 2976 vertices and 7031 edges at 0x7f0253c14be0>
+after mwgm, right alignment: 467/1078=0.433
+========== worng alignment
+(1@@单纯性牙周炎, 2@@龈炎和牙周疾病, sim: 0.920) -> (1@@单纯性牙周炎, 2@@成人牙周炎, sim: 0.948)
+(1@@盐酸胺碘酮片, 2@@阿替洛尔片, sim: 0.816) -> (1@@盐酸胺碘酮片, 2@@盐酸胺碘酮片, sim: 0.859)
+(1@@前葡萄膜炎, 2@@a64993, sim: 0.859) -> (1@@前葡萄膜炎, 2@@前眼色素层炎, sim: 0.844)
+(1@@反酸, 2@@a73384, sim: 0.805) -> (1@@反酸, 2@@a38137, sim: 0.928)
+(1@@烧心, 2@@a60757, sim: 0.815) -> (1@@烧心, 2@@a23662, sim: 0.916)
+(1@@毒性结节性甲状腺肿, 2@@腺瘤样甲状腺肿, sim: 0.862) -> (1@@毒性结节性甲状腺肿, 2@@继发性甲状腺功能亢, sim: 0.825)
+(1@@胃窦, 2@@胃黏膜, sim: 0.726) -> (1@@胃窦, 2@@胃窦, sim: 0.824)
+(1@@幽门螺杆菌相关性疾病, 2@@胃反, sim: 0.742) -> (1@@幽门螺杆菌相关性疾病, 2@@a92365, sim: 0.427)
+(1@@腹部压痛, 2@@肠鸣, sim: 0.794) -> (1@@腹部压痛, 2@@腹部压痛, sim: 0.875)
+(1@@心脏离子通道病, 2@@三度房室传导阻滞, sim: 0.732) -> (1@@心脏离子通道病, 2@@a45528, sim: 0.468)
+==========
+after force right, right alignment: 1078/1078=1.000
+mwgm costs time: 0.682 s
+selecting potential alignment costs time: 1.950 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1123/1123=1.000
+after editing (->), right alignment: 1123/1123=1.000
+newly triples: 26774, 56443
+alignment_loss = 1.500, time = 0.148 s
+quick results: hits@[1, 5, 10, 50] = [14.847 30.459 39.083 62.118]%, time = 0.813 s 
+generating neighbors of 18324 entities costs 5.711 s.
+
+iteration 15
+epoch 141, avg. triple loss: 1.3692, cost time: 5.6886s
+epoch 142, avg. triple loss: 1.3652, cost time: 5.6643s
+epoch 143, avg. triple loss: 1.3619, cost time: 5.6462s
+epoch 144, avg. triple loss: 1.3595, cost time: 5.8190s
+epoch 145, avg. triple loss: 1.3585, cost time: 5.6820s
+epoch 146, avg. triple loss: 1.3566, cost time: 5.6052s
+epoch 147, avg. triple loss: 1.3557, cost time: 5.5403s
+epoch 148, avg. triple loss: 1.3547, cost time: 5.6765s
+epoch 149, avg. triple loss: 1.3539, cost time: 5.6640s
+epoch 150, avg. triple loss: 1.3529, cost time: 6.2059s
+quick results: hits@[1, 5, 10, 50] = [14.847 30.349 39.192 62.882]%, time = 0.789 s 
+after filtering by sim threshold, right alignment: 1014/14766=0.069
+after filtering by sim and nearest k, right alignment: 988/7825=0.126
+graph via graph_tool <Graph object, directed, with 3260 vertices and 7825 edges at 0x7f0253c67b70>
+after mwgm, right alignment: 551/1186=0.465
+========== worng alignment
+(1@@骨膜性软骨瘤, 2@@原发恶性梭形细胞肿瘤, sim: 0.755) -> (1@@骨膜性软骨瘤, 2@@骨皮质旁软骨瘤, sim: 0.740)
+(1@@急慢性扁桃体炎, 2@@a13288, sim: 0.747) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.401)
+(1@@扁桃体切除术, 2@@a40996, sim: 0.756) -> (1@@扁桃体切除术, 2@@a86054, sim: 0.634)
+(1@@胆脂瘤型中耳炎, 2@@陈旧性中耳炎, sim: 0.852) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.885)
+(1@@胆管, 2@@胆, sim: 0.898) -> (1@@胆管, 2@@胆管, sim: 0.943)
+(1@@骨质增生, 2@@日本人病, sim: 0.709) -> (1@@骨质增生, 2@@增生性骨关节炎, sim: 0.874)
+(1@@对象, 2@@a82766, sim: 0.769) -> (1@@对象, 2@@对象, sim: 0.827)
+(1@@白带增多, 2@@白带, sim: 0.854) -> (1@@白带增多, 2@@白带多, sim: 0.946)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.824) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.625)
+(1@@玻璃体混浊, 2@@punctateinnerchoroidopathy, sim: 0.833) -> (1@@玻璃体混浊, 2@@飞蚊症, sim: 0.873)
+==========
+after force right, right alignment: 1186/1186=1.000
+mwgm costs time: 0.606 s
+selecting potential alignment costs time: 1.660 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1252/1252=1.000
+after editing (->), right alignment: 1252/1252=1.000
+newly triples: 28395, 61148
+alignment_loss = 1.494, time = 0.078 s
+quick results: hits@[1, 5, 10, 50] = [16.485 31.769 41.048 63.537]%, time = 0.668 s 
+generating neighbors of 18324 entities costs 5.816 s.
+
+iteration 16
+epoch 151, avg. triple loss: 1.3691, cost time: 5.7367s
+epoch 152, avg. triple loss: 1.3636, cost time: 5.6707s
+epoch 153, avg. triple loss: 1.3613, cost time: 5.6023s
+epoch 154, avg. triple loss: 1.3580, cost time: 5.5756s
+epoch 155, avg. triple loss: 1.3570, cost time: 5.5218s
+epoch 156, avg. triple loss: 1.3557, cost time: 5.6235s
+epoch 157, avg. triple loss: 1.3544, cost time: 5.6144s
+epoch 158, avg. triple loss: 1.3540, cost time: 5.7058s
+epoch 159, avg. triple loss: 1.3528, cost time: 5.5741s
+epoch 160, avg. triple loss: 1.3524, cost time: 5.7006s
+quick results: hits@[1, 5, 10, 50] = [15.611 31.223 40.066 64.41 ]%, time = 0.641 s 
+after filtering by sim threshold, right alignment: 1106/16228=0.068
+after filtering by sim and nearest k, right alignment: 1071/8532=0.126
+graph via graph_tool <Graph object, directed, with 3467 vertices and 8532 edges at 0x7f0253a9e320>
+after mwgm, right alignment: 618/1280=0.483
+========== worng alignment
+(1@@外阴烧灼刺激感, 2@@阴道病原体检查, sim: 0.725) -> (1@@外阴烧灼刺激感, 2@@a70154, sim: 0.899)
+(1@@适应性障碍, 2@@情感性精神病, sim: 0.713) -> (1@@适应性障碍, 2@@适应障碍, sim: 0.716)
+(1@@牙冠呈半透明乳光色, 2@@a92152, sim: 0.935) -> (1@@牙冠呈半透明乳光色, 2@@a90232, sim: 0.946)
+(1@@干性咳嗽, 2@@a45746, sim: 0.780) -> (1@@干性咳嗽, 2@@a66094, sim: 0.874)
+(1@@急慢性扁桃体炎, 2@@a13288, sim: 0.754) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.418)
+(1@@左心室恶性施万瘤, 2@@高度房室传导阻滞, sim: 0.701) -> (1@@左心室恶性施万瘤, 2@@左心室恶性schwann瘤, sim: 0.430)
+(1@@扁桃体切除术, 2@@a40996, sim: 0.762) -> (1@@扁桃体切除术, 2@@a86054, sim: 0.657)
+(1@@散光, 2@@夜盲, sim: 0.759) -> (1@@散光, 2@@a89870, sim: 0.878)
+(1@@腹部压痛, 2@@肠鸣, sim: 0.793) -> (1@@腹部压痛, 2@@腹部压痛, sim: 0.875)
+(1@@扭伤, 2@@膝关节疼痛, sim: 0.726) -> (1@@扭伤, 2@@扭到腰, sim: 0.885)
+==========
+after force right, right alignment: 1279/1280=0.999
+mwgm costs time: 0.709 s
+selecting potential alignment costs time: 1.904 s
+update wrongly:  1 greedy update wrongly:  1
+after editing (<-), right alignment: 1345/1346=0.999
+after editing (->), right alignment: 1345/1346=0.999
+newly triples: 29728, 63843
+alignment_loss = 1.484, time = 0.112 s
+quick results: hits@[1, 5, 10, 50] = [17.358 33.406 42.467 64.847]%, time = 0.616 s 
+generating neighbors of 18324 entities costs 5.527 s.
+
+iteration 17
+epoch 161, avg. triple loss: 1.3664, cost time: 5.5198s
+epoch 162, avg. triple loss: 1.3621, cost time: 5.6038s
+epoch 163, avg. triple loss: 1.3593, cost time: 5.5197s
+epoch 164, avg. triple loss: 1.3572, cost time: 5.7012s
+epoch 165, avg. triple loss: 1.3560, cost time: 5.4737s
+epoch 166, avg. triple loss: 1.3543, cost time: 5.2536s
+epoch 167, avg. triple loss: 1.3535, cost time: 5.4101s
+epoch 168, avg. triple loss: 1.3527, cost time: 5.7775s
+epoch 169, avg. triple loss: 1.3522, cost time: 5.7059s
+epoch 170, avg. triple loss: 1.3514, cost time: 5.6556s
+quick results: hits@[1, 5, 10, 50] = [17.031 33.188 42.686 65.393]%, time = 0.776 s 
+after filtering by sim threshold, right alignment: 1215/17582=0.069
+after filtering by sim and nearest k, right alignment: 1179/9234=0.128
+graph via graph_tool <Graph object, directed, with 3687 vertices and 9234 edges at 0x7f027dc66240>
+after mwgm, right alignment: 640/1364=0.469
+========== worng alignment
+(1@@完全性房室传导阻滞, 2@@药物性心肌症, sim: 0.757) -> (1@@完全性房室传导阻滞, 2@@三度房室传导阻滞, sim: 0.844)
+(1@@脊柱, 2@@a60619, sim: 0.882) -> (1@@脊柱, 2@@脊柱, sim: 0.859)
+(1@@烧心, 2@@a60757, sim: 0.819) -> (1@@烧心, 2@@a23662, sim: 0.921)
+(1@@肾动脉阻塞, 2@@输尿管肿瘤, sim: 0.813) -> (1@@肾动脉阻塞, 2@@肾动脉阻塞, sim: 0.887)
+(1@@心源性哮喘, 2@@哮喘性嗜酸粒细胞增多症, sim: 0.747) -> (1@@心源性哮喘, 2@@心型哮喘, sim: 0.824)
+(1@@扁桃体切除术, 2@@a40996, sim: 0.769) -> (1@@扁桃体切除术, 2@@a86054, sim: 0.680)
+(1@@胆脂瘤型中耳炎, 2@@慢性中耳感染, sim: 0.903) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.893)
+(1@@心肌病, 2@@a71158, sim: 0.766) -> (1@@心肌病, 2@@a34501, sim: 0.828)
+(1@@上呼吸道感染, 2@@a15246, sim: 0.773) -> (1@@上呼吸道感染, 2@@伤风, sim: 0.895)
+(1@@散光, 2@@夜盲, sim: 0.760) -> (1@@散光, 2@@a89870, sim: 0.883)
+==========
+after force right, right alignment: 1364/1364=1.000
+mwgm costs time: 0.713 s
+selecting potential alignment costs time: 1.873 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1438/1439=0.999
+after editing (->), right alignment: 1438/1439=0.999
+newly triples: 31156, 67321
+alignment_loss = 1.481, time = 0.162 s
+quick results: hits@[1, 5, 10, 50] = [18.777 35.262 44.214 65.502]%, time = 0.792 s 
+generating neighbors of 18324 entities costs 6.081 s.
+
+iteration 18
+epoch 171, avg. triple loss: 1.3656, cost time: 5.7119s
+epoch 172, avg. triple loss: 1.3609, cost time: 5.7864s
+epoch 173, avg. triple loss: 1.3579, cost time: 5.5226s
+epoch 174, avg. triple loss: 1.3560, cost time: 5.1745s
+epoch 175, avg. triple loss: 1.3549, cost time: 4.8564s
+epoch 176, avg. triple loss: 1.3541, cost time: 5.2883s
+epoch 177, avg. triple loss: 1.3526, cost time: 5.7529s
+epoch 178, avg. triple loss: 1.3516, cost time: 5.4901s
+epoch 179, avg. triple loss: 1.3516, cost time: 5.8411s
+epoch 180, avg. triple loss: 1.3498, cost time: 5.7747s
+quick results: hits@[1, 5, 10, 50] = [18.122 35.371 44.105 66.048]%, time = 0.628 s 
+after filtering by sim threshold, right alignment: 1307/18775=0.070
+after filtering by sim and nearest k, right alignment: 1274/9860=0.129
+graph via graph_tool <Graph object, directed, with 3894 vertices and 9860 edges at 0x7f027dc66240>
+after mwgm, right alignment: 728/1474=0.494
+========== worng alignment
+(1@@脓涕, 2@@a68244, sim: 0.819) -> (1@@脓涕, 2@@脓涕, sim: 0.687)
+(1@@胆脂瘤型中耳炎, 2@@陈旧性中耳炎, sim: 0.873) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.896)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.782) -> (1@@眼底病, 2@@眼底病变, sim: 0.770)
+(1@@认知障碍, 2@@反应型精神病, sim: 0.700) -> (1@@认知障碍, 2@@认知障碍, sim: 0.620)
+(1@@急性左心衰, 2@@充血性心力衰竭, sim: 0.740) -> (1@@急性左心衰, 2@@a42559, sim: 0.735)
+(1@@变应性紫癜, 2@@急性快速进展性肾小球肾炎, sim: 0.747) -> (1@@变应性紫癜, 2@@a70056, sim: 0.714)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.845) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.746)
+(1@@面肌瘫痪, 2@@噪声性耳外伤, sim: 0.727) -> (1@@面肌瘫痪, 2@@面瘫, sim: 0.437)
+(1@@单纯疱疹病毒性巩膜炎, 2@@a64993, sim: 0.884) -> (1@@单纯疱疹病毒性巩膜炎, 2@@单纯性疱疹巩膜炎, sim: 0.791)
+(1@@上呼吸道感染, 2@@a80048, sim: 0.760) -> (1@@上呼吸道感染, 2@@伤风, sim: 0.897)
+==========
+after force right, right alignment: 1474/1474=1.000
+mwgm costs time: 0.870 s
+selecting potential alignment costs time: 2.046 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1552/1553=0.999
+after editing (->), right alignment: 1552/1553=0.999
+newly triples: 32643, 71576
+alignment_loss = 1.479, time = 0.097 s
+quick results: hits@[1, 5, 10, 50] = [19.541 36.79  45.524 66.703]%, time = 0.833 s 
+generating neighbors of 18324 entities costs 5.887 s.
+
+iteration 19
+epoch 181, avg. triple loss: 1.3641, cost time: 5.9745s
+epoch 182, avg. triple loss: 1.3598, cost time: 5.7698s
+epoch 183, avg. triple loss: 1.3574, cost time: 5.7579s
+epoch 184, avg. triple loss: 1.3557, cost time: 5.6554s
+epoch 185, avg. triple loss: 1.3542, cost time: 5.8095s
+epoch 186, avg. triple loss: 1.3538, cost time: 5.4479s
+epoch 187, avg. triple loss: 1.3515, cost time: 5.5910s
+epoch 188, avg. triple loss: 1.3513, cost time: 5.6840s
+epoch 189, avg. triple loss: 1.3500, cost time: 5.5582s
+epoch 190, avg. triple loss: 1.3496, cost time: 5.8500s
+quick results: hits@[1, 5, 10, 50] = [19.105 37.118 45.415 66.921]%, time = 0.761 s 
+after filtering by sim threshold, right alignment: 1390/19940=0.070
+after filtering by sim and nearest k, right alignment: 1356/10472=0.129
+graph via graph_tool <Graph object, directed, with 4088 vertices and 10472 edges at 0x7f027d0fe7b8>
+after mwgm, right alignment: 790/1565=0.505
+========== worng alignment
+(1@@脊柱, 2@@a60619, sim: 0.886) -> (1@@脊柱, 2@@脊柱, sim: 0.861)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.729) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.176)
+(1@@耻骨上膀胱造口术, 2@@a24800, sim: 0.707) -> (1@@耻骨上膀胱造口术, 2@@耻骨上膀胱造口术, sim: 0.867)
+(1@@尿道旁腺癌, 2@@前列腺增生, sim: 0.828) -> (1@@尿道旁腺癌, 2@@尿道旁腺癌症, sim: 0.690)
+(1@@十二指肠胃黏膜异位, 2@@du, sim: 0.743) -> (1@@十二指肠胃黏膜异位, 2@@a52986, sim: 0.613)
+(1@@面肌瘫痪, 2@@噪声性耳外伤, sim: 0.742) -> (1@@面肌瘫痪, 2@@面瘫, sim: 0.532)
+(1@@视物模糊, 2@@睫状充血, sim: 0.719) -> (1@@视物模糊, 2@@视力模糊, sim: 0.862)
+(1@@宫颈浸润癌, 2@@cervical, sim: 0.809) -> (1@@宫颈浸润癌, 2@@a37941, sim: 0.805)
+(1@@咽鼓管炎, 2@@陈旧性中耳炎, sim: 0.833) -> (1@@咽鼓管炎, 2@@咽鼓管炎和咽鼓管阻塞, sim: 0.880)
+(1@@牙源性皮瘘, 2@@牙髓疾病, sim: 0.770) -> (1@@牙源性皮瘘, 2@@牙齿窦道, sim: 0.835)
+==========
+after force right, right alignment: 1565/1565=1.000
+mwgm costs time: 0.773 s
+selecting potential alignment costs time: 2.030 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1647/1648=0.999
+after editing (->), right alignment: 1647/1648=0.999
+newly triples: 33819, 74794
+alignment_loss = 1.476, time = 0.182 s
+quick results: hits@[1, 5, 10, 50] = [20.742 39.083 46.943 68.013]%, time = 0.655 s 
+generating neighbors of 18324 entities costs 6.083 s.
+
+iteration 20
+epoch 191, avg. triple loss: 1.3630, cost time: 5.8081s
+epoch 192, avg. triple loss: 1.3588, cost time: 5.6238s
+epoch 193, avg. triple loss: 1.3565, cost time: 5.7805s
+epoch 194, avg. triple loss: 1.3550, cost time: 5.5366s
+epoch 195, avg. triple loss: 1.3533, cost time: 5.6900s
+epoch 196, avg. triple loss: 1.3521, cost time: 5.7460s
+epoch 197, avg. triple loss: 1.3516, cost time: 5.4437s
+epoch 198, avg. triple loss: 1.3508, cost time: 5.7198s
+epoch 199, avg. triple loss: 1.3498, cost time: 5.6254s
+epoch 200, avg. triple loss: 1.3489, cost time: 5.5237s
+quick results: hits@[1, 5, 10, 50] = [20.087 38.319 46.288 67.904]%, time = 0.826 s 
+after filtering by sim threshold, right alignment: 1466/20994=0.070
+after filtering by sim and nearest k, right alignment: 1429/11052=0.129
+graph via graph_tool <Graph object, directed, with 4302 vertices and 11052 edges at 0x7f027bec3240>
+after mwgm, right alignment: 823/1647=0.500
+========== worng alignment
+(1@@心肌炎, 2@@分类于他处的疾病引起的心内膜炎和心瓣膜疾患, sim: 0.701) -> (1@@心肌炎, 2@@急性心肌炎, sim: 0.823)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.701) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.686)
+(1@@声带小结, 2@@a97171, sim: 0.712) -> (1@@声带小结, 2@@a77506, sim: 0.769)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.704) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.798)
+(1@@吞咽疼痛, 2@@a10558, sim: 0.863) -> (1@@吞咽疼痛, 2@@a48157, sim: 0.861)
+(1@@心脏, 2@@a10046, sim: 0.725) -> (1@@心脏, 2@@a31308, sim: 0.926)
+(1@@十二指肠胃黏膜异位, 2@@du, sim: 0.751) -> (1@@十二指肠胃黏膜异位, 2@@a52986, sim: 0.634)
+(1@@老年退行性心瓣膜病, 2@@双侧束支主干阻滞, sim: 0.746) -> (1@@老年退行性心瓣膜病, 2@@老年性心瓣膜病, sim: 0.670)
+(1@@输卵管卵巢脓肿, 2@@a34852, sim: 0.708) -> (1@@输卵管卵巢脓肿, 2@@输卵管卵巢脓肿, sim: 0.256)
+(1@@过敏性阴道炎, 2@@阴道结核, sim: 0.880) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.919)
+==========
+after force right, right alignment: 1647/1647=1.000
+mwgm costs time: 0.960 s
+selecting potential alignment costs time: 2.107 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1746/1747=0.999
+after editing (->), right alignment: 1746/1747=0.999
+newly triples: 34876, 77922
+alignment_loss = 1.475, time = 0.170 s
+quick results: hits@[1, 5, 10, 50] = [21.725 39.956 47.38  68.559]%, time = 0.677 s 
+generating neighbors of 18324 entities costs 5.910 s.
+
+iteration 21
+epoch 201, avg. triple loss: 1.3628, cost time: 5.9004s
+epoch 202, avg. triple loss: 1.3593, cost time: 5.7475s
+epoch 203, avg. triple loss: 1.3557, cost time: 5.7109s
+epoch 204, avg. triple loss: 1.3537, cost time: 5.3559s
+epoch 205, avg. triple loss: 1.3533, cost time: 5.6267s
+epoch 206, avg. triple loss: 1.3515, cost time: 5.8807s
+epoch 207, avg. triple loss: 1.3510, cost time: 5.6495s
+epoch 208, avg. triple loss: 1.3501, cost time: 5.7809s
+epoch 209, avg. triple loss: 1.3489, cost time: 6.2590s
+epoch 210, avg. triple loss: 1.3485, cost time: 5.8478s
+quick results: hits@[1, 5, 10, 50] = [20.852 39.192 47.38  68.559]%, time = 0.614 s 
+after filtering by sim threshold, right alignment: 1551/21939=0.071
+after filtering by sim and nearest k, right alignment: 1509/11603=0.130
+graph via graph_tool <Graph object, directed, with 4496 vertices and 11603 edges at 0x7f025374c978>
+after mwgm, right alignment: 862/1738=0.496
+========== worng alignment
+(1@@脊柱, 2@@a60619, sim: 0.892) -> (1@@脊柱, 2@@脊柱, sim: 0.864)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.723) -> (1@@胎漏, 2@@胞漏, sim: 0.546)
+(1@@耻骨上膀胱造口术, 2@@a24800, sim: 0.738) -> (1@@耻骨上膀胱造口术, 2@@耻骨上膀胱造口术, sim: 0.891)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.706) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.812)
+(1@@继发性痛经, 2@@a77167, sim: 0.705) -> (1@@继发性痛经, 2@@继发性痛经, sim: 0.602)
+(1@@变应性紫癜, 2@@急性快速进展性肾小球肾炎, sim: 0.744) -> (1@@变应性紫癜, 2@@a70056, sim: 0.727)
+(1@@鼻塞, 2@@口呼吸, sim: 0.750) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.946)
+(1@@输卵管卵巢脓肿, 2@@a34852, sim: 0.729) -> (1@@输卵管卵巢脓肿, 2@@输卵管卵巢脓肿, sim: 0.306)
+(1@@过敏性阴道炎, 2@@阴道结核, sim: 0.879) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.918)
+(1@@急慢性扁桃体炎, 2@@慢性鼻炎、鼻咽炎和咽炎, sim: 0.796) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.470)
+==========
+after force right, right alignment: 1738/1738=1.000
+mwgm costs time: 0.940 s
+selecting potential alignment costs time: 2.104 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1847/1848=0.999
+after editing (->), right alignment: 1847/1848=0.999
+newly triples: 35793, 80497
+alignment_loss = 1.473, time = 0.111 s
+quick results: hits@[1, 5, 10, 50] = [23.144 41.266 47.817 69.978]%, time = 0.620 s 
+generating neighbors of 18324 entities costs 4.924 s.
+
+iteration 22
+epoch 211, avg. triple loss: 1.3623, cost time: 5.1004s
+epoch 212, avg. triple loss: 1.3573, cost time: 5.6458s
+epoch 213, avg. triple loss: 1.3551, cost time: 5.7610s
+epoch 214, avg. triple loss: 1.3536, cost time: 5.8789s
+epoch 215, avg. triple loss: 1.3524, cost time: 5.5794s
+epoch 216, avg. triple loss: 1.3517, cost time: 5.7296s
+epoch 217, avg. triple loss: 1.3500, cost time: 5.7542s
+epoch 218, avg. triple loss: 1.3490, cost time: 5.8156s
+epoch 219, avg. triple loss: 1.3492, cost time: 5.5481s
+epoch 220, avg. triple loss: 1.3479, cost time: 5.7250s
+quick results: hits@[1, 5, 10, 50] = [22.052 40.611 48.362 69.651]%, time = 0.712 s 
+after filtering by sim threshold, right alignment: 1640/22893=0.072
+after filtering by sim and nearest k, right alignment: 1598/12160=0.131
+graph via graph_tool <Graph object, directed, with 4703 vertices and 12160 edges at 0x7f02790909e8>
+after mwgm, right alignment: 945/1809=0.522
+========== worng alignment
+(1@@张力性气胸, 2@@气胸, sim: 0.800) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.862)
+(1@@牙齿发黄, 2@@a39669, sim: 0.865) -> (1@@牙齿发黄, 2@@a52594, sim: 0.895)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.729) -> (1@@胎漏, 2@@胞漏, sim: 0.579)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.753) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.379)
+(1@@心脏, 2@@a93690, sim: 0.837) -> (1@@心脏, 2@@a31308, sim: 0.925)
+(1@@昏迷, 2@@a64501, sim: 0.781) -> (1@@昏迷, 2@@a88597, sim: 0.902)
+(1@@吐酸, 2@@胃灼热, sim: 0.854) -> (1@@吐酸, 2@@a60757, sim: 0.643)
+(1@@急性单纯性胃炎, 2@@急性腐蚀性胃炎，胃瘅, sim: 0.800) -> (1@@急性单纯性胃炎, 2@@急性浅表性胃炎, sim: 0.834)
+(1@@鼻塞, 2@@口呼吸, sim: 0.758) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.949)
+(1@@帕金森病, 2@@忧郁症, sim: 0.802) -> (1@@帕金森病, 2@@特发性帕金森病, sim: 0.785)
+==========
+after force right, right alignment: 1809/1809=1.000
+mwgm costs time: 1.044 s
+selecting potential alignment costs time: 2.270 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1933/1934=0.999
+after editing (->), right alignment: 1933/1934=0.999
+newly triples: 36824, 82912
+alignment_loss = 1.471, time = 0.136 s
+quick results: hits@[1, 5, 10, 50] = [23.908 41.594 48.472 69.978]%, time = 0.698 s 
+generating neighbors of 18324 entities costs 5.714 s.
+
+iteration 23
+epoch 221, avg. triple loss: 1.3615, cost time: 5.8018s
+epoch 222, avg. triple loss: 1.3569, cost time: 5.8158s
+epoch 223, avg. triple loss: 1.3544, cost time: 5.6116s
+epoch 224, avg. triple loss: 1.3525, cost time: 5.8886s
+epoch 225, avg. triple loss: 1.3511, cost time: 5.9317s
+epoch 226, avg. triple loss: 1.3500, cost time: 5.8242s
+epoch 227, avg. triple loss: 1.3492, cost time: 5.5813s
+epoch 228, avg. triple loss: 1.3488, cost time: 5.5998s
+epoch 229, avg. triple loss: 1.3474, cost time: 5.4811s
+epoch 230, avg. triple loss: 1.3471, cost time: 5.6022s
+quick results: hits@[1, 5, 10, 50] = [23.253 41.048 49.236 70.524]%, time = 0.730 s 
+after filtering by sim threshold, right alignment: 1723/23744=0.073
+after filtering by sim and nearest k, right alignment: 1677/12632=0.133
+graph via graph_tool <Graph object, directed, with 4870 vertices and 12632 edges at 0x7f0253706710>
+after mwgm, right alignment: 1006/1911=0.526
+========== worng alignment
+(1@@心肌炎, 2@@分类于他处的疾病引起的心内膜炎和心瓣膜疾患, sim: 0.702) -> (1@@心肌炎, 2@@急性心肌炎, sim: 0.835)
+(1@@脊柱, 2@@a60619, sim: 0.893) -> (1@@脊柱, 2@@脊柱, sim: 0.864)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.729) -> (1@@胎漏, 2@@胞漏, sim: 0.602)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.752) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.408)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.708) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.870)
+(1@@心脏, 2@@a93690, sim: 0.843) -> (1@@心脏, 2@@a31308, sim: 0.926)
+(1@@无症状性心肌缺血, 2@@a82912, sim: 0.716) -> (1@@无症状性心肌缺血, 2@@a75470, sim: 0.503)
+(1@@浅表性胃炎, 2@@幽门螺旋杆菌感染, sim: 0.719) -> (1@@浅表性胃炎, 2@@浅表性胃粘膜炎症, sim: 0.784)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.848) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.817)
+(1@@急性单纯性胃炎, 2@@急性腐蚀性胃炎，胃瘅, sim: 0.801) -> (1@@急性单纯性胃炎, 2@@急性浅表性胃炎, sim: 0.837)
+==========
+after force right, right alignment: 1911/1911=1.000
+mwgm costs time: 0.930 s
+selecting potential alignment costs time: 2.051 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2030/2031=1.000
+after editing (->), right alignment: 2030/2031=1.000
+newly triples: 37842, 85390
+alignment_loss = 1.470, time = 0.145 s
+quick results: hits@[1, 5, 10, 50] = [24.454 43.013 49.672 70.961]%, time = 0.651 s 
+generating neighbors of 18324 entities costs 6.108 s.
+
+iteration 24
+epoch 231, avg. triple loss: 1.3595, cost time: 5.9671s
+epoch 232, avg. triple loss: 1.3559, cost time: 5.5387s
+epoch 233, avg. triple loss: 1.3532, cost time: 5.7302s
+epoch 234, avg. triple loss: 1.3520, cost time: 5.5731s
+epoch 235, avg. triple loss: 1.3511, cost time: 5.6407s
+epoch 236, avg. triple loss: 1.3502, cost time: 5.7178s
+epoch 237, avg. triple loss: 1.3489, cost time: 5.9855s
+epoch 238, avg. triple loss: 1.3477, cost time: 5.6981s
+epoch 239, avg. triple loss: 1.3475, cost time: 5.6330s
+epoch 240, avg. triple loss: 1.3469, cost time: 5.8397s
+quick results: hits@[1, 5, 10, 50] = [23.908 42.576 50.218 71.179]%, time = 0.792 s 
+after filtering by sim threshold, right alignment: 1799/24592=0.073
+after filtering by sim and nearest k, right alignment: 1752/13122=0.134
+graph via graph_tool <Graph object, directed, with 5057 vertices and 13122 edges at 0x7f027bec3240>
+after mwgm, right alignment: 1078/1973=0.546
+========== worng alignment
+(1@@空鼻综合征, 2@@异常人格, sim: 0.701) -> (1@@空鼻综合征, 2@@空鼻综合征, sim: 0.297)
+(1@@牙齿发黄, 2@@a39669, sim: 0.871) -> (1@@牙齿发黄, 2@@a52594, sim: 0.899)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.733) -> (1@@胎漏, 2@@胞漏, sim: 0.622)
+(1@@心脏, 2@@a93690, sim: 0.847) -> (1@@心脏, 2@@a31308, sim: 0.925)
+(1@@吐酸, 2@@胃灼热, sim: 0.856) -> (1@@吐酸, 2@@a60757, sim: 0.646)
+(1@@降结肠 直肠吻合术, 2@@a99690, sim: 0.716) -> (1@@降结肠 直肠吻合术, 2@@降结肠 直肠吻合术, sim: 0.665)
+(1@@咽炎, 2@@a13288, sim: 0.896) -> (1@@咽炎, 2@@慢性鼻炎、鼻咽炎和咽炎, sim: 0.935)
+(1@@顶叶, 2@@脑室, sim: 0.732) -> (1@@顶叶, 2@@顶叶, sim: 0.667)
+(1@@宫颈浸润癌, 2@@cervical, sim: 0.832) -> (1@@宫颈浸润癌, 2@@a37941, sim: 0.830)
+(1@@急慢性扁桃体炎, 2@@慢性鼻炎、鼻咽炎和咽炎, sim: 0.811) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.493)
+==========
+after force right, right alignment: 1973/1973=1.000
+mwgm costs time: 0.973 s
+selecting potential alignment costs time: 2.051 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2106/2107=1.000
+after editing (->), right alignment: 2106/2107=1.000
+newly triples: 38661, 87634
+alignment_loss = 1.470, time = 0.205 s
+quick results: hits@[1, 5, 10, 50] = [25.218 44.214 51.31  71.943]%, time = 0.737 s 
+generating neighbors of 18324 entities costs 6.025 s.
+
+iteration 25
+epoch 241, avg. triple loss: 1.3591, cost time: 5.8473s
+epoch 242, avg. triple loss: 1.3551, cost time: 5.7630s
+epoch 243, avg. triple loss: 1.3532, cost time: 5.8916s
+epoch 244, avg. triple loss: 1.3514, cost time: 5.8572s
+epoch 245, avg. triple loss: 1.3502, cost time: 5.5622s
+epoch 246, avg. triple loss: 1.3494, cost time: 4.8494s
+epoch 247, avg. triple loss: 1.3485, cost time: 4.9015s
+epoch 248, avg. triple loss: 1.3480, cost time: 4.9467s
+epoch 249, avg. triple loss: 1.3465, cost time: 4.6360s
+epoch 250, avg. triple loss: 1.3463, cost time: 4.8929s
+quick results: hits@[1, 5, 10, 50] = [24.672 43.341 51.528 72.052]%, time = 0.573 s 
+after filtering by sim threshold, right alignment: 1872/25275=0.074
+after filtering by sim and nearest k, right alignment: 1828/13556=0.135
+graph via graph_tool <Graph object, directed, with 5215 vertices and 13556 edges at 0x7f027bec3240>
+after mwgm, right alignment: 1084/2058=0.527
+========== worng alignment
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.839) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.818)
+(1@@脊柱, 2@@a60619, sim: 0.897) -> (1@@脊柱, 2@@脊柱, sim: 0.867)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.731) -> (1@@胎漏, 2@@胞漏, sim: 0.629)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.750) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.450)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.714) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.878)
+(1@@无症状性心肌缺血, 2@@a82912, sim: 0.712) -> (1@@无症状性心肌缺血, 2@@a75470, sim: 0.538)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.880) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.858)
+(1@@急性单纯性胃炎, 2@@急性腐蚀性胃炎，胃瘅, sim: 0.806) -> (1@@急性单纯性胃炎, 2@@急性浅表性胃炎, sim: 0.843)
+(1@@鼻塞, 2@@口呼吸, sim: 0.779) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.953)
+(1@@顶叶, 2@@脑室, sim: 0.744) -> (1@@顶叶, 2@@顶叶, sim: 0.697)
+==========
+after force right, right alignment: 2058/2058=1.000
+mwgm costs time: 1.051 s
+selecting potential alignment costs time: 2.161 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2181/2182=1.000
+after editing (->), right alignment: 2181/2182=1.000
+newly triples: 39495, 89665
+alignment_loss = 1.468, time = 0.177 s
+quick results: hits@[1, 5, 10, 50] = [26.201 44.76  51.965 73.144]%, time = 0.593 s 
+generating neighbors of 18324 entities costs 4.902 s.
+
+iteration 26
+epoch 251, avg. triple loss: 1.3583, cost time: 5.9134s
+epoch 252, avg. triple loss: 1.3551, cost time: 5.4713s
+epoch 253, avg. triple loss: 1.3524, cost time: 5.9107s
+epoch 254, avg. triple loss: 1.3511, cost time: 5.7695s
+epoch 255, avg. triple loss: 1.3502, cost time: 5.6017s
+epoch 256, avg. triple loss: 1.3484, cost time: 5.6478s
+epoch 257, avg. triple loss: 1.3481, cost time: 5.5777s
+epoch 258, avg. triple loss: 1.3473, cost time: 5.4974s
+epoch 259, avg. triple loss: 1.3466, cost time: 5.7399s
+epoch 260, avg. triple loss: 1.3455, cost time: 5.8074s
+quick results: hits@[1, 5, 10, 50] = [25.873 44.214 51.638 72.707]%, time = 0.674 s 
+after filtering by sim threshold, right alignment: 1945/26000=0.075
+after filtering by sim and nearest k, right alignment: 1894/13989=0.135
+graph via graph_tool <Graph object, directed, with 5363 vertices and 13989 edges at 0x7f027bec3240>
+after mwgm, right alignment: 1099/2113=0.520
+========== worng alignment
+(1@@洛芬伪麻片, 2@@酚美愈伪麻口服溶液, sim: 0.708) -> (1@@洛芬伪麻片, 2@@扑风清, sim: 0.827)
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.843) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.819)
+(1@@张力性气胸, 2@@气胸, sim: 0.798) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.864)
+(1@@急性结石性胆囊炎, 2@@a10294, sim: 0.757) -> (1@@急性结石性胆囊炎, 2@@a47529, sim: 0.783)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.745) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.720)
+(1@@梗阻性肾病, 2@@微小病性肾小球肾炎或微小病变, sim: 0.805) -> (1@@梗阻性肾病, 2@@肾内梗阻, sim: 0.822)
+(1@@耳内发胀, 2@@耳道堵塞, sim: 0.904) -> (1@@耳内发胀, 2@@耳内发胀, sim: 0.954)
+(1@@慢性肥厚性咽炎, 2@@a75209, sim: 0.732) -> (1@@慢性肥厚性咽炎, 2@@a94537, sim: 0.834)
+(1@@变应性紫癜, 2@@急性快速进展性肾小球肾炎, sim: 0.749) -> (1@@变应性紫癜, 2@@a70056, sim: 0.742)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.891) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.872)
+==========
+after force right, right alignment: 2113/2113=1.000
+mwgm costs time: 1.022 s
+selecting potential alignment costs time: 2.121 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2254/2255=1.000
+after editing (->), right alignment: 2254/2255=1.000
+newly triples: 40057, 91262
+alignment_loss = 1.466, time = 0.171 s
+quick results: hits@[1, 5, 10, 50] = [27.293 44.651 52.729 73.69 ]%, time = 0.663 s 
+generating neighbors of 18324 entities costs 6.168 s.
+
+iteration 27
+epoch 261, avg. triple loss: 1.3575, cost time: 5.6044s
+epoch 262, avg. triple loss: 1.3546, cost time: 5.2986s
+epoch 263, avg. triple loss: 1.3518, cost time: 5.1194s
+epoch 264, avg. triple loss: 1.3508, cost time: 5.4833s
+epoch 265, avg. triple loss: 1.3490, cost time: 5.3200s
+epoch 266, avg. triple loss: 1.3485, cost time: 5.1258s
+epoch 267, avg. triple loss: 1.3470, cost time: 4.9705s
+epoch 268, avg. triple loss: 1.3463, cost time: 5.6210s
+epoch 269, avg. triple loss: 1.3451, cost time: 5.2781s
+epoch 270, avg. triple loss: 1.3455, cost time: 5.2844s
+quick results: hits@[1, 5, 10, 50] = [26.419 44.214 52.074 73.581]%, time = 0.760 s 
+after filtering by sim threshold, right alignment: 2011/26601=0.076
+after filtering by sim and nearest k, right alignment: 1964/14372=0.137
+graph via graph_tool <Graph object, directed, with 5509 vertices and 14372 edges at 0x7f025365fa90>
+after mwgm, right alignment: 1143/2175=0.526
+========== worng alignment
+(1@@双氯芬酸 米索前列醇, 2@@保适捷, sim: 0.714) -> (1@@双氯芬酸 米索前列醇, 2@@双氯芬酸, sim: 0.614)
+(1@@脊柱, 2@@a60619, sim: 0.898) -> (1@@脊柱, 2@@脊柱, sim: 0.866)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.742) -> (1@@胎漏, 2@@胞漏, sim: 0.655)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.724) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.882)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.747) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.723)
+(1@@吞咽疼痛, 2@@a10558, sim: 0.868) -> (1@@吞咽疼痛, 2@@a48157, sim: 0.866)
+(1@@心脏, 2@@a93690, sim: 0.845) -> (1@@心脏, 2@@a31308, sim: 0.925)
+(1@@无症状性心肌缺血, 2@@a82912, sim: 0.724) -> (1@@无症状性心肌缺血, 2@@a75470, sim: 0.559)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.900) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.886)
+(1@@先天性膈疝, 2@@胃粘膜脱垂, sim: 0.715) -> (1@@先天性膈疝, 2@@a96798, sim: 0.695)
+==========
+after force right, right alignment: 2175/2175=1.000
+mwgm costs time: 1.109 s
+selecting potential alignment costs time: 2.228 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2328/2329=1.000
+after editing (->), right alignment: 2328/2329=1.000
+newly triples: 40815, 93310
+alignment_loss = 1.467, time = 0.150 s
+quick results: hits@[1, 5, 10, 50] = [27.62  45.306 53.603 74.454]%, time = 0.629 s 
+generating neighbors of 18324 entities costs 5.994 s.
+
+iteration 28
+epoch 271, avg. triple loss: 1.3576, cost time: 5.4545s
+epoch 272, avg. triple loss: 1.3537, cost time: 5.3612s
+epoch 273, avg. triple loss: 1.3520, cost time: 5.3801s
+epoch 274, avg. triple loss: 1.3501, cost time: 5.2728s
+epoch 275, avg. triple loss: 1.3491, cost time: 5.1792s
+epoch 276, avg. triple loss: 1.3480, cost time: 5.1968s
+epoch 277, avg. triple loss: 1.3474, cost time: 5.4521s
+epoch 278, avg. triple loss: 1.3459, cost time: 5.2462s
+epoch 279, avg. triple loss: 1.3466, cost time: 5.1916s
+epoch 280, avg. triple loss: 1.3452, cost time: 5.3595s
+quick results: hits@[1, 5, 10, 50] = [26.747 44.651 53.057 74.454]%, time = 0.635 s 
+after filtering by sim threshold, right alignment: 2076/27230=0.076
+after filtering by sim and nearest k, right alignment: 2030/14744=0.138
+graph via graph_tool <Graph object, directed, with 5657 vertices and 14744 edges at 0x7f0253706710>
+after mwgm, right alignment: 1217/2256=0.539
+========== worng alignment
+(1@@脊柱, 2@@a60619, sim: 0.898) -> (1@@脊柱, 2@@脊柱, sim: 0.864)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.744) -> (1@@胎漏, 2@@胞漏, sim: 0.659)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.703) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.608)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.775) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.829)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.706) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.834)
+(1@@气促, 2@@手脚发紫, sim: 0.701) -> (1@@气促, 2@@a32646, sim: 0.656)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.852) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.668)
+(1@@急性左心衰, 2@@充血性心力衰竭, sim: 0.793) -> (1@@急性左心衰, 2@@a42559, sim: 0.788)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.908) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.895)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.860) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.751)
+==========
+after force right, right alignment: 2256/2256=1.000
+mwgm costs time: 1.231 s
+selecting potential alignment costs time: 2.382 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2404/2405=1.000
+after editing (->), right alignment: 2404/2405=1.000
+newly triples: 41483, 94898
+alignment_loss = 1.466, time = 0.151 s
+quick results: hits@[1, 5, 10, 50] = [28.275 45.961 54.039 75.   ]%, time = 0.647 s 
+generating neighbors of 18324 entities costs 5.954 s.
+
+iteration 29
+epoch 281, avg. triple loss: 1.3565, cost time: 5.3336s
+epoch 282, avg. triple loss: 1.3535, cost time: 5.0866s
+epoch 283, avg. triple loss: 1.3516, cost time: 5.3073s
+epoch 284, avg. triple loss: 1.3497, cost time: 5.3492s
+epoch 285, avg. triple loss: 1.3478, cost time: 4.5843s
+epoch 286, avg. triple loss: 1.3474, cost time: 4.1897s
+epoch 287, avg. triple loss: 1.3459, cost time: 4.4218s
+epoch 288, avg. triple loss: 1.3460, cost time: 5.3300s
+epoch 289, avg. triple loss: 1.3453, cost time: 5.3120s
+epoch 290, avg. triple loss: 1.3445, cost time: 5.3528s
+quick results: hits@[1, 5, 10, 50] = [26.965 45.524 53.821 75.655]%, time = 0.673 s 
+after filtering by sim threshold, right alignment: 2136/27785=0.077
+after filtering by sim and nearest k, right alignment: 2090/15107=0.138
+graph via graph_tool <Graph object, directed, with 5788 vertices and 15107 edges at 0x7f0253593f60>
+after mwgm, right alignment: 1306/2320=0.563
+========== worng alignment
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.845) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.819)
+(1@@心房心肌梗死, 2@@双侧束支主干阻滞, sim: 0.701) -> (1@@心房心肌梗死, 2@@心房心肌梗塞, sim: 0.554)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.744) -> (1@@胎漏, 2@@胞漏, sim: 0.666)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.743) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.671)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.749) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.725)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.805) -> (1@@眼底病, 2@@眼底病变, sim: 0.815)
+(1@@继发性痛经, 2@@a77167, sim: 0.790) -> (1@@继发性痛经, 2@@继发性痛经, sim: 0.771)
+(1@@昏迷, 2@@a64501, sim: 0.780) -> (1@@昏迷, 2@@a88597, sim: 0.910)
+(1@@听力减退, 2@@耳朵痛, sim: 0.954) -> (1@@听力减退, 2@@a34759, sim: 0.938)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.862) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.749)
+==========
+after force right, right alignment: 2320/2320=1.000
+mwgm costs time: 1.095 s
+selecting potential alignment costs time: 2.281 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2478/2479=1.000
+after editing (->), right alignment: 2478/2479=1.000
+newly triples: 42515, 97557
+alignment_loss = 1.468, time = 0.165 s
+quick results: hits@[1, 5, 10, 50] = [28.275 46.507 55.24  75.983]%, time = 0.794 s 
+generating neighbors of 18324 entities costs 6.011 s.
+
+iteration 30
+epoch 291, avg. triple loss: 1.3565, cost time: 5.2437s
+epoch 292, avg. triple loss: 1.3524, cost time: 5.2643s
+epoch 293, avg. triple loss: 1.3514, cost time: 5.2561s
+epoch 294, avg. triple loss: 1.3492, cost time: 5.3197s
+epoch 295, avg. triple loss: 1.3489, cost time: 5.2043s
+epoch 296, avg. triple loss: 1.3467, cost time: 5.3638s
+epoch 297, avg. triple loss: 1.3460, cost time: 5.1032s
+epoch 298, avg. triple loss: 1.3459, cost time: 5.3193s
+epoch 299, avg. triple loss: 1.3453, cost time: 5.2218s
+epoch 300, avg. triple loss: 1.3439, cost time: 5.1849s
+quick results: hits@[1, 5, 10, 50] = [27.729 46.288 54.476 76.201]%, time = 0.641 s 
+after filtering by sim threshold, right alignment: 2195/28317=0.078
+after filtering by sim and nearest k, right alignment: 2148/15450=0.139
+graph via graph_tool <Graph object, directed, with 5892 vertices and 15450 edges at 0x7f0270adc390>
+after mwgm, right alignment: 1335/2366=0.564
+========== worng alignment
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.845) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.817)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.742) -> (1@@胎漏, 2@@胞漏, sim: 0.671)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.759) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.701)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.736) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.885)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.748) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.727)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.700) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.840)
+(1@@阴道瘙痒, 2@@阴道闭锁, sim: 0.822) -> (1@@阴道瘙痒, 2@@阴道瘙痒, sim: 0.552)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.850) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.672)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.706) -> (1@@喘憋, 2@@a30581, sim: 0.811)
+(1@@过敏性阴道炎, 2@@阴道结核, sim: 0.882) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.925)
+==========
+after force right, right alignment: 2366/2366=1.000
+mwgm costs time: 1.120 s
+selecting potential alignment costs time: 2.256 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2532/2533=1.000
+after editing (->), right alignment: 2532/2533=1.000
+newly triples: 43082, 99057
+alignment_loss = 1.468, time = 0.145 s
+quick results: hits@[1, 5, 10, 50] = [29.039 47.707 56.004 76.092]%, time = 0.701 s 
+generating neighbors of 18324 entities costs 5.977 s.
+
+iteration 31
+epoch 301, avg. triple loss: 1.3555, cost time: 5.5451s
+epoch 302, avg. triple loss: 1.3520, cost time: 5.2423s
+epoch 303, avg. triple loss: 1.3509, cost time: 5.1686s
+epoch 304, avg. triple loss: 1.3486, cost time: 5.4547s
+epoch 305, avg. triple loss: 1.3483, cost time: 5.3320s
+epoch 306, avg. triple loss: 1.3469, cost time: 5.4528s
+epoch 307, avg. triple loss: 1.3463, cost time: 5.1635s
+epoch 308, avg. triple loss: 1.3454, cost time: 5.1697s
+epoch 309, avg. triple loss: 1.3452, cost time: 5.1897s
+epoch 310, avg. triple loss: 1.3437, cost time: 5.2067s
+quick results: hits@[1, 5, 10, 50] = [28.057 47.489 55.568 76.528]%, time = 0.636 s 
+after filtering by sim threshold, right alignment: 2242/28788=0.078
+after filtering by sim and nearest k, right alignment: 2196/15752=0.139
+graph via graph_tool <Graph object, directed, with 5995 vertices and 15752 edges at 0x7f0270adc390>
+after mwgm, right alignment: 1350/2416=0.559
+========== worng alignment
+(1@@双氯芬酸 米索前列醇, 2@@保适捷, sim: 0.763) -> (1@@双氯芬酸 米索前列醇, 2@@双氯芬酸, sim: 0.766)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.747) -> (1@@胎漏, 2@@胞漏, sim: 0.672)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.750) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.729)
+(1@@听力减退, 2@@耳朵痛, sim: 0.955) -> (1@@听力减退, 2@@a34759, sim: 0.937)
+(1@@尿道旁腺癌, 2@@前列腺增生, sim: 0.846) -> (1@@尿道旁腺癌, 2@@尿道旁腺癌症, sim: 0.744)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.927) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.907)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.863) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.751)
+(1@@鼻塞, 2@@口呼吸, sim: 0.797) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.958)
+(1@@面肌瘫痪, 2@@噪声性耳外伤, sim: 0.766) -> (1@@面肌瘫痪, 2@@面瘫, sim: 0.734)
+(1@@过敏性阴道炎, 2@@阴道结核, sim: 0.882) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.925)
+==========
+after force right, right alignment: 2416/2416=1.000
+mwgm costs time: 1.219 s
+selecting potential alignment costs time: 2.333 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2591/2592=1.000
+after editing (->), right alignment: 2591/2592=1.000
+newly triples: 43565, 100576
+alignment_loss = 1.468, time = 0.143 s
+quick results: hits@[1, 5, 10, 50] = [29.803 48.472 57.096 76.419]%, time = 0.638 s 
+generating neighbors of 18324 entities costs 5.812 s.
+
+iteration 32
+epoch 311, avg. triple loss: 1.3549, cost time: 5.4207s
+epoch 312, avg. triple loss: 1.3521, cost time: 5.2231s
+epoch 313, avg. triple loss: 1.3500, cost time: 5.3509s
+epoch 314, avg. triple loss: 1.3490, cost time: 5.1187s
+epoch 315, avg. triple loss: 1.3474, cost time: 5.2602s
+epoch 316, avg. triple loss: 1.3474, cost time: 5.4196s
+epoch 317, avg. triple loss: 1.3464, cost time: 5.3173s
+epoch 318, avg. triple loss: 1.3446, cost time: 5.4497s
+epoch 319, avg. triple loss: 1.3443, cost time: 4.9986s
+epoch 320, avg. triple loss: 1.3434, cost time: 5.4107s
+quick results: hits@[1, 5, 10, 50] = [29.039 47.926 56.004 76.528]%, time = 0.799 s 
+after filtering by sim threshold, right alignment: 2294/29184=0.079
+after filtering by sim and nearest k, right alignment: 2242/16002=0.140
+graph via graph_tool <Graph object, directed, with 6088 vertices and 16002 edges at 0x7f026ecc86a0>
+after mwgm, right alignment: 1397/2457=0.569
+========== worng alignment
+(1@@牙齿发黄, 2@@a39669, sim: 0.896) -> (1@@牙齿发黄, 2@@a52594, sim: 0.912)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.709) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.844)
+(1@@鼻血管瘤, 2@@a39710, sim: 0.758) -> (1@@鼻血管瘤, 2@@鼻血管瘤, sim: 0.730)
+(1@@心脏, 2@@a10046, sim: 0.739) -> (1@@心脏, 2@@a31308, sim: 0.923)
+(1@@会阴切开缝合术, 2@@肾盏输尿管吻合术, sim: 0.706) -> (1@@会阴切开缝合术, 2@@a39552, sim: 0.674)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.862) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.752)
+(1@@听力减退, 2@@噪音性耳聋, sim: 0.835) -> (1@@听力减退, 2@@a34759, sim: 0.937)
+(1@@顶叶, 2@@脑室, sim: 0.755) -> (1@@顶叶, 2@@顶叶, sim: 0.751)
+(1@@上呼吸道感染, 2@@a80048, sim: 0.773) -> (1@@上呼吸道感染, 2@@伤风, sim: 0.900)
+(1@@胆囊运动障碍, 2@@胆囊增大, sim: 0.881) -> (1@@胆囊运动障碍, 2@@胆囊运动障碍, sim: 0.879)
+==========
+after force right, right alignment: 2457/2457=1.000
+mwgm costs time: 1.226 s
+selecting potential alignment costs time: 2.407 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2644/2645=1.000
+after editing (->), right alignment: 2644/2645=1.000
+newly triples: 44140, 102392
+alignment_loss = 1.469, time = 0.180 s
+quick results: hits@[1, 5, 10, 50] = [30.459 49.236 57.642 76.747]%, time = 0.709 s 
+generating neighbors of 18324 entities costs 5.234 s.
+
+iteration 33
+epoch 321, avg. triple loss: 1.3543, cost time: 4.5389s
+epoch 322, avg. triple loss: 1.3518, cost time: 5.2343s
+epoch 323, avg. triple loss: 1.3494, cost time: 5.4560s
+epoch 324, avg. triple loss: 1.3477, cost time: 5.5376s
+epoch 325, avg. triple loss: 1.3467, cost time: 5.4817s
+epoch 326, avg. triple loss: 1.3468, cost time: 5.4154s
+epoch 327, avg. triple loss: 1.3455, cost time: 5.7890s
+epoch 328, avg. triple loss: 1.3444, cost time: 5.2732s
+epoch 329, avg. triple loss: 1.3434, cost time: 5.2752s
+epoch 330, avg. triple loss: 1.3441, cost time: 5.3511s
+quick results: hits@[1, 5, 10, 50] = [29.585 48.908 56.55  76.965]%, time = 0.641 s 
+after filtering by sim threshold, right alignment: 2352/29589=0.079
+after filtering by sim and nearest k, right alignment: 2301/16262=0.141
+graph via graph_tool <Graph object, directed, with 6177 vertices and 16262 edges at 0x7f0256266828>
+after mwgm, right alignment: 1415/2511=0.564
+========== worng alignment
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.790) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.752)
+(1@@胶体果胶铋干混悬剂, 2@@复方氢氧化铝片, sim: 0.702) -> (1@@胶体果胶铋干混悬剂, 2@@健友胶体果胶铋, sim: 0.833)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.714) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.846)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.737) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.885)
+(1@@胫骨后唇骨折, 2@@尺桡骨干骨折, sim: 0.816) -> (1@@胫骨后唇骨折, 2@@后踝骨折, sim: 0.870)
+(1@@吞咽疼痛, 2@@a10558, sim: 0.867) -> (1@@吞咽疼痛, 2@@a48157, sim: 0.872)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.803) -> (1@@眼底病, 2@@眼底病变, sim: 0.821)
+(1@@鼻干, 2@@鼻黏膜干燥, sim: 0.726) -> (1@@鼻干, 2@@鼻干, sim: 0.849)
+(1@@喉, 2@@a33486, sim: 0.731) -> (1@@喉, 2@@a42104, sim: 0.847)
+(1@@十二指肠胃黏膜异位, 2@@du, sim: 0.756) -> (1@@十二指肠胃黏膜异位, 2@@a52986, sim: 0.755)
+==========
+after force right, right alignment: 2511/2511=1.000
+mwgm costs time: 1.189 s
+selecting potential alignment costs time: 2.287 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2704/2705=1.000
+after editing (->), right alignment: 2704/2705=1.000
+newly triples: 44911, 104352
+alignment_loss = 1.469, time = 0.162 s
+quick results: hits@[1, 5, 10, 50] = [30.677 49.782 58.188 77.729]%, time = 0.648 s 
+generating neighbors of 18324 entities costs 5.860 s.
+
+iteration 34
+epoch 331, avg. triple loss: 1.3543, cost time: 5.5712s
+epoch 332, avg. triple loss: 1.3511, cost time: 5.5358s
+epoch 333, avg. triple loss: 1.3496, cost time: 5.4902s
+epoch 334, avg. triple loss: 1.3480, cost time: 5.3297s
+epoch 335, avg. triple loss: 1.3470, cost time: 5.1636s
+epoch 336, avg. triple loss: 1.3457, cost time: 5.4286s
+epoch 337, avg. triple loss: 1.3450, cost time: 5.3666s
+epoch 338, avg. triple loss: 1.3448, cost time: 5.3118s
+epoch 339, avg. triple loss: 1.3432, cost time: 5.3680s
+epoch 340, avg. triple loss: 1.3430, cost time: 5.4533s
+quick results: hits@[1, 5, 10, 50] = [29.803 49.345 56.987 77.729]%, time = 0.639 s 
+after filtering by sim threshold, right alignment: 2405/30007=0.080
+after filtering by sim and nearest k, right alignment: 2353/16532=0.142
+graph via graph_tool <Graph object, directed, with 6285 vertices and 16532 edges at 0x7f0264918b70>
+after mwgm, right alignment: 1504/2569=0.585
+========== worng alignment
+(1@@牙齿发黄, 2@@a39669, sim: 0.900) -> (1@@牙齿发黄, 2@@a52594, sim: 0.916)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.756) -> (1@@胎漏, 2@@胞漏, sim: 0.684)
+(1@@急性结石性胆囊炎, 2@@a10294, sim: 0.782) -> (1@@急性结石性胆囊炎, 2@@a47529, sim: 0.809)
+(1@@毛细管支气管性肺炎, 2@@弥漫性, sim: 0.720) -> (1@@毛细管支气管性肺炎, 2@@a20657, sim: 0.499)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.734) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.637)
+(1@@继发性痛经, 2@@a77167, sim: 0.795) -> (1@@继发性痛经, 2@@继发性痛经, sim: 0.784)
+(1@@鼻干, 2@@鼻黏膜干燥, sim: 0.730) -> (1@@鼻干, 2@@鼻干, sim: 0.850)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.865) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.754)
+(1@@急性单纯性胃炎, 2@@急性腐蚀性胃炎，胃瘅, sim: 0.808) -> (1@@急性单纯性胃炎, 2@@急性浅表性胃炎, sim: 0.841)
+(1@@老年退行性心瓣膜病, 2@@双侧束支主干阻滞, sim: 0.777) -> (1@@老年退行性心瓣膜病, 2@@老年性心瓣膜病, sim: 0.707)
+==========
+after force right, right alignment: 2569/2569=1.000
+mwgm costs time: 1.326 s
+selecting potential alignment costs time: 2.596 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2752/2753=1.000
+after editing (->), right alignment: 2752/2753=1.000
+newly triples: 45354, 105481
+alignment_loss = 1.469, time = 0.166 s
+quick results: hits@[1, 5, 10, 50] = [31.004 50.546 58.624 78.057]%, time = 0.720 s 
+generating neighbors of 18324 entities costs 5.699 s.
+
+iteration 35
+epoch 341, avg. triple loss: 1.3542, cost time: 5.5439s
+epoch 342, avg. triple loss: 1.3508, cost time: 5.4232s
+epoch 343, avg. triple loss: 1.3490, cost time: 5.3938s
+epoch 344, avg. triple loss: 1.3477, cost time: 5.3827s
+epoch 345, avg. triple loss: 1.3462, cost time: 5.5607s
+epoch 346, avg. triple loss: 1.3458, cost time: 5.2312s
+epoch 347, avg. triple loss: 1.3449, cost time: 5.5294s
+epoch 348, avg. triple loss: 1.3443, cost time: 5.4301s
+epoch 349, avg. triple loss: 1.3434, cost time: 5.3710s
+epoch 350, avg. triple loss: 1.3427, cost time: 5.4960s
+quick results: hits@[1, 5, 10, 50] = [30.459 50.    57.642 78.166]%, time = 0.680 s 
+after filtering by sim threshold, right alignment: 2439/30353=0.080
+after filtering by sim and nearest k, right alignment: 2389/16759=0.143
+graph via graph_tool <Graph object, directed, with 6356 vertices and 16759 edges at 0x7f0270d6cbe0>
+after mwgm, right alignment: 1498/2597=0.577
+========== worng alignment
+(1@@脊柱, 2@@a60619, sim: 0.902) -> (1@@脊柱, 2@@脊柱, sim: 0.868)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.756) -> (1@@胎漏, 2@@胞漏, sim: 0.686)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.800) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.766)
+(1@@前葡萄膜炎, 2@@a97712, sim: 0.845) -> (1@@前葡萄膜炎, 2@@前眼色素层炎, sim: 0.885)
+(1@@气促, 2@@手脚发紫, sim: 0.702) -> (1@@气促, 2@@a32646, sim: 0.660)
+(1@@继发性痛经, 2@@a77167, sim: 0.796) -> (1@@继发性痛经, 2@@继发性痛经, sim: 0.786)
+(1@@尿道旁腺癌, 2@@前列腺增生, sim: 0.851) -> (1@@尿道旁腺癌, 2@@尿道旁腺癌症, sim: 0.758)
+(1@@枢椎齿状突骨折, 2@@局部型颈椎病, sim: 0.712) -> (1@@枢椎齿状突骨折, 2@@dentate, sim: 0.301)
+(1@@无症状性心肌缺血, 2@@a82912, sim: 0.729) -> (1@@无症状性心肌缺血, 2@@a75470, sim: 0.596)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.940) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.925)
+==========
+after force right, right alignment: 2597/2597=1.000
+mwgm costs time: 1.277 s
+selecting potential alignment costs time: 2.477 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2796/2797=1.000
+after editing (->), right alignment: 2796/2797=1.000
+newly triples: 45817, 106291
+alignment_loss = 1.468, time = 0.167 s
+quick results: hits@[1, 5, 10, 50] = [31.223 51.201 58.952 78.384]%, time = 0.813 s 
+generating neighbors of 18324 entities costs 6.056 s.
+
+iteration 36
+epoch 351, avg. triple loss: 1.3536, cost time: 5.3893s
+epoch 352, avg. triple loss: 1.3500, cost time: 5.5804s
+epoch 353, avg. triple loss: 1.3484, cost time: 5.3409s
+epoch 354, avg. triple loss: 1.3477, cost time: 5.4527s
+epoch 355, avg. triple loss: 1.3457, cost time: 5.1384s
+epoch 356, avg. triple loss: 1.3452, cost time: 4.3849s
+epoch 357, avg. triple loss: 1.3443, cost time: 4.3260s
+epoch 358, avg. triple loss: 1.3434, cost time: 5.1823s
+epoch 359, avg. triple loss: 1.3427, cost time: 5.4192s
+epoch 360, avg. triple loss: 1.3429, cost time: 5.3932s
+quick results: hits@[1, 5, 10, 50] = [30.349 50.437 58.079 78.275]%, time = 0.692 s 
+after filtering by sim threshold, right alignment: 2483/30607=0.081
+after filtering by sim and nearest k, right alignment: 2436/16945=0.144
+graph via graph_tool <Graph object, directed, with 6442 vertices and 16945 edges at 0x7f0264c2d6d8>
+after mwgm, right alignment: 1573/2656=0.592
+========== worng alignment
+(1@@老年退行性心瓣膜病, 2@@心房心肌梗塞, sim: 0.765) -> (1@@老年退行性心瓣膜病, 2@@老年性心瓣膜病, sim: 0.708)
+(1@@牙齿发黄, 2@@a39669, sim: 0.904) -> (1@@牙齿发黄, 2@@a52594, sim: 0.916)
+(1@@氨咖黄敏, 2@@扑风清, sim: 0.809) -> (1@@氨咖黄敏, 2@@复方氨酚那敏胶囊, sim: 0.787)
+(1@@肝源性糖尿病, 2@@大三羊, sim: 0.741) -> (1@@肝源性糖尿病, 2@@肝源性糖尿病, sim: 0.730)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.757) -> (1@@胎漏, 2@@胞漏, sim: 0.688)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.774) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.840)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.710) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.851)
+(1@@前葡萄膜炎, 2@@a97712, sim: 0.844) -> (1@@前葡萄膜炎, 2@@前眼色素层炎, sim: 0.884)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.804) -> (1@@眼底病, 2@@眼底病变, sim: 0.824)
+(1@@气促, 2@@手脚发紫, sim: 0.703) -> (1@@气促, 2@@a32646, sim: 0.658)
+==========
+after force right, right alignment: 2656/2656=1.000
+mwgm costs time: 1.406 s
+selecting potential alignment costs time: 2.531 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2838/2839=1.000
+after editing (->), right alignment: 2838/2839=1.000
+newly triples: 46156, 107230
+alignment_loss = 1.467, time = 0.171 s
+quick results: hits@[1, 5, 10, 50] = [31.55  51.419 59.279 78.603]%, time = 0.675 s 
+generating neighbors of 18324 entities costs 5.757 s.
+
+iteration 37
+epoch 361, avg. triple loss: 1.3530, cost time: 5.4373s
+epoch 362, avg. triple loss: 1.3498, cost time: 5.3554s
+epoch 363, avg. triple loss: 1.3490, cost time: 5.2734s
+epoch 364, avg. triple loss: 1.3468, cost time: 5.2247s
+epoch 365, avg. triple loss: 1.3450, cost time: 5.3734s
+epoch 366, avg. triple loss: 1.3450, cost time: 5.2635s
+epoch 367, avg. triple loss: 1.3446, cost time: 5.4167s
+epoch 368, avg. triple loss: 1.3441, cost time: 5.4695s
+epoch 369, avg. triple loss: 1.3429, cost time: 5.2696s
+epoch 370, avg. triple loss: 1.3424, cost time: 5.3454s
+quick results: hits@[1, 5, 10, 50] = [30.677 50.546 58.624 78.493]%, time = 0.762 s 
+after filtering by sim threshold, right alignment: 2518/30882=0.082
+after filtering by sim and nearest k, right alignment: 2470/17127=0.144
+graph via graph_tool <Graph object, directed, with 6506 vertices and 17127 edges at 0x7f02649c0198>
+after mwgm, right alignment: 1629/2677=0.609
+========== worng alignment
+(1@@尿急, 2@@脓尿, sim: 0.893) -> (1@@尿急, 2@@尿裤子, sim: 0.977)
+(1@@脊柱, 2@@a60619, sim: 0.902) -> (1@@脊柱, 2@@脊柱, sim: 0.868)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.757) -> (1@@胎漏, 2@@胞漏, sim: 0.691)
+(1@@急性结石性胆囊炎, 2@@a10294, sim: 0.784) -> (1@@急性结石性胆囊炎, 2@@a47529, sim: 0.812)
+(1@@癫痫, 2@@癫病, sim: 0.746) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.797)
+(1@@手癣, 2@@a97736, sim: 0.737) -> (1@@手癣, 2@@手足癣, sim: 0.899)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.775) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.842)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.713) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.852)
+(1@@枢椎齿状突骨折, 2@@局部型颈椎病, sim: 0.707) -> (1@@枢椎齿状突骨折, 2@@dentate, sim: 0.379)
+(1@@精囊结石, 2@@无子, sim: 0.703) -> (1@@精囊结石, 2@@精囊结石, sim: 0.694)
+==========
+after force right, right alignment: 2677/2677=1.000
+mwgm costs time: 1.433 s
+selecting potential alignment costs time: 2.522 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2876/2877=1.000
+after editing (->), right alignment: 2876/2877=1.000
+newly triples: 46439, 108155
+alignment_loss = 1.467, time = 0.187 s
+quick results: hits@[1, 5, 10, 50] = [31.878 51.528 59.716 79.039]%, time = 0.608 s 
+generating neighbors of 18324 entities costs 5.750 s.
+
+iteration 38
+epoch 371, avg. triple loss: 1.3535, cost time: 5.5958s
+epoch 372, avg. triple loss: 1.3492, cost time: 5.7122s
+epoch 373, avg. triple loss: 1.3476, cost time: 5.3042s
+epoch 374, avg. triple loss: 1.3466, cost time: 5.2100s
+epoch 375, avg. triple loss: 1.3461, cost time: 5.3338s
+epoch 376, avg. triple loss: 1.3448, cost time: 5.4951s
+epoch 377, avg. triple loss: 1.3441, cost time: 5.3726s
+epoch 378, avg. triple loss: 1.3435, cost time: 5.5789s
+epoch 379, avg. triple loss: 1.3430, cost time: 5.4453s
+epoch 380, avg. triple loss: 1.3418, cost time: 5.4558s
+quick results: hits@[1, 5, 10, 50] = [30.895 50.655 59.061 78.93 ]%, time = 0.661 s 
+after filtering by sim threshold, right alignment: 2558/31178=0.082
+after filtering by sim and nearest k, right alignment: 2506/17328=0.145
+graph via graph_tool <Graph object, directed, with 6585 vertices and 17328 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1592/2708=0.588
+========== worng alignment
+(1@@癫痫, 2@@癫病, sim: 0.747) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.801)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.725) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.861)
+(1@@毛细管支气管性肺炎, 2@@弥漫性, sim: 0.717) -> (1@@毛细管支气管性肺炎, 2@@a20657, sim: 0.520)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.712) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.851)
+(1@@阴道瘙痒, 2@@阴道闭锁, sim: 0.830) -> (1@@阴道瘙痒, 2@@阴道瘙痒, sim: 0.568)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.734) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.660)
+(1@@心脏, 2@@a10046, sim: 0.745) -> (1@@心脏, 2@@a31308, sim: 0.922)
+(1@@睫状充血, 2@@眼红, sim: 0.867) -> (1@@睫状充血, 2@@睫状充血, sim: 0.968)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.869) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.754)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.717) -> (1@@喘憋, 2@@a30581, sim: 0.826)
+==========
+after force right, right alignment: 2708/2708=1.000
+mwgm costs time: 1.333 s
+selecting potential alignment costs time: 2.403 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2907/2908=1.000
+after editing (->), right alignment: 2907/2908=1.000
+newly triples: 46658, 108786
+alignment_loss = 1.467, time = 0.167 s
+quick results: hits@[1, 5, 10, 50] = [32.205 51.638 60.044 79.367]%, time = 0.675 s 
+generating neighbors of 18324 entities costs 6.024 s.
+
+iteration 39
+epoch 381, avg. triple loss: 1.3518, cost time: 5.5390s
+epoch 382, avg. triple loss: 1.3493, cost time: 5.3687s
+epoch 383, avg. triple loss: 1.3475, cost time: 5.4591s
+epoch 384, avg. triple loss: 1.3462, cost time: 5.2496s
+epoch 385, avg. triple loss: 1.3452, cost time: 5.4073s
+epoch 386, avg. triple loss: 1.3447, cost time: 5.5595s
+epoch 387, avg. triple loss: 1.3430, cost time: 5.7304s
+epoch 388, avg. triple loss: 1.3433, cost time: 5.3883s
+epoch 389, avg. triple loss: 1.3420, cost time: 5.3286s
+epoch 390, avg. triple loss: 1.3420, cost time: 5.2432s
+quick results: hits@[1, 5, 10, 50] = [30.895 51.31  59.279 79.258]%, time = 0.768 s 
+after filtering by sim threshold, right alignment: 2594/31404=0.083
+after filtering by sim and nearest k, right alignment: 2542/17505=0.145
+graph via graph_tool <Graph object, directed, with 6665 vertices and 17505 edges at 0x7f02649c0198>
+after mwgm, right alignment: 1655/2745=0.603
+========== worng alignment
+(1@@牙齿发黄, 2@@a39669, sim: 0.907) -> (1@@牙齿发黄, 2@@a52594, sim: 0.919)
+(1@@宫颈, 2@@阴道, sim: 0.781) -> (1@@宫颈, 2@@a36938, sim: 0.921)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.711) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.569)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.724) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.860)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.746) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.888)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.708) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.849)
+(1@@剥脱性皮炎型药疹, 2@@刺激性接触性皮炎, sim: 0.702) -> (1@@剥脱性皮炎型药疹, 2@@exfoliative, sim: 0.672)
+(1@@溃疡性角膜炎, 2@@mooren溃疡, sim: 0.861) -> (1@@溃疡性角膜炎, 2@@a32401, sim: 0.764)
+(1@@鼻塞, 2@@口呼吸, sim: 0.806) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.962)
+(1@@老年退行性心瓣膜病, 2@@双侧束支主干阻滞, sim: 0.780) -> (1@@老年退行性心瓣膜病, 2@@老年性心瓣膜病, sim: 0.716)
+==========
+after force right, right alignment: 2745/2745=1.000
+mwgm costs time: 1.200 s
+selecting potential alignment costs time: 2.198 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2948/2949=1.000
+after editing (->), right alignment: 2948/2949=1.000
+newly triples: 47119, 110538
+alignment_loss = 1.468, time = 0.150 s
+quick results: hits@[1, 5, 10, 50] = [33.406 51.747 61.135 79.585]%, time = 0.574 s 
+generating neighbors of 18324 entities costs 5.398 s.
+
+iteration 40
+epoch 391, avg. triple loss: 1.3514, cost time: 5.5126s
+epoch 392, avg. triple loss: 1.3489, cost time: 5.4440s
+epoch 393, avg. triple loss: 1.3474, cost time: 5.4106s
+epoch 394, avg. triple loss: 1.3454, cost time: 5.3134s
+epoch 395, avg. triple loss: 1.3446, cost time: 5.2556s
+epoch 396, avg. triple loss: 1.3435, cost time: 5.4509s
+epoch 397, avg. triple loss: 1.3437, cost time: 5.4006s
+epoch 398, avg. triple loss: 1.3433, cost time: 5.5902s
+epoch 399, avg. triple loss: 1.3419, cost time: 5.5072s
+epoch 400, avg. triple loss: 1.3418, cost time: 5.1074s
+quick results: hits@[1, 5, 10, 50] = [31.441 51.419 59.716 79.585]%, time = 0.661 s 
+after filtering by sim threshold, right alignment: 2619/31657=0.083
+after filtering by sim and nearest k, right alignment: 2570/17686=0.145
+graph via graph_tool <Graph object, directed, with 6727 vertices and 17686 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1694/2770=0.612
+========== worng alignment
+(1@@巴斯德菌肺炎, 2@@腺病毒肺炎, sim: 0.722) -> (1@@巴斯德菌肺炎, 2@@巴斯德氏菌肺炎, sim: 0.741)
+(1@@癫痫, 2@@癫病, sim: 0.755) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.801)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.801) -> (1@@眼底病, 2@@眼底病变, sim: 0.827)
+(1@@阴道瘙痒, 2@@阴道闭锁, sim: 0.832) -> (1@@阴道瘙痒, 2@@阴道瘙痒, sim: 0.572)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.729) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.665)
+(1@@急性左心衰, 2@@充血性心力衰竭, sim: 0.815) -> (1@@急性左心衰, 2@@a42559, sim: 0.813)
+(1@@放射性肾炎, 2@@肾小球肾炎, sim: 0.799) -> (1@@放射性肾炎, 2@@a72649, sim: 0.842)
+(1@@精囊结石, 2@@无子, sim: 0.702) -> (1@@精囊结石, 2@@精囊结石, sim: 0.697)
+(1@@大肠息肉, 2@@家族性结肠瘤伴多发肿瘤综合征, sim: 0.759) -> (1@@大肠息肉, 2@@a11993, sim: 0.893)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.868) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.752)
+==========
+after force right, right alignment: 2770/2770=1.000
+mwgm costs time: 1.324 s
+selecting potential alignment costs time: 2.394 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2978/2979=1.000
+after editing (->), right alignment: 2978/2979=1.000
+newly triples: 47363, 111221
+alignment_loss = 1.467, time = 0.179 s
+quick results: hits@[1, 5, 10, 50] = [33.515 51.965 61.026 79.913]%, time = 0.691 s 
+generating neighbors of 18324 entities costs 5.882 s.
+
+iteration 41
+epoch 401, avg. triple loss: 1.3501, cost time: 5.3363s
+epoch 402, avg. triple loss: 1.3486, cost time: 5.4202s
+epoch 403, avg. triple loss: 1.3475, cost time: 5.3304s
+epoch 404, avg. triple loss: 1.3462, cost time: 5.0827s
+epoch 405, avg. triple loss: 1.3450, cost time: 5.2895s
+epoch 406, avg. triple loss: 1.3436, cost time: 5.2004s
+epoch 407, avg. triple loss: 1.3437, cost time: 5.2364s
+epoch 408, avg. triple loss: 1.3422, cost time: 5.3298s
+epoch 409, avg. triple loss: 1.3421, cost time: 5.3380s
+epoch 410, avg. triple loss: 1.3418, cost time: 5.3454s
+quick results: hits@[1, 5, 10, 50] = [31.878 51.528 60.262 79.585]%, time = 0.761 s 
+after filtering by sim threshold, right alignment: 2650/31852=0.083
+after filtering by sim and nearest k, right alignment: 2600/17860=0.146
+graph via graph_tool <Graph object, directed, with 6797 vertices and 17860 edges at 0x7f026f290f60>
+after mwgm, right alignment: 1706/2807=0.608
+========== worng alignment
+(1@@张力性气胸, 2@@气胸, sim: 0.809) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.880)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.815) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.793)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.745) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.889)
+(1@@剥脱性皮炎型药疹, 2@@刺激性接触性皮炎, sim: 0.704) -> (1@@剥脱性皮炎型药疹, 2@@exfoliative, sim: 0.693)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.733) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.662)
+(1@@梗阻性肾病, 2@@微小病性肾小球肾炎或微小病变, sim: 0.817) -> (1@@梗阻性肾病, 2@@肾内梗阻, sim: 0.826)
+(1@@尿道旁腺癌, 2@@前列腺增生, sim: 0.855) -> (1@@尿道旁腺癌, 2@@尿道旁腺癌症, sim: 0.767)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.869) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.754)
+(1@@子宫发育不全, 2@@a30771, sim: 0.810) -> (1@@子宫发育不全, 2@@子宫发育不全, sim: 0.469)
+(1@@鼻塞, 2@@口呼吸, sim: 0.812) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.962)
+==========
+after force right, right alignment: 2807/2807=1.000
+mwgm costs time: 1.429 s
+selecting potential alignment costs time: 2.550 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3022/3023=1.000
+after editing (->), right alignment: 3022/3023=1.000
+newly triples: 47684, 112195
+alignment_loss = 1.468, time = 0.161 s
+quick results: hits@[1, 5, 10, 50] = [34.061 52.402 61.572 80.022]%, time = 0.605 s 
+generating neighbors of 18324 entities costs 5.398 s.
+
+iteration 42
+epoch 411, avg. triple loss: 1.3515, cost time: 5.4542s
+epoch 412, avg. triple loss: 1.3482, cost time: 5.1535s
+epoch 413, avg. triple loss: 1.3473, cost time: 5.4845s
+epoch 414, avg. triple loss: 1.3457, cost time: 5.5093s
+epoch 415, avg. triple loss: 1.3449, cost time: 5.2389s
+epoch 416, avg. triple loss: 1.3442, cost time: 5.3823s
+epoch 417, avg. triple loss: 1.3435, cost time: 5.1862s
+epoch 418, avg. triple loss: 1.3424, cost time: 5.2544s
+epoch 419, avg. triple loss: 1.3416, cost time: 5.2367s
+epoch 420, avg. triple loss: 1.3420, cost time: 5.4985s
+quick results: hits@[1, 5, 10, 50] = [32.533 51.965 60.699 79.913]%, time = 0.677 s 
+after filtering by sim threshold, right alignment: 2694/32130=0.084
+after filtering by sim and nearest k, right alignment: 2644/18046=0.147
+graph via graph_tool <Graph object, directed, with 6873 vertices and 18046 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1727/2848=0.606
+========== worng alignment
+(1@@张力性气胸, 2@@气胸, sim: 0.807) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.880)
+(1@@氨咖黄敏, 2@@扑风清, sim: 0.814) -> (1@@氨咖黄敏, 2@@复方氨酚那敏胶囊, sim: 0.796)
+(1@@腺淋巴瘤, 2@@a67225, sim: 0.709) -> (1@@腺淋巴瘤, 2@@warthin瘤, sim: 0.578)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.726) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.864)
+(1@@剥脱性皮炎型药疹, 2@@刺激性接触性皮炎, sim: 0.703) -> (1@@剥脱性皮炎型药疹, 2@@exfoliative, sim: 0.700)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.840) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.667)
+(1@@心脏, 2@@a10046, sim: 0.746) -> (1@@心脏, 2@@a31308, sim: 0.922)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.722) -> (1@@喘憋, 2@@a30581, sim: 0.825)
+(1@@鼻塞, 2@@口呼吸, sim: 0.814) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.963)
+(1@@圆形肿块, 2@@胸涨, sim: 0.709) -> (1@@圆形肿块, 2@@a47053, sim: 0.522)
+==========
+after force right, right alignment: 2848/2848=1.000
+mwgm costs time: 1.394 s
+selecting potential alignment costs time: 2.525 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3070/3071=1.000
+after editing (->), right alignment: 3070/3071=1.000
+newly triples: 48046, 113314
+alignment_loss = 1.468, time = 0.170 s
+quick results: hits@[1, 5, 10, 50] = [33.952 52.402 61.681 80.459]%, time = 0.684 s 
+generating neighbors of 18324 entities costs 6.274 s.
+
+iteration 43
+epoch 421, avg. triple loss: 1.3515, cost time: 5.6046s
+epoch 422, avg. triple loss: 1.3478, cost time: 5.4502s
+epoch 423, avg. triple loss: 1.3466, cost time: 5.2434s
+epoch 424, avg. triple loss: 1.3452, cost time: 4.6971s
+epoch 425, avg. triple loss: 1.3444, cost time: 4.7485s
+epoch 426, avg. triple loss: 1.3434, cost time: 5.1380s
+epoch 427, avg. triple loss: 1.3425, cost time: 5.4981s
+epoch 428, avg. triple loss: 1.3419, cost time: 5.3644s
+epoch 429, avg. triple loss: 1.3419, cost time: 5.4100s
+epoch 430, avg. triple loss: 1.3412, cost time: 5.2118s
+quick results: hits@[1, 5, 10, 50] = [33.079 51.747 60.917 80.459]%, time = 0.659 s 
+after filtering by sim threshold, right alignment: 2727/32266=0.085
+after filtering by sim and nearest k, right alignment: 2677/18157=0.147
+graph via graph_tool <Graph object, directed, with 6928 vertices and 18157 edges at 0x7f02712c1358>
+after mwgm, right alignment: 1747/2870=0.609
+========== worng alignment
+(1@@慢性间质性肾炎, 2@@a29514, sim: 0.843) -> (1@@慢性间质性肾炎, 2@@a55880, sim: 0.820)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.755) -> (1@@胎漏, 2@@胞漏, sim: 0.693)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.819) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.797)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.730) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.668)
+(1@@继发性痛经, 2@@a77167, sim: 0.793) -> (1@@继发性痛经, 2@@继发性痛经, sim: 0.791)
+(1@@梗阻性肾病, 2@@微小病性肾小球肾炎或微小病变, sim: 0.819) -> (1@@梗阻性肾病, 2@@肾内梗阻, sim: 0.827)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.871) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.754)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.720) -> (1@@喘憋, 2@@a30581, sim: 0.827)
+(1@@鼻塞, 2@@口呼吸, sim: 0.815) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.963)
+(1@@圆形肿块, 2@@胸涨, sim: 0.709) -> (1@@圆形肿块, 2@@a47053, sim: 0.525)
+==========
+after force right, right alignment: 2870/2870=1.000
+mwgm costs time: 1.313 s
+selecting potential alignment costs time: 2.353 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3097/3098=1.000
+after editing (->), right alignment: 3097/3098=1.000
+newly triples: 48338, 114046
+alignment_loss = 1.468, time = 0.171 s
+quick results: hits@[1, 5, 10, 50] = [34.498 52.838 62.227 80.677]%, time = 0.697 s 
+generating neighbors of 18324 entities costs 5.659 s.
+
+iteration 44
+epoch 431, avg. triple loss: 1.3507, cost time: 5.2022s
+epoch 432, avg. triple loss: 1.3468, cost time: 5.3481s
+epoch 433, avg. triple loss: 1.3462, cost time: 5.2569s
+epoch 434, avg. triple loss: 1.3457, cost time: 5.2212s
+epoch 435, avg. triple loss: 1.3441, cost time: 5.2543s
+epoch 436, avg. triple loss: 1.3435, cost time: 5.3735s
+epoch 437, avg. triple loss: 1.3436, cost time: 5.1522s
+epoch 438, avg. triple loss: 1.3422, cost time: 5.5124s
+epoch 439, avg. triple loss: 1.3418, cost time: 5.3071s
+epoch 440, avg. triple loss: 1.3408, cost time: 5.3463s
+quick results: hits@[1, 5, 10, 50] = [33.406 51.747 61.79  80.24 ]%, time = 0.653 s 
+after filtering by sim threshold, right alignment: 2754/32501=0.085
+after filtering by sim and nearest k, right alignment: 2702/18337=0.147
+graph via graph_tool <Graph object, directed, with 6988 vertices and 18337 edges at 0x7f026fd9b780>
+after mwgm, right alignment: 1765/2906=0.607
+========== worng alignment
+(1@@进行性脊髓性肌萎缩症, 2@@重症肌无力样综合症, sim: 0.704) -> (1@@进行性脊髓性肌萎缩症, 2@@痿躄，脊肌萎缩症, sim: 0.656)
+(1@@流鼻水, 2@@有鼻涕, sim: 0.706) -> (1@@流鼻水, 2@@a70672, sim: 0.584)
+(1@@心脏, 2@@a93690, sim: 0.853) -> (1@@心脏, 2@@a31308, sim: 0.923)
+(1@@听力减退, 2@@耳朵痛, sim: 0.957) -> (1@@听力减退, 2@@a34759, sim: 0.941)
+(1@@玻璃体混浊, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.851) -> (1@@玻璃体混浊, 2@@飞蚊症, sim: 0.894)
+(1@@咽鼓管狭窄, 2@@感音神经性聋, sim: 0.775) -> (1@@咽鼓管狭窄, 2@@a80217, sim: 0.740)
+(1@@桡骨颈骨折, 2@@下肢骨折水平未特指, sim: 0.781) -> (1@@桡骨颈骨折, 2@@a58683, sim: 0.782)
+(1@@鼻塞, 2@@口呼吸, sim: 0.816) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.963)
+(1@@外伤性白内障, 2@@a74801, sim: 0.781) -> (1@@外伤性白内障, 2@@a29151, sim: 0.949)
+(1@@过敏性阴道炎, 2@@阴道结核, sim: 0.888) -> (1@@过敏性阴道炎, 2@@变应性阴道炎, sim: 0.934)
+==========
+after force right, right alignment: 2906/2906=1.000
+mwgm costs time: 1.334 s
+selecting potential alignment costs time: 2.469 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3124/3125=1.000
+after editing (->), right alignment: 3124/3125=1.000
+newly triples: 48648, 114822
+alignment_loss = 1.468, time = 0.191 s
+quick results: hits@[1, 5, 10, 50] = [34.716 53.166 62.555 80.786]%, time = 1.112 s 
+generating neighbors of 18324 entities costs 6.223 s.
+
+iteration 45
+epoch 441, avg. triple loss: 1.3503, cost time: 5.5061s
+epoch 442, avg. triple loss: 1.3474, cost time: 5.6832s
+epoch 443, avg. triple loss: 1.3466, cost time: 5.4269s
+epoch 444, avg. triple loss: 1.3442, cost time: 5.4687s
+epoch 445, avg. triple loss: 1.3440, cost time: 5.4029s
+epoch 446, avg. triple loss: 1.3438, cost time: 5.8110s
+epoch 447, avg. triple loss: 1.3419, cost time: 5.2622s
+epoch 448, avg. triple loss: 1.3413, cost time: 5.3850s
+epoch 449, avg. triple loss: 1.3416, cost time: 5.3222s
+epoch 450, avg. triple loss: 1.3411, cost time: 5.4299s
+quick results: hits@[1, 5, 10, 50] = [33.624 52.62  62.118 80.677]%, time = 0.676 s 
+after filtering by sim threshold, right alignment: 2783/32654=0.085
+after filtering by sim and nearest k, right alignment: 2733/18449=0.148
+graph via graph_tool <Graph object, directed, with 7038 vertices and 18449 edges at 0x7f02649c0198>
+after mwgm, right alignment: 1759/2924=0.602
+========== worng alignment
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.754) -> (1@@胎漏, 2@@胞漏, sim: 0.695)
+(1@@急性结石性胆囊炎, 2@@a10294, sim: 0.784) -> (1@@急性结石性胆囊炎, 2@@a47529, sim: 0.812)
+(1@@进行性脊髓性肌萎缩症, 2@@重症肌无力样综合症, sim: 0.735) -> (1@@进行性脊髓性肌萎缩症, 2@@痿躄，脊肌萎缩症, sim: 0.702)
+(1@@心脏, 2@@a10046, sim: 0.749) -> (1@@心脏, 2@@a31308, sim: 0.923)
+(1@@尿道旁腺癌, 2@@前列腺增生, sim: 0.856) -> (1@@尿道旁腺癌, 2@@尿道旁腺癌症, sim: 0.771)
+(1@@精囊结石, 2@@无子, sim: 0.705) -> (1@@精囊结石, 2@@精囊结石, sim: 0.694)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.941) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.940)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.871) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.754)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.727) -> (1@@喘憋, 2@@a30581, sim: 0.826)
+(1@@气道高反应性, 2@@胃食管反流性哮喘, sim: 0.763) -> (1@@气道高反应性, 2@@a57232, sim: 0.728)
+==========
+after force right, right alignment: 2924/2924=1.000
+mwgm costs time: 1.319 s
+selecting potential alignment costs time: 2.453 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3146/3147=1.000
+after editing (->), right alignment: 3146/3147=1.000
+newly triples: 48801, 115159
+alignment_loss = 1.467, time = 0.192 s
+quick results: hits@[1, 5, 10, 50] = [34.825 53.93  63.1   80.895]%, time = 0.884 s 
+generating neighbors of 18324 entities costs 6.249 s.
+
+iteration 46
+epoch 451, avg. triple loss: 1.3495, cost time: 5.6163s
+epoch 452, avg. triple loss: 1.3473, cost time: 5.5252s
+epoch 453, avg. triple loss: 1.3455, cost time: 5.4199s
+epoch 454, avg. triple loss: 1.3446, cost time: 5.5441s
+epoch 455, avg. triple loss: 1.3438, cost time: 5.5533s
+epoch 456, avg. triple loss: 1.3424, cost time: 5.2861s
+epoch 457, avg. triple loss: 1.3423, cost time: 5.3767s
+epoch 458, avg. triple loss: 1.3420, cost time: 5.4450s
+epoch 459, avg. triple loss: 1.3419, cost time: 5.0645s
+epoch 460, avg. triple loss: 1.3407, cost time: 4.5925s
+quick results: hits@[1, 5, 10, 50] = [34.061 53.166 62.336 80.895]%, time = 1.102 s 
+after filtering by sim threshold, right alignment: 2803/32816=0.085
+after filtering by sim and nearest k, right alignment: 2750/18545=0.148
+graph via graph_tool <Graph object, directed, with 7082 vertices and 18545 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1804/2945=0.613
+========== worng alignment
+(1@@愈创甘油醚糖浆, 2@@愈酚喷托异丙嗪颗粒, sim: 0.742) -> (1@@愈创甘油醚糖浆, 2@@幸福化痰素, sim: 0.916)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.723) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.864)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.728) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.673)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.941) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.939)
+(1@@小螺菌感染, 2@@下颌下隙感染, sim: 0.702) -> (1@@小螺菌感染, 2@@a78467, sim: 0.216)
+(1@@萎缩性胃炎, 2@@a83005, sim: 0.737) -> (1@@萎缩性胃炎, 2@@慢性萎缩性胃炎，胃痞, sim: 0.829)
+(1@@小儿军团菌病, 2@@寇热肺炎, sim: 0.718) -> (1@@小儿军团菌病, 2@@a51851, sim: 0.802)
+(1@@急慢性扁桃体炎, 2@@慢性鼻炎、鼻咽炎和咽炎, sim: 0.831) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.612)
+(1@@腿麻, 2@@腰腿痛, sim: 0.776) -> (1@@腿麻, 2@@腿麻, sim: 0.908)
+(1@@咳脓痰, 2@@a45746, sim: 0.741) -> (1@@咳脓痰, 2@@a63979, sim: 0.654)
+==========
+after force right, right alignment: 2945/2945=1.000
+mwgm costs time: 1.354 s
+selecting potential alignment costs time: 2.392 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3173/3174=1.000
+after editing (->), right alignment: 3173/3174=1.000
+newly triples: 48971, 115850
+alignment_loss = 1.468, time = 0.175 s
+quick results: hits@[1, 5, 10, 50] = [34.934 54.585 63.537 81.004]%, time = 2.397 s 
+generating neighbors of 18324 entities costs 6.471 s.
+
+iteration 47
+epoch 461, avg. triple loss: 1.3490, cost time: 5.8424s
+epoch 462, avg. triple loss: 1.3476, cost time: 5.6360s
+epoch 463, avg. triple loss: 1.3461, cost time: 5.6231s
+epoch 464, avg. triple loss: 1.3446, cost time: 5.6463s
+epoch 465, avg. triple loss: 1.3430, cost time: 5.5282s
+epoch 466, avg. triple loss: 1.3427, cost time: 5.6043s
+epoch 467, avg. triple loss: 1.3427, cost time: 5.4772s
+epoch 468, avg. triple loss: 1.3415, cost time: 5.4314s
+epoch 469, avg. triple loss: 1.3410, cost time: 5.5543s
+epoch 470, avg. triple loss: 1.3405, cost time: 5.4593s
+quick results: hits@[1, 5, 10, 50] = [34.389 53.603 62.555 81.114]%, time = 0.656 s 
+after filtering by sim threshold, right alignment: 2836/32950=0.086
+after filtering by sim and nearest k, right alignment: 2786/18673=0.149
+graph via graph_tool <Graph object, directed, with 7146 vertices and 18673 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1841/2960=0.622
+========== worng alignment
+(1@@肛乳头切除术, 2@@a97625, sim: 0.923) -> (1@@肛乳头切除术, 2@@肛乳头切除术, sim: 0.960)
+(1@@张力性气胸, 2@@气胸, sim: 0.807) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.878)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.757) -> (1@@胎漏, 2@@胞漏, sim: 0.698)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.822) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.803)
+(1@@胆脂瘤型中耳炎, 2@@陈旧性中耳炎, sim: 0.897) -> (1@@胆脂瘤型中耳炎, 2@@中耳胆脂瘤, sim: 0.926)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.724) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.867)
+(1@@褐黄病性关节炎, 2@@儿童慢性关节炎, sim: 0.734) -> (1@@褐黄病性关节炎, 2@@褐黄症性关节炎, sim: 0.788)
+(1@@昏迷, 2@@a64501, sim: 0.775) -> (1@@昏迷, 2@@a88597, sim: 0.921)
+(1@@大汗腺, 2@@腋窝, sim: 0.701) -> (1@@大汗腺, 2@@a14530, sim: 0.633)
+(1@@外阴中肾管囊肿, 2@@外阴硬化萎缩性苔藓, sim: 0.781) -> (1@@外阴中肾管囊肿, 2@@处女膜囊肿, sim: 0.747)
+==========
+after force right, right alignment: 2960/2960=1.000
+mwgm costs time: 1.422 s
+selecting potential alignment costs time: 2.657 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3200/3201=1.000
+after editing (->), right alignment: 3200/3201=1.000
+newly triples: 49167, 116413
+alignment_loss = 1.468, time = 0.192 s
+quick results: hits@[1, 5, 10, 50] = [35.044 54.476 63.755 81.223]%, time = 0.801 s 
+generating neighbors of 18324 entities costs 5.967 s.
+
+iteration 48
+epoch 471, avg. triple loss: 1.3491, cost time: 5.7309s
+epoch 472, avg. triple loss: 1.3470, cost time: 5.5538s
+epoch 473, avg. triple loss: 1.3454, cost time: 5.5705s
+epoch 474, avg. triple loss: 1.3450, cost time: 5.3763s
+epoch 475, avg. triple loss: 1.3434, cost time: 5.5358s
+epoch 476, avg. triple loss: 1.3423, cost time: 5.4721s
+epoch 477, avg. triple loss: 1.3424, cost time: 5.4805s
+epoch 478, avg. triple loss: 1.3412, cost time: 5.6395s
+epoch 479, avg. triple loss: 1.3407, cost time: 5.5931s
+epoch 480, avg. triple loss: 1.3406, cost time: 5.5921s
+quick results: hits@[1, 5, 10, 50] = [34.825 54.476 62.664 81.114]%, time = 0.778 s 
+after filtering by sim threshold, right alignment: 2859/33046=0.087
+after filtering by sim and nearest k, right alignment: 2810/18783=0.150
+graph via graph_tool <Graph object, directed, with 7200 vertices and 18783 edges at 0x7f026d6f9128>
+after mwgm, right alignment: 1883/3006=0.626
+========== worng alignment
+(1@@张力性气胸, 2@@气胸, sim: 0.806) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.878)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.755) -> (1@@胎漏, 2@@胞漏, sim: 0.697)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.822) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.803)
+(1@@癫痫, 2@@癫病, sim: 0.766) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.802)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.722) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.869)
+(1@@进行性脊髓性肌萎缩症, 2@@重症肌无力样综合症, sim: 0.773) -> (1@@进行性脊髓性肌萎缩症, 2@@痿躄，脊肌萎缩症, sim: 0.758)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.798) -> (1@@眼底病, 2@@眼底病变, sim: 0.824)
+(1@@咽喉, 2@@a40996, sim: 0.749) -> (1@@咽喉, 2@@a23680, sim: 0.832)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.940) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.937)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.868) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.755)
+==========
+after force right, right alignment: 3006/3006=1.000
+mwgm costs time: 1.406 s
+selecting potential alignment costs time: 2.528 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3220/3221=1.000
+after editing (->), right alignment: 3220/3221=1.000
+newly triples: 49270, 116686
+alignment_loss = 1.467, time = 0.185 s
+quick results: hits@[1, 5, 10, 50] = [35.48  55.022 63.865 81.332]%, time = 0.836 s 
+generating neighbors of 18324 entities costs 6.510 s.
+
+iteration 49
+epoch 481, avg. triple loss: 1.3485, cost time: 5.4201s
+epoch 482, avg. triple loss: 1.3467, cost time: 5.3978s
+epoch 483, avg. triple loss: 1.3451, cost time: 5.4604s
+epoch 484, avg. triple loss: 1.3444, cost time: 5.5088s
+epoch 485, avg. triple loss: 1.3429, cost time: 5.4668s
+epoch 486, avg. triple loss: 1.3423, cost time: 5.5124s
+epoch 487, avg. triple loss: 1.3420, cost time: 5.5062s
+epoch 488, avg. triple loss: 1.3416, cost time: 5.7086s
+epoch 489, avg. triple loss: 1.3399, cost time: 5.5292s
+epoch 490, avg. triple loss: 1.3405, cost time: 5.4705s
+quick results: hits@[1, 5, 10, 50] = [35.262 55.131 63.21  81.441]%, time = 0.777 s 
+after filtering by sim threshold, right alignment: 2885/33197=0.087
+after filtering by sim and nearest k, right alignment: 2835/18885=0.150
+graph via graph_tool <Graph object, directed, with 7253 vertices and 18885 edges at 0x7f02707df9b0>
+after mwgm, right alignment: 1916/3031=0.632
+========== worng alignment
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.937) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.935)
+(1@@咽鼓管狭窄, 2@@感音神经性聋, sim: 0.775) -> (1@@咽鼓管狭窄, 2@@a80217, sim: 0.740)
+(1@@听力减退, 2@@噪音性耳聋, sim: 0.841) -> (1@@听力减退, 2@@a34759, sim: 0.941)
+(1@@肠息肉病, 2@@直肠腺癌, sim: 0.703) -> (1@@肠息肉病, 2@@肠道息肉病, sim: 0.783)
+(1@@唇疱疹, 2@@原发型疱疹性口炎, sim: 0.854) -> (1@@唇疱疹, 2@@热疱疹, sim: 0.889)
+(1@@卵巢肿瘤破裂, 2@@a44847, sim: 0.908) -> (1@@卵巢肿瘤破裂, 2@@a50379, sim: 0.924)
+(1@@急慢性扁桃体炎, 2@@慢性鼻炎、鼻咽炎和咽炎, sim: 0.832) -> (1@@急慢性扁桃体炎, 2@@a28100, sim: 0.617)
+(1@@先天性白内障, 2@@cn, sim: 0.788) -> (1@@先天性白内障, 2@@a61300, sim: 0.953)
+(1@@失盐, 2@@a32643, sim: 0.713) -> (1@@失盐, 2@@a47608, sim: 0.305)
+(1@@慢性乙型病毒性肝炎, 2@@a88599, sim: 0.841) -> (1@@慢性乙型病毒性肝炎, 2@@a12659, sim: 0.831)
+==========
+after force right, right alignment: 3031/3031=1.000
+mwgm costs time: 1.557 s
+selecting potential alignment costs time: 2.652 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3245/3246=1.000
+after editing (->), right alignment: 3245/3246=1.000
+newly triples: 50143, 117939
+alignment_loss = 1.472, time = 0.192 s
+quick results: hits@[1, 5, 10, 50] = [35.699 55.568 63.865 81.441]%, time = 1.065 s 
+generating neighbors of 18324 entities costs 5.820 s.
+
+iteration 50
+epoch 491, avg. triple loss: 1.3482, cost time: 4.6755s
+epoch 492, avg. triple loss: 1.3457, cost time: 4.5304s
+epoch 493, avg. triple loss: 1.3454, cost time: 4.5703s
+epoch 494, avg. triple loss: 1.3435, cost time: 4.5243s
+epoch 495, avg. triple loss: 1.3430, cost time: 4.5125s
+epoch 496, avg. triple loss: 1.3420, cost time: 4.4864s
+epoch 497, avg. triple loss: 1.3416, cost time: 4.4508s
+epoch 498, avg. triple loss: 1.3406, cost time: 5.3259s
+epoch 499, avg. triple loss: 1.3405, cost time: 5.4878s
+epoch 500, avg. triple loss: 1.3402, cost time: 5.4344s
+quick results: hits@[1, 5, 10, 50] = [35.153 55.459 63.537 81.114]%, time = 0.767 s 
+after filtering by sim threshold, right alignment: 2905/33270=0.087
+after filtering by sim and nearest k, right alignment: 2857/18971=0.151
+graph via graph_tool <Graph object, directed, with 7300 vertices and 18971 edges at 0x7f02728d5da0>
+after mwgm, right alignment: 1918/3051=0.629
+========== worng alignment
+(1@@双氯芬酸 米索前列醇, 2@@保适捷, sim: 0.773) -> (1@@双氯芬酸 米索前列醇, 2@@双氯芬酸, sim: 0.842)
+(1@@氨咖黄敏, 2@@扑风清, sim: 0.823) -> (1@@氨咖黄敏, 2@@复方氨酚那敏胶囊, sim: 0.802)
+(1@@愈创甘油醚糖浆, 2@@愈酚喷托异丙嗪颗粒, sim: 0.748) -> (1@@愈创甘油醚糖浆, 2@@幸福化痰素, sim: 0.923)
+(1@@癫痫, 2@@癫病, sim: 0.765) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.804)
+(1@@听力减退, 2@@耳朵痛, sim: 0.958) -> (1@@听力减退, 2@@a34759, sim: 0.941)
+(1@@急性渗出性中耳炎, 2@@a21557, sim: 0.906) -> (1@@急性渗出性中耳炎, 2@@a28790, sim: 0.904)
+(1@@寄生虫性心肌炎, 2@@双分支传导阻滞, sim: 0.707) -> (1@@寄生虫性心肌炎, 2@@a35340, sim: 0.463)
+(1@@玻璃体混浊, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.855) -> (1@@玻璃体混浊, 2@@飞蚊症, sim: 0.902)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.936) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.936)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.867) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.755)
+==========
+after force right, right alignment: 3051/3051=1.000
+mwgm costs time: 1.382 s
+selecting potential alignment costs time: 2.455 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3273/3274=1.000
+after editing (->), right alignment: 3273/3274=1.000
+newly triples: 50339, 118555
+alignment_loss = 1.471, time = 0.193 s
+quick results: hits@[1, 5, 10, 50] = [36.245 56.441 63.755 81.332]%, time = 0.631 s 
+generating neighbors of 18324 entities costs 6.602 s.
+
+iteration 51
+epoch 501, avg. triple loss: 1.3484, cost time: 5.4685s
+epoch 502, avg. triple loss: 1.3464, cost time: 5.4471s
+epoch 503, avg. triple loss: 1.3447, cost time: 5.4727s
+epoch 504, avg. triple loss: 1.3435, cost time: 5.4232s
+epoch 505, avg. triple loss: 1.3434, cost time: 5.9246s
+epoch 506, avg. triple loss: 1.3417, cost time: 5.4495s
+epoch 507, avg. triple loss: 1.3411, cost time: 5.4800s
+epoch 508, avg. triple loss: 1.3407, cost time: 5.7299s
+epoch 509, avg. triple loss: 1.3403, cost time: 6.0203s
+epoch 510, avg. triple loss: 1.3406, cost time: 5.6417s
+quick results: hits@[1, 5, 10, 50] = [35.371 55.349 63.319 81.55 ]%, time = 0.680 s 
+after filtering by sim threshold, right alignment: 2926/33338=0.088
+after filtering by sim and nearest k, right alignment: 2879/19026=0.151
+graph via graph_tool <Graph object, directed, with 7332 vertices and 19026 edges at 0x7f0271a98b00>
+after mwgm, right alignment: 1917/3065=0.625
+========== worng alignment
+(1@@口腔溃疡, 2@@顽固性口腔溃疡, sim: 0.711) -> (1@@口腔溃疡, 2@@口炎疮, sim: 0.906)
+(1@@牙齿发黄, 2@@a39669, sim: 0.913) -> (1@@牙齿发黄, 2@@a52594, sim: 0.923)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.757) -> (1@@胎漏, 2@@胞漏, sim: 0.698)
+(1@@巴斯德菌肺炎, 2@@腺病毒肺炎, sim: 0.730) -> (1@@巴斯德菌肺炎, 2@@巴斯德氏菌肺炎, sim: 0.747)
+(1@@心脏, 2@@a93690, sim: 0.847) -> (1@@心脏, 2@@a31308, sim: 0.923)
+(1@@心脏中毒性损伤, 2@@隐匿, sim: 0.760) -> (1@@心脏中毒性损伤, 2@@a76104, sim: 0.484)
+(1@@精子大头畸形, 2@@a56439, sim: 0.730) -> (1@@精子大头畸形, 2@@精子大头畸形, sim: 0.900)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.735) -> (1@@喘憋, 2@@a30581, sim: 0.829)
+(1@@鼻塞, 2@@口呼吸, sim: 0.823) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.964)
+(1@@圆形肿块, 2@@胸涨, sim: 0.713) -> (1@@圆形肿块, 2@@a47053, sim: 0.553)
+==========
+after force right, right alignment: 3065/3065=1.000
+mwgm costs time: 1.432 s
+selecting potential alignment costs time: 2.592 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3295/3296=1.000
+after editing (->), right alignment: 3295/3296=1.000
+newly triples: 50635, 119057
+alignment_loss = 1.470, time = 0.183 s
+quick results: hits@[1, 5, 10, 50] = [36.135 55.786 64.083 81.55 ]%, time = 0.685 s 
+generating neighbors of 18324 entities costs 6.211 s.
+
+iteration 52
+epoch 511, avg. triple loss: 1.3482, cost time: 5.7291s
+epoch 512, avg. triple loss: 1.3459, cost time: 5.5414s
+epoch 513, avg. triple loss: 1.3446, cost time: 5.3976s
+epoch 514, avg. triple loss: 1.3437, cost time: 5.5480s
+epoch 515, avg. triple loss: 1.3428, cost time: 5.7282s
+epoch 516, avg. triple loss: 1.3422, cost time: 5.5938s
+epoch 517, avg. triple loss: 1.3411, cost time: 5.5280s
+epoch 518, avg. triple loss: 1.3405, cost time: 5.5074s
+epoch 519, avg. triple loss: 1.3400, cost time: 5.4471s
+epoch 520, avg. triple loss: 1.3393, cost time: 5.4906s
+quick results: hits@[1, 5, 10, 50] = [35.59  55.568 63.865 81.769]%, time = 0.769 s 
+after filtering by sim threshold, right alignment: 2946/33429=0.088
+after filtering by sim and nearest k, right alignment: 2899/19089=0.152
+graph via graph_tool <Graph object, directed, with 7378 vertices and 19089 edges at 0x7f0272d71ac8>
+after mwgm, right alignment: 1985/3069=0.647
+========== worng alignment
+(1@@角膜擦伤, 2@@角膜灼伤刮伤, sim: 0.758) -> (1@@角膜擦伤, 2@@角膜擦伤, sim: 0.793)
+(1@@尿急, 2@@脓尿, sim: 0.886) -> (1@@尿急, 2@@尿裤子, sim: 0.979)
+(1@@口腔溃疡, 2@@顽固性口腔溃疡, sim: 0.712) -> (1@@口腔溃疡, 2@@口炎疮, sim: 0.907)
+(1@@老年退行性心瓣膜病, 2@@心房心肌梗塞, sim: 0.764) -> (1@@老年退行性心瓣膜病, 2@@老年性心瓣膜病, sim: 0.714)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.756) -> (1@@胎漏, 2@@胞漏, sim: 0.695)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.766) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.845)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.798) -> (1@@眼底病, 2@@眼底病变, sim: 0.826)
+(1@@胡桃夹综合征, 2@@低补体血症性肾炎, sim: 0.835) -> (1@@胡桃夹综合征, 2@@静脉的其他疾患, sim: 0.666)
+(1@@心脏, 2@@a93690, sim: 0.845) -> (1@@心脏, 2@@a31308, sim: 0.922)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.937) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.940)
+==========
+after force right, right alignment: 3069/3069=1.000
+mwgm costs time: 1.541 s
+selecting potential alignment costs time: 2.666 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3318/3319=1.000
+after editing (->), right alignment: 3318/3319=1.000
+newly triples: 50797, 120025
+alignment_loss = 1.472, time = 0.191 s
+quick results: hits@[1, 5, 10, 50] = [36.79  56.114 64.847 81.769]%, time = 0.710 s 
+generating neighbors of 18324 entities costs 6.351 s.
+
+iteration 53
+epoch 521, avg. triple loss: 1.3475, cost time: 5.7009s
+epoch 522, avg. triple loss: 1.3461, cost time: 5.5937s
+epoch 523, avg. triple loss: 1.3446, cost time: 5.5638s
+epoch 524, avg. triple loss: 1.3435, cost time: 5.8516s
+epoch 525, avg. triple loss: 1.3424, cost time: 5.7845s
+epoch 526, avg. triple loss: 1.3417, cost time: 5.5339s
+epoch 527, avg. triple loss: 1.3414, cost time: 5.5107s
+epoch 528, avg. triple loss: 1.3405, cost time: 5.8394s
+epoch 529, avg. triple loss: 1.3406, cost time: 5.5924s
+epoch 530, avg. triple loss: 1.3391, cost time: 4.8977s
+quick results: hits@[1, 5, 10, 50] = [36.354 55.568 63.755 82.096]%, time = 0.555 s 
+after filtering by sim threshold, right alignment: 2972/33554=0.089
+after filtering by sim and nearest k, right alignment: 2928/19194=0.153
+graph via graph_tool <Graph object, directed, with 7430 vertices and 19194 edges at 0x7f02707df9b0>
+after mwgm, right alignment: 1900/3098=0.613
+========== worng alignment
+(1@@氨咖黄敏, 2@@扑风清, sim: 0.822) -> (1@@氨咖黄敏, 2@@复方氨酚那敏胶囊, sim: 0.803)
+(1@@脊柱, 2@@a60619, sim: 0.905) -> (1@@脊柱, 2@@脊柱, sim: 0.865)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.757) -> (1@@胎漏, 2@@胞漏, sim: 0.696)
+(1@@肾脏受累, 2@@角形甲弧影, sim: 0.805) -> (1@@肾脏受累, 2@@肾脏受累, sim: 0.572)
+(1@@毛细管支气管性肺炎, 2@@弥漫性, sim: 0.709) -> (1@@毛细管支气管性肺炎, 2@@a20657, sim: 0.536)
+(1@@手癣, 2@@a97736, sim: 0.743) -> (1@@手癣, 2@@手足癣, sim: 0.909)
+(1@@进行性脊髓性肌萎缩症, 2@@重症肌无力样综合症, sim: 0.797) -> (1@@进行性脊髓性肌萎缩症, 2@@痿躄，脊肌萎缩症, sim: 0.786)
+(1@@单相抑郁障碍, 2@@a43516, sim: 0.701) -> (1@@单相抑郁障碍, 2@@a37136, sim: 0.404)
+(1@@眼底病, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.799) -> (1@@眼底病, 2@@眼底病变, sim: 0.825)
+(1@@鼻干, 2@@鼻黏膜干燥, sim: 0.757) -> (1@@鼻干, 2@@鼻干, sim: 0.868)
+==========
+after force right, right alignment: 3098/3098=1.000
+mwgm costs time: 1.442 s
+selecting potential alignment costs time: 2.443 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3341/3342=1.000
+after editing (->), right alignment: 3341/3342=1.000
+newly triples: 51300, 120806
+alignment_loss = 1.472, time = 0.173 s
+quick results: hits@[1, 5, 10, 50] = [37.227 56.441 64.301 82.096]%, time = 0.578 s 
+generating neighbors of 18324 entities costs 5.977 s.
+
+iteration 54
+epoch 531, avg. triple loss: 1.3475, cost time: 5.5513s
+epoch 532, avg. triple loss: 1.3453, cost time: 5.6431s
+epoch 533, avg. triple loss: 1.3446, cost time: 5.4077s
+epoch 534, avg. triple loss: 1.3430, cost time: 5.7063s
+epoch 535, avg. triple loss: 1.3427, cost time: 5.6746s
+epoch 536, avg. triple loss: 1.3418, cost time: 5.5498s
+epoch 537, avg. triple loss: 1.3408, cost time: 5.5624s
+epoch 538, avg. triple loss: 1.3411, cost time: 5.6876s
+epoch 539, avg. triple loss: 1.3397, cost time: 5.4774s
+epoch 540, avg. triple loss: 1.3391, cost time: 5.6644s
+quick results: hits@[1, 5, 10, 50] = [36.026 56.332 63.755 82.533]%, time = 0.820 s 
+after filtering by sim threshold, right alignment: 2995/33681=0.089
+after filtering by sim and nearest k, right alignment: 2952/19281=0.153
+graph via graph_tool <Graph object, directed, with 7474 vertices and 19281 edges at 0x7f02724a6eb8>
+after mwgm, right alignment: 2002/3141=0.637
+========== worng alignment
+(1@@张力性气胸, 2@@气胸, sim: 0.803) -> (1@@张力性气胸, 2@@压力性气胸, sim: 0.878)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.828) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.814)
+(1@@肾脏受累, 2@@角形甲弧影, sim: 0.801) -> (1@@肾脏受累, 2@@肾脏受累, sim: 0.626)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.742) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.890)
+(1@@急性出血性坏死性小肠炎, 2@@肠腺病毒胃肠炎, sim: 0.769) -> (1@@急性出血性坏死性小肠炎, 2@@肠坏死，小肠瘅, sim: 0.864)
+(1@@无症状性心肌缺血, 2@@a82912, sim: 0.753) -> (1@@无症状性心肌缺血, 2@@a75470, sim: 0.606)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.935) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.944)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.868) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.755)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.737) -> (1@@喘憋, 2@@a30581, sim: 0.825)
+(1@@圆形肿块, 2@@胸涨, sim: 0.713) -> (1@@圆形肿块, 2@@a47053, sim: 0.559)
+==========
+after force right, right alignment: 3141/3141=1.000
+mwgm costs time: 1.493 s
+selecting potential alignment costs time: 2.557 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3369/3370=1.000
+after editing (->), right alignment: 3369/3370=1.000
+newly triples: 53462, 123312
+alignment_loss = 1.479, time = 0.182 s
+quick results: hits@[1, 5, 10, 50] = [37.009 57.424 64.41  82.314]%, time = 4.216 s 
+generating neighbors of 18324 entities costs 6.333 s.
+
+iteration 55
+epoch 541, avg. triple loss: 1.3472, cost time: 5.5757s
+epoch 542, avg. triple loss: 1.3451, cost time: 5.5920s
+epoch 543, avg. triple loss: 1.3430, cost time: 5.5967s
+epoch 544, avg. triple loss: 1.3427, cost time: 5.4392s
+epoch 545, avg. triple loss: 1.3420, cost time: 5.3740s
+epoch 546, avg. triple loss: 1.3407, cost time: 5.4268s
+epoch 547, avg. triple loss: 1.3401, cost time: 5.4522s
+epoch 548, avg. triple loss: 1.3408, cost time: 5.5483s
+epoch 549, avg. triple loss: 1.3403, cost time: 5.4618s
+epoch 550, avg. triple loss: 1.3391, cost time: 5.5622s
+quick results: hits@[1, 5, 10, 50] = [36.463 56.769 64.083 82.642]%, time = 6.090 s 
+after filtering by sim threshold, right alignment: 3020/33795=0.089
+after filtering by sim and nearest k, right alignment: 2974/19374=0.154
+graph via graph_tool <Graph object, directed, with 7515 vertices and 19374 edges at 0x7f02724a6eb8>
+after mwgm, right alignment: 1979/3150=0.628
+========== worng alignment
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.826) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.816)
+(1@@阴囊红肿, 2@@睾丸活检, sim: 0.740) -> (1@@阴囊红肿, 2@@阴囊红肿, sim: 0.889)
+(1@@遗尿症, 2@@a36739, sim: 0.860) -> (1@@遗尿症, 2@@尿床, sim: 0.790)
+(1@@听力减退, 2@@耳朵痛, sim: 0.959) -> (1@@听力减退, 2@@a34759, sim: 0.940)
+(1@@玻璃体混浊, 2@@脉络膜视网膜炎，后葡萄膜炎, sim: 0.857) -> (1@@玻璃体混浊, 2@@飞蚊症, sim: 0.903)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.867) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.756)
+(1@@鼻塞, 2@@口呼吸, sim: 0.823) -> (1@@鼻塞, 2@@塞鼻子, sim: 0.965)
+(1@@外阴中肾管囊肿, 2@@外阴硬化萎缩性苔藓, sim: 0.784) -> (1@@外阴中肾管囊肿, 2@@处女膜囊肿, sim: 0.752)
+(1@@未分化躯体形式障碍, 2@@心境恶劣障碍, sim: 0.836) -> (1@@未分化躯体形式障碍, 2@@a16198, sim: 0.919)
+(1@@颈椎过伸性损伤, 2@@a12720, sim: 0.748) -> (1@@颈椎过伸性损伤, 2@@挥鞭性损伤, sim: 0.822)
+==========
+after force right, right alignment: 3150/3150=1.000
+mwgm costs time: 1.446 s
+selecting potential alignment costs time: 2.776 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3393/3394=1.000
+after editing (->), right alignment: 3393/3394=1.000
+newly triples: 59361, 129622
+alignment_loss = 1.476, time = 0.200 s
+quick results: hits@[1, 5, 10, 50] = [37.555 56.987 64.738 82.533]%, time = 6.419 s 
+generating neighbors of 18324 entities costs 6.107 s.
+
+iteration 56
+epoch 551, avg. triple loss: 1.3471, cost time: 8.4855s
+epoch 552, avg. triple loss: 1.3446, cost time: 5.6521s
+epoch 553, avg. triple loss: 1.3436, cost time: 5.6762s
+epoch 554, avg. triple loss: 1.3421, cost time: 5.4898s
+epoch 555, avg. triple loss: 1.3416, cost time: 5.6024s
+epoch 556, avg. triple loss: 1.3415, cost time: 6.0695s
+epoch 557, avg. triple loss: 1.3401, cost time: 6.0726s
+epoch 558, avg. triple loss: 1.3390, cost time: 6.2004s
+epoch 559, avg. triple loss: 1.3399, cost time: 5.9955s
+epoch 560, avg. triple loss: 1.3385, cost time: 5.9527s
+quick results: hits@[1, 5, 10, 50] = [36.354 56.878 64.301 82.642]%, time = 0.869 s 
+after filtering by sim threshold, right alignment: 3039/33961=0.089
+after filtering by sim and nearest k, right alignment: 2988/19488=0.153
+graph via graph_tool <Graph object, directed, with 7555 vertices and 19488 edges at 0x7f02736d3a90>
+after mwgm, right alignment: 2008/3172=0.633
+========== worng alignment
+(1@@尿急, 2@@脓尿, sim: 0.887) -> (1@@尿急, 2@@尿裤子, sim: 0.979)
+(1@@心房心肌梗死, 2@@双侧束支主干阻滞, sim: 0.722) -> (1@@心房心肌梗死, 2@@心房心肌梗塞, sim: 0.775)
+(1@@脊柱, 2@@a60619, sim: 0.906) -> (1@@脊柱, 2@@脊柱, sim: 0.866)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.826) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.817)
+(1@@手癣, 2@@a97736, sim: 0.739) -> (1@@手癣, 2@@手足癣, sim: 0.907)
+(1@@进行性脊髓性肌萎缩症, 2@@重症肌无力样综合症, sim: 0.803) -> (1@@进行性脊髓性肌萎缩症, 2@@痿躄，脊肌萎缩症, sim: 0.795)
+(1@@泮托拉唑钠, 2@@复方胃蛋白酶, sim: 0.708) -> (1@@泮托拉唑钠, 2@@健朗晨, sim: 0.858)
+(1@@涎腺病毒病, 2@@腮腺混合瘤, sim: 0.808) -> (1@@涎腺病毒病, 2@@涎腺巨细胞性包涵体病, sim: 0.671)
+(1@@喉, 2@@a33486, sim: 0.763) -> (1@@喉, 2@@a42104, sim: 0.860)
+(1@@喘憋, 2@@鼻翼扇动, sim: 0.742) -> (1@@喘憋, 2@@a30581, sim: 0.827)
+==========
+after force right, right alignment: 3172/3172=1.000
+mwgm costs time: 1.539 s
+selecting potential alignment costs time: 2.696 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3415/3416=1.000
+after editing (->), right alignment: 3415/3416=1.000
+newly triples: 59611, 130730
+alignment_loss = 1.465, time = 0.220 s
+quick results: hits@[1, 5, 10, 50] = [37.227 57.096 64.41  82.642]%, time = 0.735 s 
+generating neighbors of 18324 entities costs 6.626 s.
+
+iteration 57
+epoch 561, avg. triple loss: 1.3465, cost time: 5.3179s
+epoch 562, avg. triple loss: 1.3443, cost time: 5.5521s
+epoch 563, avg. triple loss: 1.3440, cost time: 5.9480s
+epoch 564, avg. triple loss: 1.3430, cost time: 6.0428s
+epoch 565, avg. triple loss: 1.3422, cost time: 6.2470s
+epoch 566, avg. triple loss: 1.3405, cost time: 6.2195s
+epoch 567, avg. triple loss: 1.3402, cost time: 5.8441s
+epoch 568, avg. triple loss: 1.3401, cost time: 5.7571s
+epoch 569, avg. triple loss: 1.3389, cost time: 6.0945s
+epoch 570, avg. triple loss: 1.3396, cost time: 6.0827s
+quick results: hits@[1, 5, 10, 50] = [37.009 56.769 64.41  82.642]%, time = 0.696 s 
+after filtering by sim threshold, right alignment: 3062/34050=0.090
+after filtering by sim and nearest k, right alignment: 3014/19575=0.154
+graph via graph_tool <Graph object, directed, with 7591 vertices and 19575 edges at 0x7f0271a98b00>
+after mwgm, right alignment: 2006/3184=0.630
+========== worng alignment
+(1@@愈创甘油醚糖浆, 2@@愈酚喷托异丙嗪颗粒, sim: 0.763) -> (1@@愈创甘油醚糖浆, 2@@幸福化痰素, sim: 0.930)
+(1@@法洛四联症, 2@@小儿肺动脉闭锁伴完整室间隔, sim: 0.828) -> (1@@法洛四联症, 2@@心间隔先天性畸形, sim: 0.818)
+(1@@急性结石性胆囊炎, 2@@a10294, sim: 0.788) -> (1@@急性结石性胆囊炎, 2@@a47529, sim: 0.810)
+(1@@癫痫, 2@@癫病, sim: 0.778) -> (1@@癫痫, 2@@婴儿痉挛症, sim: 0.806)
+(1@@毛细管支气管性肺炎, 2@@弥漫性, sim: 0.707) -> (1@@毛细管支气管性肺炎, 2@@a20657, sim: 0.543)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.764) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.844)
+(1@@单相抑郁障碍, 2@@a43516, sim: 0.727) -> (1@@单相抑郁障碍, 2@@a37136, sim: 0.507)
+(1@@前葡萄膜炎, 2@@a97712, sim: 0.846) -> (1@@前葡萄膜炎, 2@@前眼色素层炎, sim: 0.891)
+(1@@心脏, 2@@a10046, sim: 0.755) -> (1@@心脏, 2@@a31308, sim: 0.923)
+(1@@听力减退, 2@@耳朵痛, sim: 0.959) -> (1@@听力减退, 2@@a34759, sim: 0.941)
+==========
+after force right, right alignment: 3184/3184=1.000
+mwgm costs time: 1.438 s
+selecting potential alignment costs time: 2.511 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3434/3435=1.000
+after editing (->), right alignment: 3434/3435=1.000
+newly triples: 59695, 130965
+alignment_loss = 1.460, time = 0.301 s
+quick results: hits@[1, 5, 10, 50] = [37.445 57.424 64.847 82.533]%, time = 1.547 s 
+generating neighbors of 18324 entities costs 6.182 s.
+
+iteration 58
+epoch 571, avg. triple loss: 1.3468, cost time: 6.0650s
+epoch 572, avg. triple loss: 1.3439, cost time: 5.6413s
+epoch 573, avg. triple loss: 1.3430, cost time: 6.1051s
+epoch 574, avg. triple loss: 1.3418, cost time: 6.0474s
+epoch 575, avg. triple loss: 1.3415, cost time: 5.9521s
+epoch 576, avg. triple loss: 1.3407, cost time: 5.9820s
+epoch 577, avg. triple loss: 1.3401, cost time: 6.0334s
+epoch 578, avg. triple loss: 1.3395, cost time: 5.8363s
+epoch 579, avg. triple loss: 1.3389, cost time: 5.8264s
+epoch 580, avg. triple loss: 1.3387, cost time: 6.0371s
+quick results: hits@[1, 5, 10, 50] = [37.009 56.878 64.52  82.86 ]%, time = 2.604 s 
+after filtering by sim threshold, right alignment: 3082/34216=0.090
+after filtering by sim and nearest k, right alignment: 3034/19672=0.154
+graph via graph_tool <Graph object, directed, with 7634 vertices and 19672 edges at 0x7f02731cefd0>
+after mwgm, right alignment: 2066/3204=0.645
+========== worng alignment
+(1@@口腔溃疡, 2@@顽固性口腔溃疡, sim: 0.732) -> (1@@口腔溃疡, 2@@口炎疮, sim: 0.910)
+(1@@胎漏, 2@@子宫内膜间质异位症, sim: 0.755) -> (1@@胎漏, 2@@胞漏, sim: 0.698)
+(1@@急性病毒性喉炎, 2@@tracheal, sim: 0.722) -> (1@@急性病毒性喉炎, 2@@a99458, sim: 0.873)
+(1@@尘螨过敏性哮喘, 2@@a68023, sim: 0.765) -> (1@@尘螨过敏性哮喘, 2@@a79699, sim: 0.844)
+(1@@孤立性肺结节, 2@@石末沉着病, sim: 0.733) -> (1@@孤立性肺结节, 2@@a83490, sim: 0.685)
+(1@@浅表性胃炎, 2@@幽门螺旋杆菌感染, sim: 0.767) -> (1@@浅表性胃炎, 2@@浅表性胃粘膜炎症, sim: 0.842)
+(1@@小肠 小肠吻合术, 2@@a11738, sim: 0.939) -> (1@@小肠 小肠吻合术, 2@@a63849, sim: 0.946)
+(1@@原发性食管恶性黑色素瘤, 2@@噎膈, sim: 0.872) -> (1@@原发性食管恶性黑色素瘤, 2@@原发性食管恶性黑素瘤, sim: 0.758)
+(1@@咽鼓管狭窄, 2@@感音神经性聋, sim: 0.780) -> (1@@咽鼓管狭窄, 2@@a80217, sim: 0.748)
+(1@@气道高反应性, 2@@胃食管反流性哮喘, sim: 0.817) -> (1@@气道高反应性, 2@@a57232, sim: 0.808)
+==========
+after force right, right alignment: 3204/3204=1.000
+mwgm costs time: 1.566 s
+selecting potential alignment costs time: 2.729 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3454/3455=1.000
+after editing (->), right alignment: 3454/3455=1.000
+newly triples: 59862, 131384
+alignment_loss = 1.457, time = 0.242 s
+quick results: hits@[1, 5, 10, 50] = [37.664 57.096 64.847 82.751]%, time = 0.799 s 
+generating neighbors of 18324 entities costs 6.652 s.
+
+iteration 59
+epoch 581, avg. triple loss: 1.3459, cost time: 5.8552s
+epoch 582, avg. triple loss: 1.3437, cost time: 5.7628s
+epoch 583, avg. triple loss: 1.3429, cost time: 6.1018s
+epoch 584, avg. triple loss: 1.3418, cost time: 5.7823s
+epoch 585, avg. triple loss: 1.3415, cost time: 5.6467s
+epoch 586, avg. triple loss: 1.3403, cost time: 6.0531s
+epoch 587, avg. triple loss: 1.3399, cost time: 5.9332s
+epoch 588, avg. triple loss: 1.3398, cost time: 5.7652s
+epoch 589, avg. triple loss: 1.3392, cost time: 5.8520s
+epoch 590, avg. triple loss: 1.3388, cost time: 6.1853s
+quick results: hits@[1, 5, 10, 50] = [36.681 57.096 64.847 82.751]%, time = 2.947 s 
+
+ == should early stop == 
+
+Training ends. Total time = 4052.600 s.
+accurate results: hits@[1, 5, 10, 50] = [44.278 62.254 68.99  82.289]%, mr = 107.997, mrr = 0.528462, time = 2.839 s 
+accurate results with csls: csls=10, hits@[1, 5, 10, 50] = [52.463 68.522 73.916 84.877]%, mr = 78.283, mrr = 0.600355, time = 7.084 s 
+Results saved!
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg1_ent_ids saved.
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg2_ent_ids saved.
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg1_rel_ids saved.
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg2_rel_ids saved.
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg1_attr_ids saved.
+../../output/results/BootEA/MED_BBK_9K/721_5fold/1/20220404191928/kg2_attr_ids saved.
+Embeddings saved!
+Total run time = 4074.947 s.
