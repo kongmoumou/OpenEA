@@ -1,0 +1,2034 @@
+load arguments: {'training_data': '../../datasets/', 'output': '../../output/results/', 'dataset_division': '721_5fold', 'embedding_module': 'BootEA', 'alignment_module': 'swapping', 'search_module': 'greedy', 'dim': 100, 'init': 'normal', 'ent_l2_norm': True, 'rel_l2_norm': True, 'loss': 'limited', 'loss_norm': 'L2', 'learning_rate': 0.01, 'optimizer': 'Adagrad', 'max_epoch': 2000, 'batch_size': 50000, 'pos_margin': 0.01, 'neg_margin': 2.0, 'neg_margin_balance': 0.2, 'neg_sampling': 'truncated', 'neg_triple_num': 10, 'truncated_epsilon': 0.95, 'truncated_freq': 10, 'batch_threads_num': 4, 'test_threads_num': 8, 'ordered': True, 'start_valid': 100, 'eval_freq': 10, 'stop_metric': 'hits1', 'eval_metric': 'inner', 'csls': 10, 'top_k': [1, 5, 10, 50], 'is_save': True, 'eval_norm': False, 'sim_th': 0.7, 'k': 10, 'likelihood_slice': 10, 'sub_epoch': 10}
+BootEA
+<openea.modules.args.args_hander.ARGs object at 0x7f2d5e299320>
+read relation triples: ../../datasets/GH/rel_triples_1
+read relation triples: ../../datasets/GH/rel_triples_2
+read attribute triples: ../../datasets/GH/attr_triples_1
+read attribute triples: ../../datasets/GH/attr_triples_2
+read links: ../../datasets/GH/721_5fold/1/train_links
+read links: ../../datasets/GH/721_5fold/1/valid_links
+read links: ../../datasets/GH/721_5fold/1/test_links
+Number of rt_dict: 1308
+Number of hr_dict: 36286
+entity relations dict: 1308
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 36802
+Number of relations: 4
+Number of attributes: 0
+Number of relation triples: 457736
+Number of attribute triples: 0
+Number of local relation triples: 457736
+Number of local attribute triples: 0
+
+Number of rt_dict: 2249
+Number of hr_dict: 57053
+entity relations dict: 2249
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 58510
+Number of relations: 5
+Number of attributes: 0
+Number of relation triples: 626297
+Number of attribute triples: 0
+Number of local relation triples: 626297
+Number of local attribute triples: 0
+
+Number of rt_dict: 1308
+Number of hr_dict: 36286
+entity relations dict: 1308
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 36802
+Number of relations: 4
+Number of attributes: 0
+Number of relation triples: 457736
+Number of attribute triples: 0
+Number of local relation triples: 457736
+Number of local attribute triples: 0
+
+Number of rt_dict: 2249
+Number of hr_dict: 57053
+entity relations dict: 2249
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 58510
+Number of relations: 5
+Number of attributes: 0
+Number of relation triples: 626297
+Number of attribute triples: 0
+Number of local relation triples: 626297
+Number of local attribute triples: 0
+
+supervised relation triples: 187251, 218623
+supervised attribute triples: 0, 0
+../../output/results/ ../../datasets/GH/ ['..', '..', 'datasets', 'GH'] 721_5fold/1/ BootEA
+results output folder: ../../output/results/BootEA/GH/721_5fold/1/20220411130435/
+
+iteration 1
+epoch 1, avg. triple loss: 2.0178, cost time: 22.6020s
+epoch 2, avg. triple loss: 1.7269, cost time: 24.0421s
+epoch 3, avg. triple loss: 1.6053, cost time: 24.1176s
+epoch 4, avg. triple loss: 1.4123, cost time: 23.7449s
+epoch 5, avg. triple loss: 1.2349, cost time: 23.9219s
+epoch 6, avg. triple loss: 1.1109, cost time: 25.0558s
+epoch 7, avg. triple loss: 1.0282, cost time: 24.4586s
+epoch 8, avg. triple loss: 0.9725, cost time: 23.5229s
+epoch 9, avg. triple loss: 0.9354, cost time: 23.8087s
+epoch 10, avg. triple loss: 0.9097, cost time: 23.6501s
+after filtering by sim threshold, right alignment: 2279/3733042=0.001
+after filtering by sim and nearest k, right alignment: 87/28869=0.003
+graph via graph_tool <Graph object, directed, with 3509 vertices and 28869 edges at 0x7f2a28597278>
+after mwgm, right alignment: 11/325=0.034
+========== worng alignment
+(huangpy, shiami, sim: 0.791) -> (huangpy, huangpy, sim: 0.740)
+(https://api.github.com/repos/GoogleChrome/chromedeveditor, Ross-Gibson/SeekArc, sim: 0.867) -> (https://api.github.com/repos/GoogleChrome/chromedeveditor, GoogleChrome/chromedeveditor, sim: 0.795)
+(Kiarasht, 3349516, sim: 0.733) -> (Kiarasht, Kiarasht, sim: 0.605)
+(inmyfree, wmhqnyh, sim: 0.779) -> (inmyfree, inmyfree, sim: 0.692)
+(https://api.github.com/repos/WritingMinds/ffmpeg-android, rengwuxian/MaterialEditText, sim: 0.932) -> (https://api.github.com/repos/WritingMinds/ffmpeg-android, WritingMinds/ffmpeg-android, sim: 0.909)
+(https://api.github.com/repos/dzenbot/DZNEmptyDataSet, mosabua/maven-android-sdk-deployer, sim: 0.730) -> (https://api.github.com/repos/dzenbot/DZNEmptyDataSet, dzenbot/DZNEmptyDataSet, sim: 0.690)
+(https://api.github.com/repos/FaizMalkani/appsite, card-io/card.io-Android-SDK, sim: 0.734) -> (https://api.github.com/repos/FaizMalkani/appsite, FaizMalkani/appsite, sim: 0.611)
+(someshk, feexon, sim: 0.794) -> (someshk, someshk, sim: 0.753)
+(kuanglijun312, hejunbinlan, sim: 0.750) -> (kuanglijun312, kuanglijun312, sim: 0.710)
+(https://api.github.com/repos/movielala/VideoSplashKit, pinterest/PINRemoteImage, sim: 0.703) -> (https://api.github.com/repos/movielala/VideoSplashKit, movielala/VideoSplashKit, sim: 0.632)
+==========
+after force right, right alignment: 325/325=1.000
+mwgm costs time: 7.093 s
+selecting potential alignment costs time: 40.320 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 325/325=1.000
+after editing (->), right alignment: 325/325=1.000
+newly triples: 70825, 78815
+alignment_loss = 1.234, time = 0.232 s
+generating neighbors of 95312 entities costs 97.770 s.
+
+iteration 2
+epoch 11, avg. triple loss: 2.2231, cost time: 36.0115s
+epoch 12, avg. triple loss: 1.9118, cost time: 39.5397s
+epoch 13, avg. triple loss: 1.8427, cost time: 36.4581s
+epoch 14, avg. triple loss: 1.7958, cost time: 34.6213s
+epoch 15, avg. triple loss: 1.7592, cost time: 30.6818s
+epoch 16, avg. triple loss: 1.7273, cost time: 34.3504s
+epoch 17, avg. triple loss: 1.7007, cost time: 37.3683s
+epoch 18, avg. triple loss: 1.6772, cost time: 34.5743s
+epoch 19, avg. triple loss: 1.6570, cost time: 33.7210s
+epoch 20, avg. triple loss: 1.6390, cost time: 33.9979s
+after filtering by sim threshold, right alignment: 999/254581=0.004
+after filtering by sim and nearest k, right alignment: 553/21250=0.026
+graph via graph_tool <Graph object, directed, with 3699 vertices and 21250 edges at 0x7f2a29565ba8>
+after mwgm, right alignment: 257/985=0.261
+========== worng alignment
+(https://api.github.com/repos/nodejs/node, meteor/meteor, sim: 0.785) -> (https://api.github.com/repos/nodejs/node, nodejs/node, sim: 0.735)
+(https://api.github.com/repos/bherbst/QuickReturnFooterSample, flavioarfaria/KenBurnsView, sim: 0.760) -> (https://api.github.com/repos/bherbst/QuickReturnFooterSample, bherbst/QuickReturnFooterSample, sim: 0.662)
+(18337129968, louisgeek, sim: 0.815) -> (18337129968, 18337129968, sim: 0.742)
+(https://api.github.com/repos/waynewbishop/SwiftStructures, shu223/AnimatedTransitionGallery, sim: 0.748) -> (https://api.github.com/repos/waynewbishop/SwiftStructures, waynewbishop/SwiftStructures, sim: 0.747)
+(https://api.github.com/repos/CharlinFeng/CFCityPickerVC, victorBaro/VBFPopFlatButton, sim: 0.744) -> (https://api.github.com/repos/CharlinFeng/CFCityPickerVC, CharlinFeng/CFCityPickerVC, sim: 0.722)
+(https://api.github.com/repos/hapijs/hapi, visionmedia/superagent, sim: 0.788) -> (https://api.github.com/repos/hapijs/hapi, hapijs/hapi, sim: 0.766)
+(https://api.github.com/repos/erickok/mimicry, JorgeCastilloPrz/ExpandablePanel, sim: 0.736) -> (https://api.github.com/repos/erickok/mimicry, erickok/mimicry, sim: 0.699)
+(YangShaoXiong, Droidxiao, sim: 0.939) -> (YangShaoXiong, YangShaoXiong, sim: 0.952)
+(https://api.github.com/repos/nhachicha/android-native-dependencies, danoz73/RecyclerViewFastScroller, sim: 0.719) -> (https://api.github.com/repos/nhachicha/android-native-dependencies, nhachicha/android-native-dependencies, sim: 0.309)
+(https://api.github.com/repos/tj/co, tj/co, sim: 0.767) -> (https://api.github.com/repos/tj/co, tj/co, sim: 0.767)
+==========
+after force right, right alignment: 985/985=1.000
+mwgm costs time: 1.529 s
+selecting potential alignment costs time: 31.979 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1150/1150=1.000
+after editing (->), right alignment: 1150/1150=1.000
+newly triples: 288800, 322200
+alignment_loss = 1.246, time = 0.484 s
+generating neighbors of 95312 entities costs 105.353 s.
+
+iteration 3
+epoch 21, avg. triple loss: 1.9924, cost time: 34.6347s
+epoch 22, avg. triple loss: 1.7610, cost time: 33.2265s
+epoch 23, avg. triple loss: 1.6973, cost time: 32.9333s
+epoch 24, avg. triple loss: 1.6662, cost time: 36.2554s
+epoch 25, avg. triple loss: 1.6456, cost time: 35.4582s
+epoch 26, avg. triple loss: 1.6302, cost time: 30.1517s
+epoch 27, avg. triple loss: 1.6173, cost time: 33.1752s
+epoch 28, avg. triple loss: 1.6063, cost time: 33.3986s
+epoch 29, avg. triple loss: 1.5966, cost time: 33.5510s
+epoch 30, avg. triple loss: 1.5878, cost time: 33.2754s
+after filtering by sim threshold, right alignment: 1706/266080=0.006
+after filtering by sim and nearest k, right alignment: 1327/18760=0.071
+graph via graph_tool <Graph object, directed, with 4007 vertices and 18760 edges at 0x7f2d53897518>
+after mwgm, right alignment: 789/1537=0.513
+========== worng alignment
+(https://api.github.com/repos/rs/SDWebImage, alcatraz/Alcatraz, sim: 0.836) -> (https://api.github.com/repos/rs/SDWebImage, rs/SDWebImage, sim: 0.792)
+(https://api.github.com/repos/waynewbishop/SwiftStructures, shu223/AnimatedTransitionGallery, sim: 0.843) -> (https://api.github.com/repos/waynewbishop/SwiftStructures, waynewbishop/SwiftStructures, sim: 0.834)
+(https://api.github.com/repos/carekit-apple/CareKit, didierbrun/DBPathRecognizer, sim: 0.710) -> (https://api.github.com/repos/carekit-apple/CareKit, carekit-apple/CareKit, sim: 0.633)
+(https://api.github.com/repos/robb/Cartography, ReSwift/ReSwift, sim: 0.864) -> (https://api.github.com/repos/robb/Cartography, robb/Cartography, sim: 0.834)
+(wengz, Young-Phoenix, sim: 0.790) -> (wengz, wengz, sim: 0.775)
+(https://api.github.com/repos/carsonperrotti/CNPPopupController, wimagguc/ios-custom-alertview, sim: 0.710) -> (https://api.github.com/repos/carsonperrotti/CNPPopupController, carsonperrotti/CNPPopupController, sim: 0.686)
+(https://api.github.com/repos/mmin18/AndroidDynamicLoader, mcxiaoke/android-volley, sim: 0.729) -> (https://api.github.com/repos/mmin18/AndroidDynamicLoader, mmin18/AndroidDynamicLoader, sim: 0.674)
+(https://api.github.com/repos/socketio/socket.io-client-java, krschultz/android-proguard-snippets, sim: 0.822) -> (https://api.github.com/repos/socketio/socket.io-client-java, socketio/socket.io-client-java, sim: 0.405)
+(https://api.github.com/repos/wasabeef/Blurry, dmytrodanylyk/folding-plugin, sim: 0.862) -> (https://api.github.com/repos/wasabeef/Blurry, wasabeef/Blurry, sim: 0.805)
+(https://api.github.com/repos/zurb/foundation-sites, babel/babel, sim: 0.716) -> (https://api.github.com/repos/zurb/foundation-sites, zurb/foundation-sites, sim: 0.661)
+==========
+after force right, right alignment: 1537/1537=1.000
+mwgm costs time: 1.422 s
+selecting potential alignment costs time: 44.997 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2041/2041=1.000
+after editing (->), right alignment: 2041/2041=1.000
+newly triples: 446368, 503437
+alignment_loss = 1.243, time = 0.566 s
+generating neighbors of 95312 entities costs 101.169 s.
+
+iteration 4
+epoch 31, avg. triple loss: 1.8955, cost time: 32.1702s
+epoch 32, avg. triple loss: 1.7107, cost time: 32.7368s
+epoch 33, avg. triple loss: 1.6618, cost time: 34.4194s
+epoch 34, avg. triple loss: 1.6380, cost time: 33.2667s
+epoch 35, avg. triple loss: 1.6229, cost time: 34.2438s
+epoch 36, avg. triple loss: 1.6123, cost time: 34.9729s
+epoch 37, avg. triple loss: 1.6041, cost time: 32.0679s
+epoch 38, avg. triple loss: 1.5966, cost time: 32.0958s
+epoch 39, avg. triple loss: 1.5904, cost time: 35.1983s
+epoch 40, avg. triple loss: 1.5841, cost time: 34.4469s
+after filtering by sim threshold, right alignment: 2301/166090=0.014
+after filtering by sim and nearest k, right alignment: 2143/21011=0.102
+graph via graph_tool <Graph object, directed, with 5683 vertices and 21011 edges at 0x7f2a29565c18>
+after mwgm, right alignment: 1477/2383=0.620
+========== worng alignment
+(https://api.github.com/repos/mzule/ActivityRouter, Jacksgong/JKeyboardPanelSwitch, sim: 0.787) -> (https://api.github.com/repos/mzule/ActivityRouter, mzule/ActivityRouter, sim: 0.720)
+(https://api.github.com/repos/avast/android-butterknife-zelezny, greenrobot/EventBus, sim: 0.753) -> (https://api.github.com/repos/avast/android-butterknife-zelezny, avast/android-butterknife-zelezny, sim: 0.837)
+(https://api.github.com/repos/bcit-ci/CodeIgniter, h5bp/html5-boilerplate, sim: 0.709) -> (https://api.github.com/repos/bcit-ci/CodeIgniter, bcit-ci/CodeIgniter, sim: 0.669)
+(https://api.github.com/repos/ybq/Android-SpinKit, ChadCSong/ShineButton, sim: 0.864) -> (https://api.github.com/repos/ybq/Android-SpinKit, ybq/Android-SpinKit, sim: 0.832)
+(https://api.github.com/repos/dodola/MetaballLoading, boycy815/PinchImageView, sim: 0.862) -> (https://api.github.com/repos/dodola/MetaballLoading, dodola/MetaballLoading, sim: 0.839)
+(https://api.github.com/repos/thii/SwiftHEXColors, SwiftyBeaver/SwiftyBeaver, sim: 0.751) -> (https://api.github.com/repos/thii/SwiftHEXColors, thii/SwiftHEXColors, sim: 0.736)
+(https://api.github.com/repos/JakeWharton/butterknife, avast/android-butterknife-zelezny, sim: 0.709) -> (https://api.github.com/repos/JakeWharton/butterknife, JakeWharton/butterknife, sim: 0.632)
+(https://api.github.com/repos/Marswin/MarsDaemon, hongyangAndroid/AndroidChangeSkin, sim: 0.867) -> (https://api.github.com/repos/Marswin/MarsDaemon, Marswin/MarsDaemon, sim: 0.894)
+(https://api.github.com/repos/HeinrichReimer/material-singleinputform, ZieIony/Carbon, sim: 0.783) -> (https://api.github.com/repos/HeinrichReimer/material-singleinputform, HeinrichReimer/material-singleinputform, sim: 0.441)
+(https://api.github.com/repos/waynewbishop/SwiftStructures, oarrabi/OAStackView, sim: 0.790) -> (https://api.github.com/repos/waynewbishop/SwiftStructures, waynewbishop/SwiftStructures, sim: 0.864)
+==========
+after force right, right alignment: 2383/2383=1.000
+mwgm costs time: 1.633 s
+selecting potential alignment costs time: 32.560 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2931/2931=1.000
+after editing (->), right alignment: 2931/2931=1.000
+newly triples: 530006, 600490
+alignment_loss = 1.301, time = 0.694 s
+generating neighbors of 95312 entities costs 101.819 s.
+
+iteration 5
+epoch 41, avg. triple loss: 1.7813, cost time: 32.7534s
+epoch 42, avg. triple loss: 1.6445, cost time: 34.5775s
+epoch 43, avg. triple loss: 1.6096, cost time: 33.8424s
+epoch 44, avg. triple loss: 1.5939, cost time: 34.8699s
+epoch 45, avg. triple loss: 1.5833, cost time: 34.7627s
+epoch 46, avg. triple loss: 1.5760, cost time: 33.7708s
+epoch 47, avg. triple loss: 1.5705, cost time: 34.1636s
+epoch 48, avg. triple loss: 1.5653, cost time: 32.5574s
+epoch 49, avg. triple loss: 1.5609, cost time: 34.6826s
+epoch 50, avg. triple loss: 1.5571, cost time: 35.3710s
+after filtering by sim threshold, right alignment: 3468/148122=0.023
+after filtering by sim and nearest k, right alignment: 3327/24501=0.136
+graph via graph_tool <Graph object, directed, with 8205 vertices and 24501 edges at 0x7f2a28203908>
+after mwgm, right alignment: 2575/3650=0.705
+========== worng alignment
+(https://api.github.com/repos/pravj/Doga, vulcand/vulcand, sim: 0.712) -> (https://api.github.com/repos/pravj/Doga, pravj/Doga, sim: 0.602)
+(https://api.github.com/repos/artagnon/rhine-ml, thecodejunkie/github.expandinizr, sim: 0.737) -> (https://api.github.com/repos/artagnon/rhine-ml, artagnon/rhine-ml, sim: 0.629)
+(https://api.github.com/repos/tip4commit/tip4commit, chriscoyier/Fluid-Width-Video, sim: 0.709) -> (https://api.github.com/repos/tip4commit/tip4commit, tip4commit/tip4commit, sim: 0.698)
+(https://api.github.com/repos/zendframework/zend-diactoros, mnapoli/IsItMaintained, sim: 0.703) -> (https://api.github.com/repos/zendframework/zend-diactoros, zendframework/zend-diactoros, sim: 0.597)
+(https://api.github.com/repos/Pkmmte/CircularImageView, splitwise/TokenAutoComplete, sim: 0.832) -> (https://api.github.com/repos/Pkmmte/CircularImageView, Pkmmte/CircularImageView, sim: 0.762)
+(https://api.github.com/repos/etsy/AndroidStaggeredGrid, Dreddik/AndroidTouchGallery, sim: 0.761) -> (https://api.github.com/repos/etsy/AndroidStaggeredGrid, etsy/AndroidStaggeredGrid, sim: 0.651)
+(https://api.github.com/repos/contra/react-responsive, Hardtack/HTProgressHUD, sim: 0.709) -> (https://api.github.com/repos/contra/react-responsive, contra/react-responsive, sim: 0.681)
+(https://api.github.com/repos/iammert/ProgressLayout, wangjiegulu/ShadowViewHelper, sim: 0.790) -> (https://api.github.com/repos/iammert/ProgressLayout, iammert/ProgressLayout, sim: 0.807)
+(https://api.github.com/repos/phanein/deepwalk, yichizhang/StringScore_Swift, sim: 0.710) -> (https://api.github.com/repos/phanein/deepwalk, phanein/deepwalk, sim: 0.601)
+(https://api.github.com/repos/samuell/devbox-golang, MADEAPPS/newton-dynamics, sim: 0.708) -> (https://api.github.com/repos/samuell/devbox-golang, samuell/devbox-golang, sim: 0.666)
+==========
+after force right, right alignment: 3650/3650=1.000
+mwgm costs time: 1.852 s
+selecting potential alignment costs time: 37.372 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 4249/4249=1.000
+after editing (->), right alignment: 4249/4249=1.000
+newly triples: 569797, 648706
+alignment_loss = 1.336, time = 0.743 s
+generating neighbors of 95312 entities costs 108.335 s.
+
+iteration 6
+epoch 51, avg. triple loss: 1.7077, cost time: 29.8431s
+epoch 52, avg. triple loss: 1.6096, cost time: 35.2398s
+epoch 53, avg. triple loss: 1.5834, cost time: 35.2684s
+epoch 54, avg. triple loss: 1.5717, cost time: 35.7120s
+epoch 55, avg. triple loss: 1.5640, cost time: 36.6149s
+epoch 56, avg. triple loss: 1.5596, cost time: 37.4649s
+epoch 57, avg. triple loss: 1.5549, cost time: 36.5102s
+epoch 58, avg. triple loss: 1.5515, cost time: 34.5153s
+epoch 59, avg. triple loss: 1.5488, cost time: 34.3485s
+epoch 60, avg. triple loss: 1.5463, cost time: 33.1858s
+after filtering by sim threshold, right alignment: 5167/125863=0.041
+after filtering by sim and nearest k, right alignment: 4965/29858=0.166
+graph via graph_tool <Graph object, directed, with 11842 vertices and 29858 edges at 0x7f2a290fe828>
+after mwgm, right alignment: 4031/5360=0.752
+========== worng alignment
+(https://api.github.com/repos/silverbux/laravel-angular-admin, itchyny/maze, sim: 0.727) -> (https://api.github.com/repos/silverbux/laravel-angular-admin, silverbux/laravel-angular-admin, sim: 0.684)
+(https://api.github.com/repos/tip4commit/tip4commit, chriscoyier/Fluid-Width-Video, sim: 0.779) -> (https://api.github.com/repos/tip4commit/tip4commit, tip4commit/tip4commit, sim: 0.777)
+(https://api.github.com/repos/adamwulf/PerformanceBezier, Krivoblotsky/HardCoreData, sim: 0.765) -> (https://api.github.com/repos/adamwulf/PerformanceBezier, adamwulf/PerformanceBezier, sim: 0.836)
+(https://api.github.com/repos/robb/Cartography, ReSwift/ReSwift, sim: 0.811) -> (https://api.github.com/repos/robb/Cartography, robb/Cartography, sim: 0.752)
+(https://api.github.com/repos/theturtle32/WebSocket-Node, strongloop/loopback, sim: 0.779) -> (https://api.github.com/repos/theturtle32/WebSocket-Node, theturtle32/WebSocket-Node, sim: 0.720)
+(https://api.github.com/repos/86/TRZSlideLicenseViewController, OmerCora/OCMaskedTextField, sim: 0.730) -> (https://api.github.com/repos/86/TRZSlideLicenseViewController, 86/TRZSlideLicenseViewController, sim: 0.769)
+(https://api.github.com/repos/simple-android-framework/android_design_patterns_analysis, pedant/safe-java-js-webview-bridge, sim: 0.786) -> (https://api.github.com/repos/simple-android-framework/android_design_patterns_analysis, simple-android-framework/android_design_patterns_analysis, sim: 0.876)
+(https://api.github.com/repos/SVProgressHUD/SVProgressHUD, TTTAttributedLabel/TTTAttributedLabel, sim: 0.928) -> (https://api.github.com/repos/SVProgressHUD/SVProgressHUD, SVProgressHUD/SVProgressHUD, sim: 0.811)
+(https://api.github.com/repos/ReactiveX/RxPHP, rodjek/vim-puppet, sim: 0.704) -> (https://api.github.com/repos/ReactiveX/RxPHP, ReactiveX/RxPHP, sim: 0.624)
+(https://api.github.com/repos/mochajs/mocha, Unitech/pm2, sim: 0.915) -> (https://api.github.com/repos/mochajs/mocha, mochajs/mocha, sim: 0.912)
+==========
+after force right, right alignment: 5359/5360=1.000
+mwgm costs time: 2.107 s
+selecting potential alignment costs time: 36.143 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6000/6001=1.000
+after editing (->), right alignment: 6000/6001=1.000
+newly triples: 595063, 680320
+alignment_loss = 1.371, time = 0.785 s
+generating neighbors of 95312 entities costs 108.284 s.
+
+iteration 7
+epoch 61, avg. triple loss: 1.6522, cost time: 30.0137s
+epoch 62, avg. triple loss: 1.5765, cost time: 36.5345s
+epoch 63, avg. triple loss: 1.5567, cost time: 35.6592s
+epoch 64, avg. triple loss: 1.5473, cost time: 38.8299s
+epoch 65, avg. triple loss: 1.5425, cost time: 40.2137s
+epoch 66, avg. triple loss: 1.5390, cost time: 40.6851s
+epoch 67, avg. triple loss: 1.5356, cost time: 37.6818s
+epoch 68, avg. triple loss: 1.5331, cost time: 36.8541s
+epoch 69, avg. triple loss: 1.5305, cost time: 37.6639s
+epoch 70, avg. triple loss: 1.5289, cost time: 36.9257s
+after filtering by sim threshold, right alignment: 7239/128436=0.056
+after filtering by sim and nearest k, right alignment: 6965/36725=0.190
+graph via graph_tool <Graph object, directed, with 16466 vertices and 36725 edges at 0x7f2a290fe860>
+after mwgm, right alignment: 5762/7523=0.766
+========== worng alignment
+(https://api.github.com/repos/higepon/mona, yasslab/railsguides.jp, sim: 0.706) -> (https://api.github.com/repos/higepon/mona, higepon/mona, sim: 0.509)
+(https://api.github.com/repos/deldotdr/txRedis, vispractice/Amoeba-Plus-For-MySQL, sim: 0.772) -> (https://api.github.com/repos/deldotdr/txRedis, deldotdr/txRedis, sim: 0.686)
+(https://api.github.com/repos/litesuits/android-lite-http, kymjs/KJFrameForAndroid, sim: 0.721) -> (https://api.github.com/repos/litesuits/android-lite-http, litesuits/android-lite-http, sim: 0.670)
+(https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, cloudchen/requirejs-bundle-examples, sim: 0.768) -> (https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, Aymkdn/Datepicker-for-Bootstrap, sim: 0.749)
+(https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.797) -> (https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.797)
+(https://api.github.com/repos/swagger-api/swagger-ui, tastejs/todomvc, sim: 0.860) -> (https://api.github.com/repos/swagger-api/swagger-ui, swagger-api/swagger-ui, sim: 0.752)
+(https://api.github.com/repos/packer-community/packer-windows-plugins, OneGet/oneget, sim: 0.808) -> (https://api.github.com/repos/packer-community/packer-windows-plugins, packer-community/packer-windows-plugins, sim: 0.791)
+(https://api.github.com/repos/rodrigobranas/youtube, Fruzenshtein/spr-data, sim: 0.733) -> (https://api.github.com/repos/rodrigobranas/youtube, rodrigobranas/youtube, sim: 0.802)
+(https://api.github.com/repos/veandco/go-sdl2, SaltwaterC/aws2js, sim: 0.746) -> (https://api.github.com/repos/veandco/go-sdl2, veandco/go-sdl2, sim: 0.643)
+(https://api.github.com/repos/mirumee/prices, myronmarston/vcr, sim: 0.732) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.658)
+==========
+after force right, right alignment: 7523/7523=1.000
+mwgm costs time: 2.790 s
+selecting potential alignment costs time: 32.259 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8226/8227=1.000
+after editing (->), right alignment: 8225/8226=1.000
+newly triples: 618109, 709386
+alignment_loss = 1.388, time = 0.752 s
+generating neighbors of 95312 entities costs 105.381 s.
+
+iteration 8
+epoch 71, avg. triple loss: 1.6194, cost time: 31.1879s
+epoch 72, avg. triple loss: 1.5582, cost time: 32.1297s
+epoch 73, avg. triple loss: 1.5414, cost time: 38.0167s
+epoch 74, avg. triple loss: 1.5347, cost time: 38.5009s
+epoch 75, avg. triple loss: 1.5305, cost time: 36.7678s
+epoch 76, avg. triple loss: 1.5270, cost time: 36.4611s
+epoch 77, avg. triple loss: 1.5244, cost time: 38.9915s
+epoch 78, avg. triple loss: 1.5225, cost time: 38.4257s
+epoch 79, avg. triple loss: 1.5208, cost time: 37.1457s
+epoch 80, avg. triple loss: 1.5190, cost time: 37.5669s
+after filtering by sim threshold, right alignment: 9493/141787=0.067
+after filtering by sim and nearest k, right alignment: 9141/46185=0.198
+graph via graph_tool <Graph object, directed, with 21936 vertices and 46185 edges at 0x7f2a290e3d68>
+after mwgm, right alignment: 7638/9987=0.765
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.717) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.649)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.713) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.635)
+(https://api.github.com/repos/dannycoates/poolee, NatWeiss/RapidGame, sim: 0.719) -> (https://api.github.com/repos/dannycoates/poolee, dannycoates/poolee, sim: 0.676)
+(https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.800) -> (https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.800)
+(https://api.github.com/repos/SermoDigital/jose, danthareja/node-google-apps-script, sim: 0.702) -> (https://api.github.com/repos/SermoDigital/jose, SermoDigital/jose, sim: 0.665)
+(https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, cloudchen/requirejs-bundle-examples, sim: 0.815) -> (https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, Aymkdn/Datepicker-for-Bootstrap, sim: 0.806)
+(https://api.github.com/repos/iobridge/thingspeak, jjxtra/Windows-IP-Ban-Service, sim: 0.771) -> (https://api.github.com/repos/iobridge/thingspeak, iobridge/thingspeak, sim: 0.770)
+(https://api.github.com/repos/matthiasplappert/keras-rl, deepmind/rc-data, sim: 0.730) -> (https://api.github.com/repos/matthiasplappert/keras-rl, matthiasplappert/keras-rl, sim: 0.556)
+(https://api.github.com/repos/nullic/DPLocalizationManager, lazerwalker/cortado, sim: 0.776) -> (https://api.github.com/repos/nullic/DPLocalizationManager, nullic/DPLocalizationManager, sim: 0.764)
+(https://api.github.com/repos/aritchie/acr-xamarin-forms, molinch/FFImageLoading, sim: 0.786) -> (https://api.github.com/repos/aritchie/acr-xamarin-forms, aritchie/acr-xamarin-forms, sim: 0.531)
+==========
+after force right, right alignment: 9987/9987=1.000
+mwgm costs time: 3.609 s
+selecting potential alignment costs time: 55.766 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 10765/10766=1.000
+after editing (->), right alignment: 10764/10765=1.000
+newly triples: 640514, 737861
+alignment_loss = 1.402, time = 0.826 s
+generating neighbors of 95312 entities costs 104.315 s.
+
+iteration 9
+epoch 81, avg. triple loss: 1.5965, cost time: 30.8246s
+epoch 82, avg. triple loss: 1.5437, cost time: 29.3153s
+epoch 83, avg. triple loss: 1.5286, cost time: 28.9230s
+epoch 84, avg. triple loss: 1.5227, cost time: 35.4185s
+epoch 85, avg. triple loss: 1.5190, cost time: 36.6461s
+epoch 86, avg. triple loss: 1.5161, cost time: 38.2248s
+epoch 87, avg. triple loss: 1.5140, cost time: 37.8406s
+epoch 88, avg. triple loss: 1.5124, cost time: 34.0247s
+epoch 89, avg. triple loss: 1.5109, cost time: 37.5363s
+epoch 90, avg. triple loss: 1.5099, cost time: 35.9458s
+after filtering by sim threshold, right alignment: 11824/166022=0.071
+after filtering by sim and nearest k, right alignment: 11355/59188=0.192
+graph via graph_tool <Graph object, directed, with 27363 vertices and 59188 edges at 0x7f2a28597278>
+after mwgm, right alignment: 9432/12469=0.756
+========== worng alignment
+(https://api.github.com/repos/honcheng/PanelTableView, codebutler/foursquarex, sim: 0.717) -> (https://api.github.com/repos/honcheng/PanelTableView, honcheng/PanelTableView, sim: 0.600)
+(https://api.github.com/repos/thecodejunkie/github.expandinizr, andsens/homeshick, sim: 0.923) -> (https://api.github.com/repos/thecodejunkie/github.expandinizr, thecodejunkie/github.expandinizr, sim: 0.898)
+(https://api.github.com/repos/numenta/numenta-apps, privacyidea/privacyidea, sim: 0.728) -> (https://api.github.com/repos/numenta/numenta-apps, numenta/numenta-apps, sim: 0.661)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.705) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.603)
+(https://api.github.com/repos/matthiasplappert/keras-rl, deepmind/rc-data, sim: 0.753) -> (https://api.github.com/repos/matthiasplappert/keras-rl, matthiasplappert/keras-rl, sim: 0.630)
+(https://api.github.com/repos/mattfarina/farbtastic, alexzielenski/Opee, sim: 0.709) -> (https://api.github.com/repos/mattfarina/farbtastic, mattfarina/farbtastic, sim: 0.719)
+(https://api.github.com/repos/philsturgeon/codeigniter-cli, tomchristie/django-vanilla-views, sim: 0.767) -> (https://api.github.com/repos/philsturgeon/codeigniter-cli, philsturgeon/codeigniter-cli, sim: 0.872)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.774) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.837)
+(https://api.github.com/repos/kylef/URITemplate.swift, sochix/TLSharp, sim: 0.717) -> (https://api.github.com/repos/kylef/URITemplate.swift, kylef/URITemplate.swift, sim: 0.605)
+(https://api.github.com/repos/swagger-api/swagger-ui, tastejs/todomvc, sim: 0.841) -> (https://api.github.com/repos/swagger-api/swagger-ui, swagger-api/swagger-ui, sim: 0.773)
+==========
+after force right, right alignment: 12469/12469=1.000
+mwgm costs time: 4.538 s
+selecting potential alignment costs time: 31.612 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 13366/13367=1.000
+after editing (->), right alignment: 13366/13367=1.000
+newly triples: 658336, 760288
+alignment_loss = 1.412, time = 0.879 s
+generating neighbors of 95312 entities costs 104.341 s.
+
+iteration 10
+epoch 91, avg. triple loss: 1.5791, cost time: 31.9116s
+epoch 92, avg. triple loss: 1.5328, cost time: 30.4971s
+epoch 93, avg. triple loss: 1.5205, cost time: 30.2807s
+epoch 94, avg. triple loss: 1.5148, cost time: 35.2605s
+epoch 95, avg. triple loss: 1.5115, cost time: 37.0473s
+epoch 96, avg. triple loss: 1.5092, cost time: 39.6698s
+epoch 97, avg. triple loss: 1.5072, cost time: 38.7631s
+epoch 98, avg. triple loss: 1.5060, cost time: 35.1498s
+epoch 99, avg. triple loss: 1.5045, cost time: 35.4255s
+epoch 100, avg. triple loss: 1.5035, cost time: 35.1429s
+quick results: hits@[1, 5, 10, 50] = [52.581 66.06  71.837 83.498]%, time = 4.964 s 
+after filtering by sim threshold, right alignment: 14134/200445=0.071
+after filtering by sim and nearest k, right alignment: 13420/73276=0.183
+graph via graph_tool <Graph object, directed, with 32140 vertices and 73276 edges at 0x7f2a28203940>
+after mwgm, right alignment: 10993/14669=0.749
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.817) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.754)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.721) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.619)
+(https://api.github.com/repos/ChatSecure/ChatSecure-Push-Server, ngageoint/gamification-server, sim: 0.722) -> (https://api.github.com/repos/ChatSecure/ChatSecure-Push-Server, ChatSecure/ChatSecure-Push-Server, sim: 0.654)
+(https://api.github.com/repos/thecodejunkie/github.expandinizr, andsens/homeshick, sim: 0.938) -> (https://api.github.com/repos/thecodejunkie/github.expandinizr, thecodejunkie/github.expandinizr, sim: 0.910)
+(https://api.github.com/repos/bcit-ci/CodeIgniter, h5bp/html5-boilerplate, sim: 0.736) -> (https://api.github.com/repos/bcit-ci/CodeIgniter, bcit-ci/CodeIgniter, sim: 0.876)
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.955) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.950)
+(https://api.github.com/repos/kishikawakatsumi/JavaScriptBridge, mbrandonw/UIResponder-KeyboardCache, sim: 0.714) -> (https://api.github.com/repos/kishikawakatsumi/JavaScriptBridge, kishikawakatsumi/JavaScriptBridge, sim: 0.489)
+(https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.886) -> (https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.886)
+(https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, cloudchen/requirejs-bundle-examples, sim: 0.870) -> (https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, Aymkdn/Datepicker-for-Bootstrap, sim: 0.883)
+(https://api.github.com/repos/iobridge/thingspeak, jjxtra/Windows-IP-Ban-Service, sim: 0.806) -> (https://api.github.com/repos/iobridge/thingspeak, iobridge/thingspeak, sim: 0.836)
+==========
+after force right, right alignment: 14669/14669=1.000
+mwgm costs time: 5.618 s
+selecting potential alignment costs time: 30.855 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 15811/15812=1.000
+after editing (->), right alignment: 15811/15812=1.000
+newly triples: 674024, 779976
+alignment_loss = 1.419, time = 0.851 s
+quick results: hits@[1, 5, 10, 50] = [53.784 67.451 73.068 84.515]%, time = 4.559 s 
+generating neighbors of 95312 entities costs 104.025 s.
+
+iteration 11
+epoch 101, avg. triple loss: 1.5665, cost time: 31.7603s
+epoch 102, avg. triple loss: 1.5250, cost time: 31.3950s
+epoch 103, avg. triple loss: 1.5128, cost time: 30.7678s
+epoch 104, avg. triple loss: 1.5082, cost time: 30.2040s
+epoch 105, avg. triple loss: 1.5049, cost time: 35.8066s
+epoch 106, avg. triple loss: 1.5031, cost time: 36.8338s
+epoch 107, avg. triple loss: 1.5011, cost time: 35.8133s
+epoch 108, avg. triple loss: 1.4998, cost time: 37.2973s
+epoch 109, avg. triple loss: 1.4991, cost time: 33.8420s
+epoch 110, avg. triple loss: 1.4976, cost time: 36.9712s
+quick results: hits@[1, 5, 10, 50] = [55.122 68.173 73.95  85.156]%, time = 5.838 s 
+after filtering by sim threshold, right alignment: 16098/242084=0.066
+after filtering by sim and nearest k, right alignment: 15068/86308=0.175
+graph via graph_tool <Graph object, directed, with 35965 vertices and 86308 edges at 0x7f2d53897518>
+after mwgm, right alignment: 12296/16421=0.749
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.848) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.787)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.708) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.877)
+(https://api.github.com/repos/jordansissel/heroku-buildpack-meteor, MaxArt2501/object-observe, sim: 0.766) -> (https://api.github.com/repos/jordansissel/heroku-buildpack-meteor, jordansissel/heroku-buildpack-meteor, sim: 0.633)
+(https://api.github.com/repos/azzikid/BFCropInterface, CocoaPods-Fonts/OpenSans, sim: 0.714) -> (https://api.github.com/repos/azzikid/BFCropInterface, azzikid/BFCropInterface, sim: 0.526)
+(https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.839) -> (https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.839)
+(https://api.github.com/repos/SermoDigital/jose, danthareja/node-google-apps-script, sim: 0.802) -> (https://api.github.com/repos/SermoDigital/jose, SermoDigital/jose, sim: 0.795)
+(https://api.github.com/repos/madskristensen/MiniBlog, edx/XBlock, sim: 0.705) -> (https://api.github.com/repos/madskristensen/MiniBlog, madskristensen/MiniBlog, sim: 0.578)
+(https://api.github.com/repos/architv/harvey, skorokithakis/netproxy, sim: 0.764) -> (https://api.github.com/repos/architv/harvey, architv/harvey, sim: 0.753)
+(https://api.github.com/repos/segmentio/analytics-python, mozilla/browsermirror, sim: 0.735) -> (https://api.github.com/repos/segmentio/analytics-python, segmentio/analytics-python, sim: 0.453)
+(https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.898) -> (https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.898)
+==========
+after force right, right alignment: 16421/16421=1.000
+mwgm costs time: 6.477 s
+selecting potential alignment costs time: 36.224 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 17864/17865=1.000
+after editing (->), right alignment: 17863/17864=1.000
+newly triples: 685865, 794700
+alignment_loss = 1.425, time = 0.847 s
+quick results: hits@[1, 5, 10, 50] = [56.191 69.19  75.047 85.905]%, time = 4.608 s 
+generating neighbors of 95312 entities costs 102.076 s.
+
+iteration 12
+epoch 111, avg. triple loss: 1.5550, cost time: 26.0293s
+epoch 112, avg. triple loss: 1.5174, cost time: 28.3003s
+epoch 113, avg. triple loss: 1.5068, cost time: 28.3278s
+epoch 114, avg. triple loss: 1.5024, cost time: 26.6950s
+epoch 115, avg. triple loss: 1.4998, cost time: 26.3116s
+epoch 116, avg. triple loss: 1.4979, cost time: 36.3905s
+epoch 117, avg. triple loss: 1.4963, cost time: 37.2226s
+epoch 118, avg. triple loss: 1.4951, cost time: 31.8007s
+epoch 119, avg. triple loss: 1.4940, cost time: 38.9348s
+epoch 120, avg. triple loss: 1.4932, cost time: 32.6716s
+quick results: hits@[1, 5, 10, 50] = [56.753 70.019 75.528 86.387]%, time = 5.898 s 
+after filtering by sim threshold, right alignment: 17836/288542=0.062
+after filtering by sim and nearest k, right alignment: 16495/97917=0.168
+graph via graph_tool <Graph object, directed, with 39075 vertices and 97917 edges at 0x7f2a290eba58>
+after mwgm, right alignment: 13490/17907=0.753
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.833) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.785)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.872) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.811)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.780) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.701)
+(https://api.github.com/repos/scribu/wp-front-end-editor, sc0ttkclark/wordpress-fields-api, sim: 0.842) -> (https://api.github.com/repos/scribu/wp-front-end-editor, scribu/wp-front-end-editor, sim: 0.785)
+(https://api.github.com/repos/honcheng/PanelTableView, codebutler/foursquarex, sim: 0.785) -> (https://api.github.com/repos/honcheng/PanelTableView, honcheng/PanelTableView, sim: 0.707)
+(https://api.github.com/repos/appunite/CLCascade, promet/PRAugmentedReality, sim: 0.705) -> (https://api.github.com/repos/appunite/CLCascade, appunite/CLCascade, sim: 0.826)
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.973) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.972)
+(https://api.github.com/repos/SermoDigital/jose, danthareja/node-google-apps-script, sim: 0.827) -> (https://api.github.com/repos/SermoDigital/jose, SermoDigital/jose, sim: 0.821)
+(https://api.github.com/repos/segmentio/analytics-python, mozilla/browsermirror, sim: 0.767) -> (https://api.github.com/repos/segmentio/analytics-python, segmentio/analytics-python, sim: 0.493)
+(https://api.github.com/repos/zbyte64/django-hyperadmin, lillian-lemmer/hypatia, sim: 0.718) -> (https://api.github.com/repos/zbyte64/django-hyperadmin, zbyte64/django-hyperadmin, sim: 0.795)
+==========
+after force right, right alignment: 17907/17907=1.000
+mwgm costs time: 7.381 s
+selecting potential alignment costs time: 31.969 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 19599/19600=1.000
+after editing (->), right alignment: 19599/19600=1.000
+newly triples: 696242, 807805
+alignment_loss = 1.430, time = 1.077 s
+quick results: hits@[1, 5, 10, 50] = [57.957 70.848 76.411 87.029]%, time = 5.234 s 
+generating neighbors of 95312 entities costs 102.451 s.
+
+iteration 13
+epoch 121, avg. triple loss: 1.5471, cost time: 27.2480s
+epoch 122, avg. triple loss: 1.5122, cost time: 29.3734s
+epoch 123, avg. triple loss: 1.5023, cost time: 28.2419s
+epoch 124, avg. triple loss: 1.4978, cost time: 29.2930s
+epoch 125, avg. triple loss: 1.4956, cost time: 29.7258s
+epoch 126, avg. triple loss: 1.4934, cost time: 28.8412s
+epoch 127, avg. triple loss: 1.4922, cost time: 40.7863s
+epoch 128, avg. triple loss: 1.4912, cost time: 36.5224s
+epoch 129, avg. triple loss: 1.4902, cost time: 44.5350s
+epoch 130, avg. triple loss: 1.4893, cost time: 41.3506s
+quick results: hits@[1, 5, 10, 50] = [58.572 71.516 76.732 87.403]%, time = 6.665 s 
+after filtering by sim threshold, right alignment: 19329/335727=0.058
+after filtering by sim and nearest k, right alignment: 17649/107367=0.164
+graph via graph_tool <Graph object, directed, with 41552 vertices and 107367 edges at 0x7f2a290eff60>
+after mwgm, right alignment: 14400/19065=0.755
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.888) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.830)
+(https://api.github.com/repos/thecodejunkie/github.expandinizr, andsens/homeshick, sim: 0.960) -> (https://api.github.com/repos/thecodejunkie/github.expandinizr, thecodejunkie/github.expandinizr, sim: 0.931)
+(https://api.github.com/repos/MrAlek/AWPagedArray, thetron/StringScore, sim: 0.910) -> (https://api.github.com/repos/MrAlek/AWPagedArray, MrAlek/AWPagedArray, sim: 0.863)
+(https://api.github.com/repos/appunite/CLCascade, promet/PRAugmentedReality, sim: 0.723) -> (https://api.github.com/repos/appunite/CLCascade, appunite/CLCascade, sim: 0.851)
+(https://api.github.com/repos/ngryman/social-redirects, mnapoli/IsItMaintained, sim: 0.977) -> (https://api.github.com/repos/ngryman/social-redirects, ngryman/social-redirects, sim: 0.969)
+(https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.853) -> (https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.853)
+(https://api.github.com/repos/alexcrack/angular-ui-notification, oitozero/ngSweetAlert, sim: 0.902) -> (https://api.github.com/repos/alexcrack/angular-ui-notification, alexcrack/angular-ui-notification, sim: 0.956)
+(https://api.github.com/repos/google/gopacket, simon-whitehead/relayr, sim: 0.799) -> (https://api.github.com/repos/google/gopacket, google/gopacket, sim: 0.746)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.848) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.748)
+(https://api.github.com/repos/fschaefer/Stately.js, RoganMurley/hitagi.js, sim: 0.721) -> (https://api.github.com/repos/fschaefer/Stately.js, fschaefer/Stately.js, sim: 0.719)
+==========
+after force right, right alignment: 19059/19065=1.000
+mwgm costs time: 8.163 s
+selecting potential alignment costs time: 47.276 s
+update wrongly:  4 greedy update wrongly:  5
+after editing (<-), right alignment: 21048/21054=1.000
+after editing (->), right alignment: 21042/21048=1.000
+newly triples: 704367, 818232
+alignment_loss = 1.434, time = 1.075 s
+quick results: hits@[1, 5, 10, 50] = [59.481 72.372 77.454 87.911]%, time = 5.993 s 
+generating neighbors of 95312 entities costs 108.559 s.
+
+iteration 14
+epoch 131, avg. triple loss: 1.5390, cost time: 26.8663s
+epoch 132, avg. triple loss: 1.5067, cost time: 26.6370s
+epoch 133, avg. triple loss: 1.4980, cost time: 26.2494s
+epoch 134, avg. triple loss: 1.4941, cost time: 25.9244s
+epoch 135, avg. triple loss: 1.4916, cost time: 27.2710s
+epoch 136, avg. triple loss: 1.4902, cost time: 26.5755s
+epoch 137, avg. triple loss: 1.4891, cost time: 27.8009s
+epoch 138, avg. triple loss: 1.4881, cost time: 36.1449s
+epoch 139, avg. triple loss: 1.4873, cost time: 34.7527s
+epoch 140, avg. triple loss: 1.4863, cost time: 33.0578s
+quick results: hits@[1, 5, 10, 50] = [60.07  72.399 77.534 88.125]%, time = 6.397 s 
+after filtering by sim threshold, right alignment: 20590/381324=0.054
+after filtering by sim and nearest k, right alignment: 18635/115139=0.162
+graph via graph_tool <Graph object, directed, with 43569 vertices and 115139 edges at 0x7f2b2b1a2668>
+after mwgm, right alignment: 15174/20011=0.758
+========== worng alignment
+(https://api.github.com/repos/ef4/ember-browserify, sugar-framework/sugar, sim: 0.848) -> (https://api.github.com/repos/ef4/ember-browserify, ef4/ember-browserify, sim: 0.855)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.899) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.841)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.740) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.907)
+(https://api.github.com/repos/thecodejunkie/github.expandinizr, andsens/homeshick, sim: 0.962) -> (https://api.github.com/repos/thecodejunkie/github.expandinizr, thecodejunkie/github.expandinizr, sim: 0.935)
+(https://api.github.com/repos/c4milo/node-webkit-agent, pingcap/tikv, sim: 0.872) -> (https://api.github.com/repos/c4milo/node-webkit-agent, c4milo/node-webkit-agent, sim: 0.860)
+(https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.859) -> (https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.859)
+(https://api.github.com/repos/SermoDigital/jose, danthareja/node-google-apps-script, sim: 0.864) -> (https://api.github.com/repos/SermoDigital/jose, SermoDigital/jose, sim: 0.856)
+(https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, cloudchen/requirejs-bundle-examples, sim: 0.920) -> (https://api.github.com/repos/Aymkdn/Datepicker-for-Bootstrap, Aymkdn/Datepicker-for-Bootstrap, sim: 0.949)
+(https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.918) -> (https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.918)
+(https://api.github.com/repos/fschaefer/Stately.js, RoganMurley/hitagi.js, sim: 0.745) -> (https://api.github.com/repos/fschaefer/Stately.js, fschaefer/Stately.js, sim: 0.744)
+==========
+after force right, right alignment: 20003/20011=1.000
+mwgm costs time: 8.913 s
+selecting potential alignment costs time: 34.652 s
+update wrongly:  3 greedy update wrongly:  5
+after editing (<-), right alignment: 22201/22210=1.000
+after editing (->), right alignment: 22197/22204=1.000
+newly triples: 711095, 826727
+alignment_loss = 1.438, time = 0.945 s
+quick results: hits@[1, 5, 10, 50] = [60.845 73.282 78.176 88.633]%, time = 4.756 s 
+generating neighbors of 95312 entities costs 101.912 s.
+
+iteration 15
+epoch 141, avg. triple loss: 1.5333, cost time: 28.4645s
+epoch 142, avg. triple loss: 1.5030, cost time: 27.0365s
+epoch 143, avg. triple loss: 1.4950, cost time: 28.8451s
+epoch 144, avg. triple loss: 1.4906, cost time: 30.3529s
+epoch 145, avg. triple loss: 1.4888, cost time: 29.3235s
+epoch 146, avg. triple loss: 1.4874, cost time: 27.2734s
+epoch 147, avg. triple loss: 1.4860, cost time: 26.1320s
+epoch 148, avg. triple loss: 1.4850, cost time: 27.4256s
+epoch 149, avg. triple loss: 1.4845, cost time: 33.4011s
+epoch 150, avg. triple loss: 1.4836, cost time: 34.9068s
+quick results: hits@[1, 5, 10, 50] = [60.952 73.041 78.149 88.74 ]%, time = 5.464 s 
+after filtering by sim threshold, right alignment: 21584/422474=0.051
+after filtering by sim and nearest k, right alignment: 19392/121530=0.160
+graph via graph_tool <Graph object, directed, with 45118 vertices and 121530 edges at 0x7f2a28203940>
+after mwgm, right alignment: 15910/20779=0.766
+========== worng alignment
+(https://api.github.com/repos/ef4/ember-browserify, sugar-framework/sugar, sim: 0.865) -> (https://api.github.com/repos/ef4/ember-browserify, ef4/ember-browserify, sim: 0.868)
+(https://api.github.com/repos/StevenHickson/FindTheGhost, dmolsen/Detector, sim: 0.702) -> (https://api.github.com/repos/StevenHickson/FindTheGhost, StevenHickson/FindTheGhost, sim: 0.940)
+(https://api.github.com/repos/ellzey/libevhtp, kuz/caffe-with-spearmint, sim: 0.829) -> (https://api.github.com/repos/ellzey/libevhtp, ellzey/libevhtp, sim: 0.872)
+(https://api.github.com/repos/nicklockwood/CubeController, krzysztofzablocki/smooth-drawing, sim: 0.799) -> (https://api.github.com/repos/nicklockwood/CubeController, nicklockwood/CubeController, sim: 0.824)
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.716) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.811)
+(https://api.github.com/repos/form-data/form-data, pfraze/electron-browser, sim: 0.776) -> (https://api.github.com/repos/form-data/form-data, form-data/form-data, sim: 0.865)
+(https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.923) -> (https://api.github.com/repos/oden-lang/oden, oden-lang/oden, sim: 0.923)
+(https://api.github.com/repos/terryyin/lizard, Vaberer/Google-Material-Design-Icons-Swift, sim: 0.715) -> (https://api.github.com/repos/terryyin/lizard, terryyin/lizard, sim: 0.712)
+(https://api.github.com/repos/blacklocus/angular-django-rest-resource, premasagar/cleanslate, sim: 0.703) -> (https://api.github.com/repos/blacklocus/angular-django-rest-resource, blacklocus/angular-django-rest-resource, sim: 0.335)
+(https://api.github.com/repos/LibreOffice/core, Mononofu/P2P-DNS, sim: 0.892) -> (https://api.github.com/repos/LibreOffice/core, LibreOffice/core, sim: 0.792)
+==========
+after force right, right alignment: 20774/20779=1.000
+mwgm costs time: 9.083 s
+selecting potential alignment costs time: 35.348 s
+update wrongly:  2 greedy update wrongly:  4
+after editing (<-), right alignment: 23109/23119=1.000
+after editing (->), right alignment: 23103/23112=1.000
+newly triples: 716061, 833026
+alignment_loss = 1.441, time = 0.903 s
+quick results: hits@[1, 5, 10, 50] = [61.621 73.897 78.952 89.168]%, time = 4.523 s 
+generating neighbors of 95312 entities costs 103.144 s.
+
+iteration 16
+epoch 151, avg. triple loss: 1.5271, cost time: 29.5446s
+epoch 152, avg. triple loss: 1.4994, cost time: 27.8703s
+epoch 153, avg. triple loss: 1.4915, cost time: 26.5136s
+epoch 154, avg. triple loss: 1.4885, cost time: 26.9152s
+epoch 155, avg. triple loss: 1.4863, cost time: 28.5872s
+epoch 156, avg. triple loss: 1.4848, cost time: 28.7592s
+epoch 157, avg. triple loss: 1.4838, cost time: 27.0092s
+epoch 158, avg. triple loss: 1.4825, cost time: 27.9706s
+epoch 159, avg. triple loss: 1.4819, cost time: 28.5718s
+epoch 160, avg. triple loss: 1.4816, cost time: 34.5410s
+quick results: hits@[1, 5, 10, 50] = [61.701 73.897 79.032 88.954]%, time = 4.868 s 
+after filtering by sim threshold, right alignment: 22434/458597=0.049
+after filtering by sim and nearest k, right alignment: 20043/126913=0.158
+graph via graph_tool <Graph object, directed, with 46418 vertices and 126913 edges at 0x7f2a290eba58>
+after mwgm, right alignment: 16355/21376=0.765
+========== worng alignment
+(https://api.github.com/repos/ef4/ember-browserify, sugar-framework/sugar, sim: 0.878) -> (https://api.github.com/repos/ef4/ember-browserify, ef4/ember-browserify, sim: 0.881)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.701) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.626)
+(https://api.github.com/repos/graphite-project/ceres, iambrandonn/WebcamSwiper, sim: 0.742) -> (https://api.github.com/repos/graphite-project/ceres, graphite-project/ceres, sim: 0.826)
+(https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.869) -> (https://api.github.com/repos/angular-fullstack/generator-angular-fullstack, angular-fullstack/generator-angular-fullstack, sim: 0.869)
+(https://api.github.com/repos/madskristensen/MiniBlog, edx/XBlock, sim: 0.843) -> (https://api.github.com/repos/madskristensen/MiniBlog, madskristensen/MiniBlog, sim: 0.771)
+(https://api.github.com/repos/google/gopacket, simon-whitehead/relayr, sim: 0.861) -> (https://api.github.com/repos/google/gopacket, google/gopacket, sim: 0.822)
+(https://api.github.com/repos/ohler55/oj, thoughtbot/shoulda-matchers, sim: 0.702) -> (https://api.github.com/repos/ohler55/oj, ohler55/oj, sim: 0.943)
+(https://api.github.com/repos/DragonFlyBSD/DragonFlyBSD, cryptosphere/rbnacl, sim: 0.855) -> (https://api.github.com/repos/DragonFlyBSD/DragonFlyBSD, DragonFlyBSD/DragonFlyBSD, sim: 0.785)
+(https://api.github.com/repos/segmentio/analytics-python, mozilla/browsermirror, sim: 0.845) -> (https://api.github.com/repos/segmentio/analytics-python, segmentio/analytics-python, sim: 0.565)
+(https://api.github.com/repos/thestorefront/DataCollection.js, radioactive/radioactive, sim: 0.702) -> (https://api.github.com/repos/thestorefront/DataCollection.js, thestorefront/DataCollection.js, sim: 0.559)
+==========
+after force right, right alignment: 21374/21376=1.000
+mwgm costs time: 9.088 s
+selecting potential alignment costs time: 34.009 s
+update wrongly:  1 greedy update wrongly:  2
+after editing (<-), right alignment: 23844/23854=1.000
+after editing (->), right alignment: 23838/23848=1.000
+newly triples: 720356, 838410
+alignment_loss = 1.443, time = 0.946 s
+quick results: hits@[1, 5, 10, 50] = [62.343 74.565 79.62  89.436]%, time = 4.391 s 
+generating neighbors of 95312 entities costs 105.963 s.
+
+iteration 17
+epoch 161, avg. triple loss: 1.5226, cost time: 29.5507s
+epoch 162, avg. triple loss: 1.4966, cost time: 30.7701s
+epoch 163, avg. triple loss: 1.4891, cost time: 31.2850s
+epoch 164, avg. triple loss: 1.4857, cost time: 30.2217s
+epoch 165, avg. triple loss: 1.4838, cost time: 31.0046s
+epoch 166, avg. triple loss: 1.4825, cost time: 29.3224s
+epoch 167, avg. triple loss: 1.4814, cost time: 28.7881s
+epoch 168, avg. triple loss: 1.4804, cost time: 27.7690s
+epoch 169, avg. triple loss: 1.4798, cost time: 28.7322s
+epoch 170, avg. triple loss: 1.4791, cost time: 29.7914s
+quick results: hits@[1, 5, 10, 50] = [62.156 74.458 79.567 89.73 ]%, time = 4.697 s 
+after filtering by sim threshold, right alignment: 23087/489517=0.047
+after filtering by sim and nearest k, right alignment: 20539/131446=0.156
+graph via graph_tool <Graph object, directed, with 47432 vertices and 131446 edges at 0x7f2a290eff60>
+after mwgm, right alignment: 16765/21870=0.767
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.891) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.854)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.926) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.869)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.848) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.783)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.719) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.651)
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.743) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.848)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.901) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.796)
+(https://api.github.com/repos/node-freight/freight, travist/drupal.api.js, sim: 0.763) -> (https://api.github.com/repos/node-freight/freight, node-freight/freight, sim: 0.662)
+(https://api.github.com/repos/swagger-api/swagger-ui, tastejs/todomvc, sim: 0.798) -> (https://api.github.com/repos/swagger-api/swagger-ui, swagger-api/swagger-ui, sim: 0.826)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.815) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.794)
+(https://api.github.com/repos/zammitjames/JZStackedView, sfwalsh/BeanTransitionManager, sim: 0.844) -> (https://api.github.com/repos/zammitjames/JZStackedView, zammitjames/JZStackedView, sim: 0.891)
+==========
+after force right, right alignment: 21870/21870=1.000
+mwgm costs time: 10.899 s
+selecting potential alignment costs time: 37.470 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 24443/24453=1.000
+after editing (->), right alignment: 24437/24447=1.000
+newly triples: 723657, 842448
+alignment_loss = 1.446, time = 0.961 s
+quick results: hits@[1, 5, 10, 50] = [62.958 75.127 79.968 89.89 ]%, time = 5.013 s 
+generating neighbors of 95312 entities costs 108.923 s.
+
+iteration 18
+epoch 171, avg. triple loss: 1.5183, cost time: 28.4506s
+epoch 172, avg. triple loss: 1.4934, cost time: 28.2358s
+epoch 173, avg. triple loss: 1.4868, cost time: 27.7820s
+epoch 174, avg. triple loss: 1.4836, cost time: 30.1322s
+epoch 175, avg. triple loss: 1.4821, cost time: 30.6860s
+epoch 176, avg. triple loss: 1.4806, cost time: 29.2283s
+epoch 177, avg. triple loss: 1.4797, cost time: 27.6018s
+epoch 178, avg. triple loss: 1.4787, cost time: 29.2313s
+epoch 179, avg. triple loss: 1.4785, cost time: 27.5137s
+epoch 180, avg. triple loss: 1.4770, cost time: 28.6643s
+quick results: hits@[1, 5, 10, 50] = [62.691 74.619 79.834 90.024]%, time = 5.106 s 
+after filtering by sim threshold, right alignment: 23686/517414=0.046
+after filtering by sim and nearest k, right alignment: 21019/135257=0.155
+graph via graph_tool <Graph object, directed, with 48407 vertices and 135257 edges at 0x7f2a290eff60>
+after mwgm, right alignment: 17164/22341=0.768
+========== worng alignment
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.912) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.941)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.731) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.669)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.909) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.803)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.825) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.805)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.833) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.809)
+(https://api.github.com/repos/coreos/coreos-xhyve, puffnfresh/toggle-osx-shadows, sim: 0.872) -> (https://api.github.com/repos/coreos/coreos-xhyve, coreos/coreos-xhyve, sim: 0.855)
+(https://api.github.com/repos/fnichol/chef-jenkins, stripe-contrib/pagerbot, sim: 0.976) -> (https://api.github.com/repos/fnichol/chef-jenkins, fnichol/chef-jenkins, sim: 0.966)
+(https://api.github.com/repos/senchalabs/cssbeautify, trentm/restdown, sim: 0.891) -> (https://api.github.com/repos/senchalabs/cssbeautify, senchalabs/cssbeautify, sim: 0.841)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.906) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.900)
+(https://api.github.com/repos/hmarr/django-mumblr, SmileyChris/easy-thumbnails, sim: 0.710) -> (https://api.github.com/repos/hmarr/django-mumblr, hmarr/django-mumblr, sim: 0.806)
+==========
+after force right, right alignment: 22341/22341=1.000
+mwgm costs time: 9.946 s
+selecting potential alignment costs time: 37.200 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 24966/24976=1.000
+after editing (->), right alignment: 24958/24968=1.000
+newly triples: 726695, 846281
+alignment_loss = 1.448, time = 0.865 s
+quick results: hits@[1, 5, 10, 50] = [63.627 75.341 80.396 90.238]%, time = 4.344 s 
+generating neighbors of 95312 entities costs 104.195 s.
+
+iteration 19
+epoch 181, avg. triple loss: 1.5146, cost time: 28.8263s
+epoch 182, avg. triple loss: 1.4916, cost time: 28.0413s
+epoch 183, avg. triple loss: 1.4847, cost time: 29.6640s
+epoch 184, avg. triple loss: 1.4820, cost time: 29.6844s
+epoch 185, avg. triple loss: 1.4805, cost time: 26.9360s
+epoch 186, avg. triple loss: 1.4791, cost time: 28.8502s
+epoch 187, avg. triple loss: 1.4780, cost time: 29.9199s
+epoch 188, avg. triple loss: 1.4774, cost time: 30.6212s
+epoch 189, avg. triple loss: 1.4767, cost time: 28.8575s
+epoch 190, avg. triple loss: 1.4763, cost time: 31.7623s
+quick results: hits@[1, 5, 10, 50] = [63.573 75.154 80.289 90.104]%, time = 5.928 s 
+after filtering by sim threshold, right alignment: 24087/541667=0.044
+after filtering by sim and nearest k, right alignment: 21307/138445=0.154
+graph via graph_tool <Graph object, directed, with 49091 vertices and 138445 edges at 0x7f2b24bfae10>
+after mwgm, right alignment: 17506/22677=0.772
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.935) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.881)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.740) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.684)
+(https://api.github.com/repos/telehash/blockname, brainwallet/brainwallet.github.io, sim: 0.912) -> (https://api.github.com/repos/telehash/blockname, telehash/blockname, sim: 0.922)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.838) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.820)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.790) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.710)
+(https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, miki725/django-url-filter, sim: 0.934) -> (https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, Axiologue/DjangoRestMultipleModels, sim: 0.958)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.846) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.821)
+(https://api.github.com/repos/fnichol/chef-jenkins, stripe-contrib/pagerbot, sim: 0.978) -> (https://api.github.com/repos/fnichol/chef-jenkins, fnichol/chef-jenkins, sim: 0.971)
+(https://api.github.com/repos/senchalabs/cssbeautify, trentm/restdown, sim: 0.896) -> (https://api.github.com/repos/senchalabs/cssbeautify, senchalabs/cssbeautify, sim: 0.851)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.911) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.905)
+==========
+after force right, right alignment: 22677/22677=1.000
+mwgm costs time: 10.299 s
+selecting potential alignment costs time: 35.894 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 25341/25351=1.000
+after editing (->), right alignment: 25336/25346=1.000
+newly triples: 728382, 848462
+alignment_loss = 1.449, time = 1.003 s
+quick results: hits@[1, 5, 10, 50] = [64.215 75.528 80.824 90.425]%, time = 7.085 s 
+generating neighbors of 95312 entities costs 106.218 s.
+
+iteration 20
+epoch 191, avg. triple loss: 1.5110, cost time: 28.3411s
+epoch 192, avg. triple loss: 1.4894, cost time: 32.1628s
+epoch 193, avg. triple loss: 1.4828, cost time: 30.0606s
+epoch 194, avg. triple loss: 1.4801, cost time: 29.2104s
+epoch 195, avg. triple loss: 1.4786, cost time: 31.6236s
+epoch 196, avg. triple loss: 1.4776, cost time: 29.8878s
+epoch 197, avg. triple loss: 1.4767, cost time: 31.4378s
+epoch 198, avg. triple loss: 1.4759, cost time: 29.9582s
+epoch 199, avg. triple loss: 1.4750, cost time: 28.9281s
+epoch 200, avg. triple loss: 1.4747, cost time: 28.5956s
+quick results: hits@[1, 5, 10, 50] = [63.948 75.368 80.797 90.345]%, time = 6.021 s 
+after filtering by sim threshold, right alignment: 24516/563799=0.043
+after filtering by sim and nearest k, right alignment: 21646/141284=0.153
+graph via graph_tool <Graph object, directed, with 49862 vertices and 141284 edges at 0x7f2b218b7940>
+after mwgm, right alignment: 17731/23016=0.770
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.828) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.757)
+(https://api.github.com/repos/nicklockwood/CubeController, krzysztofzablocki/smooth-drawing, sim: 0.860) -> (https://api.github.com/repos/nicklockwood/CubeController, nicklockwood/CubeController, sim: 0.885)
+(https://api.github.com/repos/zbyte64/django-hyperadmin, lillian-lemmer/hypatia, sim: 0.846) -> (https://api.github.com/repos/zbyte64/django-hyperadmin, zbyte64/django-hyperadmin, sim: 0.924)
+(https://api.github.com/repos/mirumee/prices, ojii/pymaging, sim: 0.919) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.906)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.921) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.812)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.854) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.838)
+(https://api.github.com/repos/dwightwatson/rememberable, geedmo/yamm, sim: 0.708) -> (https://api.github.com/repos/dwightwatson/rememberable, dwightwatson/rememberable, sim: 0.833)
+(https://api.github.com/repos/litchie/dospad, freefcw/hustoj, sim: 0.787) -> (https://api.github.com/repos/litchie/dospad, litchie/dospad, sim: 0.810)
+(https://api.github.com/repos/aio-libs/aioredis, cablehead/vanilla, sim: 0.937) -> (https://api.github.com/repos/aio-libs/aioredis, aio-libs/aioredis, sim: 0.918)
+(https://api.github.com/repos/apache/aurora, gatein/gatein-portal, sim: 0.711) -> (https://api.github.com/repos/apache/aurora, apache/aurora, sim: 0.769)
+==========
+after force right, right alignment: 23016/23016=1.000
+mwgm costs time: 10.795 s
+selecting potential alignment costs time: 38.103 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 25728/25738=1.000
+after editing (->), right alignment: 25719/25729=1.000
+newly triples: 730200, 850896
+alignment_loss = 1.451, time = 1.170 s
+quick results: hits@[1, 5, 10, 50] = [64.563 75.822 81.038 90.666]%, time = 6.330 s 
+generating neighbors of 95312 entities costs 116.908 s.
+
+iteration 21
+epoch 201, avg. triple loss: 1.5087, cost time: 34.2845s
+epoch 202, avg. triple loss: 1.4873, cost time: 38.1191s
+epoch 203, avg. triple loss: 1.4812, cost time: 35.8958s
+epoch 204, avg. triple loss: 1.4790, cost time: 35.4649s
+epoch 205, avg. triple loss: 1.4771, cost time: 37.0045s
+epoch 206, avg. triple loss: 1.4760, cost time: 38.0453s
+epoch 207, avg. triple loss: 1.4752, cost time: 33.6215s
+epoch 208, avg. triple loss: 1.4747, cost time: 28.8257s
+epoch 209, avg. triple loss: 1.4738, cost time: 29.2227s
+epoch 210, avg. triple loss: 1.4732, cost time: 30.2992s
+quick results: hits@[1, 5, 10, 50] = [64.429 75.769 81.038 90.399]%, time = 5.979 s 
+after filtering by sim threshold, right alignment: 24848/584168=0.043
+after filtering by sim and nearest k, right alignment: 21895/143702=0.152
+graph via graph_tool <Graph object, directed, with 50378 vertices and 143702 edges at 0x7f2b1c7fad30>
+after mwgm, right alignment: 18007/23277=0.774
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.918) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.886)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.945) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.891)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.764) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.928)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.871) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.806)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.857) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.841)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.810) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.743)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.865) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.851)
+(https://api.github.com/repos/NICTA/scoobi, antonmks/nvParse, sim: 0.868) -> (https://api.github.com/repos/NICTA/scoobi, NICTA/scoobi, sim: 0.766)
+(https://api.github.com/repos/CEWendel/SWTableViewCell, Grouper/FlatUIKit, sim: 0.816) -> (https://api.github.com/repos/CEWendel/SWTableViewCell, CEWendel/SWTableViewCell, sim: 0.843)
+(https://api.github.com/repos/PhilipGarnero/django-rest-framework-social-oauth2, miki725/django-url-filter, sim: 0.922) -> (https://api.github.com/repos/PhilipGarnero/django-rest-framework-social-oauth2, PhilipGarnero/django-rest-framework-social-oauth2, sim: 0.949)
+==========
+after force right, right alignment: 23277/23277=1.000
+mwgm costs time: 10.875 s
+selecting potential alignment costs time: 37.062 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26021/26031=1.000
+after editing (->), right alignment: 26015/26025=1.000
+newly triples: 731497, 852634
+alignment_loss = 1.452, time = 0.985 s
+quick results: hits@[1, 5, 10, 50] = [64.83  76.25  81.492 90.746]%, time = 4.863 s 
+generating neighbors of 95312 entities costs 108.201 s.
+
+iteration 22
+epoch 211, avg. triple loss: 1.5060, cost time: 27.9734s
+epoch 212, avg. triple loss: 1.4856, cost time: 27.8938s
+epoch 213, avg. triple loss: 1.4798, cost time: 26.8174s
+epoch 214, avg. triple loss: 1.4772, cost time: 29.4829s
+epoch 215, avg. triple loss: 1.4757, cost time: 30.9413s
+epoch 216, avg. triple loss: 1.4752, cost time: 29.6092s
+epoch 217, avg. triple loss: 1.4741, cost time: 29.5010s
+epoch 218, avg. triple loss: 1.4737, cost time: 30.3537s
+epoch 219, avg. triple loss: 1.4727, cost time: 29.3091s
+epoch 220, avg. triple loss: 1.4721, cost time: 29.0443s
+quick results: hits@[1, 5, 10, 50] = [64.616 76.09  81.252 90.639]%, time = 6.849 s 
+after filtering by sim threshold, right alignment: 25150/602716=0.042
+after filtering by sim and nearest k, right alignment: 22140/145926=0.152
+graph via graph_tool <Graph object, directed, with 50934 vertices and 145926 edges at 0x7f2b16a69780>
+after mwgm, right alignment: 18254/23535=0.776
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.849) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.783)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.947) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.894)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.764) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.927)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.945) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.963)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.772) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.725)
+(https://api.github.com/repos/nicklockwood/CubeController, krzysztofzablocki/smooth-drawing, sim: 0.876) -> (https://api.github.com/repos/nicklockwood/CubeController, nicklockwood/CubeController, sim: 0.901)
+(https://api.github.com/repos/zbyte64/django-hyperadmin, lillian-lemmer/hypatia, sim: 0.859) -> (https://api.github.com/repos/zbyte64/django-hyperadmin, zbyte64/django-hyperadmin, sim: 0.936)
+(https://api.github.com/repos/mirumee/prices, ojii/pymaging, sim: 0.928) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.917)
+(https://api.github.com/repos/HallaZzang/pykakao, ryotarai/infrataster, sim: 0.718) -> (https://api.github.com/repos/HallaZzang/pykakao, HallaZzang/pykakao, sim: 0.617)
+(https://api.github.com/repos/smathot/academicmarkdown, chetan51/sidestep, sim: 0.722) -> (https://api.github.com/repos/smathot/academicmarkdown, smathot/academicmarkdown, sim: 0.658)
+==========
+after force right, right alignment: 23535/23535=1.000
+mwgm costs time: 11.780 s
+selecting potential alignment costs time: 38.445 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26294/26304=1.000
+after editing (->), right alignment: 26287/26297=1.000
+newly triples: 732885, 854429
+alignment_loss = 1.453, time = 1.261 s
+quick results: hits@[1, 5, 10, 50] = [64.991 76.464 81.626 90.88 ]%, time = 6.157 s 
+generating neighbors of 95312 entities costs 110.296 s.
+
+iteration 23
+epoch 221, avg. triple loss: 1.5037, cost time: 35.0227s
+epoch 222, avg. triple loss: 1.4838, cost time: 34.5196s
+epoch 223, avg. triple loss: 1.4790, cost time: 35.2689s
+epoch 224, avg. triple loss: 1.4763, cost time: 33.7688s
+epoch 225, avg. triple loss: 1.4750, cost time: 32.7595s
+epoch 226, avg. triple loss: 1.4733, cost time: 31.2202s
+epoch 227, avg. triple loss: 1.4735, cost time: 30.3070s
+epoch 228, avg. triple loss: 1.4726, cost time: 30.0134s
+epoch 229, avg. triple loss: 1.4717, cost time: 30.2179s
+epoch 230, avg. triple loss: 1.4713, cost time: 31.8770s
+quick results: hits@[1, 5, 10, 50] = [64.777 76.384 81.278 90.773]%, time = 9.224 s 
+after filtering by sim threshold, right alignment: 25348/620166=0.041
+after filtering by sim and nearest k, right alignment: 22272/147793=0.151
+graph via graph_tool <Graph object, directed, with 51310 vertices and 147793 edges at 0x7f29382f3f60>
+after mwgm, right alignment: 18356/23692=0.775
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.854) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.795)
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.923) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.892)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.950) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.965)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.778) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.732)
+(https://api.github.com/repos/kgn/InAppSettings, hipchat/hipchat-rb, sim: 0.864) -> (https://api.github.com/repos/kgn/InAppSettings, kgn/InAppSettings, sim: 0.777)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.931) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.824)
+(https://api.github.com/repos/swagger-api/swagger-ui, tastejs/todomvc, sim: 0.787) -> (https://api.github.com/repos/swagger-api/swagger-ui, swagger-api/swagger-ui, sim: 0.829)
+(https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, mac-cain13/notificato, sim: 0.808) -> (https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, slavavdovichenko/MediaLibDemos3x, sim: 0.761)
+(https://api.github.com/repos/aio-libs/aioredis, cablehead/vanilla, sim: 0.952) -> (https://api.github.com/repos/aio-libs/aioredis, aio-libs/aioredis, sim: 0.937)
+(https://api.github.com/repos/postcss/postcss-loader, ivanvanderbyl/ui-progress-bar, sim: 0.883) -> (https://api.github.com/repos/postcss/postcss-loader, postcss/postcss-loader, sim: 0.873)
+==========
+after force right, right alignment: 23692/23692=1.000
+mwgm costs time: 14.363 s
+selecting potential alignment costs time: 66.092 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26511/26521=1.000
+after editing (->), right alignment: 26503/26513=1.000
+newly triples: 733567, 855381
+alignment_loss = 1.455, time = 1.167 s
+quick results: hits@[1, 5, 10, 50] = [65.258 76.705 81.68  91.014]%, time = 7.590 s 
+generating neighbors of 95312 entities costs 108.315 s.
+
+iteration 24
+epoch 231, avg. triple loss: 1.5012, cost time: 31.5886s
+epoch 232, avg. triple loss: 1.4826, cost time: 28.4574s
+epoch 233, avg. triple loss: 1.4775, cost time: 24.9064s
+epoch 234, avg. triple loss: 1.4755, cost time: 28.1948s
+epoch 235, avg. triple loss: 1.4741, cost time: 26.0528s
+epoch 236, avg. triple loss: 1.4726, cost time: 25.8732s
+epoch 237, avg. triple loss: 1.4724, cost time: 25.2244s
+epoch 238, avg. triple loss: 1.4711, cost time: 25.5516s
+epoch 239, avg. triple loss: 1.4708, cost time: 25.3789s
+epoch 240, avg. triple loss: 1.4703, cost time: 26.2000s
+quick results: hits@[1, 5, 10, 50] = [64.937 76.545 81.385 90.88 ]%, time = 4.776 s 
+after filtering by sim threshold, right alignment: 25549/636252=0.040
+after filtering by sim and nearest k, right alignment: 22439/149517=0.150
+graph via graph_tool <Graph object, directed, with 51727 vertices and 149517 edges at 0x7f2b13a804e0>
+after mwgm, right alignment: 18541/23897=0.776
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.862) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.806)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.952) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.900)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.765) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.929)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.935) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.826)
+(https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, mac-cain13/notificato, sim: 0.815) -> (https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, slavavdovichenko/MediaLibDemos3x, sim: 0.769)
+(https://api.github.com/repos/radiosilence/Ham, emorikawa/boilerstrap, sim: 0.964) -> (https://api.github.com/repos/radiosilence/Ham, radiosilence/Ham, sim: 0.968)
+(https://api.github.com/repos/mirumee/prices, myronmarston/vcr, sim: 0.940) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.926)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.899) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.861)
+(https://api.github.com/repos/yusugomori/csssans, pychess/pychess, sim: 0.915) -> (https://api.github.com/repos/yusugomori/csssans, yusugomori/csssans, sim: 0.862)
+(https://api.github.com/repos/NatashaTheRobot/SeinfeldQuotes, shafiullakhan/WeatherFontIcon, sim: 0.735) -> (https://api.github.com/repos/NatashaTheRobot/SeinfeldQuotes, NatashaTheRobot/SeinfeldQuotes, sim: 0.687)
+==========
+after force right, right alignment: 23897/23897=1.000
+mwgm costs time: 10.776 s
+selecting potential alignment costs time: 27.373 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26734/26744=1.000
+after editing (->), right alignment: 26727/26737=1.000
+newly triples: 734463, 856591
+alignment_loss = 1.455, time = 0.905 s
+quick results: hits@[1, 5, 10, 50] = [65.419 76.732 81.733 91.04 ]%, time = 4.464 s 
+generating neighbors of 95312 entities costs 98.554 s.
+
+iteration 25
+epoch 241, avg. triple loss: 1.4998, cost time: 26.0155s
+epoch 242, avg. triple loss: 1.4813, cost time: 30.8236s
+epoch 243, avg. triple loss: 1.4765, cost time: 30.6976s
+epoch 244, avg. triple loss: 1.4741, cost time: 31.7089s
+epoch 245, avg. triple loss: 1.4727, cost time: 30.6543s
+epoch 246, avg. triple loss: 1.4720, cost time: 31.4501s
+epoch 247, avg. triple loss: 1.4711, cost time: 30.6264s
+epoch 248, avg. triple loss: 1.4707, cost time: 30.0759s
+epoch 249, avg. triple loss: 1.4701, cost time: 30.1688s
+epoch 250, avg. triple loss: 1.4695, cost time: 31.1858s
+quick results: hits@[1, 5, 10, 50] = [65.124 76.571 81.412 90.96 ]%, time = 7.751 s 
+after filtering by sim threshold, right alignment: 25728/650437=0.040
+after filtering by sim and nearest k, right alignment: 22596/151011=0.150
+graph via graph_tool <Graph object, directed, with 52034 vertices and 151011 edges at 0x7f29382f3f60>
+after mwgm, right alignment: 18702/24052=0.778
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.869) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.815)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.766) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.931)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.959) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.971)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.833) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.966)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.949) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.962)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.834) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.786)
+(https://api.github.com/repos/OmniSharp/omnisharp-server, jamiew/heroku-static-site, sim: 0.700) -> (https://api.github.com/repos/OmniSharp/omnisharp-server, OmniSharp/omnisharp-server, sim: 0.593)
+(https://api.github.com/repos/mysterioustrousers/MTDates, morepath/morepath, sim: 0.990) -> (https://api.github.com/repos/mysterioustrousers/MTDates, mysterioustrousers/MTDates, sim: 0.991)
+(https://api.github.com/repos/dangoakachan/Remove-Google-Redirection, RubyLouvre/mass-Framework, sim: 0.700) -> (https://api.github.com/repos/dangoakachan/Remove-Google-Redirection, dangoakachan/Remove-Google-Redirection, sim: 0.886)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.932) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.934)
+==========
+after force right, right alignment: 24052/24052=1.000
+mwgm costs time: 11.456 s
+selecting potential alignment costs time: 30.576 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 26894/26904=1.000
+after editing (->), right alignment: 26888/26898=1.000
+newly triples: 735250, 857590
+alignment_loss = 1.456, time = 0.967 s
+quick results: hits@[1, 5, 10, 50] = [65.552 76.812 81.974 91.228]%, time = 5.210 s 
+generating neighbors of 95312 entities costs 107.014 s.
+
+iteration 26
+epoch 251, avg. triple loss: 1.4979, cost time: 32.8861s
+epoch 252, avg. triple loss: 1.4806, cost time: 30.0996s
+epoch 253, avg. triple loss: 1.4755, cost time: 29.6201s
+epoch 254, avg. triple loss: 1.4735, cost time: 26.4884s
+epoch 255, avg. triple loss: 1.4723, cost time: 25.7322s
+epoch 256, avg. triple loss: 1.4712, cost time: 25.0685s
+epoch 257, avg. triple loss: 1.4703, cost time: 26.3628s
+epoch 258, avg. triple loss: 1.4696, cost time: 27.7374s
+epoch 259, avg. triple loss: 1.4693, cost time: 24.9885s
+epoch 260, avg. triple loss: 1.4691, cost time: 27.0630s
+quick results: hits@[1, 5, 10, 50] = [65.552 76.732 81.653 91.174]%, time = 4.790 s 
+after filtering by sim threshold, right alignment: 25895/664041=0.039
+after filtering by sim and nearest k, right alignment: 22743/152420=0.149
+graph via graph_tool <Graph object, directed, with 52389 vertices and 152420 edges at 0x7f2930af4860>
+after mwgm, right alignment: 18800/24214=0.776
+========== worng alignment
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.995) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.995)
+(https://api.github.com/repos/russellquinn/casein, DimitriMikadze/laravel-angular-cms, sim: 0.802) -> (https://api.github.com/repos/russellquinn/casein, russellquinn/casein, sim: 0.690)
+(https://api.github.com/repos/postcss/postcss-loader, ivanvanderbyl/ui-progress-bar, sim: 0.902) -> (https://api.github.com/repos/postcss/postcss-loader, postcss/postcss-loader, sim: 0.886)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.706) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.673)
+(https://api.github.com/repos/aaronlord/laroute, sunng87/node-geohash, sim: 0.921) -> (https://api.github.com/repos/aaronlord/laroute, aaronlord/laroute, sim: 0.828)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.912) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.878)
+(https://api.github.com/repos/yusugomori/csssans, pychess/pychess, sim: 0.926) -> (https://api.github.com/repos/yusugomori/csssans, yusugomori/csssans, sim: 0.868)
+(https://api.github.com/repos/dscleaver/sbt-quickfix, ivanov/ipython-vimception, sim: 0.720) -> (https://api.github.com/repos/dscleaver/sbt-quickfix, dscleaver/sbt-quickfix, sim: 0.583)
+(https://api.github.com/repos/micweaver/ydb, donmelton/video-transcoding-scripts, sim: 0.950) -> (https://api.github.com/repos/micweaver/ydb, micweaver/ydb, sim: 0.957)
+(https://api.github.com/repos/openstack/kolla, zero-db/zerodb-server, sim: 0.931) -> (https://api.github.com/repos/openstack/kolla, openstack/kolla, sim: 0.924)
+==========
+after force right, right alignment: 24214/24214=1.000
+mwgm costs time: 11.279 s
+selecting potential alignment costs time: 28.131 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27069/27079=1.000
+after editing (->), right alignment: 27062/27072=1.000
+newly triples: 736154, 858775
+alignment_loss = 1.457, time = 0.868 s
+quick results: hits@[1, 5, 10, 50] = [65.793 76.892 81.92  91.254]%, time = 4.067 s 
+generating neighbors of 95312 entities costs 101.273 s.
+
+iteration 27
+epoch 261, avg. triple loss: 1.4964, cost time: 27.6562s
+epoch 262, avg. triple loss: 1.4792, cost time: 28.2784s
+epoch 263, avg. triple loss: 1.4745, cost time: 27.2896s
+epoch 264, avg. triple loss: 1.4727, cost time: 33.1088s
+epoch 265, avg. triple loss: 1.4719, cost time: 26.6973s
+epoch 266, avg. triple loss: 1.4703, cost time: 25.5504s
+epoch 267, avg. triple loss: 1.4699, cost time: 28.4651s
+epoch 268, avg. triple loss: 1.4691, cost time: 29.6465s
+epoch 269, avg. triple loss: 1.4686, cost time: 26.3451s
+epoch 270, avg. triple loss: 1.4684, cost time: 26.0859s
+quick results: hits@[1, 5, 10, 50] = [65.579 76.758 81.573 91.201]%, time = 5.287 s 
+after filtering by sim threshold, right alignment: 26015/676322=0.038
+after filtering by sim and nearest k, right alignment: 22838/153645=0.149
+graph via graph_tool <Graph object, directed, with 52590 vertices and 153645 edges at 0x7f2b13a804e0>
+after mwgm, right alignment: 18900/24313=0.777
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.767) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.932)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.963) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.973)
+(https://api.github.com/repos/kgn/InAppSettings, hipchat/hipchat-rb, sim: 0.874) -> (https://api.github.com/repos/kgn/InAppSettings, kgn/InAppSettings, sim: 0.796)
+(https://api.github.com/repos/smathot/academicmarkdown, chetan51/sidestep, sim: 0.750) -> (https://api.github.com/repos/smathot/academicmarkdown, smathot/academicmarkdown, sim: 0.704)
+(https://api.github.com/repos/ezyang/htmlpurifier, eryx/php-framework-benchmark, sim: 0.862) -> (https://api.github.com/repos/ezyang/htmlpurifier, ezyang/htmlpurifier, sim: 0.789)
+(https://api.github.com/repos/randy3k/Project-Manager, pornel/pngquant-photoshop, sim: 0.798) -> (https://api.github.com/repos/randy3k/Project-Manager, randy3k/Project-Manager, sim: 0.745)
+(https://api.github.com/repos/Deimos/SubredditSimulator, etsy/mixer, sim: 0.931) -> (https://api.github.com/repos/Deimos/SubredditSimulator, Deimos/SubredditSimulator, sim: 0.880)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.719) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.691)
+(https://api.github.com/repos/dangoakachan/Remove-Google-Redirection, RubyLouvre/mass-Framework, sim: 0.710) -> (https://api.github.com/repos/dangoakachan/Remove-Google-Redirection, dangoakachan/Remove-Google-Redirection, sim: 0.897)
+(https://api.github.com/repos/plumatic/plumbing, SassDoc/sassdoc, sim: 0.919) -> (https://api.github.com/repos/plumatic/plumbing, plumatic/plumbing, sim: 0.936)
+==========
+after force right, right alignment: 24313/24313=1.000
+mwgm costs time: 11.825 s
+selecting potential alignment costs time: 28.962 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27214/27224=1.000
+after editing (->), right alignment: 27208/27217=1.000
+newly triples: 736519, 859309
+alignment_loss = 1.458, time = 1.111 s
+quick results: hits@[1, 5, 10, 50] = [65.98  76.999 82.054 91.335]%, time = 4.279 s 
+generating neighbors of 95312 entities costs 100.435 s.
+
+iteration 28
+epoch 271, avg. triple loss: 1.4953, cost time: 26.8767s
+epoch 272, avg. triple loss: 1.4781, cost time: 24.5826s
+epoch 273, avg. triple loss: 1.4737, cost time: 26.2718s
+epoch 274, avg. triple loss: 1.4722, cost time: 26.0798s
+epoch 275, avg. triple loss: 1.4709, cost time: 25.2681s
+epoch 276, avg. triple loss: 1.4698, cost time: 26.1156s
+epoch 277, avg. triple loss: 1.4693, cost time: 26.7419s
+epoch 278, avg. triple loss: 1.4689, cost time: 25.3802s
+epoch 279, avg. triple loss: 1.4682, cost time: 26.1816s
+epoch 280, avg. triple loss: 1.4675, cost time: 27.2276s
+quick results: hits@[1, 5, 10, 50] = [65.766 76.865 81.76  91.174]%, time = 4.983 s 
+after filtering by sim threshold, right alignment: 26156/687821=0.038
+after filtering by sim and nearest k, right alignment: 22959/154831=0.148
+graph via graph_tool <Graph object, directed, with 52877 vertices and 154831 edges at 0x7f2935222278>
+after mwgm, right alignment: 19032/24445=0.779
+========== worng alignment
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.952) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.934)
+(https://api.github.com/repos/zblogcn/zblogphp, hyperhq/hypernetes, sim: 0.891) -> (https://api.github.com/repos/zblogcn/zblogphp, zblogcn/zblogphp, sim: 0.861)
+(https://api.github.com/repos/ezyang/htmlpurifier, eryx/php-framework-benchmark, sim: 0.867) -> (https://api.github.com/repos/ezyang/htmlpurifier, ezyang/htmlpurifier, sim: 0.793)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.898) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.890)
+(https://api.github.com/repos/senchalabs/cssbeautify, trentm/restdown, sim: 0.941) -> (https://api.github.com/repos/senchalabs/cssbeautify, senchalabs/cssbeautify, sim: 0.914)
+(https://api.github.com/repos/junstor/memadmin, pborreli/composer-service, sim: 0.866) -> (https://api.github.com/repos/junstor/memadmin, junstor/memadmin, sim: 0.762)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.731) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.707)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.938) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.940)
+(https://api.github.com/repos/aaronlord/laroute, sunng87/node-geohash, sim: 0.922) -> (https://api.github.com/repos/aaronlord/laroute, aaronlord/laroute, sim: 0.829)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.919) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.892)
+==========
+after force right, right alignment: 24445/24445=1.000
+mwgm costs time: 11.015 s
+selecting potential alignment costs time: 28.778 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27351/27360=1.000
+after editing (->), right alignment: 27347/27355=1.000
+newly triples: 736998, 859925
+alignment_loss = 1.459, time = 0.865 s
+quick results: hits@[1, 5, 10, 50] = [66.034 77.16  82.241 91.335]%, time = 4.782 s 
+generating neighbors of 95312 entities costs 103.580 s.
+
+iteration 29
+epoch 281, avg. triple loss: 1.4940, cost time: 31.7203s
+epoch 282, avg. triple loss: 1.4777, cost time: 29.2008s
+epoch 283, avg. triple loss: 1.4732, cost time: 31.2762s
+epoch 284, avg. triple loss: 1.4711, cost time: 32.0243s
+epoch 285, avg. triple loss: 1.4700, cost time: 31.7370s
+epoch 286, avg. triple loss: 1.4692, cost time: 30.7330s
+epoch 287, avg. triple loss: 1.4685, cost time: 31.5781s
+epoch 288, avg. triple loss: 1.4678, cost time: 30.9815s
+epoch 289, avg. triple loss: 1.4677, cost time: 31.0004s
+epoch 290, avg. triple loss: 1.4668, cost time: 29.7473s
+quick results: hits@[1, 5, 10, 50] = [65.927 77.106 81.84  91.228]%, time = 7.648 s 
+after filtering by sim threshold, right alignment: 26264/697985=0.038
+after filtering by sim and nearest k, right alignment: 23050/155876=0.148
+graph via graph_tool <Graph object, directed, with 53095 vertices and 155876 edges at 0x7f293f522d30>
+after mwgm, right alignment: 19069/24522=0.778
+========== worng alignment
+(https://api.github.com/repos/zbyte64/django-hyperadmin, lillian-lemmer/hypatia, sim: 0.884) -> (https://api.github.com/repos/zbyte64/django-hyperadmin, zbyte64/django-hyperadmin, sim: 0.960)
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.811) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.931)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.947) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.833)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.834) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.971)
+(https://api.github.com/repos/pcman-bbs/pcmanx, mtodd/geoip, sim: 0.983) -> (https://api.github.com/repos/pcman-bbs/pcmanx, pcman-bbs/pcmanx, sim: 0.982)
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.954) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.938)
+(https://api.github.com/repos/chrisbu/dartwatch-JsonObject, angular/builtwith.angularjs.org, sim: 0.977) -> (https://api.github.com/repos/chrisbu/dartwatch-JsonObject, chrisbu/dartwatch-JsonObject, sim: 0.975)
+(https://api.github.com/repos/thestorefront/DataCollection.js, radioactive/radioactive, sim: 0.825) -> (https://api.github.com/repos/thestorefront/DataCollection.js, thestorefront/DataCollection.js, sim: 0.756)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.902) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.894)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.852) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.815)
+==========
+after force right, right alignment: 24522/24522=1.000
+mwgm costs time: 12.193 s
+selecting potential alignment costs time: 34.167 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27456/27464=1.000
+after editing (->), right alignment: 27451/27459=1.000
+newly triples: 737349, 860388
+alignment_loss = 1.459, time = 1.198 s
+quick results: hits@[1, 5, 10, 50] = [66.114 77.267 82.321 91.442]%, time = 4.622 s 
+generating neighbors of 95312 entities costs 110.553 s.
+
+iteration 30
+epoch 291, avg. triple loss: 1.4923, cost time: 30.0364s
+epoch 292, avg. triple loss: 1.4768, cost time: 27.3110s
+epoch 293, avg. triple loss: 1.4726, cost time: 34.2247s
+epoch 294, avg. triple loss: 1.4706, cost time: 26.8186s
+epoch 295, avg. triple loss: 1.4696, cost time: 27.8831s
+epoch 296, avg. triple loss: 1.4688, cost time: 26.3781s
+epoch 297, avg. triple loss: 1.4678, cost time: 26.8437s
+epoch 298, avg. triple loss: 1.4675, cost time: 27.2887s
+epoch 299, avg. triple loss: 1.4668, cost time: 26.5350s
+epoch 300, avg. triple loss: 1.4666, cost time: 26.2112s
+quick results: hits@[1, 5, 10, 50] = [66.06  77.026 81.813 91.281]%, time = 5.447 s 
+after filtering by sim threshold, right alignment: 26381/707972=0.037
+after filtering by sim and nearest k, right alignment: 23144/156851=0.148
+graph via graph_tool <Graph object, directed, with 53309 vertices and 156851 edges at 0x7f29407ed8d0>
+after mwgm, right alignment: 19133/24637=0.777
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.769) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.933)
+(https://api.github.com/repos/gottfrois/dashing-rails, 7compass/sentimental, sim: 0.741) -> (https://api.github.com/repos/gottfrois/dashing-rails, gottfrois/dashing-rails, sim: 0.852)
+(https://api.github.com/repos/DragonFlyBSD/DragonFlyBSD, cryptosphere/rbnacl, sim: 0.936) -> (https://api.github.com/repos/DragonFlyBSD/DragonFlyBSD, DragonFlyBSD/DragonFlyBSD, sim: 0.901)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.949) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.833)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.835) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.972)
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.958) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.942)
+(https://api.github.com/repos/yeikos/js.merge, ManageIQ/manageiq, sim: 0.950) -> (https://api.github.com/repos/yeikos/js.merge, yeikos/js.merge, sim: 0.931)
+(https://api.github.com/repos/Deimos/SubredditSimulator, etsy/mixer, sim: 0.939) -> (https://api.github.com/repos/Deimos/SubredditSimulator, Deimos/SubredditSimulator, sim: 0.890)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.905) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.895)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.857) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.821)
+==========
+after force right, right alignment: 24637/24637=1.000
+mwgm costs time: 11.158 s
+selecting potential alignment costs time: 28.661 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27571/27579=1.000
+after editing (->), right alignment: 27567/27575=1.000
+newly triples: 737737, 860914
+alignment_loss = 1.460, time = 0.951 s
+quick results: hits@[1, 5, 10, 50] = [66.381 77.24  82.321 91.495]%, time = 4.146 s 
+generating neighbors of 95312 entities costs 101.257 s.
+
+iteration 31
+epoch 301, avg. triple loss: 1.4914, cost time: 27.7578s
+epoch 302, avg. triple loss: 1.4757, cost time: 27.1782s
+epoch 303, avg. triple loss: 1.4720, cost time: 26.7102s
+epoch 304, avg. triple loss: 1.4696, cost time: 26.0001s
+epoch 305, avg. triple loss: 1.4690, cost time: 26.6354s
+epoch 306, avg. triple loss: 1.4685, cost time: 25.5048s
+epoch 307, avg. triple loss: 1.4677, cost time: 25.9788s
+epoch 308, avg. triple loss: 1.4670, cost time: 29.1654s
+epoch 309, avg. triple loss: 1.4671, cost time: 26.6929s
+epoch 310, avg. triple loss: 1.4661, cost time: 25.5260s
+quick results: hits@[1, 5, 10, 50] = [66.114 77.32  81.813 91.335]%, time = 5.272 s 
+after filtering by sim threshold, right alignment: 26459/716875=0.037
+after filtering by sim and nearest k, right alignment: 23210/157705=0.147
+graph via graph_tool <Graph object, directed, with 53474 vertices and 157705 edges at 0x7f29376a7e80>
+after mwgm, right alignment: 19220/24709=0.778
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.769) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.933)
+(https://api.github.com/repos/metafizzy/packery, node-hocus-pocus/legerdemain, sim: 0.872) -> (https://api.github.com/repos/metafizzy/packery, metafizzy/packery, sim: 0.852)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.837) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.973)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.949) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.835)
+(https://api.github.com/repos/smathot/academicmarkdown, chetan51/sidestep, sim: 0.771) -> (https://api.github.com/repos/smathot/academicmarkdown, smathot/academicmarkdown, sim: 0.727)
+(https://api.github.com/repos/thestorefront/DataCollection.js, radioactive/radioactive, sim: 0.835) -> (https://api.github.com/repos/thestorefront/DataCollection.js, thestorefront/DataCollection.js, sim: 0.764)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.962) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.969)
+(https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, miki725/django-url-filter, sim: 0.973) -> (https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, Axiologue/DjangoRestMultipleModels, sim: 0.980)
+(https://api.github.com/repos/OmniSharp/omnisharp-server, jamiew/heroku-static-site, sim: 0.705) -> (https://api.github.com/repos/OmniSharp/omnisharp-server, OmniSharp/omnisharp-server, sim: 0.638)
+(https://api.github.com/repos/zammitjames/JZStackedView, sfwalsh/BeanTransitionManager, sim: 0.873) -> (https://api.github.com/repos/zammitjames/JZStackedView, zammitjames/JZStackedView, sim: 0.934)
+==========
+after force right, right alignment: 24709/24709=1.000
+mwgm costs time: 11.468 s
+selecting potential alignment costs time: 28.961 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27655/27663=1.000
+after editing (->), right alignment: 27651/27659=1.000
+newly triples: 738017, 861325
+alignment_loss = 1.460, time = 0.924 s
+quick results: hits@[1, 5, 10, 50] = [66.435 77.481 82.321 91.495]%, time = 4.265 s 
+generating neighbors of 95312 entities costs 102.577 s.
+
+iteration 32
+epoch 311, avg. triple loss: 1.4906, cost time: 27.3914s
+epoch 312, avg. triple loss: 1.4752, cost time: 28.0613s
+epoch 313, avg. triple loss: 1.4714, cost time: 26.2059s
+epoch 314, avg. triple loss: 1.4696, cost time: 26.1563s
+epoch 315, avg. triple loss: 1.4688, cost time: 28.2102s
+epoch 316, avg. triple loss: 1.4677, cost time: 24.5881s
+epoch 317, avg. triple loss: 1.4670, cost time: 25.1638s
+epoch 318, avg. triple loss: 1.4663, cost time: 25.5855s
+epoch 319, avg. triple loss: 1.4657, cost time: 26.0877s
+epoch 320, avg. triple loss: 1.4656, cost time: 26.2966s
+quick results: hits@[1, 5, 10, 50] = [66.408 77.267 82.054 91.415]%, time = 4.454 s 
+after filtering by sim threshold, right alignment: 26525/724988=0.037
+after filtering by sim and nearest k, right alignment: 23273/158484=0.147
+graph via graph_tool <Graph object, directed, with 53633 vertices and 158484 edges at 0x7f2934bf56a0>
+after mwgm, right alignment: 19227/24780=0.776
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.941) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.917)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.960) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.911)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.906) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.835)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.834) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.792)
+(https://api.github.com/repos/othercat/CJKFontScript, defunctzombie/form-serialize, sim: 0.785) -> (https://api.github.com/repos/othercat/CJKFontScript, othercat/CJKFontScript, sim: 0.935)
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.995) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.994)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.839) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.975)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.910) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.902)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.863) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.831)
+(https://api.github.com/repos/smdahlen/vagrant-digitalocean, IonicaBizau/youtube-api, sim: 0.963) -> (https://api.github.com/repos/smdahlen/vagrant-digitalocean, smdahlen/vagrant-digitalocean, sim: 0.960)
+==========
+after force right, right alignment: 24780/24780=1.000
+mwgm costs time: 11.976 s
+selecting potential alignment costs time: 29.365 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27747/27755=1.000
+after editing (->), right alignment: 27740/27748=1.000
+newly triples: 738265, 861670
+alignment_loss = 1.461, time = 0.942 s
+quick results: hits@[1, 5, 10, 50] = [66.676 77.481 82.509 91.549]%, time = 4.146 s 
+generating neighbors of 95312 entities costs 100.526 s.
+
+iteration 33
+epoch 321, avg. triple loss: 1.4895, cost time: 24.2678s
+epoch 322, avg. triple loss: 1.4746, cost time: 26.5615s
+epoch 323, avg. triple loss: 1.4708, cost time: 27.7190s
+epoch 324, avg. triple loss: 1.4690, cost time: 26.4506s
+epoch 325, avg. triple loss: 1.4678, cost time: 26.5990s
+epoch 326, avg. triple loss: 1.4671, cost time: 28.5830s
+epoch 327, avg. triple loss: 1.4667, cost time: 27.8331s
+epoch 328, avg. triple loss: 1.4657, cost time: 26.2527s
+epoch 329, avg. triple loss: 1.4656, cost time: 27.8505s
+epoch 330, avg. triple loss: 1.4651, cost time: 26.7631s
+quick results: hits@[1, 5, 10, 50] = [66.462 77.32  82.268 91.442]%, time = 6.263 s 
+after filtering by sim threshold, right alignment: 26597/733080=0.036
+after filtering by sim and nearest k, right alignment: 23341/159228=0.147
+graph via graph_tool <Graph object, directed, with 53757 vertices and 159228 edges at 0x7f29472b6f60>
+after mwgm, right alignment: 19281/24867=0.775
+========== worng alignment
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.816) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.940)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.951) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.837)
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.965) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.951)
+(https://api.github.com/repos/chrisbu/dartwatch-JsonObject, angular/builtwith.angularjs.org, sim: 0.981) -> (https://api.github.com/repos/chrisbu/dartwatch-JsonObject, chrisbu/dartwatch-JsonObject, sim: 0.980)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.866) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.835)
+(https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, miki725/django-url-filter, sim: 0.974) -> (https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, Axiologue/DjangoRestMultipleModels, sim: 0.980)
+(https://api.github.com/repos/OmniSharp/omnisharp-server, jamiew/heroku-static-site, sim: 0.715) -> (https://api.github.com/repos/OmniSharp/omnisharp-server, OmniSharp/omnisharp-server, sim: 0.654)
+(https://api.github.com/repos/litchie/dospad, freefcw/hustoj, sim: 0.854) -> (https://api.github.com/repos/litchie/dospad, litchie/dospad, sim: 0.887)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.781) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.764)
+(https://api.github.com/repos/radiosilence/Ham, emorikawa/boilerstrap, sim: 0.978) -> (https://api.github.com/repos/radiosilence/Ham, radiosilence/Ham, sim: 0.979)
+==========
+after force right, right alignment: 24867/24867=1.000
+mwgm costs time: 11.410 s
+selecting potential alignment costs time: 27.857 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27829/27837=1.000
+after editing (->), right alignment: 27822/27830=1.000
+newly triples: 738469, 861943
+alignment_loss = 1.461, time = 0.899 s
+quick results: hits@[1, 5, 10, 50] = [66.702 77.668 82.562 91.549]%, time = 4.094 s 
+generating neighbors of 95312 entities costs 100.884 s.
+
+iteration 34
+epoch 331, avg. triple loss: 1.4886, cost time: 26.0558s
+epoch 332, avg. triple loss: 1.4740, cost time: 26.0772s
+epoch 333, avg. triple loss: 1.4702, cost time: 26.8386s
+epoch 334, avg. triple loss: 1.4688, cost time: 27.0790s
+epoch 335, avg. triple loss: 1.4675, cost time: 26.1674s
+epoch 336, avg. triple loss: 1.4668, cost time: 26.0195s
+epoch 337, avg. triple loss: 1.4661, cost time: 27.4668s
+epoch 338, avg. triple loss: 1.4658, cost time: 26.0180s
+epoch 339, avg. triple loss: 1.4651, cost time: 26.1893s
+epoch 340, avg. triple loss: 1.4647, cost time: 27.8269s
+quick results: hits@[1, 5, 10, 50] = [66.676 77.32  82.295 91.549]%, time = 5.672 s 
+after filtering by sim threshold, right alignment: 26675/739703=0.036
+after filtering by sim and nearest k, right alignment: 23390/159953=0.146
+graph via graph_tool <Graph object, directed, with 53903 vertices and 159953 edges at 0x7f2934bf56a0>
+after mwgm, right alignment: 19376/24947=0.777
+========== worng alignment
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.816) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.942)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.965) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.972)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.913) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.906)
+(https://api.github.com/repos/SVProgressHUD/SVProgressHUD, icanzilb/JSONModel, sim: 0.791) -> (https://api.github.com/repos/SVProgressHUD/SVProgressHUD, SVProgressHUD/SVProgressHUD, sim: 0.831)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.792) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.772)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.948) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.951)
+(https://api.github.com/repos/aaronlord/laroute, sunng87/node-geohash, sim: 0.928) -> (https://api.github.com/repos/aaronlord/laroute, aaronlord/laroute, sim: 0.837)
+(https://api.github.com/repos/zplug/zplug, jekyll/jekyll-admin, sim: 0.761) -> (https://api.github.com/repos/zplug/zplug, zplug/zplug, sim: 0.712)
+(https://api.github.com/repos/yusugomori/csssans, pychess/pychess, sim: 0.946) -> (https://api.github.com/repos/yusugomori/csssans, yusugomori/csssans, sim: 0.887)
+(https://api.github.com/repos/deiv/driftnet, spyder-ide/spyder, sim: 0.960) -> (https://api.github.com/repos/deiv/driftnet, deiv/driftnet, sim: 0.968)
+==========
+after force right, right alignment: 24947/24947=1.000
+mwgm costs time: 11.341 s
+selecting potential alignment costs time: 27.734 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27906/27914=1.000
+after editing (->), right alignment: 27902/27910=1.000
+newly triples: 738758, 862312
+alignment_loss = 1.462, time = 0.946 s
+quick results: hits@[1, 5, 10, 50] = [66.863 77.882 82.803 91.575]%, time = 4.535 s 
+generating neighbors of 95312 entities costs 99.868 s.
+
+iteration 35
+epoch 341, avg. triple loss: 1.4878, cost time: 24.9418s
+epoch 342, avg. triple loss: 1.4730, cost time: 26.3055s
+epoch 343, avg. triple loss: 1.4694, cost time: 28.0261s
+epoch 344, avg. triple loss: 1.4679, cost time: 26.4593s
+epoch 345, avg. triple loss: 1.4672, cost time: 28.1499s
+epoch 346, avg. triple loss: 1.4659, cost time: 26.6054s
+epoch 347, avg. triple loss: 1.4658, cost time: 25.2861s
+epoch 348, avg. triple loss: 1.4654, cost time: 25.7384s
+epoch 349, avg. triple loss: 1.4648, cost time: 25.8999s
+epoch 350, avg. triple loss: 1.4645, cost time: 27.6813s
+quick results: hits@[1, 5, 10, 50] = [66.488 77.507 82.482 91.522]%, time = 4.775 s 
+after filtering by sim threshold, right alignment: 26751/746290=0.036
+after filtering by sim and nearest k, right alignment: 23442/160627=0.146
+graph via graph_tool <Graph object, directed, with 54032 vertices and 160627 edges at 0x7f294015ac50>
+after mwgm, right alignment: 19385/24973=0.776
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.946) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.921)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.770) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.933)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.850) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.811)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.952) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.836)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.842) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.977)
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.968) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.956)
+(https://api.github.com/repos/smathot/academicmarkdown, chetan51/sidestep, sim: 0.785) -> (https://api.github.com/repos/smathot/academicmarkdown, smathot/academicmarkdown, sim: 0.739)
+(https://api.github.com/repos/aaronlord/laroute, sunng87/node-geohash, sim: 0.930) -> (https://api.github.com/repos/aaronlord/laroute, aaronlord/laroute, sim: 0.834)
+(https://api.github.com/repos/apache/aurora, gatein/gatein-portal, sim: 0.733) -> (https://api.github.com/repos/apache/aurora, apache/aurora, sim: 0.834)
+(https://api.github.com/repos/Gregwar/CaptchaBundle, toddmotto/fireshell, sim: 0.943) -> (https://api.github.com/repos/Gregwar/CaptchaBundle, Gregwar/CaptchaBundle, sim: 0.841)
+==========
+after force right, right alignment: 24973/24973=1.000
+mwgm costs time: 11.521 s
+selecting potential alignment costs time: 28.670 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 27976/27984=1.000
+after editing (->), right alignment: 27969/27977=1.000
+newly triples: 739053, 862685
+alignment_loss = 1.462, time = 0.937 s
+quick results: hits@[1, 5, 10, 50] = [66.943 77.882 82.749 91.522]%, time = 4.221 s 
+generating neighbors of 95312 entities costs 101.003 s.
+
+iteration 36
+epoch 351, avg. triple loss: 1.4869, cost time: 26.8227s
+epoch 352, avg. triple loss: 1.4731, cost time: 26.1450s
+epoch 353, avg. triple loss: 1.4694, cost time: 24.3503s
+epoch 354, avg. triple loss: 1.4677, cost time: 25.3663s
+epoch 355, avg. triple loss: 1.4667, cost time: 25.8392s
+epoch 356, avg. triple loss: 1.4662, cost time: 26.2185s
+epoch 357, avg. triple loss: 1.4652, cost time: 27.0988s
+epoch 358, avg. triple loss: 1.4649, cost time: 27.9996s
+epoch 359, avg. triple loss: 1.4644, cost time: 26.7676s
+epoch 360, avg. triple loss: 1.4640, cost time: 24.8155s
+quick results: hits@[1, 5, 10, 50] = [66.595 77.534 82.562 91.495]%, time = 4.540 s 
+after filtering by sim threshold, right alignment: 26825/752516=0.036
+after filtering by sim and nearest k, right alignment: 23501/161217=0.146
+graph via graph_tool <Graph object, directed, with 54162 vertices and 161217 edges at 0x7f29424a0cf8>
+after mwgm, right alignment: 19428/25068=0.775
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.962) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.912)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.978) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.983)
+(https://api.github.com/repos/othercat/CJKFontScript, defunctzombie/form-serialize, sim: 0.786) -> (https://api.github.com/repos/othercat/CJKFontScript, othercat/CJKFontScript, sim: 0.941)
+(https://api.github.com/repos/KristianOellegaard/django-health-check, bitmazk/django-calendarium, sim: 0.973) -> (https://api.github.com/repos/KristianOellegaard/django-health-check, KristianOellegaard/django-health-check, sim: 0.974)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.919) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.912)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.875) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.849)
+(https://api.github.com/repos/Paldom/angular2-rest, defunctzombie/node-uuid, sim: 0.965) -> (https://api.github.com/repos/Paldom/angular2-rest, Paldom/angular2-rest, sim: 0.894)
+(https://api.github.com/repos/dwightwatson/rememberable, geedmo/yamm, sim: 0.726) -> (https://api.github.com/repos/dwightwatson/rememberable, dwightwatson/rememberable, sim: 0.894)
+(https://api.github.com/repos/PhilipGarnero/django-rest-framework-social-oauth2, miki725/django-url-filter, sim: 0.958) -> (https://api.github.com/repos/PhilipGarnero/django-rest-framework-social-oauth2, PhilipGarnero/django-rest-framework-social-oauth2, sim: 0.963)
+(https://api.github.com/repos/socialcast/devise_oauth2_providable, tpope/vim-heroku, sim: 0.723) -> (https://api.github.com/repos/socialcast/devise_oauth2_providable, socialcast/devise_oauth2_providable, sim: 0.698)
+==========
+after force right, right alignment: 25068/25068=1.000
+mwgm costs time: 11.615 s
+selecting potential alignment costs time: 29.144 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28038/28046=1.000
+after editing (->), right alignment: 28033/28041=1.000
+newly triples: 739357, 863077
+alignment_loss = 1.463, time = 0.931 s
+quick results: hits@[1, 5, 10, 50] = [66.916 77.962 82.883 91.495]%, time = 4.253 s 
+generating neighbors of 95312 entities costs 100.806 s.
+
+iteration 37
+epoch 361, avg. triple loss: 1.4864, cost time: 27.7946s
+epoch 362, avg. triple loss: 1.4725, cost time: 27.1360s
+epoch 363, avg. triple loss: 1.4690, cost time: 26.1566s
+epoch 364, avg. triple loss: 1.4674, cost time: 26.5203s
+epoch 365, avg. triple loss: 1.4662, cost time: 26.1133s
+epoch 366, avg. triple loss: 1.4660, cost time: 25.7733s
+epoch 367, avg. triple loss: 1.4649, cost time: 26.0402s
+epoch 368, avg. triple loss: 1.4643, cost time: 26.2251s
+epoch 369, avg. triple loss: 1.4640, cost time: 27.5992s
+epoch 370, avg. triple loss: 1.4634, cost time: 26.6447s
+quick results: hits@[1, 5, 10, 50] = [66.515 77.534 82.696 91.415]%, time = 4.651 s 
+after filtering by sim threshold, right alignment: 26865/758732=0.035
+after filtering by sim and nearest k, right alignment: 23545/161796=0.146
+graph via graph_tool <Graph object, directed, with 54280 vertices and 161796 edges at 0x7f29437fc198>
+after mwgm, right alignment: 19490/25132=0.776
+========== worng alignment
+(https://api.github.com/repos/mtth/avsc, hankcs/hanlp-solr-plugin, sim: 0.918) -> (https://api.github.com/repos/mtth/avsc, mtth/avsc, sim: 0.890)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.963) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.913)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.856) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.820)
+(https://api.github.com/repos/gottfrois/dashing-rails, 7compass/sentimental, sim: 0.754) -> (https://api.github.com/repos/gottfrois/dashing-rails, gottfrois/dashing-rails, sim: 0.851)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.954) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.836)
+(https://api.github.com/repos/chrisbu/dartwatch-JsonObject, angular/builtwith.angularjs.org, sim: 0.983) -> (https://api.github.com/repos/chrisbu/dartwatch-JsonObject, chrisbu/dartwatch-JsonObject, sim: 0.981)
+(https://api.github.com/repos/HallaZzang/pykakao, ryotarai/infrataster, sim: 0.702) -> (https://api.github.com/repos/HallaZzang/pykakao, HallaZzang/pykakao, sim: 0.653)
+(https://api.github.com/repos/russellquinn/casein, DimitriMikadze/laravel-angular-cms, sim: 0.857) -> (https://api.github.com/repos/russellquinn/casein, russellquinn/casein, sim: 0.761)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.919) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.913)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.724) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.704)
+==========
+after force right, right alignment: 25132/25132=1.000
+mwgm costs time: 11.396 s
+selecting potential alignment costs time: 28.585 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28104/28112=1.000
+after editing (->), right alignment: 28100/28108=1.000
+newly triples: 739463, 863260
+alignment_loss = 1.463, time = 0.905 s
+quick results: hits@[1, 5, 10, 50] = [66.89  77.962 82.83  91.495]%, time = 4.124 s 
+generating neighbors of 95312 entities costs 97.993 s.
+
+iteration 38
+epoch 371, avg. triple loss: 1.4854, cost time: 25.7236s
+epoch 372, avg. triple loss: 1.4714, cost time: 27.3301s
+epoch 373, avg. triple loss: 1.4684, cost time: 27.7241s
+epoch 374, avg. triple loss: 1.4664, cost time: 26.1287s
+epoch 375, avg. triple loss: 1.4656, cost time: 25.9981s
+epoch 376, avg. triple loss: 1.4652, cost time: 24.4135s
+epoch 377, avg. triple loss: 1.4644, cost time: 27.2214s
+epoch 378, avg. triple loss: 1.4643, cost time: 26.0037s
+epoch 379, avg. triple loss: 1.4638, cost time: 24.8976s
+epoch 380, avg. triple loss: 1.4635, cost time: 27.3794s
+quick results: hits@[1, 5, 10, 50] = [66.863 77.695 82.696 91.522]%, time = 4.842 s 
+after filtering by sim threshold, right alignment: 26935/764233=0.035
+after filtering by sim and nearest k, right alignment: 23598/162255=0.145
+graph via graph_tool <Graph object, directed, with 54424 vertices and 162255 edges at 0x7f29437fc198>
+after mwgm, right alignment: 19555/25192=0.776
+========== worng alignment
+(https://api.github.com/repos/alecthomas/entityx, Wiredcraft/carte, sim: 0.771) -> (https://api.github.com/repos/alecthomas/entityx, alecthomas/entityx, sim: 0.679)
+(https://api.github.com/repos/crufter/goquery, dropbox/nn, sim: 0.861) -> (https://api.github.com/repos/crufter/goquery, crufter/goquery, sim: 0.975)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.956) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.836)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.845) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.979)
+(https://api.github.com/repos/HallaZzang/pykakao, ryotarai/infrataster, sim: 0.700) -> (https://api.github.com/repos/HallaZzang/pykakao, HallaZzang/pykakao, sim: 0.650)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.713) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.476)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.969) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.974)
+(https://api.github.com/repos/takuyaa/kuromoji.js, gorhill/Javascript-Voronoi, sim: 0.918) -> (https://api.github.com/repos/takuyaa/kuromoji.js, takuyaa/kuromoji.js, sim: 0.865)
+(https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, mac-cain13/notificato, sim: 0.853) -> (https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, slavavdovichenko/MediaLibDemos3x, sim: 0.827)
+(https://api.github.com/repos/plumatic/plumbing, SassDoc/sassdoc, sim: 0.945) -> (https://api.github.com/repos/plumatic/plumbing, plumatic/plumbing, sim: 0.952)
+==========
+after force right, right alignment: 25192/25192=1.000
+mwgm costs time: 11.837 s
+selecting potential alignment costs time: 29.085 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28170/28178=1.000
+after editing (->), right alignment: 28165/28173=1.000
+newly triples: 739593, 863445
+alignment_loss = 1.463, time = 0.942 s
+quick results: hits@[1, 5, 10, 50] = [67.104 78.042 82.883 91.522]%, time = 4.333 s 
+generating neighbors of 95312 entities costs 100.685 s.
+
+iteration 39
+epoch 381, avg. triple loss: 1.4852, cost time: 28.0987s
+epoch 382, avg. triple loss: 1.4713, cost time: 27.4742s
+epoch 383, avg. triple loss: 1.4681, cost time: 26.3947s
+epoch 384, avg. triple loss: 1.4664, cost time: 27.0970s
+epoch 385, avg. triple loss: 1.4655, cost time: 27.1239s
+epoch 386, avg. triple loss: 1.4650, cost time: 27.3238s
+epoch 387, avg. triple loss: 1.4649, cost time: 26.2313s
+epoch 388, avg. triple loss: 1.4636, cost time: 25.1141s
+epoch 389, avg. triple loss: 1.4640, cost time: 25.1292s
+epoch 390, avg. triple loss: 1.4633, cost time: 27.2126s
+quick results: hits@[1, 5, 10, 50] = [66.943 77.695 82.749 91.522]%, time = 4.881 s 
+after filtering by sim threshold, right alignment: 26997/769033=0.035
+after filtering by sim and nearest k, right alignment: 23653/162683=0.145
+graph via graph_tool <Graph object, directed, with 54500 vertices and 162683 edges at 0x7f29437fc198>
+after mwgm, right alignment: 19498/25232=0.773
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.949) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.925)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.768) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.933)
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.995) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.994)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.721) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.500)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.730) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.715)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.883) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.860)
+(https://api.github.com/repos/smdahlen/vagrant-digitalocean, IonicaBizau/youtube-api, sim: 0.969) -> (https://api.github.com/repos/smdahlen/vagrant-digitalocean, smdahlen/vagrant-digitalocean, sim: 0.962)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.954) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.957)
+(https://api.github.com/repos/xiepanqi/XPQLabel, hemantasapkota/GCDTimer, sim: 0.743) -> (https://api.github.com/repos/xiepanqi/XPQLabel, xiepanqi/XPQLabel, sim: 0.869)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.949) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.940)
+==========
+after force right, right alignment: 25232/25232=1.000
+mwgm costs time: 12.167 s
+selecting potential alignment costs time: 29.871 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28219/28227=1.000
+after editing (->), right alignment: 28213/28221=1.000
+newly triples: 739754, 863663
+alignment_loss = 1.463, time = 0.930 s
+quick results: hits@[1, 5, 10, 50] = [67.21  78.042 82.856 91.602]%, time = 5.186 s 
+generating neighbors of 95312 entities costs 100.322 s.
+
+iteration 40
+epoch 391, avg. triple loss: 1.4843, cost time: 25.3260s
+epoch 392, avg. triple loss: 1.4706, cost time: 25.9537s
+epoch 393, avg. triple loss: 1.4680, cost time: 24.8417s
+epoch 394, avg. triple loss: 1.4665, cost time: 25.9915s
+epoch 395, avg. triple loss: 1.4652, cost time: 27.6543s
+epoch 396, avg. triple loss: 1.4648, cost time: 26.7620s
+epoch 397, avg. triple loss: 1.4640, cost time: 25.5320s
+epoch 398, avg. triple loss: 1.4638, cost time: 26.1999s
+epoch 399, avg. triple loss: 1.4632, cost time: 26.2512s
+epoch 400, avg. triple loss: 1.4628, cost time: 25.6674s
+quick results: hits@[1, 5, 10, 50] = [66.89  77.855 82.803 91.602]%, time = 6.005 s 
+after filtering by sim threshold, right alignment: 27050/773676=0.035
+after filtering by sim and nearest k, right alignment: 23689/163049=0.145
+graph via graph_tool <Graph object, directed, with 54588 vertices and 163049 edges at 0x7f29447e9588>
+after mwgm, right alignment: 19501/25271=0.772
+========== worng alignment
+(https://api.github.com/repos/alecthomas/entityx, Wiredcraft/carte, sim: 0.781) -> (https://api.github.com/repos/alecthomas/entityx, alecthomas/entityx, sim: 0.688)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.864) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.827)
+(https://api.github.com/repos/mirumee/prices, ojii/pymaging, sim: 0.962) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.959)
+(https://api.github.com/repos/scoumbourdis/grocery-crud, exponentjs/xde, sim: 0.931) -> (https://api.github.com/repos/scoumbourdis/grocery-crud, scoumbourdis/grocery-crud, sim: 0.837)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.843) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.981)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.731) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.519)
+(https://api.github.com/repos/fabiocaccamo/FCCurrentLocationGeocoder, brentnycum/BNHtmlPdfKit, sim: 0.866) -> (https://api.github.com/repos/fabiocaccamo/FCCurrentLocationGeocoder, fabiocaccamo/FCCurrentLocationGeocoder, sim: 0.942)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.885) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.863)
+(https://api.github.com/repos/dimitri/pgloader, tomgenoni/cssdig, sim: 0.955) -> (https://api.github.com/repos/dimitri/pgloader, dimitri/pgloader, sim: 0.951)
+(https://api.github.com/repos/etlegacy/etlegacy, marklister/product-collections, sim: 0.704) -> (https://api.github.com/repos/etlegacy/etlegacy, etlegacy/etlegacy, sim: 0.528)
+==========
+after force right, right alignment: 25271/25271=1.000
+mwgm costs time: 11.559 s
+selecting potential alignment costs time: 28.227 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28268/28275=1.000
+after editing (->), right alignment: 28264/28271=1.000
+newly triples: 739922, 863877
+alignment_loss = 1.464, time = 0.953 s
+quick results: hits@[1, 5, 10, 50] = [67.184 78.122 82.99  91.789]%, time = 4.340 s 
+generating neighbors of 95312 entities costs 100.084 s.
+
+iteration 41
+epoch 401, avg. triple loss: 1.4838, cost time: 25.7300s
+epoch 402, avg. triple loss: 1.4705, cost time: 25.5476s
+epoch 403, avg. triple loss: 1.4672, cost time: 27.1280s
+epoch 404, avg. triple loss: 1.4661, cost time: 25.0816s
+epoch 405, avg. triple loss: 1.4652, cost time: 25.4913s
+epoch 406, avg. triple loss: 1.4644, cost time: 26.8702s
+epoch 407, avg. triple loss: 1.4637, cost time: 25.2509s
+epoch 408, avg. triple loss: 1.4635, cost time: 25.8287s
+epoch 409, avg. triple loss: 1.4631, cost time: 25.6980s
+epoch 410, avg. triple loss: 1.4625, cost time: 28.1141s
+quick results: hits@[1, 5, 10, 50] = [67.023 77.935 82.883 91.736]%, time = 5.057 s 
+after filtering by sim threshold, right alignment: 27086/778202=0.035
+after filtering by sim and nearest k, right alignment: 23716/163491=0.145
+graph via graph_tool <Graph object, directed, with 54684 vertices and 163491 edges at 0x7f294f3f9f98>
+after mwgm, right alignment: 19607/25284=0.775
+========== worng alignment
+(https://api.github.com/repos/noamraph/tqdm, tmux-plugins/tmux-battery, sim: 0.950) -> (https://api.github.com/repos/noamraph/tqdm, noamraph/tqdm, sim: 0.927)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.981) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.984)
+(https://api.github.com/repos/nurugger07/inflex, chrismccord/phoenix_haml, sim: 0.823) -> (https://api.github.com/repos/nurugger07/inflex, nurugger07/inflex, sim: 0.947)
+(https://api.github.com/repos/zblogcn/zblogphp, hyperhq/hypernetes, sim: 0.930) -> (https://api.github.com/repos/zblogcn/zblogphp, zblogcn/zblogphp, sim: 0.912)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.887) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.865)
+(https://api.github.com/repos/aphyr/salticid, numenta/NAB, sim: 0.981) -> (https://api.github.com/repos/aphyr/salticid, aphyr/salticid, sim: 0.979)
+(https://api.github.com/repos/etlegacy/etlegacy, marklister/product-collections, sim: 0.707) -> (https://api.github.com/repos/etlegacy/etlegacy, etlegacy/etlegacy, sim: 0.540)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.833) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.815)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.953) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.945)
+(https://api.github.com/repos/oortcloud/meteorite, lithiumjake/vue-placeholders, sim: 0.913) -> (https://api.github.com/repos/oortcloud/meteorite, oortcloud/meteorite, sim: 0.848)
+==========
+after force right, right alignment: 25284/25284=1.000
+mwgm costs time: 11.579 s
+selecting potential alignment costs time: 29.068 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28311/28318=1.000
+after editing (->), right alignment: 28304/28311=1.000
+newly triples: 740013, 864016
+alignment_loss = 1.464, time = 0.962 s
+quick results: hits@[1, 5, 10, 50] = [67.291 78.176 82.99  91.843]%, time = 4.221 s 
+generating neighbors of 95312 entities costs 102.142 s.
+
+iteration 42
+epoch 411, avg. triple loss: 1.4829, cost time: 28.2986s
+epoch 412, avg. triple loss: 1.4702, cost time: 25.0001s
+epoch 413, avg. triple loss: 1.4670, cost time: 25.7754s
+epoch 414, avg. triple loss: 1.4656, cost time: 27.1017s
+epoch 415, avg. triple loss: 1.4645, cost time: 25.9515s
+epoch 416, avg. triple loss: 1.4638, cost time: 27.7039s
+epoch 417, avg. triple loss: 1.4639, cost time: 26.9504s
+epoch 418, avg. triple loss: 1.4630, cost time: 24.6363s
+epoch 419, avg. triple loss: 1.4626, cost time: 24.8613s
+epoch 420, avg. triple loss: 1.4627, cost time: 27.2176s
+quick results: hits@[1, 5, 10, 50] = [66.89  77.748 82.91  91.763]%, time = 5.908 s 
+after filtering by sim threshold, right alignment: 27131/782415=0.035
+after filtering by sim and nearest k, right alignment: 23753/163837=0.145
+graph via graph_tool <Graph object, directed, with 54759 vertices and 163837 edges at 0x7f29424a0cf8>
+after mwgm, right alignment: 19645/25325=0.776
+========== worng alignment
+(https://api.github.com/repos/cesanta/slre, holylobster/nuntius-linux, sim: 0.965) -> (https://api.github.com/repos/cesanta/slre, cesanta/slre, sim: 0.951)
+(patrick91, BoilerplateMVC/Marionette-Require-Boilerplate, sim: 0.838) -> (patrick91, patrick91, sim: 0.990)
+(https://api.github.com/repos/uku/Unblock-Youku, jinthagerman/JBTabBarController, sim: 0.702) -> (https://api.github.com/repos/uku/Unblock-Youku, uku/Unblock-Youku, sim: 0.689)
+(https://api.github.com/repos/mirumee/prices, ojii/pymaging, sim: 0.964) -> (https://api.github.com/repos/mirumee/prices, mirumee/prices, sim: 0.962)
+(https://api.github.com/repos/paf31/initialround, glyphish/gallery, sim: 0.942) -> (https://api.github.com/repos/paf31/initialround, paf31/initialround, sim: 0.939)
+(https://api.github.com/repos/scoumbourdis/grocery-crud, exponentjs/xde, sim: 0.932) -> (https://api.github.com/repos/scoumbourdis/grocery-crud, scoumbourdis/grocery-crud, sim: 0.838)
+(https://api.github.com/repos/pcman-bbs/pcmanx, mtodd/geoip, sim: 0.984) -> (https://api.github.com/repos/pcman-bbs/pcmanx, pcman-bbs/pcmanx, sim: 0.985)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.922) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.919)
+(https://api.github.com/repos/SkidX/tweene, mathiasbynens/jsperf.com, sim: 0.954) -> (https://api.github.com/repos/SkidX/tweene, SkidX/tweene, sim: 0.950)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.837) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.820)
+==========
+after force right, right alignment: 25325/25325=1.000
+mwgm costs time: 11.805 s
+selecting potential alignment costs time: 29.322 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28346/28353=1.000
+after editing (->), right alignment: 28342/28349=1.000
+newly triples: 740144, 864210
+alignment_loss = 1.464, time = 0.952 s
+quick results: hits@[1, 5, 10, 50] = [67.317 77.962 83.177 91.843]%, time = 4.238 s 
+generating neighbors of 95312 entities costs 101.287 s.
+
+iteration 43
+epoch 421, avg. triple loss: 1.4828, cost time: 25.8041s
+epoch 422, avg. triple loss: 1.4700, cost time: 25.0581s
+epoch 423, avg. triple loss: 1.4666, cost time: 26.6732s
+epoch 424, avg. triple loss: 1.4650, cost time: 25.3002s
+epoch 425, avg. triple loss: 1.4642, cost time: 28.3416s
+epoch 426, avg. triple loss: 1.4639, cost time: 27.1106s
+epoch 427, avg. triple loss: 1.4633, cost time: 25.8718s
+epoch 428, avg. triple loss: 1.4629, cost time: 28.7640s
+epoch 429, avg. triple loss: 1.4627, cost time: 26.5726s
+epoch 430, avg. triple loss: 1.4623, cost time: 25.8334s
+quick results: hits@[1, 5, 10, 50] = [67.104 77.828 82.856 91.789]%, time = 4.684 s 
+after filtering by sim threshold, right alignment: 27176/786345=0.035
+after filtering by sim and nearest k, right alignment: 23786/164165=0.145
+graph via graph_tool <Graph object, directed, with 54840 vertices and 164165 edges at 0x7f294f3f9f98>
+after mwgm, right alignment: 19695/25363=0.777
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.770) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.933)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.844) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.982)
+(https://api.github.com/repos/russellquinn/casein, DimitriMikadze/laravel-angular-cms, sim: 0.875) -> (https://api.github.com/repos/russellquinn/casein, russellquinn/casein, sim: 0.778)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.743) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.724)
+(https://api.github.com/repos/aio-libs/aioredis, cablehead/vanilla, sim: 0.976) -> (https://api.github.com/repos/aio-libs/aioredis, aio-libs/aioredis, sim: 0.973)
+(https://api.github.com/repos/plumatic/plumbing, SassDoc/sassdoc, sim: 0.952) -> (https://api.github.com/repos/plumatic/plumbing, plumatic/plumbing, sim: 0.958)
+(https://api.github.com/repos/seliopou/elm-d3, piranha/pump, sim: 0.823) -> (https://api.github.com/repos/seliopou/elm-d3, seliopou/elm-d3, sim: 0.968)
+(https://api.github.com/repos/zplug/zplug, jekyll/jekyll-admin, sim: 0.778) -> (https://api.github.com/repos/zplug/zplug, zplug/zplug, sim: 0.753)
+(https://api.github.com/repos/yusugomori/csssans, pychess/pychess, sim: 0.955) -> (https://api.github.com/repos/yusugomori/csssans, yusugomori/csssans, sim: 0.895)
+(https://api.github.com/repos/lazerwalker/cortado, zoonooz/ZFTokenField, sim: 0.979) -> (https://api.github.com/repos/lazerwalker/cortado, lazerwalker/cortado, sim: 0.975)
+==========
+after force right, right alignment: 25363/25363=1.000
+mwgm costs time: 12.007 s
+selecting potential alignment costs time: 28.075 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28379/28386=1.000
+after editing (->), right alignment: 28374/28381=1.000
+newly triples: 740204, 864312
+alignment_loss = 1.464, time = 0.914 s
+quick results: hits@[1, 5, 10, 50] = [67.424 78.016 83.151 91.896]%, time = 4.559 s 
+generating neighbors of 95312 entities costs 99.762 s.
+
+iteration 44
+epoch 431, avg. triple loss: 1.4821, cost time: 26.0473s
+epoch 432, avg. triple loss: 1.4694, cost time: 24.5878s
+epoch 433, avg. triple loss: 1.4664, cost time: 24.3368s
+epoch 434, avg. triple loss: 1.4650, cost time: 25.9823s
+epoch 435, avg. triple loss: 1.4641, cost time: 25.3257s
+epoch 436, avg. triple loss: 1.4639, cost time: 25.5652s
+epoch 437, avg. triple loss: 1.4629, cost time: 25.7860s
+epoch 438, avg. triple loss: 1.4624, cost time: 24.3150s
+epoch 439, avg. triple loss: 1.4618, cost time: 25.6248s
+epoch 440, avg. triple loss: 1.4616, cost time: 25.0149s
+quick results: hits@[1, 5, 10, 50] = [67.05  77.935 82.937 91.869]%, time = 5.204 s 
+after filtering by sim threshold, right alignment: 27227/790145=0.034
+after filtering by sim and nearest k, right alignment: 23806/164429=0.145
+graph via graph_tool <Graph object, directed, with 54929 vertices and 164429 edges at 0x7f294329df28>
+after mwgm, right alignment: 19630/25427=0.772
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.965) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.916)
+(https://api.github.com/repos/paf31/initialround, glyphish/gallery, sim: 0.944) -> (https://api.github.com/repos/paf31/initialround, paf31/initialround, sim: 0.941)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.958) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.842)
+(https://api.github.com/repos/yeikos/js.merge, ManageIQ/manageiq, sim: 0.970) -> (https://api.github.com/repos/yeikos/js.merge, yeikos/js.merge, sim: 0.961)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.924) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.923)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.891) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.873)
+(https://api.github.com/repos/wreiske/shellshocker, lodengo/alipay, sim: 0.958) -> (https://api.github.com/repos/wreiske/shellshocker, wreiske/shellshocker, sim: 0.887)
+(https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, mac-cain13/notificato, sim: 0.859) -> (https://api.github.com/repos/slavavdovichenko/MediaLibDemos3x, slavavdovichenko/MediaLibDemos3x, sim: 0.833)
+(https://api.github.com/repos/etlegacy/etlegacy, marklister/product-collections, sim: 0.721) -> (https://api.github.com/repos/etlegacy/etlegacy, etlegacy/etlegacy, sim: 0.565)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.844) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.828)
+==========
+after force right, right alignment: 25427/25427=1.000
+mwgm costs time: 11.334 s
+selecting potential alignment costs time: 28.831 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28414/28421=1.000
+after editing (->), right alignment: 28409/28416=1.000
+newly triples: 740294, 864447
+alignment_loss = 1.464, time = 0.904 s
+quick results: hits@[1, 5, 10, 50] = [67.371 78.149 83.177 91.95 ]%, time = 4.732 s 
+generating neighbors of 95312 entities costs 98.661 s.
+
+iteration 45
+epoch 441, avg. triple loss: 1.4815, cost time: 23.6164s
+epoch 442, avg. triple loss: 1.4688, cost time: 25.0437s
+epoch 443, avg. triple loss: 1.4664, cost time: 24.9656s
+epoch 444, avg. triple loss: 1.4649, cost time: 24.7983s
+epoch 445, avg. triple loss: 1.4645, cost time: 24.2912s
+epoch 446, avg. triple loss: 1.4634, cost time: 24.5249s
+epoch 447, avg. triple loss: 1.4628, cost time: 24.2127s
+epoch 448, avg. triple loss: 1.4625, cost time: 25.0560s
+epoch 449, avg. triple loss: 1.4617, cost time: 24.6642s
+epoch 450, avg. triple loss: 1.4615, cost time: 26.4842s
+quick results: hits@[1, 5, 10, 50] = [67.157 77.909 83.124 91.869]%, time = 4.699 s 
+after filtering by sim threshold, right alignment: 27260/793656=0.034
+after filtering by sim and nearest k, right alignment: 23860/164773=0.145
+graph via graph_tool <Graph object, directed, with 55011 vertices and 164773 edges at 0x7f29504c6860>
+after mwgm, right alignment: 19741/25435=0.776
+========== worng alignment
+(https://api.github.com/repos/cesanta/slre, holylobster/nuntius-linux, sim: 0.967) -> (https://api.github.com/repos/cesanta/slre, cesanta/slre, sim: 0.955)
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.967) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.916)
+(https://api.github.com/repos/machty/ember-concurrency, mic159/react-render, sim: 0.921) -> (https://api.github.com/repos/machty/ember-concurrency, machty/ember-concurrency, sim: 0.850)
+(https://api.github.com/repos/scoumbourdis/grocery-crud, exponentjs/xde, sim: 0.934) -> (https://api.github.com/repos/scoumbourdis/grocery-crud, scoumbourdis/grocery-crud, sim: 0.842)
+(https://api.github.com/repos/pcman-bbs/pcmanx, mtodd/geoip, sim: 0.985) -> (https://api.github.com/repos/pcman-bbs/pcmanx, pcman-bbs/pcmanx, sim: 0.986)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.843) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.983)
+(https://api.github.com/repos/randy3k/Project-Manager, pornel/pngquant-photoshop, sim: 0.886) -> (https://api.github.com/repos/randy3k/Project-Manager, randy3k/Project-Manager, sim: 0.865)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.770) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.588)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.924) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.924)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.745) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.725)
+==========
+after force right, right alignment: 25435/25435=1.000
+mwgm costs time: 11.841 s
+selecting potential alignment costs time: 28.516 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28441/28448=1.000
+after editing (->), right alignment: 28437/28444=1.000
+newly triples: 740374, 864553
+alignment_loss = 1.465, time = 0.873 s
+quick results: hits@[1, 5, 10, 50] = [67.451 78.096 83.177 91.95 ]%, time = 4.142 s 
+generating neighbors of 95312 entities costs 99.690 s.
+
+iteration 46
+epoch 451, avg. triple loss: 1.4817, cost time: 26.1102s
+epoch 452, avg. triple loss: 1.4690, cost time: 23.5923s
+epoch 453, avg. triple loss: 1.4658, cost time: 24.8499s
+epoch 454, avg. triple loss: 1.4647, cost time: 25.2139s
+epoch 455, avg. triple loss: 1.4637, cost time: 24.9943s
+epoch 456, avg. triple loss: 1.4630, cost time: 24.5047s
+epoch 457, avg. triple loss: 1.4627, cost time: 25.5791s
+epoch 458, avg. triple loss: 1.4622, cost time: 24.8441s
+epoch 459, avg. triple loss: 1.4618, cost time: 24.2317s
+epoch 460, avg. triple loss: 1.4615, cost time: 26.1175s
+quick results: hits@[1, 5, 10, 50] = [67.264 78.149 83.151 92.003]%, time = 4.232 s 
+after filtering by sim threshold, right alignment: 27291/797315=0.034
+after filtering by sim and nearest k, right alignment: 23865/165028=0.145
+graph via graph_tool <Graph object, directed, with 55069 vertices and 165028 edges at 0x7f29504c6860>
+after mwgm, right alignment: 19665/25456=0.773
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.967) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.917)
+(patrick91, BoilerplateMVC/Marionette-Require-Boilerplate, sim: 0.841) -> (patrick91, patrick91, sim: 0.991)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.960) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.842)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.844) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.983)
+(https://api.github.com/repos/yihui/knitr-examples, extend/elevators, sim: 0.977) -> (https://api.github.com/repos/yihui/knitr-examples, yihui/knitr-examples, sim: 0.973)
+(https://api.github.com/repos/russellquinn/casein, DimitriMikadze/laravel-angular-cms, sim: 0.880) -> (https://api.github.com/repos/russellquinn/casein, russellquinn/casein, sim: 0.781)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.775) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.599)
+(https://api.github.com/repos/thomas4019/expressa, aspnet/JavaScriptServices, sim: 0.973) -> (https://api.github.com/repos/thomas4019/expressa, thomas4019/expressa, sim: 0.978)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.926) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.927)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.748) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.728)
+==========
+after force right, right alignment: 25456/25456=1.000
+mwgm costs time: 11.525 s
+selecting potential alignment costs time: 28.218 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28474/28481=1.000
+after editing (->), right alignment: 28470/28477=1.000
+newly triples: 740471, 864674
+alignment_loss = 1.465, time = 0.899 s
+quick results: hits@[1, 5, 10, 50] = [67.478 78.229 83.338 92.057]%, time = 4.176 s 
+generating neighbors of 95312 entities costs 99.270 s.
+
+iteration 47
+epoch 461, avg. triple loss: 1.4810, cost time: 25.7452s
+epoch 462, avg. triple loss: 1.4682, cost time: 24.1118s
+epoch 463, avg. triple loss: 1.4656, cost time: 26.6162s
+epoch 464, avg. triple loss: 1.4643, cost time: 25.1915s
+epoch 465, avg. triple loss: 1.4634, cost time: 25.3921s
+epoch 466, avg. triple loss: 1.4629, cost time: 26.1536s
+epoch 467, avg. triple loss: 1.4625, cost time: 24.9709s
+epoch 468, avg. triple loss: 1.4619, cost time: 25.8939s
+epoch 469, avg. triple loss: 1.4615, cost time: 25.5171s
+epoch 470, avg. triple loss: 1.4611, cost time: 25.1824s
+quick results: hits@[1, 5, 10, 50] = [67.398 78.096 83.017 92.03 ]%, time = 5.300 s 
+after filtering by sim threshold, right alignment: 27323/800766=0.034
+after filtering by sim and nearest k, right alignment: 23910/165301=0.145
+graph via graph_tool <Graph object, directed, with 55126 vertices and 165301 edges at 0x7f29504c6860>
+after mwgm, right alignment: 19801/25490=0.777
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.767) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.934)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.877) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.846)
+(https://api.github.com/repos/ccoenraets/ioconf, rodrigobranas/youtube, sim: 0.995) -> (https://api.github.com/repos/ccoenraets/ioconf, ccoenraets/ioconf, sim: 0.995)
+(https://api.github.com/repos/scoumbourdis/grocery-crud, exponentjs/xde, sim: 0.935) -> (https://api.github.com/repos/scoumbourdis/grocery-crud, scoumbourdis/grocery-crud, sim: 0.846)
+(liangkai, ppwwyyxx/speaker-recognition, sim: 0.842) -> (liangkai, liangkai, sim: 0.990)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.781) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.608)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.747) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.728)
+(https://api.github.com/repos/dimitri/pgloader, tomgenoni/cssdig, sim: 0.961) -> (https://api.github.com/repos/dimitri/pgloader, dimitri/pgloader, sim: 0.958)
+(https://api.github.com/repos/smdahlen/vagrant-digitalocean, IonicaBizau/youtube-api, sim: 0.972) -> (https://api.github.com/repos/smdahlen/vagrant-digitalocean, smdahlen/vagrant-digitalocean, sim: 0.964)
+(https://api.github.com/repos/jcavar/xcfui, ltebean/LTBounceSheet, sim: 0.851) -> (https://api.github.com/repos/jcavar/xcfui, jcavar/xcfui, sim: 0.840)
+==========
+after force right, right alignment: 25490/25490=1.000
+mwgm costs time: 11.707 s
+selecting potential alignment costs time: 27.908 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28507/28514=1.000
+after editing (->), right alignment: 28502/28509=1.000
+newly triples: 740527, 864759
+alignment_loss = 1.465, time = 0.880 s
+quick results: hits@[1, 5, 10, 50] = [67.638 78.31  83.311 92.137]%, time = 4.396 s 
+generating neighbors of 95312 entities costs 99.240 s.
+
+iteration 48
+epoch 471, avg. triple loss: 1.4805, cost time: 25.6649s
+epoch 472, avg. triple loss: 1.4680, cost time: 25.6940s
+epoch 473, avg. triple loss: 1.4652, cost time: 24.3834s
+epoch 474, avg. triple loss: 1.4641, cost time: 24.7363s
+epoch 475, avg. triple loss: 1.4634, cost time: 25.2674s
+epoch 476, avg. triple loss: 1.4629, cost time: 24.7004s
+epoch 477, avg. triple loss: 1.4621, cost time: 25.0885s
+epoch 478, avg. triple loss: 1.4618, cost time: 24.5874s
+epoch 479, avg. triple loss: 1.4615, cost time: 26.4002s
+epoch 480, avg. triple loss: 1.4613, cost time: 24.2901s
+quick results: hits@[1, 5, 10, 50] = [67.424 78.096 83.097 92.083]%, time = 4.172 s 
+after filtering by sim threshold, right alignment: 27349/803592=0.034
+after filtering by sim and nearest k, right alignment: 23928/165561=0.145
+graph via graph_tool <Graph object, directed, with 55187 vertices and 165561 edges at 0x7f29550e5710>
+after mwgm, right alignment: 19803/25523=0.776
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.768) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.934)
+(https://api.github.com/repos/RichardLeung/3DTouchSample, alunny/node-xcode, sim: 0.878) -> (https://api.github.com/repos/RichardLeung/3DTouchSample, RichardLeung/3DTouchSample, sim: 0.848)
+(liangkai, ppwwyyxx/speaker-recognition, sim: 0.843) -> (liangkai, liangkai, sim: 0.990)
+(https://api.github.com/repos/guzzle/RingPHP, ngryman/social-redirects, sim: 0.985) -> (https://api.github.com/repos/guzzle/RingPHP, guzzle/RingPHP, sim: 0.987)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.897) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.882)
+(https://api.github.com/repos/t-d-k/LibreCrypt, atomicobject/heatshrink, sim: 0.962) -> (https://api.github.com/repos/t-d-k/LibreCrypt, t-d-k/LibreCrypt, sim: 0.963)
+(https://api.github.com/repos/apache/aurora, gatein/gatein-portal, sim: 0.729) -> (https://api.github.com/repos/apache/aurora, apache/aurora, sim: 0.852)
+(https://api.github.com/repos/dconroy/PiTranslate, commonsense/conceptnet5, sim: 0.739) -> (https://api.github.com/repos/dconroy/PiTranslate, dconroy/PiTranslate, sim: 0.655)
+(https://api.github.com/repos/Gregwar/CaptchaBundle, toddmotto/fireshell, sim: 0.959) -> (https://api.github.com/repos/Gregwar/CaptchaBundle, Gregwar/CaptchaBundle, sim: 0.863)
+(https://api.github.com/repos/circonus-labs/reconnoiter, joewilliams/nugget, sim: 0.963) -> (https://api.github.com/repos/circonus-labs/reconnoiter, circonus-labs/reconnoiter, sim: 0.958)
+==========
+after force right, right alignment: 25523/25523=1.000
+mwgm costs time: 12.707 s
+selecting potential alignment costs time: 29.660 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28531/28538=1.000
+after editing (->), right alignment: 28527/28534=1.000
+newly triples: 740574, 864833
+alignment_loss = 1.465, time = 1.038 s
+quick results: hits@[1, 5, 10, 50] = [67.665 78.283 83.338 92.137]%, time = 4.550 s 
+generating neighbors of 95312 entities costs 101.777 s.
+
+iteration 49
+epoch 481, avg. triple loss: 1.4802, cost time: 25.9426s
+epoch 482, avg. triple loss: 1.4677, cost time: 25.0664s
+epoch 483, avg. triple loss: 1.4653, cost time: 25.4739s
+epoch 484, avg. triple loss: 1.4639, cost time: 25.3780s
+epoch 485, avg. triple loss: 1.4634, cost time: 26.4933s
+epoch 486, avg. triple loss: 1.4628, cost time: 26.3293s
+epoch 487, avg. triple loss: 1.4619, cost time: 25.2278s
+epoch 488, avg. triple loss: 1.4618, cost time: 25.0051s
+epoch 489, avg. triple loss: 1.4611, cost time: 26.9297s
+epoch 490, avg. triple loss: 1.4611, cost time: 26.0162s
+quick results: hits@[1, 5, 10, 50] = [67.531 77.909 83.177 92.003]%, time = 4.521 s 
+after filtering by sim threshold, right alignment: 27376/806584=0.034
+after filtering by sim and nearest k, right alignment: 23951/165785=0.144
+graph via graph_tool <Graph object, directed, with 55255 vertices and 165785 edges at 0x7f29550e5710>
+after mwgm, right alignment: 19763/25554=0.773
+========== worng alignment
+(https://api.github.com/repos/jfrazelle/binctr, erikrose/blessings, sim: 0.969) -> (https://api.github.com/repos/jfrazelle/binctr, jfrazelle/binctr, sim: 0.919)
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.768) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.935)
+(https://api.github.com/repos/webshell/APIs, PySide/PySide, sim: 0.807) -> (https://api.github.com/repos/webshell/APIs, webshell/APIs, sim: 0.978)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.961) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.843)
+(https://api.github.com/repos/arpi6/validateIt, ashwoods/webfaction-django-fabfile, sim: 0.843) -> (https://api.github.com/repos/arpi6/validateIt, arpi6/validateIt, sim: 0.984)
+(https://api.github.com/repos/randy3k/Project-Manager, pornel/pngquant-photoshop, sim: 0.896) -> (https://api.github.com/repos/randy3k/Project-Manager, randy3k/Project-Manager, sim: 0.878)
+(https://api.github.com/repos/raindropio/raindrop-chrome, AlxMedia/hueman, sim: 0.791) -> (https://api.github.com/repos/raindropio/raindrop-chrome, raindropio/raindrop-chrome, sim: 0.625)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.928) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.928)
+(https://api.github.com/repos/chetan51/sidestep, lamw/vghetto-scripts, sim: 0.799) -> (https://api.github.com/repos/chetan51/sidestep, chetan51/sidestep, sim: 0.762)
+(https://api.github.com/repos/jackhutu/jackblog-api-koa, hemanth/koa-rest, sim: 0.898) -> (https://api.github.com/repos/jackhutu/jackblog-api-koa, jackhutu/jackblog-api-koa, sim: 0.884)
+==========
+after force right, right alignment: 25554/25554=1.000
+mwgm costs time: 11.592 s
+selecting potential alignment costs time: 27.743 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28561/28568=1.000
+after editing (->), right alignment: 28557/28564=1.000
+newly triples: 740716, 864996
+alignment_loss = 1.465, time = 0.932 s
+quick results: hits@[1, 5, 10, 50] = [67.665 78.363 83.391 92.057]%, time = 4.602 s 
+generating neighbors of 95312 entities costs 99.723 s.
+
+iteration 50
+epoch 491, avg. triple loss: 1.4797, cost time: 25.4237s
+epoch 492, avg. triple loss: 1.4673, cost time: 26.2756s
+epoch 493, avg. triple loss: 1.4651, cost time: 25.3487s
+epoch 494, avg. triple loss: 1.4637, cost time: 26.1532s
+epoch 495, avg. triple loss: 1.4629, cost time: 26.2780s
+epoch 496, avg. triple loss: 1.4624, cost time: 25.3835s
+epoch 497, avg. triple loss: 1.4618, cost time: 25.6965s
+epoch 498, avg. triple loss: 1.4612, cost time: 26.0933s
+epoch 499, avg. triple loss: 1.4611, cost time: 25.9596s
+epoch 500, avg. triple loss: 1.4606, cost time: 25.3233s
+quick results: hits@[1, 5, 10, 50] = [67.531 78.016 83.204 92.003]%, time = 4.408 s 
+after filtering by sim threshold, right alignment: 27413/809787=0.034
+after filtering by sim and nearest k, right alignment: 23972/166031=0.144
+graph via graph_tool <Graph object, directed, with 55298 vertices and 166031 edges at 0x7f29550e5710>
+after mwgm, right alignment: 19789/25584=0.773
+========== worng alignment
+(https://api.github.com/repos/RomainPiel/meatspace-android, guardianproject/ObscuraCam, sim: 0.769) -> (https://api.github.com/repos/RomainPiel/meatspace-android, RomainPiel/meatspace-android, sim: 0.935)
+(https://api.github.com/repos/ivandiazwm/phpback, ybur-yug/gkv, sim: 0.984) -> (https://api.github.com/repos/ivandiazwm/phpback, ivandiazwm/phpback, sim: 0.984)
+(https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, marmelab/gaudi, sim: 0.962) -> (https://api.github.com/repos/GoogleCloudPlatform/ipython-soccer-predictions, GoogleCloudPlatform/ipython-soccer-predictions, sim: 0.842)
+(https://api.github.com/repos/chrisbu/dartwatch-JsonObject, angular/builtwith.angularjs.org, sim: 0.988) -> (https://api.github.com/repos/chrisbu/dartwatch-JsonObject, chrisbu/dartwatch-JsonObject, sim: 0.986)
+(https://api.github.com/repos/OsmSharp/ui, mourner/seidel, sim: 0.927) -> (https://api.github.com/repos/OsmSharp/ui, OsmSharp/ui, sim: 0.928)
+(https://api.github.com/repos/benhowdle89/touche, bloomberg/bde, sim: 0.758) -> (https://api.github.com/repos/benhowdle89/touche, benhowdle89/touche, sim: 0.739)
+(https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, miki725/django-url-filter, sim: 0.984) -> (https://api.github.com/repos/Axiologue/DjangoRestMultipleModels, Axiologue/DjangoRestMultipleModels, sim: 0.986)
+(https://api.github.com/repos/bamiaux/rez, WebReflection/testardo, sim: 0.723) -> (https://api.github.com/repos/bamiaux/rez, bamiaux/rez, sim: 0.653)
+(https://api.github.com/repos/plumatic/plumbing, SassDoc/sassdoc, sim: 0.959) -> (https://api.github.com/repos/plumatic/plumbing, plumatic/plumbing, sim: 0.963)
+(https://api.github.com/repos/radiosilence/Ham, emorikawa/boilerstrap, sim: 0.986) -> (https://api.github.com/repos/radiosilence/Ham, radiosilence/Ham, sim: 0.987)
+==========
+after force right, right alignment: 25584/25584=1.000
+mwgm costs time: 11.568 s
+selecting potential alignment costs time: 28.057 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 28586/28593=1.000
+after editing (->), right alignment: 28583/28589=1.000
+newly triples: 740748, 865056
+alignment_loss = 1.465, time = 0.878 s
+quick results: hits@[1, 5, 10, 50] = [67.665 78.336 83.472 92.11 ]%, time = 4.052 s 
+generating neighbors of 95312 entities costs 100.268 s.
+
+iteration 51
+epoch 501, avg. triple loss: 1.4790, cost time: 25.6052s
+epoch 502, avg. triple loss: 1.4675, cost time: 27.1814s
+epoch 503, avg. triple loss: 1.4648, cost time: 23.9952s
+epoch 504, avg. triple loss: 1.4637, cost time: 25.5430s
+epoch 505, avg. triple loss: 1.4624, cost time: 25.2737s
+epoch 506, avg. triple loss: 1.4625, cost time: 25.9744s
+epoch 507, avg. triple loss: 1.4613, cost time: 24.8671s
+epoch 508, avg. triple loss: 1.4616, cost time: 24.8948s
+epoch 509, avg. triple loss: 1.4605, cost time: 25.2848s
+epoch 510, avg. triple loss: 1.4605, cost time: 25.0846s
+quick results: hits@[1, 5, 10, 50] = [67.478 78.042 83.204 92.057]%, time = 4.589 s 
+
+ == should early stop == 
+
+Training ends. Total time = 23406.257 s.
+accurate results: hits@[1, 5, 10, 50] = [66.307 78.431 83.186 92.593]%, mr = 24.243, mrr = 0.721006, time = 23.839 s 
+accurate results with csls: csls=10, hits@[1, 5, 10, 50] = [71.024 83.301 87.245 94.271]%, mr = 16.279, mrr = 0.767179, time = 60.137 s 
+Results saved!
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg1_ent_ids saved.
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg2_ent_ids saved.
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg1_rel_ids saved.
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg2_rel_ids saved.
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg1_attr_ids saved.
+../../output/results/BootEA/GH/721_5fold/1/20220411130435/kg2_attr_ids saved.
+Embeddings saved!
+Total run time = 23527.847 s.
