@@ -1,0 +1,1907 @@
+load arguments: {'training_data': '../../datasets/', 'output': '../../output/results/', 'dataset_division': '721_5fold', 'embedding_module': 'BootEA', 'alignment_module': 'swapping', 'search_module': 'greedy', 'dim': 100, 'init': 'normal', 'ent_l2_norm': True, 'rel_l2_norm': True, 'loss': 'limited', 'loss_norm': 'L2', 'learning_rate': 0.01, 'optimizer': 'Adagrad', 'max_epoch': 2000, 'batch_size': 5000, 'pos_margin': 0.01, 'neg_margin': 2.0, 'neg_margin_balance': 0.2, 'neg_sampling': 'truncated', 'neg_triple_num': 10, 'truncated_epsilon': 0.9, 'truncated_freq': 10, 'batch_threads_num': 2, 'test_threads_num': 4, 'ordered': True, 'start_valid': 100, 'eval_freq': 10, 'stop_metric': 'hits1', 'eval_metric': 'inner', 'csls': 10, 'top_k': [1, 5, 10, 50], 'is_save': True, 'eval_norm': False, 'sim_th': 0.7, 'k': 10, 'likelihood_slice': 10, 'sub_epoch': 10}
+BootEA
+<openea.modules.args.args_hander.ARGs object at 0x7fbaa53584e0>
+read relation triples: ../../datasets/ZH_EN_15K/rel_triples_1
+read relation triples: ../../datasets/ZH_EN_15K/rel_triples_2
+read attribute triples: ../../datasets/ZH_EN_15K/attr_triples_1
+read attribute triples: ../../datasets/ZH_EN_15K/attr_triples_2
+read links: ../../datasets/ZH_EN_15K/721_5fold/1/train_links
+read links: ../../datasets/ZH_EN_15K/721_5fold/1/valid_links
+read links: ../../datasets/ZH_EN_15K/721_5fold/1/test_links
+Number of rt_dict: 15000
+Number of hr_dict: 16596
+entity relations dict: 15000
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 19388
+Number of relations: 1701
+Number of attributes: 0
+Number of relation triples: 70414
+Number of attribute triples: 0
+Number of local relation triples: 70414
+Number of local attribute triples: 0
+
+Number of rt_dict: 15000
+Number of hr_dict: 17363
+entity relations dict: 15000
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 19572
+Number of relations: 1323
+Number of attributes: 0
+Number of relation triples: 95142
+Number of attribute triples: 0
+Number of local relation triples: 95142
+Number of local attribute triples: 0
+
+Number of rt_dict: 15000
+Number of hr_dict: 16596
+entity relations dict: 15000
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 19388
+Number of relations: 1701
+Number of attributes: 0
+Number of relation triples: 70414
+Number of attribute triples: 0
+Number of local relation triples: 70414
+Number of local attribute triples: 0
+
+Number of rt_dict: 15000
+Number of hr_dict: 17363
+entity relations dict: 15000
+Number of av_dict: 0
+entity attributes dict: 0
+
+KG statistics:
+Number of entities: 19572
+Number of relations: 1323
+Number of attributes: 0
+Number of relation triples: 95142
+Number of attribute triples: 0
+Number of local relation triples: 95142
+Number of local attribute triples: 0
+
+supervised relation triples: 26879, 36972
+supervised attribute triples: 0, 0
+../../output/results/ ../../datasets/ZH_EN_15K/ ['..', '..', 'datasets', 'ZH_EN_15K'] 721_5fold/1/ BootEA
+results output folder: ../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/
+
+iteration 1
+epoch 1, avg. triple loss: 2.6673, cost time: 5.9176s
+epoch 2, avg. triple loss: 2.2102, cost time: 6.6125s
+epoch 3, avg. triple loss: 1.9861, cost time: 6.1799s
+epoch 4, avg. triple loss: 1.8298, cost time: 6.0447s
+epoch 5, avg. triple loss: 1.7081, cost time: 6.5562s
+epoch 6, avg. triple loss: 1.6075, cost time: 6.5901s
+epoch 7, avg. triple loss: 1.5223, cost time: 6.5199s
+epoch 8, avg. triple loss: 1.4483, cost time: 6.4638s
+epoch 9, avg. triple loss: 1.3834, cost time: 5.9118s
+epoch 10, avg. triple loss: 1.3252, cost time: 6.0671s
+after filtering by sim threshold, right alignment: 14/15=0.933
+after filtering by sim and nearest k, right alignment: 14/15=0.933
+graph via graph_tool <Graph object, directed, with 29 vertices and 15 edges at 0x7fba9fb17e10>
+after mwgm, right alignment: 14/14=1.000
+========== worng alignment
+==========
+after force right (delete), right alignment: 14/14=1.000
+mwgm costs time: 1.335 s
+selecting potential alignment costs time: 7.462 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 14/14=1.000
+after editing (->), right alignment: 14/14=1.000
+newly triples: 193, 234
+alignment_loss = 1.592, time = 0.151 s
+generating neighbors of 38960 entities costs 23.196 s.
+
+iteration 2
+epoch 11, avg. triple loss: 1.4144, cost time: 10.7586s
+epoch 12, avg. triple loss: 1.3663, cost time: 9.6775s
+epoch 13, avg. triple loss: 1.3241, cost time: 9.1861s
+epoch 14, avg. triple loss: 1.2867, cost time: 9.8137s
+epoch 15, avg. triple loss: 1.2537, cost time: 10.2585s
+epoch 16, avg. triple loss: 1.2233, cost time: 10.3759s
+epoch 17, avg. triple loss: 1.1956, cost time: 9.5468s
+epoch 18, avg. triple loss: 1.1694, cost time: 9.6420s
+epoch 19, avg. triple loss: 1.1458, cost time: 9.2744s
+epoch 20, avg. triple loss: 1.1235, cost time: 10.2680s
+after filtering by sim threshold, right alignment: 216/523=0.413
+after filtering by sim and nearest k, right alignment: 216/519=0.416
+graph via graph_tool <Graph object, directed, with 566 vertices and 519 edges at 0x7fba940a9f28>
+after mwgm, right alignment: 172/236=0.729
+========== worng alignment
+(http://zh.dbpedia.org/resource/She_Came_In_Through_the_Bathroom_Window, http://dbpedia.org/resource/Maxwell's_Silver_Hammer, sim: 0.740) -> (http://zh.dbpedia.org/resource/She_Came_In_Through_the_Bathroom_Window, http://dbpedia.org/resource/She_Came_In_Through_the_Bathroom_Window, sim: 0.690)
+(http://zh.dbpedia.org/resource/維克多·安德烈耶維奇·尤先科, http://dbpedia.org/resource/Mykola_Azarov, sim: 0.726) -> (http://zh.dbpedia.org/resource/維克多·安德烈耶維奇·尤先科, http://dbpedia.org/resource/Viktor_Yushchenko, sim: 0.772)
+(http://zh.dbpedia.org/resource/杰克·里德, http://dbpedia.org/resource/Lincoln_Chafee, sim: 0.729) -> (http://zh.dbpedia.org/resource/杰克·里德, http://dbpedia.org/resource/Jack_Reed_(politician), sim: 0.617)
+(http://zh.dbpedia.org/resource/邁赫迪·戈利·希達亞特, http://dbpedia.org/resource/Malek_Mansur_Mirza_Shoa_O-Saltaneh, sim: 0.705) -> (http://zh.dbpedia.org/resource/邁赫迪·戈利·希達亞特, http://dbpedia.org/resource/Mehdi_Qoli_Hedayat, sim: 0.687)
+(http://zh.dbpedia.org/resource/亨利·布里松, http://dbpedia.org/resource/Léon_Gambetta, sim: 0.814) -> (http://zh.dbpedia.org/resource/亨利·布里松, http://dbpedia.org/resource/Henri_Brisson, sim: 0.814)
+(http://zh.dbpedia.org/resource/Maxwell's_Silver_Hammer, http://dbpedia.org/resource/Carry_That_Weight, sim: 0.736) -> (http://zh.dbpedia.org/resource/Maxwell's_Silver_Hammer, http://dbpedia.org/resource/Maxwell's_Silver_Hammer, sim: 0.711)
+(http://zh.dbpedia.org/resource/香港飛馬足球會, http://dbpedia.org/resource/Tai_Po_FC, sim: 0.802) -> (http://zh.dbpedia.org/resource/香港飛馬足球會, http://dbpedia.org/resource/Hong_Kong_Pegasus_FC, sim: 0.828)
+(http://zh.dbpedia.org/resource/Ruby, http://dbpedia.org/resource/PHP, sim: 0.706) -> (http://zh.dbpedia.org/resource/Ruby, http://dbpedia.org/resource/Ruby_(programming_language), sim: 0.744)
+(http://zh.dbpedia.org/resource/南華足球隊, http://dbpedia.org/resource/Hong_Kong_Rangers_FC, sim: 0.777) -> (http://zh.dbpedia.org/resource/南華足球隊, http://dbpedia.org/resource/South_China_AA, sim: 0.810)
+(http://zh.dbpedia.org/resource/熟男有惑, http://dbpedia.org/resource/When_Lanes_Merge, sim: 0.727) -> (http://zh.dbpedia.org/resource/熟男有惑, http://dbpedia.org/resource/Awfully_Lawful, sim: 0.674)
+==========
+after force right (delete), right alignment: 172/172=1.000
+mwgm costs time: 0.086 s
+selecting potential alignment costs time: 3.432 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 180/180=1.000
+after editing (->), right alignment: 180/180=1.000
+newly triples: 2773, 4111
+alignment_loss = 1.540, time = 0.060 s
+generating neighbors of 38960 entities costs 26.257 s.
+
+iteration 3
+epoch 21, avg. triple loss: 1.1205, cost time: 11.0197s
+epoch 22, avg. triple loss: 1.1018, cost time: 9.9913s
+epoch 23, avg. triple loss: 1.0844, cost time: 10.9568s
+epoch 24, avg. triple loss: 1.0689, cost time: 10.4573s
+epoch 25, avg. triple loss: 1.0546, cost time: 10.4305s
+epoch 26, avg. triple loss: 1.0413, cost time: 10.1337s
+epoch 27, avg. triple loss: 1.0289, cost time: 10.1828s
+epoch 28, avg. triple loss: 1.0175, cost time: 10.3942s
+epoch 29, avg. triple loss: 1.0063, cost time: 9.2398s
+epoch 30, avg. triple loss: 0.9956, cost time: 8.9989s
+after filtering by sim threshold, right alignment: 844/3882=0.217
+after filtering by sim and nearest k, right alignment: 838/3333=0.251
+graph via graph_tool <Graph object, directed, with 2221 vertices and 3333 edges at 0x7fbbfe7d02e8>
+after mwgm, right alignment: 535/908=0.589
+========== worng alignment
+(http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Tomb_Raider, sim: 0.759) -> (http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Resident_Evil, sim: 0.876)
+(http://zh.dbpedia.org/resource/塞尔维亚语, http://dbpedia.org/resource/Serbo-Croatian, sim: 0.713) -> (http://zh.dbpedia.org/resource/塞尔维亚语, http://dbpedia.org/resource/Serbian_language, sim: 0.598)
+(http://zh.dbpedia.org/resource/奥斯丁·张伯伦, http://dbpedia.org/resource/James_Gascoyne-Cecil,_4th_Marquess_of_Salisbury, sim: 0.742) -> (http://zh.dbpedia.org/resource/奥斯丁·张伯伦, http://dbpedia.org/resource/Austen_Chamberlain, sim: 0.852)
+(http://zh.dbpedia.org/resource/埃马努埃莱·吉亚切里尼, http://dbpedia.org/resource/Ciro_Immobile, sim: 0.723) -> (http://zh.dbpedia.org/resource/埃马努埃莱·吉亚切里尼, http://dbpedia.org/resource/Emanuele_Giaccherini, sim: 0.599)
+(http://zh.dbpedia.org/resource/李健和, http://dbpedia.org/resource/Cheng_Siu_Wai, sim: 0.740) -> (http://zh.dbpedia.org/resource/李健和, http://dbpedia.org/resource/Lee_Kin_Wo, sim: 0.725)
+(http://zh.dbpedia.org/resource/IPhone_5, http://dbpedia.org/resource/IPhone_4, sim: 0.748) -> (http://zh.dbpedia.org/resource/IPhone_5, http://dbpedia.org/resource/IPhone_5, sim: 0.649)
+(http://zh.dbpedia.org/resource/法圖拉汗·阿克巴爾, http://dbpedia.org/resource/Mirza_Nasrullah_Khan, sim: 0.749) -> (http://zh.dbpedia.org/resource/法圖拉汗·阿克巴爾, http://dbpedia.org/resource/Fathollah_Khan_Akbar, sim: 0.703)
+(http://zh.dbpedia.org/resource/哈羅德·麥美倫, http://dbpedia.org/resource/Anthony_Eden, sim: 0.873) -> (http://zh.dbpedia.org/resource/哈羅德·麥美倫, http://dbpedia.org/resource/Harold_Macmillan, sim: 0.880)
+(http://zh.dbpedia.org/resource/Modula-3, http://dbpedia.org/resource/Object_Pascal, sim: 0.731) -> (http://zh.dbpedia.org/resource/Modula-3, http://dbpedia.org/resource/Modula-3, sim: 0.751)
+(http://zh.dbpedia.org/resource/乌戈·阿尔梅达, http://dbpedia.org/resource/Vieirinha, sim: 0.803) -> (http://zh.dbpedia.org/resource/乌戈·阿尔梅达, http://dbpedia.org/resource/Hugo_Almeida, sim: 0.765)
+==========
+after force right (delete), right alignment: 535/535=1.000
+mwgm costs time: 0.499 s
+selecting potential alignment costs time: 4.253 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 609/609=1.000
+after editing (->), right alignment: 609/609=1.000
+newly triples: 9662, 13604
+alignment_loss = 1.434, time = 0.050 s
+generating neighbors of 38960 entities costs 24.722 s.
+
+iteration 4
+epoch 31, avg. triple loss: 1.0022, cost time: 10.1924s
+epoch 32, avg. triple loss: 0.9897, cost time: 10.3853s
+epoch 33, avg. triple loss: 0.9791, cost time: 10.4005s
+epoch 34, avg. triple loss: 0.9704, cost time: 9.4479s
+epoch 35, avg. triple loss: 0.9620, cost time: 10.8424s
+epoch 36, avg. triple loss: 0.9543, cost time: 9.8294s
+epoch 37, avg. triple loss: 0.9473, cost time: 10.9471s
+epoch 38, avg. triple loss: 0.9406, cost time: 10.2652s
+epoch 39, avg. triple loss: 0.9344, cost time: 11.1928s
+epoch 40, avg. triple loss: 0.9281, cost time: 10.2355s
+after filtering by sim threshold, right alignment: 1669/15543=0.107
+after filtering by sim and nearest k, right alignment: 1623/9428=0.172
+graph via graph_tool <Graph object, directed, with 4401 vertices and 9428 edges at 0x7fbbfe7bf9b0>
+after mwgm, right alignment: 935/1778=0.526
+========== worng alignment
+(http://zh.dbpedia.org/resource/达拉斯小牛, http://dbpedia.org/resource/Milwaukee_Bucks, sim: 0.717) -> (http://zh.dbpedia.org/resource/达拉斯小牛, http://dbpedia.org/resource/Dallas_Mavericks, sim: 0.858)
+(http://zh.dbpedia.org/resource/安東尼·艾登, http://dbpedia.org/resource/Winston_Churchill, sim: 0.870) -> (http://zh.dbpedia.org/resource/安東尼·艾登, http://dbpedia.org/resource/Anthony_Eden, sim: 0.869)
+(http://zh.dbpedia.org/resource/游錫堃, http://dbpedia.org/resource/Wu_Nai-ren, sim: 0.816) -> (http://zh.dbpedia.org/resource/游錫堃, http://dbpedia.org/resource/Yu_Shyi-kun, sim: 0.945)
+(http://zh.dbpedia.org/resource/Modula-3, http://dbpedia.org/resource/Object_Pascal, sim: 0.806) -> (http://zh.dbpedia.org/resource/Modula-3, http://dbpedia.org/resource/Modula-3, sim: 0.815)
+(http://zh.dbpedia.org/resource/域陀·華迪斯, http://dbpedia.org/resource/Pepe_Reina, sim: 0.703) -> (http://zh.dbpedia.org/resource/域陀·華迪斯, http://dbpedia.org/resource/Víctor_Valdés, sim: 0.754)
+(http://zh.dbpedia.org/resource/戴理德, http://dbpedia.org/resource/John_Reid,_Baron_Reid_of_Cardowan, sim: 0.837) -> (http://zh.dbpedia.org/resource/戴理德, http://dbpedia.org/resource/Alistair_Darling, sim: 0.940)
+(http://zh.dbpedia.org/resource/Super_Girl_(KARA專輯), http://dbpedia.org/resource/Jet_Coaster_Love, sim: 0.770) -> (http://zh.dbpedia.org/resource/Super_Girl_(KARA專輯), http://dbpedia.org/resource/Super_Girl_(Kara_album), sim: 0.741)
+(http://zh.dbpedia.org/resource/京都不死鳥F.C., http://dbpedia.org/resource/Tokyo_Verdy, sim: 0.762) -> (http://zh.dbpedia.org/resource/京都不死鳥F.C., http://dbpedia.org/resource/Kyoto_Sanga_F.C., sim: 0.804)
+(http://zh.dbpedia.org/resource/亨利·甘貝爾-班納曼, http://dbpedia.org/resource/Archibald_Primrose,_5th_Earl_of_Rosebery, sim: 0.844) -> (http://zh.dbpedia.org/resource/亨利·甘貝爾-班納曼, http://dbpedia.org/resource/Henry_Campbell-Bannerman, sim: 0.940)
+(http://zh.dbpedia.org/resource/穆罕默德六世_(奥斯曼帝国), http://dbpedia.org/resource/Mehmed_V, sim: 0.700) -> (http://zh.dbpedia.org/resource/穆罕默德六世_(奥斯曼帝国), http://dbpedia.org/resource/Mehmed_VI, sim: 0.642)
+==========
+after force right (delete), right alignment: 935/935=1.000
+mwgm costs time: 0.905 s
+selecting potential alignment costs time: 9.628 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1184/1184=1.000
+after editing (->), right alignment: 1184/1184=1.000
+newly triples: 18053, 24752
+alignment_loss = 1.329, time = 0.198 s
+generating neighbors of 38960 entities costs 25.033 s.
+
+iteration 5
+epoch 41, avg. triple loss: 0.9371, cost time: 9.6160s
+epoch 42, avg. triple loss: 0.9262, cost time: 9.0362s
+epoch 43, avg. triple loss: 0.9189, cost time: 8.7846s
+epoch 44, avg. triple loss: 0.9128, cost time: 9.7439s
+epoch 45, avg. triple loss: 0.9075, cost time: 9.5196s
+epoch 46, avg. triple loss: 0.9026, cost time: 9.1071s
+epoch 47, avg. triple loss: 0.8978, cost time: 10.1722s
+epoch 48, avg. triple loss: 0.8927, cost time: 9.7661s
+epoch 49, avg. triple loss: 0.8891, cost time: 8.7671s
+epoch 50, avg. triple loss: 0.8848, cost time: 9.3663s
+after filtering by sim threshold, right alignment: 2577/36071=0.071
+after filtering by sim and nearest k, right alignment: 2442/17323=0.141
+graph via graph_tool <Graph object, directed, with 6626 vertices and 17323 edges at 0x7fba9fb17e10>
+after mwgm, right alignment: 1335/2678=0.499
+========== worng alignment
+(http://zh.dbpedia.org/resource/爆音Dance!, http://dbpedia.org/resource/Campus_Life_(Umarete_Kite_Yokatta), sim: 0.870) -> (http://zh.dbpedia.org/resource/爆音Dance!, http://dbpedia.org/resource/Dance_de_Bakōn!, sim: 0.907)
+(http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Shōso_Strip, sim: 0.737) -> (http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Adult_(album), sim: 0.785)
+(http://zh.dbpedia.org/resource/潘耀焯, http://dbpedia.org/resource/Tsang_Chi_Hau, sim: 0.824) -> (http://zh.dbpedia.org/resource/潘耀焯, http://dbpedia.org/resource/Poon_Yiu_Cheuk, sim: 0.787)
+(http://zh.dbpedia.org/resource/努尔哈赤, http://dbpedia.org/resource/Lady_Abahai, sim: 0.753) -> (http://zh.dbpedia.org/resource/努尔哈赤, http://dbpedia.org/resource/Nurhaci, sim: 0.844)
+(http://zh.dbpedia.org/resource/保羅·基廷, http://dbpedia.org/resource/Peter_Costello, sim: 0.748) -> (http://zh.dbpedia.org/resource/保羅·基廷, http://dbpedia.org/resource/Paul_Keating, sim: 0.727)
+(http://zh.dbpedia.org/resource/Can_We_Go_Back, http://dbpedia.org/resource/Taboo_(Kumi_Koda_song), sim: 0.741) -> (http://zh.dbpedia.org/resource/Can_We_Go_Back, http://dbpedia.org/resource/Can_We_Go_Back, sim: 0.751)
+(http://zh.dbpedia.org/resource/京都不死鳥F.C., http://dbpedia.org/resource/Tokyo_Verdy, sim: 0.839) -> (http://zh.dbpedia.org/resource/京都不死鳥F.C., http://dbpedia.org/resource/Kyoto_Sanga_F.C., sim: 0.866)
+(http://zh.dbpedia.org/resource/摩尔甘·德·桑克蒂斯, http://dbpedia.org/resource/Christian_Maggio, sim: 0.770) -> (http://zh.dbpedia.org/resource/摩尔甘·德·桑克蒂斯, http://dbpedia.org/resource/Morgan_De_Sanctis, sim: 0.753)
+(http://zh.dbpedia.org/resource/HIStory:_Past,_Present_and_Future,_Book_I, http://dbpedia.org/resource/Michael_Jackson's_This_Is_It_(album), sim: 0.861) -> (http://zh.dbpedia.org/resource/HIStory:_Past,_Present_and_Future,_Book_I, http://dbpedia.org/resource/HIStory:_Past,_Present_and_Future,_Book_I, sim: 0.932)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.709) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.692)
+==========
+after force right (delete), right alignment: 1335/1335=1.000
+mwgm costs time: 2.166 s
+selecting potential alignment costs time: 7.253 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 1816/1816=1.000
+after editing (->), right alignment: 1816/1816=1.000
+newly triples: 25853, 35078
+alignment_loss = 1.268, time = 0.220 s
+generating neighbors of 38960 entities costs 27.827 s.
+
+iteration 6
+epoch 51, avg. triple loss: 0.8948, cost time: 8.8246s
+epoch 52, avg. triple loss: 0.8867, cost time: 8.8983s
+epoch 53, avg. triple loss: 0.8806, cost time: 9.1368s
+epoch 54, avg. triple loss: 0.8758, cost time: 9.5296s
+epoch 55, avg. triple loss: 0.8723, cost time: 10.0171s
+epoch 56, avg. triple loss: 0.8682, cost time: 8.9913s
+epoch 57, avg. triple loss: 0.8652, cost time: 9.9442s
+epoch 58, avg. triple loss: 0.8618, cost time: 9.6839s
+epoch 59, avg. triple loss: 0.8587, cost time: 9.0141s
+epoch 60, avg. triple loss: 0.8556, cost time: 8.9708s
+after filtering by sim threshold, right alignment: 3401/60540=0.056
+after filtering by sim and nearest k, right alignment: 3190/25184=0.127
+graph via graph_tool <Graph object, directed, with 8527 vertices and 25184 edges at 0x7fb958b87e48>
+after mwgm, right alignment: 1713/3482=0.492
+========== worng alignment
+(http://zh.dbpedia.org/resource/柱谷哲二, http://dbpedia.org/resource/Takahiro_Ogihara, sim: 0.792) -> (http://zh.dbpedia.org/resource/柱谷哲二, http://dbpedia.org/resource/Tetsuji_Hashiratani, sim: 0.734)
+(http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/José_Luis_Rodríguez_Zapatero, sim: 0.748) -> (http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/Pedro_Sánchez_(Spanish_politician), sim: 0.755)
+(http://zh.dbpedia.org/resource/安東尼·艾登, http://dbpedia.org/resource/Winston_Churchill, sim: 0.953) -> (http://zh.dbpedia.org/resource/安東尼·艾登, http://dbpedia.org/resource/Anthony_Eden, sim: 0.946)
+(http://zh.dbpedia.org/resource/阿拉贡语, http://dbpedia.org/resource/Anglo-Norman_language, sim: 0.792) -> (http://zh.dbpedia.org/resource/阿拉贡语, http://dbpedia.org/resource/Aragonese_language, sim: 0.705)
+(http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Shōso_Strip, sim: 0.787) -> (http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Adult_(album), sim: 0.835)
+(http://zh.dbpedia.org/resource/GNU_Hurd, http://dbpedia.org/resource/Dpkg, sim: 0.729) -> (http://zh.dbpedia.org/resource/GNU_Hurd, http://dbpedia.org/resource/GNU_Hurd, sim: 0.813)
+(http://zh.dbpedia.org/resource/A·RA·SHI, http://dbpedia.org/resource/Arashi_Single_Collection_1999–2001, sim: 0.706) -> (http://zh.dbpedia.org/resource/A·RA·SHI, http://dbpedia.org/resource/Arashi_(song), sim: 0.607)
+(http://zh.dbpedia.org/resource/小淵優子, http://dbpedia.org/resource/Yōko_Kamikawa, sim: 0.760) -> (http://zh.dbpedia.org/resource/小淵優子, http://dbpedia.org/resource/Yūko_Obuchi, sim: 0.434)
+(http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Herbert_Hoover, sim: 0.869) -> (http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Woodrow_Wilson, sim: 0.979)
+(http://zh.dbpedia.org/resource/Polythene_Pam, http://dbpedia.org/resource/You_Never_Give_Me_Your_Money, sim: 0.933) -> (http://zh.dbpedia.org/resource/Polythene_Pam, http://dbpedia.org/resource/Polythene_Pam, sim: 0.931)
+==========
+after force right (delete), right alignment: 1713/1713=1.000
+mwgm costs time: 2.050 s
+selecting potential alignment costs time: 6.724 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 2453/2453=1.000
+after editing (->), right alignment: 2453/2453=1.000
+newly triples: 33794, 46110
+alignment_loss = 1.231, time = 0.259 s
+generating neighbors of 38960 entities costs 27.047 s.
+
+iteration 7
+epoch 61, avg. triple loss: 0.8675, cost time: 10.1169s
+epoch 62, avg. triple loss: 0.8601, cost time: 9.6546s
+epoch 63, avg. triple loss: 0.8541, cost time: 9.2991s
+epoch 64, avg. triple loss: 0.8507, cost time: 10.1104s
+epoch 65, avg. triple loss: 0.8474, cost time: 9.3627s
+epoch 66, avg. triple loss: 0.8449, cost time: 9.8478s
+epoch 67, avg. triple loss: 0.8418, cost time: 9.9209s
+epoch 68, avg. triple loss: 0.8400, cost time: 9.4040s
+epoch 69, avg. triple loss: 0.8372, cost time: 9.8787s
+epoch 70, avg. triple loss: 0.8348, cost time: 9.6385s
+after filtering by sim threshold, right alignment: 4172/85793=0.049
+after filtering by sim and nearest k, right alignment: 3867/32324=0.120
+graph via graph_tool <Graph object, directed, with 10151 vertices and 32324 edges at 0x7fba940a9f28>
+after mwgm, right alignment: 2136/4176=0.511
+========== worng alignment
+(http://zh.dbpedia.org/resource/斯坦利·马修斯, http://dbpedia.org/resource/Kevin_Davies, sim: 0.725) -> (http://zh.dbpedia.org/resource/斯坦利·马修斯, http://dbpedia.org/resource/Stanley_Matthews, sim: 0.647)
+(http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/José_Luis_Rodríguez_Zapatero, sim: 0.790) -> (http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/Pedro_Sánchez_(Spanish_politician), sim: 0.798)
+(http://zh.dbpedia.org/resource/GNU_Hurd, http://dbpedia.org/resource/Dpkg, sim: 0.764) -> (http://zh.dbpedia.org/resource/GNU_Hurd, http://dbpedia.org/resource/GNU_Hurd, sim: 0.864)
+(http://zh.dbpedia.org/resource/A·RA·SHI, http://dbpedia.org/resource/Arashi_Single_Collection_1999–2001, sim: 0.741) -> (http://zh.dbpedia.org/resource/A·RA·SHI, http://dbpedia.org/resource/Arashi_(song), sim: 0.647)
+(http://zh.dbpedia.org/resource/麦加帝斯, http://dbpedia.org/resource/Lars_Ulrich, sim: 0.801) -> (http://zh.dbpedia.org/resource/麦加帝斯, http://dbpedia.org/resource/Megadeth, sim: 0.749)
+(http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Herbert_Hoover, sim: 0.880) -> (http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Woodrow_Wilson, sim: 0.983)
+(http://zh.dbpedia.org/resource/普雷尼-尚贝西, http://dbpedia.org/resource/Cologny, sim: 0.784) -> (http://zh.dbpedia.org/resource/普雷尼-尚贝西, http://dbpedia.org/resource/Pregny-Chambésy, sim: 0.632)
+(http://zh.dbpedia.org/resource/索迪里奧斯·卡治亞高斯, http://dbpedia.org/resource/Loukas_Vyntra, sim: 0.801) -> (http://zh.dbpedia.org/resource/索迪里奧斯·卡治亞高斯, http://dbpedia.org/resource/Sotirios_Kyrgiakos, sim: 0.811)
+(http://zh.dbpedia.org/resource/埃德蒙·伦道夫, http://dbpedia.org/resource/Alexander_Hamilton, sim: 0.758) -> (http://zh.dbpedia.org/resource/埃德蒙·伦道夫, http://dbpedia.org/resource/Edmund_Randolph, sim: 0.848)
+(http://zh.dbpedia.org/resource/域陀·華迪斯, http://dbpedia.org/resource/Pepe_Reina, sim: 0.872) -> (http://zh.dbpedia.org/resource/域陀·華迪斯, http://dbpedia.org/resource/Víctor_Valdés, sim: 0.935)
+==========
+after force right (delete), right alignment: 2136/2136=1.000
+mwgm costs time: 2.473 s
+selecting potential alignment costs time: 8.295 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3044/3044=1.000
+after editing (->), right alignment: 3044/3044=1.000
+newly triples: 39716, 54733
+alignment_loss = 1.199, time = 0.280 s
+generating neighbors of 38960 entities costs 26.312 s.
+
+iteration 8
+epoch 71, avg. triple loss: 0.8471, cost time: 9.1589s
+epoch 72, avg. triple loss: 0.8403, cost time: 9.3783s
+epoch 73, avg. triple loss: 0.8352, cost time: 9.3694s
+epoch 74, avg. triple loss: 0.8322, cost time: 10.1670s
+epoch 75, avg. triple loss: 0.8295, cost time: 9.6239s
+epoch 76, avg. triple loss: 0.8277, cost time: 8.4058s
+epoch 77, avg. triple loss: 0.8249, cost time: 9.0611s
+epoch 78, avg. triple loss: 0.8226, cost time: 8.7521s
+epoch 79, avg. triple loss: 0.8213, cost time: 9.0814s
+epoch 80, avg. triple loss: 0.8193, cost time: 8.8776s
+after filtering by sim threshold, right alignment: 4841/108593=0.045
+after filtering by sim and nearest k, right alignment: 4447/38820=0.115
+graph via graph_tool <Graph object, directed, with 11545 vertices and 38820 edges at 0x7fbbfe7bfb38>
+after mwgm, right alignment: 2417/4826=0.501
+========== worng alignment
+(http://zh.dbpedia.org/resource/第三代比特伯爵約翰·斯圖爾特, http://dbpedia.org/resource/Spencer_Compton,_1st_Earl_of_Wilmington, sim: 0.759) -> (http://zh.dbpedia.org/resource/第三代比特伯爵約翰·斯圖爾特, http://dbpedia.org/resource/John_Stuart,_3rd_Earl_of_Bute, sim: 0.801)
+(http://zh.dbpedia.org/resource/中山慶子, http://dbpedia.org/resource/Empress_Shōken, sim: 0.715) -> (http://zh.dbpedia.org/resource/中山慶子, http://dbpedia.org/resource/Nakayama_Yoshiko, sim: 0.853)
+(http://zh.dbpedia.org/resource/阿拉贡语, http://dbpedia.org/resource/Anglo-Norman_language, sim: 0.836) -> (http://zh.dbpedia.org/resource/阿拉贡语, http://dbpedia.org/resource/Aragonese_language, sim: 0.776)
+(http://zh.dbpedia.org/resource/阿德米爾·邁赫邁迪, http://dbpedia.org/resource/Johan_Djourou, sim: 0.798) -> (http://zh.dbpedia.org/resource/阿德米爾·邁赫邁迪, http://dbpedia.org/resource/Admir_Mehmedi, sim: 0.958)
+(http://zh.dbpedia.org/resource/加利·尼維利, http://dbpedia.org/resource/Luke_Shaw, sim: 0.853) -> (http://zh.dbpedia.org/resource/加利·尼維利, http://dbpedia.org/resource/Gary_Neville, sim: 0.810)
+(http://zh.dbpedia.org/resource/保羅·費拉拿, http://dbpedia.org/resource/Vieirinha, sim: 0.903) -> (http://zh.dbpedia.org/resource/保羅·費拉拿, http://dbpedia.org/resource/Paulo_Ferreira, sim: 0.840)
+(http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Shōso_Strip, sim: 0.849) -> (http://zh.dbpedia.org/resource/大人_(專輯), http://dbpedia.org/resource/Adult_(album), sim: 0.888)
+(http://zh.dbpedia.org/resource/麦加帝斯, http://dbpedia.org/resource/Lars_Ulrich, sim: 0.841) -> (http://zh.dbpedia.org/resource/麦加帝斯, http://dbpedia.org/resource/Megadeth, sim: 0.798)
+(http://zh.dbpedia.org/resource/陳亮鏞, http://dbpedia.org/resource/Joey_Barton, sim: 0.847) -> (http://zh.dbpedia.org/resource/陳亮鏞, http://dbpedia.org/resource/Mick_Channon, sim: 0.870)
+(http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Herbert_Hoover, sim: 0.893) -> (http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Woodrow_Wilson, sim: 0.984)
+==========
+after force right (delete), right alignment: 2417/2417=1.000
+mwgm costs time: 3.989 s
+selecting potential alignment costs time: 7.742 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 3628/3628=1.000
+after editing (->), right alignment: 3628/3628=1.000
+newly triples: 45409, 62089
+alignment_loss = 1.176, time = 0.236 s
+generating neighbors of 38960 entities costs 30.613 s.
+
+iteration 9
+epoch 81, avg. triple loss: 0.8311, cost time: 8.6711s
+epoch 82, avg. triple loss: 0.8257, cost time: 9.1150s
+epoch 83, avg. triple loss: 0.8217, cost time: 10.9545s
+epoch 84, avg. triple loss: 0.8188, cost time: 9.1235s
+epoch 85, avg. triple loss: 0.8165, cost time: 8.8756s
+epoch 86, avg. triple loss: 0.8136, cost time: 9.3012s
+epoch 87, avg. triple loss: 0.8119, cost time: 9.7483s
+epoch 88, avg. triple loss: 0.8111, cost time: 9.0388s
+epoch 89, avg. triple loss: 0.8097, cost time: 8.6700s
+epoch 90, avg. triple loss: 0.8079, cost time: 9.0669s
+after filtering by sim threshold, right alignment: 5396/129014=0.042
+after filtering by sim and nearest k, right alignment: 4928/44464=0.111
+graph via graph_tool <Graph object, directed, with 12775 vertices and 44464 edges at 0x7fbbfe7d02e8>
+after mwgm, right alignment: 2760/5360=0.515
+========== worng alignment
+(http://zh.dbpedia.org/resource/斯坦利·马修斯, http://dbpedia.org/resource/Kevin_Davies, sim: 0.791) -> (http://zh.dbpedia.org/resource/斯坦利·马修斯, http://dbpedia.org/resource/Stanley_Matthews, sim: 0.760)
+(http://zh.dbpedia.org/resource/平成風俗, http://dbpedia.org/resource/Kōfukuron, sim: 0.834) -> (http://zh.dbpedia.org/resource/平成風俗, http://dbpedia.org/resource/Heisei_Fūzoku, sim: 0.602)
+(http://zh.dbpedia.org/resource/混乱天堂_(专辑), http://dbpedia.org/resource/Oops!..._I_Did_It_Again_(album), sim: 0.857) -> (http://zh.dbpedia.org/resource/混乱天堂_(专辑), http://dbpedia.org/resource/Britney_&_Kevin:_Chaotic_(EP), sim: 0.789)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.714) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.379)
+(http://zh.dbpedia.org/resource/迪迪亚尔·比尔亚莱特迪诺夫, http://dbpedia.org/resource/Alan_Dzagoev, sim: 0.791) -> (http://zh.dbpedia.org/resource/迪迪亚尔·比尔亚莱特迪诺夫, http://dbpedia.org/resource/Diniyar_Bilyaletdinov, sim: 0.854)
+(http://zh.dbpedia.org/resource/伊斯兰革命卫队, http://dbpedia.org/resource/Esfandiar_Rahim_Mashaei, sim: 0.718) -> (http://zh.dbpedia.org/resource/伊斯兰革命卫队, http://dbpedia.org/resource/Army_of_the_Guardians_of_the_Islamic_Revolution, sim: 0.553)
+(http://zh.dbpedia.org/resource/蔚山現代足球俱樂部, http://dbpedia.org/resource/Busan_IPark, sim: 0.921) -> (http://zh.dbpedia.org/resource/蔚山現代足球俱樂部, http://dbpedia.org/resource/Ulsan_Hyundai_FC, sim: 0.976)
+(http://zh.dbpedia.org/resource/弗朗西斯科·德·保拉·罗德里格斯·阿尔维斯, http://dbpedia.org/resource/Hermes_da_Fonseca, sim: 0.968) -> (http://zh.dbpedia.org/resource/弗朗西斯科·德·保拉·罗德里格斯·阿尔维斯, http://dbpedia.org/resource/Francisco_de_Paula_Rodrigues_Alves, sim: 0.990)
+(http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Herbert_Hoover, sim: 0.902) -> (http://zh.dbpedia.org/resource/伍德罗·威尔逊, http://dbpedia.org/resource/Woodrow_Wilson, sim: 0.985)
+(http://zh.dbpedia.org/resource/過度保護, http://dbpedia.org/resource/(You_Drive_Me)_Crazy, sim: 0.888) -> (http://zh.dbpedia.org/resource/過度保護, http://dbpedia.org/resource/Overprotected, sim: 0.864)
+==========
+after force right (delete), right alignment: 2760/2760=1.000
+mwgm costs time: 4.576 s
+selecting potential alignment costs time: 8.373 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 4132/4132=1.000
+after editing (->), right alignment: 4132/4132=1.000
+newly triples: 51204, 69174
+alignment_loss = 1.164, time = 0.467 s
+generating neighbors of 38960 entities costs 25.074 s.
+
+iteration 10
+epoch 91, avg. triple loss: 0.8202, cost time: 9.1555s
+epoch 92, avg. triple loss: 0.8151, cost time: 10.5530s
+epoch 93, avg. triple loss: 0.8111, cost time: 8.5211s
+epoch 94, avg. triple loss: 0.8080, cost time: 9.1727s
+epoch 95, avg. triple loss: 0.8058, cost time: 9.7020s
+epoch 96, avg. triple loss: 0.8046, cost time: 9.7775s
+epoch 97, avg. triple loss: 0.8033, cost time: 10.4361s
+epoch 98, avg. triple loss: 0.8010, cost time: 9.3320s
+epoch 99, avg. triple loss: 0.7998, cost time: 8.8167s
+epoch 100, avg. triple loss: 0.7986, cost time: 9.6450s
+quick results: hits@[1, 5, 10, 50] = [42.533 61.6   69.467 83.8  ]%, time = 1.379 s 
+after filtering by sim threshold, right alignment: 5881/147034=0.040
+after filtering by sim and nearest k, right alignment: 5395/49323=0.109
+graph via graph_tool <Graph object, directed, with 13756 vertices and 49323 edges at 0x7fb931a24fd0>
+after mwgm, right alignment: 3049/5829=0.523
+========== worng alignment
+(http://zh.dbpedia.org/resource/博莱斯瓦夫·贝鲁特, http://dbpedia.org/resource/Czesław_Kiszczak, sim: 0.748) -> (http://zh.dbpedia.org/resource/博莱斯瓦夫·贝鲁特, http://dbpedia.org/resource/Bolesław_Bierut, sim: 0.682)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.728) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.925)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.754) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.426)
+(http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_2), sim: 0.739) -> (http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_4), sim: 0.965)
+(http://zh.dbpedia.org/resource/CH-47直升機, http://dbpedia.org/resource/Bell_206, sim: 0.773) -> (http://zh.dbpedia.org/resource/CH-47直升機, http://dbpedia.org/resource/Boeing_CH-47_Chinook, sim: 0.895)
+(http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Taiyo_Sentai_Sun_Vulcan, sim: 0.959) -> (http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Dai_Sentai_Goggle-V, sim: 0.955)
+(http://zh.dbpedia.org/resource/坎加斯德奥尼斯, http://dbpedia.org/resource/Écija, sim: 0.712) -> (http://zh.dbpedia.org/resource/坎加斯德奥尼斯, http://dbpedia.org/resource/Cangas_de_Onís, sim: 0.734)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.946) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.920)
+(http://zh.dbpedia.org/resource/索拉勒, http://dbpedia.org/resource/Satigny, sim: 0.787) -> (http://zh.dbpedia.org/resource/索拉勒, http://dbpedia.org/resource/Soral, sim: 0.984)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.897) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.886)
+==========
+after force right (delete), right alignment: 3049/3049=1.000
+mwgm costs time: 4.002 s
+selecting potential alignment costs time: 6.988 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 4581/4581=1.000
+after editing (->), right alignment: 4581/4581=1.000
+newly triples: 55195, 75031
+alignment_loss = 1.150, time = 0.368 s
+quick results: hits@[1, 5, 10, 50] = [45.733 62.667 70.067 84.2  ]%, time = 1.811 s 
+generating neighbors of 38960 entities costs 28.732 s.
+
+iteration 11
+epoch 101, avg. triple loss: 0.8116, cost time: 8.6492s
+epoch 102, avg. triple loss: 0.8055, cost time: 9.8826s
+epoch 103, avg. triple loss: 0.8019, cost time: 8.9538s
+epoch 104, avg. triple loss: 0.8005, cost time: 8.8509s
+epoch 105, avg. triple loss: 0.7982, cost time: 8.5671s
+epoch 106, avg. triple loss: 0.7967, cost time: 9.2473s
+epoch 107, avg. triple loss: 0.7947, cost time: 9.3325s
+epoch 108, avg. triple loss: 0.7938, cost time: 9.4406s
+epoch 109, avg. triple loss: 0.7920, cost time: 9.3974s
+epoch 110, avg. triple loss: 0.7917, cost time: 9.7949s
+quick results: hits@[1, 5, 10, 50] = [45.667 63.267 71.8   84.933]%, time = 1.733 s 
+after filtering by sim threshold, right alignment: 6339/163110=0.039
+after filtering by sim and nearest k, right alignment: 5811/53555=0.109
+graph via graph_tool <Graph object, directed, with 14615 vertices and 53555 edges at 0x7fb929f60cf8>
+after mwgm, right alignment: 3356/6211=0.540
+========== worng alignment
+(http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_2), sim: 0.770) -> (http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_4), sim: 0.971)
+(http://zh.dbpedia.org/resource/寺內正毅, http://dbpedia.org/resource/Matsukata_Masayoshi, sim: 0.943) -> (http://zh.dbpedia.org/resource/寺內正毅, http://dbpedia.org/resource/Terauchi_Masatake, sim: 0.981)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.740) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.686)
+(http://zh.dbpedia.org/resource/GNU, http://dbpedia.org/resource/Advanced_Packaging_Tool, sim: 0.817) -> (http://zh.dbpedia.org/resource/GNU, http://dbpedia.org/resource/GNU, sim: 0.740)
+(http://zh.dbpedia.org/resource/This_Is_Love_(單曲), http://dbpedia.org/resource/Flavor_of_Life, sim: 0.911) -> (http://zh.dbpedia.org/resource/This_Is_Love_(單曲), http://dbpedia.org/resource/This_Is_Love_(Utada_Hikaru_song), sim: 0.830)
+(http://zh.dbpedia.org/resource/貝絲·杜魯門, http://dbpedia.org/resource/Warren_E._Burger, sim: 0.771) -> (http://zh.dbpedia.org/resource/貝絲·杜魯門, http://dbpedia.org/resource/Bess_Truman, sim: 0.763)
+(http://zh.dbpedia.org/resource/神童_(藝人), http://dbpedia.org/resource/Super_Junior-H, sim: 0.798) -> (http://zh.dbpedia.org/resource/神童_(藝人), http://dbpedia.org/resource/Shindong, sim: 0.725)
+(http://zh.dbpedia.org/resource/香港足球會, http://dbpedia.org/resource/Tai_Chung_FC, sim: 0.868) -> (http://zh.dbpedia.org/resource/香港足球會, http://dbpedia.org/resource/HKFC_Soccer_Section, sim: 0.340)
+(http://zh.dbpedia.org/resource/科斯塔斯·卡楚拉尼斯, http://dbpedia.org/resource/Dimitris_Salpingidis, sim: 0.895) -> (http://zh.dbpedia.org/resource/科斯塔斯·卡楚拉尼斯, http://dbpedia.org/resource/Kostas_Katsouranis, sim: 0.896)
+(http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Liu_Yandong, sim: 0.961) -> (http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Li_Yuanchao, sim: 0.926)
+==========
+after force right (delete), right alignment: 3356/3356=1.000
+mwgm costs time: 4.953 s
+selecting potential alignment costs time: 8.453 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 4993/4993=1.000
+after editing (->), right alignment: 4993/4993=1.000
+newly triples: 58700, 80543
+alignment_loss = 1.139, time = 0.283 s
+quick results: hits@[1, 5, 10, 50] = [48.4   64.6   71.933 85.333]%, time = 2.838 s 
+generating neighbors of 38960 entities costs 26.497 s.
+
+iteration 12
+epoch 111, avg. triple loss: 0.8036, cost time: 9.0367s
+epoch 112, avg. triple loss: 0.7987, cost time: 8.3651s
+epoch 113, avg. triple loss: 0.7955, cost time: 9.3582s
+epoch 114, avg. triple loss: 0.7942, cost time: 8.3357s
+epoch 115, avg. triple loss: 0.7917, cost time: 9.3809s
+epoch 116, avg. triple loss: 0.7895, cost time: 8.2445s
+epoch 117, avg. triple loss: 0.7887, cost time: 8.4263s
+epoch 118, avg. triple loss: 0.7868, cost time: 8.6608s
+epoch 119, avg. triple loss: 0.7866, cost time: 9.0396s
+epoch 120, avg. triple loss: 0.7851, cost time: 9.7414s
+quick results: hits@[1, 5, 10, 50] = [48.    65.133 73.4   85.6  ]%, time = 2.639 s 
+after filtering by sim threshold, right alignment: 6700/177322=0.038
+after filtering by sim and nearest k, right alignment: 6155/57003=0.108
+graph via graph_tool <Graph object, directed, with 15312 vertices and 57003 edges at 0x7fba9fb08278>
+after mwgm, right alignment: 3720/6569=0.566
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.752) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.942)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.805) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.500)
+(http://zh.dbpedia.org/resource/Growing_of_my_heart, http://dbpedia.org/resource/Make_My_Day_(Mai_Kuraki_song), sim: 0.885) -> (http://zh.dbpedia.org/resource/Growing_of_my_heart, http://dbpedia.org/resource/Growing_of_My_Heart, sim: 0.714)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.860) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.706)
+(http://zh.dbpedia.org/resource/Qt, http://dbpedia.org/resource/Dpkg, sim: 0.830) -> (http://zh.dbpedia.org/resource/Qt, http://dbpedia.org/resource/Qt_(software), sim: 0.901)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.755) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.694)
+(http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Taiyo_Sentai_Sun_Vulcan, sim: 0.962) -> (http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Dai_Sentai_Goggle-V, sim: 0.959)
+(http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/Taiwanese_Americans, sim: 0.774) -> (http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/British_Chinese, sim: 0.567)
+(http://zh.dbpedia.org/resource/路易丝-伊丽莎白_(法国), http://dbpedia.org/resource/Louis_XV_of_France, sim: 0.780) -> (http://zh.dbpedia.org/resource/路易丝-伊丽莎白_(法国), http://dbpedia.org/resource/Louise_Élisabeth_of_France, sim: 0.779)
+(http://zh.dbpedia.org/resource/豐明市, http://dbpedia.org/resource/Toyokawa,_Aichi, sim: 0.787) -> (http://zh.dbpedia.org/resource/豐明市, http://dbpedia.org/resource/Toyoake,_Aichi, sim: 0.794)
+==========
+after force right (delete), right alignment: 3720/3720=1.000
+mwgm costs time: 5.723 s
+selecting potential alignment costs time: 10.059 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 5403/5403=1.000
+after editing (->), right alignment: 5403/5403=1.000
+newly triples: 62078, 85445
+alignment_loss = 1.132, time = 0.264 s
+quick results: hits@[1, 5, 10, 50] = [50.933 66.267 73.4   85.867]%, time = 1.543 s 
+generating neighbors of 38960 entities costs 26.394 s.
+
+iteration 13
+epoch 121, avg. triple loss: 0.7976, cost time: 8.2127s
+epoch 122, avg. triple loss: 0.7926, cost time: 8.4930s
+epoch 123, avg. triple loss: 0.7895, cost time: 8.4940s
+epoch 124, avg. triple loss: 0.7888, cost time: 8.0792s
+epoch 125, avg. triple loss: 0.7855, cost time: 8.8397s
+epoch 126, avg. triple loss: 0.7849, cost time: 8.5362s
+epoch 127, avg. triple loss: 0.7833, cost time: 9.0211s
+epoch 128, avg. triple loss: 0.7822, cost time: 9.7609s
+epoch 129, avg. triple loss: 0.7813, cost time: 8.4504s
+epoch 130, avg. triple loss: 0.7805, cost time: 8.4397s
+quick results: hits@[1, 5, 10, 50] = [49.933 66.8   74.133 86.2  ]%, time = 1.411 s 
+after filtering by sim threshold, right alignment: 7013/189917=0.037
+after filtering by sim and nearest k, right alignment: 6434/60027=0.107
+graph via graph_tool <Graph object, directed, with 15925 vertices and 60027 edges at 0x7fb92bc35d30>
+after mwgm, right alignment: 3914/6871=0.570
+========== worng alignment
+(http://zh.dbpedia.org/resource/約克區, http://dbpedia.org/resource/Ontario_Liberal_Party, sim: 0.710) -> (http://zh.dbpedia.org/resource/約克區, http://dbpedia.org/resource/Regional_Municipality_of_York, sim: 0.925)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.879) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.590)
+(http://zh.dbpedia.org/resource/爱情雷达, http://dbpedia.org/resource/(You_Drive_Me)_Crazy, sim: 0.951) -> (http://zh.dbpedia.org/resource/爱情雷达, http://dbpedia.org/resource/Radar_(song), sim: 0.968)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.952) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.941)
+(http://zh.dbpedia.org/resource/舟山市, http://dbpedia.org/resource/Haishu_District, sim: 0.718) -> (http://zh.dbpedia.org/resource/舟山市, http://dbpedia.org/resource/Zhoushan, sim: 0.548)
+(http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/Taiwanese_Americans, sim: 0.796) -> (http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/British_Chinese, sim: 0.619)
+(http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/Toxic_(song), sim: 0.974) -> (http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/From_the_Bottom_of_My_Broken_Heart, sim: 0.984)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.704) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.917)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.987) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.985)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.906) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.948)
+==========
+after force right (delete), right alignment: 3914/3914=1.000
+mwgm costs time: 6.245 s
+selecting potential alignment costs time: 10.075 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 5753/5753=1.000
+after editing (->), right alignment: 5753/5753=1.000
+newly triples: 64782, 89582
+alignment_loss = 1.125, time = 0.409 s
+quick results: hits@[1, 5, 10, 50] = [52.533 67.867 75.    86.6  ]%, time = 1.570 s 
+generating neighbors of 38960 entities costs 24.792 s.
+
+iteration 14
+epoch 131, avg. triple loss: 0.7926, cost time: 9.3091s
+epoch 132, avg. triple loss: 0.7884, cost time: 8.7919s
+epoch 133, avg. triple loss: 0.7849, cost time: 8.5743s
+epoch 134, avg. triple loss: 0.7834, cost time: 8.8410s
+epoch 135, avg. triple loss: 0.7815, cost time: 8.5037s
+epoch 136, avg. triple loss: 0.7804, cost time: 9.6875s
+epoch 137, avg. triple loss: 0.7790, cost time: 8.1823s
+epoch 138, avg. triple loss: 0.7776, cost time: 8.5827s
+epoch 139, avg. triple loss: 0.7773, cost time: 7.9731s
+epoch 140, avg. triple loss: 0.7755, cost time: 8.6741s
+quick results: hits@[1, 5, 10, 50] = [51.333 68.4   75.333 86.867]%, time = 1.178 s 
+after filtering by sim threshold, right alignment: 7253/200889=0.036
+after filtering by sim and nearest k, right alignment: 6668/62672=0.106
+graph via graph_tool <Graph object, directed, with 16425 vertices and 62672 edges at 0x7fb9293abef0>
+after mwgm, right alignment: 4100/7099=0.578
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.761) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.951)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.832) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.546)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.856) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.868)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.996) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.994)
+(http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Deus_Ex_(series), sim: 0.951) -> (http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Resident_Evil, sim: 0.988)
+(http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/Toxic_(song), sim: 0.978) -> (http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/From_the_Bottom_of_My_Broken_Heart, sim: 0.987)
+(http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Cruz_Azul, sim: 0.913) -> (http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Club_Universidad_Nacional, sim: 0.964)
+(http://zh.dbpedia.org/resource/伊萬·斯捷潘諾維奇·科涅夫, http://dbpedia.org/resource/Vasily_Sokolovsky, sim: 0.804) -> (http://zh.dbpedia.org/resource/伊萬·斯捷潘諾維奇·科涅夫, http://dbpedia.org/resource/Ivan_Konev, sim: 0.794)
+(http://zh.dbpedia.org/resource/金在中, http://dbpedia.org/resource/Kim_Junsu, sim: 0.890) -> (http://zh.dbpedia.org/resource/金在中, http://dbpedia.org/resource/Kim_Jae-joong, sim: 0.912)
+(http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lin_Chia-lung, sim: 0.883) -> (http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lee_Ying-yuan, sim: 0.922)
+==========
+after force right (delete), right alignment: 4100/4100=1.000
+mwgm costs time: 4.964 s
+selecting potential alignment costs time: 8.847 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6027/6027=1.000
+after editing (->), right alignment: 6027/6027=1.000
+newly triples: 66890, 92668
+alignment_loss = 1.118, time = 0.432 s
+quick results: hits@[1, 5, 10, 50] = [53.867 69.    75.8   87.2  ]%, time = 1.447 s 
+generating neighbors of 38960 entities costs 26.786 s.
+
+iteration 15
+epoch 141, avg. triple loss: 0.7879, cost time: 9.2228s
+epoch 142, avg. triple loss: 0.7836, cost time: 9.3555s
+epoch 143, avg. triple loss: 0.7812, cost time: 10.2712s
+epoch 144, avg. triple loss: 0.7799, cost time: 9.9944s
+epoch 145, avg. triple loss: 0.7781, cost time: 9.0782s
+epoch 146, avg. triple loss: 0.7757, cost time: 8.4746s
+epoch 147, avg. triple loss: 0.7755, cost time: 8.4650s
+epoch 148, avg. triple loss: 0.7745, cost time: 8.7705s
+epoch 149, avg. triple loss: 0.7736, cost time: 8.7281s
+epoch 150, avg. triple loss: 0.7727, cost time: 8.8062s
+quick results: hits@[1, 5, 10, 50] = [53.067 69.667 76.133 87.133]%, time = 3.014 s 
+after filtering by sim threshold, right alignment: 7492/210740=0.036
+after filtering by sim and nearest k, right alignment: 6883/65084=0.106
+graph via graph_tool <Graph object, directed, with 16858 vertices and 65084 edges at 0x7fba9fb08278>
+after mwgm, right alignment: 4390/7350=0.597
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.764) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.954)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.844) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.569)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.921) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.829)
+(http://zh.dbpedia.org/resource/CH-47直升機, http://dbpedia.org/resource/Bell_206, sim: 0.852) -> (http://zh.dbpedia.org/resource/CH-47直升機, http://dbpedia.org/resource/Boeing_CH-47_Chinook, sim: 0.952)
+(http://zh.dbpedia.org/resource/恩斯特·奥古斯特一世_(汉诺威), http://dbpedia.org/resource/William_IV_of_the_United_Kingdom, sim: 0.707) -> (http://zh.dbpedia.org/resource/恩斯特·奥古斯特一世_(汉诺威), http://dbpedia.org/resource/Ernest_Augustus_I_of_Hanover, sim: 0.740)
+(http://zh.dbpedia.org/resource/Jumping, http://dbpedia.org/resource/Mister_(song), sim: 0.880) -> (http://zh.dbpedia.org/resource/Jumping, http://dbpedia.org/resource/Jumping_(EP), sim: 0.754)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.713) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.375)
+(http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Ock_Joo-hyun, sim: 0.766) -> (http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Fin.K.L, sim: 0.897)
+(http://zh.dbpedia.org/resource/晟敏, http://dbpedia.org/resource/Super_Junior-T, sim: 0.868) -> (http://zh.dbpedia.org/resource/晟敏, http://dbpedia.org/resource/Lee_Sungmin, sim: 0.854)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.751) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.949)
+==========
+after force right (delete), right alignment: 4390/4390=1.000
+mwgm costs time: 4.927 s
+selecting potential alignment costs time: 8.122 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6270/6270=1.000
+after editing (->), right alignment: 6270/6270=1.000
+newly triples: 68771, 95788
+alignment_loss = 1.114, time = 0.532 s
+quick results: hits@[1, 5, 10, 50] = [55.467 70.267 76.667 87.667]%, time = 2.568 s 
+generating neighbors of 38960 entities costs 26.527 s.
+
+iteration 16
+epoch 151, avg. triple loss: 0.7841, cost time: 10.6086s
+epoch 152, avg. triple loss: 0.7803, cost time: 9.5594s
+epoch 153, avg. triple loss: 0.7769, cost time: 9.0891s
+epoch 154, avg. triple loss: 0.7752, cost time: 9.0454s
+epoch 155, avg. triple loss: 0.7747, cost time: 8.5239s
+epoch 156, avg. triple loss: 0.7730, cost time: 8.8489s
+epoch 157, avg. triple loss: 0.7708, cost time: 8.5238s
+epoch 158, avg. triple loss: 0.7707, cost time: 8.6846s
+epoch 159, avg. triple loss: 0.7708, cost time: 8.8730s
+epoch 160, avg. triple loss: 0.7687, cost time: 8.7038s
+quick results: hits@[1, 5, 10, 50] = [54.133 70.733 76.733 87.733]%, time = 1.897 s 
+after filtering by sim threshold, right alignment: 7708/219077=0.035
+after filtering by sim and nearest k, right alignment: 7078/67166=0.105
+graph via graph_tool <Graph object, directed, with 17272 vertices and 67166 edges at 0x7fb93854e630>
+after mwgm, right alignment: 4531/7534=0.601
+========== worng alignment
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.956) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.944)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.726) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.368)
+(http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Louisiana, sim: 0.889) -> (http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Mississippi, sim: 0.971)
+(http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Ock_Joo-hyun, sim: 0.768) -> (http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Fin.K.L, sim: 0.904)
+(http://zh.dbpedia.org/resource/提贝里乌斯, http://dbpedia.org/resource/Pope_Stephen_I, sim: 0.737) -> (http://zh.dbpedia.org/resource/提贝里乌斯, http://dbpedia.org/resource/Tiberius, sim: 0.706)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.990) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.989)
+(http://zh.dbpedia.org/resource/CHE.R.RY, http://dbpedia.org/resource/I_Remember_You_(Yui_song), sim: 0.974) -> (http://zh.dbpedia.org/resource/CHE.R.RY, http://dbpedia.org/resource/Cherry_(Yui_song), sim: 0.977)
+(http://zh.dbpedia.org/resource/T_(东方神起专辑), http://dbpedia.org/resource/DDD_(song), sim: 0.772) -> (http://zh.dbpedia.org/resource/T_(东方神起专辑), http://dbpedia.org/resource/T_(TVXQ_album), sim: 0.964)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.959) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.967)
+(http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Mirror's_Edge, sim: 0.988) -> (http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Dead_Space_(series), sim: 0.887)
+==========
+after force right (delete), right alignment: 4531/4531=1.000
+mwgm costs time: 6.989 s
+selecting potential alignment costs time: 11.640 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6501/6501=1.000
+after editing (->), right alignment: 6501/6501=1.000
+newly triples: 70465, 98166
+alignment_loss = 1.109, time = 0.420 s
+quick results: hits@[1, 5, 10, 50] = [56.4   71.133 77.2   88.067]%, time = 1.491 s 
+generating neighbors of 38960 entities costs 27.552 s.
+
+iteration 17
+epoch 161, avg. triple loss: 0.7803, cost time: 9.7545s
+epoch 162, avg. triple loss: 0.7767, cost time: 8.6794s
+epoch 163, avg. triple loss: 0.7740, cost time: 8.9044s
+epoch 164, avg. triple loss: 0.7725, cost time: 8.6107s
+epoch 165, avg. triple loss: 0.7714, cost time: 7.6389s
+epoch 166, avg. triple loss: 0.7701, cost time: 7.9910s
+epoch 167, avg. triple loss: 0.7689, cost time: 8.1906s
+epoch 168, avg. triple loss: 0.7683, cost time: 8.7865s
+epoch 169, avg. triple loss: 0.7677, cost time: 8.8121s
+epoch 170, avg. triple loss: 0.7668, cost time: 9.0439s
+quick results: hits@[1, 5, 10, 50] = [55.133 71.4   77.2   88.333]%, time = 1.751 s 
+after filtering by sim threshold, right alignment: 7879/226560=0.035
+after filtering by sim and nearest k, right alignment: 7246/69071=0.105
+graph via graph_tool <Graph object, directed, with 17601 vertices and 69071 edges at 0x7fb91a353438>
+after mwgm, right alignment: 4595/7715=0.596
+========== worng alignment
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.861) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.609)
+(http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_2), sim: 0.892) -> (http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_4), sim: 0.985)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.996) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.995)
+(http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Reach_for_the_Sky_(Mai_Kuraki_song), sim: 0.989) -> (http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Can't_Forget_Your_Love/Perfect_Crime:_Single_Edit, sim: 0.976)
+(http://zh.dbpedia.org/resource/索尼移动通信, http://dbpedia.org/resource/Sony_Xperia_Z1, sim: 0.733) -> (http://zh.dbpedia.org/resource/索尼移动通信, http://dbpedia.org/resource/Sony_Mobile, sim: 0.979)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.958) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.947)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.741) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.365)
+(http://zh.dbpedia.org/resource/阿卜杜勒·凯卜, http://dbpedia.org/resource/Abdul_Hafiz_Ghoga, sim: 0.867) -> (http://zh.dbpedia.org/resource/阿卜杜勒·凯卜, http://dbpedia.org/resource/Abdurrahim_El-Keib, sim: 0.940)
+(http://zh.dbpedia.org/resource/南非聯邦, http://dbpedia.org/resource/Cape_Town, sim: 0.707) -> (http://zh.dbpedia.org/resource/南非聯邦, http://dbpedia.org/resource/Union_of_South_Africa, sim: 0.946)
+(http://zh.dbpedia.org/resource/Ich_tu_dir_weh, http://dbpedia.org/resource/Benzin, sim: 0.867) -> (http://zh.dbpedia.org/resource/Ich_tu_dir_weh, http://dbpedia.org/resource/Ich_tu_dir_weh, sim: 0.792)
+==========
+after force right (delete), right alignment: 4595/4595=1.000
+mwgm costs time: 6.201 s
+selecting potential alignment costs time: 9.363 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6699/6699=1.000
+after editing (->), right alignment: 6699/6699=1.000
+newly triples: 71846, 100054
+alignment_loss = 1.105, time = 0.416 s
+quick results: hits@[1, 5, 10, 50] = [57.6   72.267 77.667 88.4  ]%, time = 1.390 s 
+generating neighbors of 38960 entities costs 25.342 s.
+
+iteration 18
+epoch 171, avg. triple loss: 0.7775, cost time: 8.6164s
+epoch 172, avg. triple loss: 0.7738, cost time: 8.7397s
+epoch 173, avg. triple loss: 0.7715, cost time: 8.3474s
+epoch 174, avg. triple loss: 0.7704, cost time: 8.0512s
+epoch 175, avg. triple loss: 0.7689, cost time: 8.6479s
+epoch 176, avg. triple loss: 0.7681, cost time: 8.0260s
+epoch 177, avg. triple loss: 0.7663, cost time: 8.9442s
+epoch 178, avg. triple loss: 0.7657, cost time: 9.7374s
+epoch 179, avg. triple loss: 0.7649, cost time: 8.5477s
+epoch 180, avg. triple loss: 0.7640, cost time: 8.5151s
+quick results: hits@[1, 5, 10, 50] = [56.267 72.467 77.8   88.467]%, time = 1.421 s 
+after filtering by sim threshold, right alignment: 8019/233139=0.034
+after filtering by sim and nearest k, right alignment: 7388/70702=0.104
+graph via graph_tool <Graph object, directed, with 17875 vertices and 70702 edges at 0x7fb918999e80>
+after mwgm, right alignment: 4751/7866=0.604
+========== worng alignment
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.829) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.740)
+(http://zh.dbpedia.org/resource/埃德蒙·伦道夫, http://dbpedia.org/resource/Alexander_Hamilton, sim: 0.935) -> (http://zh.dbpedia.org/resource/埃德蒙·伦道夫, http://dbpedia.org/resource/Edmund_Randolph, sim: 0.966)
+(http://zh.dbpedia.org/resource/賀芬咸1899體育會, http://dbpedia.org/resource/Eintracht_Frankfurt, sim: 0.861) -> (http://zh.dbpedia.org/resource/賀芬咸1899體育會, http://dbpedia.org/resource/TSG_1899_Hoffenheim, sim: 0.824)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.996) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.995)
+(http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_Adeodatus_I, sim: 0.749) -> (http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_John_VIII, sim: 0.619)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.959) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.949)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.751) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.362)
+(http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/Toxic_(song), sim: 0.985) -> (http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/From_the_Bottom_of_My_Broken_Heart, sim: 0.991)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.786) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.969)
+(http://zh.dbpedia.org/resource/南非聯邦, http://dbpedia.org/resource/Cape_Town, sim: 0.718) -> (http://zh.dbpedia.org/resource/南非聯邦, http://dbpedia.org/resource/Union_of_South_Africa, sim: 0.948)
+==========
+after force right (delete), right alignment: 4751/4751=1.000
+mwgm costs time: 5.493 s
+selecting potential alignment costs time: 8.707 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 6864/6864=1.000
+after editing (->), right alignment: 6864/6864=1.000
+newly triples: 73124, 101812
+alignment_loss = 1.102, time = 0.413 s
+quick results: hits@[1, 5, 10, 50] = [59.    73.133 78.067 88.733]%, time = 1.935 s 
+generating neighbors of 38960 entities costs 24.290 s.
+
+iteration 19
+epoch 181, avg. triple loss: 0.7741, cost time: 8.3753s
+epoch 182, avg. triple loss: 0.7715, cost time: 8.0935s
+epoch 183, avg. triple loss: 0.7689, cost time: 8.9030s
+epoch 184, avg. triple loss: 0.7677, cost time: 8.7276s
+epoch 185, avg. triple loss: 0.7667, cost time: 7.9639s
+epoch 186, avg. triple loss: 0.7655, cost time: 9.9313s
+epoch 187, avg. triple loss: 0.7643, cost time: 8.4183s
+epoch 188, avg. triple loss: 0.7638, cost time: 9.2320s
+epoch 189, avg. triple loss: 0.7625, cost time: 8.0671s
+epoch 190, avg. triple loss: 0.7618, cost time: 8.3975s
+quick results: hits@[1, 5, 10, 50] = [57.4   73.2   78.133 88.733]%, time = 1.711 s 
+after filtering by sim threshold, right alignment: 8158/239184=0.034
+after filtering by sim and nearest k, right alignment: 7524/72178=0.104
+graph via graph_tool <Graph object, directed, with 18110 vertices and 72178 edges at 0x7fb93854e630>
+after mwgm, right alignment: 4903/7998=0.613
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.781) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.963)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.873) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.643)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.913) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.921)
+(http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Martin_Bormann, sim: 0.731) -> (http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Schutzstaffel, sim: 0.658)
+(http://zh.dbpedia.org/resource/朱塞佩·罗西, http://dbpedia.org/resource/Paul_Pogba, sim: 0.720) -> (http://zh.dbpedia.org/resource/朱塞佩·罗西, http://dbpedia.org/resource/Giuseppe_Rossi, sim: 0.851)
+(http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_Adeodatus_I, sim: 0.753) -> (http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_John_VIII, sim: 0.627)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.959) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.949)
+(http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Louisiana, sim: 0.902) -> (http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Mississippi, sim: 0.974)
+(http://zh.dbpedia.org/resource/索拉勒, http://dbpedia.org/resource/Satigny, sim: 0.958) -> (http://zh.dbpedia.org/resource/索拉勒, http://dbpedia.org/resource/Soral, sim: 0.995)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.963) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.973)
+==========
+after force right (delete), right alignment: 4903/4903=1.000
+mwgm costs time: 5.978 s
+selecting potential alignment costs time: 9.664 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7025/7025=1.000
+after editing (->), right alignment: 7025/7025=1.000
+newly triples: 74406, 103295
+alignment_loss = 1.099, time = 0.275 s
+quick results: hits@[1, 5, 10, 50] = [59.733 73.8   78.733 88.8  ]%, time = 1.355 s 
+generating neighbors of 38960 entities costs 26.315 s.
+
+iteration 20
+epoch 191, avg. triple loss: 0.7726, cost time: 8.6604s
+epoch 192, avg. triple loss: 0.7689, cost time: 8.2443s
+epoch 193, avg. triple loss: 0.7675, cost time: 8.9424s
+epoch 194, avg. triple loss: 0.7656, cost time: 9.9232s
+epoch 195, avg. triple loss: 0.7644, cost time: 7.9165s
+epoch 196, avg. triple loss: 0.7632, cost time: 8.1703s
+epoch 197, avg. triple loss: 0.7622, cost time: 8.8486s
+epoch 198, avg. triple loss: 0.7616, cost time: 9.2548s
+epoch 199, avg. triple loss: 0.7613, cost time: 8.7074s
+epoch 200, avg. triple loss: 0.7609, cost time: 9.2886s
+quick results: hits@[1, 5, 10, 50] = [57.867 74.    78.667 88.867]%, time = 1.768 s 
+after filtering by sim threshold, right alignment: 8290/244224=0.034
+after filtering by sim and nearest k, right alignment: 7647/73457=0.104
+graph via graph_tool <Graph object, directed, with 18371 vertices and 73457 edges at 0x7fb835e8df98>
+after mwgm, right alignment: 5036/8111=0.621
+========== worng alignment
+(http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/José_Luis_Rodríguez_Zapatero, sim: 0.953) -> (http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/Pedro_Sánchez_(Spanish_politician), sim: 0.967)
+(http://zh.dbpedia.org/resource/非洲联盟, http://dbpedia.org/resource/Arabs, sim: 0.701) -> (http://zh.dbpedia.org/resource/非洲联盟, http://dbpedia.org/resource/African_Union, sim: 0.899)
+(http://zh.dbpedia.org/resource/加告茲語, http://dbpedia.org/resource/Moksha_language, sim: 0.744) -> (http://zh.dbpedia.org/resource/加告茲語, http://dbpedia.org/resource/Gagauz_language, sim: 0.840)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.780) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.966)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.942) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.881)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.996) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.995)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.853) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.887)
+(http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_Adeodatus_I, sim: 0.759) -> (http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_John_VIII, sim: 0.633)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.764) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.353)
+(http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Cruz_Azul, sim: 0.930) -> (http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Club_Universidad_Nacional, sim: 0.973)
+==========
+after force right (delete), right alignment: 5036/5036=1.000
+mwgm costs time: 6.096 s
+selecting potential alignment costs time: 9.748 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7183/7183=1.000
+after editing (->), right alignment: 7183/7183=1.000
+newly triples: 75724, 104841
+alignment_loss = 1.096, time = 0.586 s
+quick results: hits@[1, 5, 10, 50] = [60.333 74.267 79.    88.867]%, time = 1.741 s 
+generating neighbors of 38960 entities costs 27.912 s.
+
+iteration 21
+epoch 201, avg. triple loss: 0.7705, cost time: 11.3878s
+epoch 202, avg. triple loss: 0.7670, cost time: 8.7103s
+epoch 203, avg. triple loss: 0.7652, cost time: 9.3398s
+epoch 204, avg. triple loss: 0.7636, cost time: 9.3323s
+epoch 205, avg. triple loss: 0.7623, cost time: 9.2543s
+epoch 206, avg. triple loss: 0.7620, cost time: 8.9328s
+epoch 207, avg. triple loss: 0.7604, cost time: 9.1297s
+epoch 208, avg. triple loss: 0.7607, cost time: 9.1547s
+epoch 209, avg. triple loss: 0.7594, cost time: 9.9171s
+epoch 210, avg. triple loss: 0.7586, cost time: 8.9795s
+quick results: hits@[1, 5, 10, 50] = [58.6   74.267 79.067 88.933]%, time = 2.861 s 
+after filtering by sim threshold, right alignment: 8408/248930=0.034
+after filtering by sim and nearest k, right alignment: 7764/74645=0.104
+graph via graph_tool <Graph object, directed, with 18581 vertices and 74645 edges at 0x7fb835be5f98>
+after mwgm, right alignment: 5157/8219=0.627
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.779) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/寺內正毅, http://dbpedia.org/resource/Matsukata_Masayoshi, sim: 0.980) -> (http://zh.dbpedia.org/resource/寺內正毅, http://dbpedia.org/resource/Terauchi_Masatake, sim: 0.988)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.924) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.922)
+(http://zh.dbpedia.org/resource/OS_X_Mountain_Lion, http://dbpedia.org/resource/IOS_9, sim: 0.886) -> (http://zh.dbpedia.org/resource/OS_X_Mountain_Lion, http://dbpedia.org/resource/OS_X_Mountain_Lion, sim: 0.990)
+(http://zh.dbpedia.org/resource/約克區, http://dbpedia.org/resource/Ontario_Liberal_Party, sim: 0.793) -> (http://zh.dbpedia.org/resource/約克區, http://dbpedia.org/resource/Regional_Municipality_of_York, sim: 0.950)
+(http://zh.dbpedia.org/resource/新喀里多尼亞, http://dbpedia.org/resource/Republic_of_the_Congo, sim: 0.801) -> (http://zh.dbpedia.org/resource/新喀里多尼亞, http://dbpedia.org/resource/New_Caledonia, sim: 0.657)
+(http://zh.dbpedia.org/resource/恩斯特·奥古斯特一世_(汉诺威), http://dbpedia.org/resource/William_IV_of_the_United_Kingdom, sim: 0.788) -> (http://zh.dbpedia.org/resource/恩斯特·奥古斯特一世_(汉诺威), http://dbpedia.org/resource/Ernest_Augustus_I_of_Hanover, sim: 0.833)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.949)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.814) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.977)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.992) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.989)
+==========
+after force right (delete), right alignment: 5157/5157=1.000
+mwgm costs time: 6.564 s
+selecting potential alignment costs time: 10.646 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7337/7337=1.000
+after editing (->), right alignment: 7337/7337=1.000
+newly triples: 76882, 106425
+alignment_loss = 1.095, time = 0.516 s
+quick results: hits@[1, 5, 10, 50] = [61.467 74.533 79.267 89.133]%, time = 1.387 s 
+generating neighbors of 38960 entities costs 25.086 s.
+
+iteration 22
+epoch 211, avg. triple loss: 0.7686, cost time: 9.3631s
+epoch 212, avg. triple loss: 0.7659, cost time: 9.5934s
+epoch 213, avg. triple loss: 0.7631, cost time: 8.9067s
+epoch 214, avg. triple loss: 0.7615, cost time: 9.0489s
+epoch 215, avg. triple loss: 0.7599, cost time: 9.1779s
+epoch 216, avg. triple loss: 0.7597, cost time: 9.5173s
+epoch 217, avg. triple loss: 0.7587, cost time: 9.5279s
+epoch 218, avg. triple loss: 0.7586, cost time: 9.0686s
+epoch 219, avg. triple loss: 0.7578, cost time: 10.3347s
+epoch 220, avg. triple loss: 0.7575, cost time: 9.6659s
+quick results: hits@[1, 5, 10, 50] = [59.733 74.533 79.267 89.267]%, time = 1.341 s 
+after filtering by sim threshold, right alignment: 8500/253219=0.034
+after filtering by sim and nearest k, right alignment: 7844/75714=0.104
+graph via graph_tool <Graph object, directed, with 18757 vertices and 75714 edges at 0x7fb91bdf2ac8>
+after mwgm, right alignment: 5219/8310=0.628
+========== worng alignment
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.888) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.682)
+(http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/Alexis_de_Tocqueville, sim: 0.937) -> (http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/John_Dewey, sim: 0.452)
+(http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Martin_Bormann, sim: 0.749) -> (http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Schutzstaffel, sim: 0.659)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.856) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.765)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.868) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.901)
+(http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_Adeodatus_I, sim: 0.765) -> (http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_John_VIII, sim: 0.637)
+(http://zh.dbpedia.org/resource/第三代巴麥尊子爵亨利·坦普爾, http://dbpedia.org/resource/Robert_Peel, sim: 0.891) -> (http://zh.dbpedia.org/resource/第三代巴麥尊子爵亨利·坦普爾, http://dbpedia.org/resource/Henry_John_Temple,_3rd_Viscount_Palmerston, sim: 0.930)
+(http://zh.dbpedia.org/resource/法屬玻里尼西亞, http://dbpedia.org/resource/Chad, sim: 0.716) -> (http://zh.dbpedia.org/resource/法屬玻里尼西亞, http://dbpedia.org/resource/French_Polynesia, sim: 0.631)
+(http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/Taiwanese_Americans, sim: 0.844) -> (http://zh.dbpedia.org/resource/華裔英國人, http://dbpedia.org/resource/British_Chinese, sim: 0.869)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.992) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.989)
+==========
+after force right (delete), right alignment: 5219/5219=1.000
+mwgm costs time: 7.379 s
+selecting potential alignment costs time: 11.177 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7450/7450=1.000
+after editing (->), right alignment: 7450/7450=1.000
+newly triples: 77693, 107494
+alignment_loss = 1.092, time = 0.507 s
+quick results: hits@[1, 5, 10, 50] = [61.667 74.867 79.667 89.333]%, time = 1.580 s 
+generating neighbors of 38960 entities costs 27.905 s.
+
+iteration 23
+epoch 221, avg. triple loss: 0.7664, cost time: 9.2247s
+epoch 222, avg. triple loss: 0.7633, cost time: 8.8997s
+epoch 223, avg. triple loss: 0.7623, cost time: 8.7680s
+epoch 224, avg. triple loss: 0.7605, cost time: 8.7117s
+epoch 225, avg. triple loss: 0.7594, cost time: 9.3204s
+epoch 226, avg. triple loss: 0.7590, cost time: 9.7265s
+epoch 227, avg. triple loss: 0.7573, cost time: 9.3733s
+epoch 228, avg. triple loss: 0.7570, cost time: 9.6622s
+epoch 229, avg. triple loss: 0.7566, cost time: 8.6726s
+epoch 230, avg. triple loss: 0.7561, cost time: 9.5511s
+quick results: hits@[1, 5, 10, 50] = [60.067 75.    79.667 89.333]%, time = 1.403 s 
+after filtering by sim threshold, right alignment: 8587/257114=0.033
+after filtering by sim and nearest k, right alignment: 7933/76734=0.103
+graph via graph_tool <Graph object, directed, with 18914 vertices and 76734 edges at 0x7fb835b87cf8>
+after mwgm, right alignment: 5319/8393=0.634
+========== worng alignment
+(http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/Birkbeck,_University_of_London, sim: 0.746) -> (http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/University_of_Westminster, sim: 0.607)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.776) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.345)
+(http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Cruz_Azul, sim: 0.936) -> (http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Club_Universidad_Nacional, sim: 0.975)
+(http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Swindon_Town_F.C., sim: 0.920) -> (http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Doncaster_Rovers_F.C., sim: 0.955)
+(http://zh.dbpedia.org/resource/意大利王國_(1861年–1946年), http://dbpedia.org/resource/Lazio, sim: 0.707) -> (http://zh.dbpedia.org/resource/意大利王國_(1861年–1946年), http://dbpedia.org/resource/Kingdom_of_Italy, sim: 0.909)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.962) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.972)
+(http://zh.dbpedia.org/resource/Wish_You_The_Best, http://dbpedia.org/resource/Touch_Me!, sim: 0.825) -> (http://zh.dbpedia.org/resource/Wish_You_The_Best, http://dbpedia.org/resource/Wish_You_the_Best, sim: 0.978)
+(http://zh.dbpedia.org/resource/北京大学, http://dbpedia.org/resource/University_of_Science_and_Technology_of_China, sim: 0.703) -> (http://zh.dbpedia.org/resource/北京大学, http://dbpedia.org/resource/Peking_University, sim: 0.952)
+(http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Liu_Yandong, sim: 0.983) -> (http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Li_Yuanchao, sim: 0.980)
+(http://zh.dbpedia.org/resource/Slightly_Mad_Studios, http://dbpedia.org/resource/Playfish, sim: 0.722) -> (http://zh.dbpedia.org/resource/Slightly_Mad_Studios, http://dbpedia.org/resource/Slightly_Mad_Studios, sim: 0.835)
+==========
+after force right (delete), right alignment: 5319/5319=1.000
+mwgm costs time: 6.866 s
+selecting potential alignment costs time: 11.195 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7547/7547=1.000
+after editing (->), right alignment: 7547/7547=1.000
+newly triples: 78319, 108327
+alignment_loss = 1.090, time = 0.517 s
+quick results: hits@[1, 5, 10, 50] = [62.4   75.2   80.2   89.533]%, time = 1.440 s 
+generating neighbors of 38960 entities costs 31.898 s.
+
+iteration 24
+epoch 231, avg. triple loss: 0.7650, cost time: 9.3605s
+epoch 232, avg. triple loss: 0.7628, cost time: 8.9305s
+epoch 233, avg. triple loss: 0.7603, cost time: 9.5515s
+epoch 234, avg. triple loss: 0.7591, cost time: 8.8839s
+epoch 235, avg. triple loss: 0.7578, cost time: 9.4486s
+epoch 236, avg. triple loss: 0.7567, cost time: 9.3261s
+epoch 237, avg. triple loss: 0.7566, cost time: 9.1532s
+epoch 238, avg. triple loss: 0.7553, cost time: 9.3114s
+epoch 239, avg. triple loss: 0.7547, cost time: 9.2933s
+epoch 240, avg. triple loss: 0.7540, cost time: 8.7492s
+quick results: hits@[1, 5, 10, 50] = [60.533 75.133 80.2   89.6  ]%, time = 2.237 s 
+after filtering by sim threshold, right alignment: 8685/260582=0.033
+after filtering by sim and nearest k, right alignment: 8031/77688=0.103
+graph via graph_tool <Graph object, directed, with 19072 vertices and 77688 edges at 0x7fb835b87cf8>
+after mwgm, right alignment: 5372/8494=0.632
+========== worng alignment
+(http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/Alexis_de_Tocqueville, sim: 0.945) -> (http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/John_Dewey, sim: 0.467)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.787) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/卢克·P·布莱克本, http://dbpedia.org/resource/William_O'Connell_Bradley, sim: 0.923) -> (http://zh.dbpedia.org/resource/卢克·P·布莱克本, http://dbpedia.org/resource/Luke_P._Blackburn, sim: 0.978)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.933) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.929)
+(http://zh.dbpedia.org/resource/克里斯蒂安·波尔森, http://dbpedia.org/resource/Viktor_Fischer, sim: 0.856) -> (http://zh.dbpedia.org/resource/克里斯蒂安·波尔森, http://dbpedia.org/resource/Christian_Poulsen, sim: 0.986)
+(http://zh.dbpedia.org/resource/我的寶貝四千金, http://dbpedia.org/resource/Fall_In_Love_With_Me_(TV_series), sim: 0.922) -> (http://zh.dbpedia.org/resource/我的寶貝四千金, http://dbpedia.org/resource/Dear_Mom_(TV_series), sim: 0.976)
+(http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Scratch_(programming_language), sim: 0.739) -> (http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Xunlei, sim: 0.724)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.948)
+(http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Cruz_Azul, sim: 0.938) -> (http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Club_Universidad_Nacional, sim: 0.976)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.832) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.981)
+==========
+after force right (delete), right alignment: 5372/5372=1.000
+mwgm costs time: 7.911 s
+selecting potential alignment costs time: 11.579 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7668/7668=1.000
+after editing (->), right alignment: 7668/7668=1.000
+newly triples: 79044, 109498
+alignment_loss = 1.089, time = 0.353 s
+quick results: hits@[1, 5, 10, 50] = [62.8   75.667 80.133 89.667]%, time = 1.469 s 
+generating neighbors of 38960 entities costs 31.221 s.
+
+iteration 25
+epoch 241, avg. triple loss: 0.7633, cost time: 9.2424s
+epoch 242, avg. triple loss: 0.7608, cost time: 9.5469s
+epoch 243, avg. triple loss: 0.7589, cost time: 9.1551s
+epoch 244, avg. triple loss: 0.7578, cost time: 9.7321s
+epoch 245, avg. triple loss: 0.7568, cost time: 8.9854s
+epoch 246, avg. triple loss: 0.7560, cost time: 8.7884s
+epoch 247, avg. triple loss: 0.7544, cost time: 9.1197s
+epoch 248, avg. triple loss: 0.7543, cost time: 8.9984s
+epoch 249, avg. triple loss: 0.7532, cost time: 8.6006s
+epoch 250, avg. triple loss: 0.7531, cost time: 9.9010s
+quick results: hits@[1, 5, 10, 50] = [61.067 75.6   80.067 89.667]%, time = 1.869 s 
+after filtering by sim threshold, right alignment: 8767/263603=0.033
+after filtering by sim and nearest k, right alignment: 8112/78537=0.103
+graph via graph_tool <Graph object, directed, with 19211 vertices and 78537 edges at 0x7fb835b87cf8>
+after mwgm, right alignment: 5439/8586=0.633
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.838) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.780)
+(http://zh.dbpedia.org/resource/希娜·拉巴尼·哈尔, http://dbpedia.org/resource/Pervez_Musharraf, sim: 0.903) -> (http://zh.dbpedia.org/resource/希娜·拉巴尼·哈尔, http://dbpedia.org/resource/Hina_Rabbani_Khar, sim: 0.980)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.895) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.714)
+(http://zh.dbpedia.org/resource/雷蒙·多梅内克, http://dbpedia.org/resource/Didier_Deschamps, sim: 0.915) -> (http://zh.dbpedia.org/resource/雷蒙·多梅内克, http://dbpedia.org/resource/Raymond_Domenech, sim: 0.964)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.946) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.972)
+(http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Kawachinagano,_Osaka, sim: 0.789) -> (http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Nabari,_Mie, sim: 0.528)
+(http://zh.dbpedia.org/resource/迪奥斯达多·马卡帕加尔, http://dbpedia.org/resource/Corazon_Aquino, sim: 0.807) -> (http://zh.dbpedia.org/resource/迪奥斯达多·马卡帕加尔, http://dbpedia.org/resource/Diosdado_Macapagal, sim: 0.924)
+(http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Scratch_(programming_language), sim: 0.742) -> (http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Xunlei, sim: 0.730)
+(http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/List_of_Jewelpet_Kira_Deco!_episodes, sim: 0.706) -> (http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/Pokémon_(anime), sim: 0.584)
+(http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Cruz_Azul, sim: 0.938) -> (http://zh.dbpedia.org/resource/国立自治大学俱乐部, http://dbpedia.org/resource/Club_Universidad_Nacional, sim: 0.977)
+==========
+after force right (delete), right alignment: 5439/5439=1.000
+mwgm costs time: 6.449 s
+selecting potential alignment costs time: 10.787 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7764/7764=1.000
+after editing (->), right alignment: 7764/7764=1.000
+newly triples: 79855, 110506
+alignment_loss = 1.088, time = 0.649 s
+quick results: hits@[1, 5, 10, 50] = [63.2   76.133 80.533 89.8  ]%, time = 1.371 s 
+generating neighbors of 38960 entities costs 34.439 s.
+
+iteration 26
+epoch 251, avg. triple loss: 0.7621, cost time: 9.0312s
+epoch 252, avg. triple loss: 0.7594, cost time: 9.4623s
+epoch 253, avg. triple loss: 0.7577, cost time: 8.7988s
+epoch 254, avg. triple loss: 0.7567, cost time: 8.7062s
+epoch 255, avg. triple loss: 0.7547, cost time: 9.0920s
+epoch 256, avg. triple loss: 0.7548, cost time: 8.7411s
+epoch 257, avg. triple loss: 0.7541, cost time: 9.7886s
+epoch 258, avg. triple loss: 0.7534, cost time: 9.9462s
+epoch 259, avg. triple loss: 0.7525, cost time: 11.6280s
+epoch 260, avg. triple loss: 0.7514, cost time: 8.5837s
+quick results: hits@[1, 5, 10, 50] = [61.867 76.2   80.467 89.733]%, time = 1.160 s 
+after filtering by sim threshold, right alignment: 8833/266533=0.033
+after filtering by sim and nearest k, right alignment: 8170/79339=0.103
+graph via graph_tool <Graph object, directed, with 19336 vertices and 79339 edges at 0x7fb835a27f98>
+after mwgm, right alignment: 5599/8661=0.646
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.788) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.938) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.932)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.869) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.780)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.997) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.996)
+(http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Scratch_(programming_language), sim: 0.749) -> (http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Xunlei, sim: 0.740)
+(http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Songshan_Station, sim: 0.769) -> (http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Taipei_Railway_Station, sim: 0.957)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.958) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.946)
+(http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Swindon_Town_F.C., sim: 0.925) -> (http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Doncaster_Rovers_F.C., sim: 0.958)
+(http://zh.dbpedia.org/resource/CHE.R.RY, http://dbpedia.org/resource/I_Remember_You_(Yui_song), sim: 0.983) -> (http://zh.dbpedia.org/resource/CHE.R.RY, http://dbpedia.org/resource/Cherry_(Yui_song), sim: 0.983)
+(http://zh.dbpedia.org/resource/利默里克, http://dbpedia.org/resource/Cork_(city), sim: 0.920) -> (http://zh.dbpedia.org/resource/利默里克, http://dbpedia.org/resource/Limerick, sim: 0.975)
+==========
+after force right (delete), right alignment: 5599/5599=1.000
+mwgm costs time: 5.842 s
+selecting potential alignment costs time: 9.996 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7860/7860=1.000
+after editing (->), right alignment: 7860/7860=1.000
+newly triples: 80502, 111330
+alignment_loss = 1.087, time = 0.577 s
+quick results: hits@[1, 5, 10, 50] = [64.067 76.6   80.667 89.933]%, time = 4.745 s 
+generating neighbors of 38960 entities costs 29.411 s.
+
+iteration 27
+epoch 261, avg. triple loss: 0.7607, cost time: 9.8378s
+epoch 262, avg. triple loss: 0.7585, cost time: 9.2763s
+epoch 263, avg. triple loss: 0.7574, cost time: 9.5609s
+epoch 264, avg. triple loss: 0.7554, cost time: 8.7183s
+epoch 265, avg. triple loss: 0.7541, cost time: 9.1325s
+epoch 266, avg. triple loss: 0.7533, cost time: 10.5720s
+epoch 267, avg. triple loss: 0.7526, cost time: 8.9511s
+epoch 268, avg. triple loss: 0.7520, cost time: 9.2901s
+epoch 269, avg. triple loss: 0.7513, cost time: 9.1486s
+epoch 270, avg. triple loss: 0.7511, cost time: 9.5567s
+quick results: hits@[1, 5, 10, 50] = [62.    76.4   80.667 90.067]%, time = 1.188 s 
+after filtering by sim threshold, right alignment: 8917/269341=0.033
+after filtering by sim and nearest k, right alignment: 8245/80125=0.103
+graph via graph_tool <Graph object, directed, with 19469 vertices and 80125 edges at 0x7fb835b87cf8>
+after mwgm, right alignment: 5684/8731=0.651
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.848) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.789)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.787) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/道格拉斯DC-9, http://dbpedia.org/resource/Boeing_757, sim: 0.821) -> (http://zh.dbpedia.org/resource/道格拉斯DC-9, http://dbpedia.org/resource/McDonnell_Douglas_DC-9, sim: 0.989)
+(http://zh.dbpedia.org/resource/本篤十五世, http://dbpedia.org/resource/Pope_Pius_X, sim: 0.856) -> (http://zh.dbpedia.org/resource/本篤十五世, http://dbpedia.org/resource/Pope_Benedict_XV, sim: 0.894)
+(http://zh.dbpedia.org/resource/路易斯·艾伯, http://dbpedia.org/resource/Stephen_Harper, sim: 0.795) -> (http://zh.dbpedia.org/resource/路易斯·艾伯, http://dbpedia.org/resource/Louise_Arbour, sim: 0.858)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.950) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.758)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.887) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.919)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.705) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.601)
+(http://zh.dbpedia.org/resource/瓦西里·丹尼洛维奇·索科洛夫斯基, http://dbpedia.org/resource/Ivan_Konev, sim: 0.892) -> (http://zh.dbpedia.org/resource/瓦西里·丹尼洛维奇·索科洛夫斯基, http://dbpedia.org/resource/Vasily_Sokolovsky, sim: 0.959)
+(http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Scratch_(programming_language), sim: 0.756) -> (http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Xunlei, sim: 0.745)
+==========
+after force right (delete), right alignment: 5684/5684=1.000
+mwgm costs time: 6.600 s
+selecting potential alignment costs time: 10.395 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 7955/7955=1.000
+after editing (->), right alignment: 7955/7955=1.000
+newly triples: 81132, 112213
+alignment_loss = 1.086, time = 0.663 s
+quick results: hits@[1, 5, 10, 50] = [64.533 76.933 81.    90.2  ]%, time = 1.400 s 
+generating neighbors of 38960 entities costs 27.842 s.
+
+iteration 28
+epoch 271, avg. triple loss: 0.7593, cost time: 9.9906s
+epoch 272, avg. triple loss: 0.7575, cost time: 8.8560s
+epoch 273, avg. triple loss: 0.7554, cost time: 9.9439s
+epoch 274, avg. triple loss: 0.7547, cost time: 9.3317s
+epoch 275, avg. triple loss: 0.7528, cost time: 9.5573s
+epoch 276, avg. triple loss: 0.7518, cost time: 9.1572s
+epoch 277, avg. triple loss: 0.7513, cost time: 8.9785s
+epoch 278, avg. triple loss: 0.7515, cost time: 9.2202s
+epoch 279, avg. triple loss: 0.7503, cost time: 9.7061s
+epoch 280, avg. triple loss: 0.7503, cost time: 9.4691s
+quick results: hits@[1, 5, 10, 50] = [62.333 76.733 80.6   90.333]%, time = 1.271 s 
+after filtering by sim threshold, right alignment: 8983/271901=0.033
+after filtering by sim and nearest k, right alignment: 8316/80881=0.103
+graph via graph_tool <Graph object, directed, with 19596 vertices and 80881 edges at 0x7fb8fb3a82b0>
+after mwgm, right alignment: 5689/8774=0.648
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.846) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.788)
+(http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Martin_Bormann, sim: 0.761) -> (http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Schutzstaffel, sim: 0.661)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.997) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.996)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.947)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.784) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.342)
+(http://zh.dbpedia.org/resource/卢顿足球俱乐部, http://dbpedia.org/resource/Swindon_Town_F.C., sim: 0.890) -> (http://zh.dbpedia.org/resource/卢顿足球俱乐部, http://dbpedia.org/resource/Luton_Town_F.C., sim: 0.968)
+(http://zh.dbpedia.org/resource/妙手仁心II, http://dbpedia.org/resource/La_Femme_Desperado, sim: 0.955) -> (http://zh.dbpedia.org/resource/妙手仁心II, http://dbpedia.org/resource/Healing_Hands_II, sim: 0.987)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.968) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.974)
+(http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Mirror's_Edge, sim: 0.991) -> (http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Dead_Space_(series), sim: 0.916)
+(http://zh.dbpedia.org/resource/勒布朗·詹姆斯, http://dbpedia.org/resource/Rick_Carlisle, sim: 0.952) -> (http://zh.dbpedia.org/resource/勒布朗·詹姆斯, http://dbpedia.org/resource/LeBron_James, sim: 0.920)
+==========
+after force right (delete), right alignment: 5689/5689=1.000
+mwgm costs time: 6.304 s
+selecting potential alignment costs time: 10.165 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8032/8032=1.000
+after editing (->), right alignment: 8032/8032=1.000
+newly triples: 81612, 112879
+alignment_loss = 1.084, time = 0.548 s
+quick results: hits@[1, 5, 10, 50] = [64.8   77.    80.867 90.333]%, time = 1.152 s 
+generating neighbors of 38960 entities costs 28.899 s.
+
+iteration 29
+epoch 281, avg. triple loss: 0.7573, cost time: 10.2139s
+epoch 282, avg. triple loss: 0.7554, cost time: 9.5129s
+epoch 283, avg. triple loss: 0.7538, cost time: 8.9307s
+epoch 284, avg. triple loss: 0.7529, cost time: 8.9401s
+epoch 285, avg. triple loss: 0.7519, cost time: 9.1130s
+epoch 286, avg. triple loss: 0.7516, cost time: 8.8424s
+epoch 287, avg. triple loss: 0.7512, cost time: 8.4947s
+epoch 288, avg. triple loss: 0.7504, cost time: 9.2912s
+epoch 289, avg. triple loss: 0.7500, cost time: 9.6343s
+epoch 290, avg. triple loss: 0.7495, cost time: 9.0825s
+quick results: hits@[1, 5, 10, 50] = [62.667 77.    80.667 90.467]%, time = 1.352 s 
+after filtering by sim threshold, right alignment: 9040/274156=0.033
+after filtering by sim and nearest k, right alignment: 8374/81475=0.103
+graph via graph_tool <Graph object, directed, with 19708 vertices and 81475 edges at 0x7fb8339088d0>
+after mwgm, right alignment: 5819/8831=0.659
+========== worng alignment
+(http://zh.dbpedia.org/resource/加告茲語, http://dbpedia.org/resource/Moksha_language, sim: 0.792) -> (http://zh.dbpedia.org/resource/加告茲語, http://dbpedia.org/resource/Gagauz_language, sim: 0.942)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.901) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.749)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.944) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.927)
+(http://zh.dbpedia.org/resource/曹錕, http://dbpedia.org/resource/Tan_Yankai, sim: 0.718) -> (http://zh.dbpedia.org/resource/曹錕, http://dbpedia.org/resource/Cao_Kun, sim: 0.740)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.968) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.974)
+(http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Liu_Yandong, sim: 0.984) -> (http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Li_Yuanchao, sim: 0.982)
+(http://zh.dbpedia.org/resource/亚罗米尔·布拉热克, http://dbpedia.org/resource/Milan_Baroš, sim: 0.958) -> (http://zh.dbpedia.org/resource/亚罗米尔·布拉热克, http://dbpedia.org/resource/Jaromír_Blažek, sim: 0.992)
+(http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lin_Chia-lung, sim: 0.938) -> (http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lee_Ying-yuan, sim: 0.937)
+(http://zh.dbpedia.org/resource/浩克_(漫畫), http://dbpedia.org/resource/She-Hulk, sim: 0.992) -> (http://zh.dbpedia.org/resource/浩克_(漫畫), http://dbpedia.org/resource/Hulk_(comics), sim: 0.991)
+(http://zh.dbpedia.org/resource/江宜樺, http://dbpedia.org/resource/Mao_Chi-kuo, sim: 0.952) -> (http://zh.dbpedia.org/resource/江宜樺, http://dbpedia.org/resource/Jiang_Yi-huah, sim: 0.979)
+==========
+after force right (delete), right alignment: 5819/5819=1.000
+mwgm costs time: 8.424 s
+selecting potential alignment costs time: 12.799 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8110/8110=1.000
+after editing (->), right alignment: 8110/8110=1.000
+newly triples: 82102, 113623
+alignment_loss = 1.083, time = 0.592 s
+quick results: hits@[1, 5, 10, 50] = [64.733 77.467 80.8   90.533]%, time = 2.243 s 
+generating neighbors of 38960 entities costs 27.520 s.
+
+iteration 30
+epoch 291, avg. triple loss: 0.7565, cost time: 8.7791s
+epoch 292, avg. triple loss: 0.7540, cost time: 8.9840s
+epoch 293, avg. triple loss: 0.7533, cost time: 8.7238s
+epoch 294, avg. triple loss: 0.7520, cost time: 9.1375s
+epoch 295, avg. triple loss: 0.7513, cost time: 9.3399s
+epoch 296, avg. triple loss: 0.7506, cost time: 9.4277s
+epoch 297, avg. triple loss: 0.7506, cost time: 9.5538s
+epoch 298, avg. triple loss: 0.7494, cost time: 10.6558s
+epoch 299, avg. triple loss: 0.7489, cost time: 9.1243s
+epoch 300, avg. triple loss: 0.7487, cost time: 9.5713s
+quick results: hits@[1, 5, 10, 50] = [62.6   77.133 81.067 90.4  ]%, time = 3.915 s 
+after filtering by sim threshold, right alignment: 9089/276294=0.033
+after filtering by sim and nearest k, right alignment: 8429/82066=0.103
+graph via graph_tool <Graph object, directed, with 19794 vertices and 82066 edges at 0x7fb833806ef0>
+after mwgm, right alignment: 5832/8893=0.656
+========== worng alignment
+(http://zh.dbpedia.org/resource/中你的毒, http://dbpedia.org/resource/From_the_Bottom_of_My_Broken_Heart, sim: 0.985) -> (http://zh.dbpedia.org/resource/中你的毒, http://dbpedia.org/resource/Toxic_(song), sim: 0.990)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.788) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.966)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.948) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.887)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.943) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.926)
+(http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Martin_Bormann, sim: 0.768) -> (http://zh.dbpedia.org/resource/親衛隊, http://dbpedia.org/resource/Schutzstaffel, sim: 0.662)
+(http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Hestia, sim: 0.997) -> (http://zh.dbpedia.org/resource/宙斯, http://dbpedia.org/resource/Zeus, sim: 0.996)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.892) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.924)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.726) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.628)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.787) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.342)
+(http://zh.dbpedia.org/resource/法屬玻里尼西亞, http://dbpedia.org/resource/Chad, sim: 0.750) -> (http://zh.dbpedia.org/resource/法屬玻里尼西亞, http://dbpedia.org/resource/French_Polynesia, sim: 0.650)
+==========
+after force right (delete), right alignment: 5832/5832=1.000
+mwgm costs time: 7.860 s
+selecting potential alignment costs time: 11.320 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8169/8169=1.000
+after editing (->), right alignment: 8169/8169=1.000
+newly triples: 82442, 114031
+alignment_loss = 1.082, time = 0.409 s
+quick results: hits@[1, 5, 10, 50] = [64.933 77.533 81.333 90.467]%, time = 1.581 s 
+generating neighbors of 38960 entities costs 30.688 s.
+
+iteration 31
+epoch 301, avg. triple loss: 0.7558, cost time: 9.0320s
+epoch 302, avg. triple loss: 0.7534, cost time: 9.3858s
+epoch 303, avg. triple loss: 0.7523, cost time: 9.2321s
+epoch 304, avg. triple loss: 0.7521, cost time: 9.2082s
+epoch 305, avg. triple loss: 0.7504, cost time: 10.0495s
+epoch 306, avg. triple loss: 0.7498, cost time: 8.9708s
+epoch 307, avg. triple loss: 0.7488, cost time: 8.8153s
+epoch 308, avg. triple loss: 0.7488, cost time: 9.9386s
+epoch 309, avg. triple loss: 0.7473, cost time: 8.8414s
+epoch 310, avg. triple loss: 0.7481, cost time: 10.2389s
+quick results: hits@[1, 5, 10, 50] = [63.    77.133 81.2   90.467]%, time = 1.397 s 
+after filtering by sim threshold, right alignment: 9143/278252=0.033
+after filtering by sim and nearest k, right alignment: 8485/82649=0.103
+graph via graph_tool <Graph object, directed, with 19884 vertices and 82649 edges at 0x7fb8337bbf98>
+after mwgm, right alignment: 5965/8957=0.666
+========== worng alignment
+(http://zh.dbpedia.org/resource/Jumping, http://dbpedia.org/resource/Mister_(song), sim: 0.912) -> (http://zh.dbpedia.org/resource/Jumping, http://dbpedia.org/resource/Jumping_(EP), sim: 0.906)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.787) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.343)
+(http://zh.dbpedia.org/resource/肯尼斯·约瑟夫·阿罗, http://dbpedia.org/resource/Randy_Schekman, sim: 0.841) -> (http://zh.dbpedia.org/resource/肯尼斯·约瑟夫·阿罗, http://dbpedia.org/resource/Kenneth_Arrow, sim: 0.993)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.994) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.992)
+(http://zh.dbpedia.org/resource/妙手仁心II, http://dbpedia.org/resource/La_Femme_Desperado, sim: 0.959) -> (http://zh.dbpedia.org/resource/妙手仁心II, http://dbpedia.org/resource/Healing_Hands_II, sim: 0.989)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.967) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.968)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.969) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.975)
+(http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Mirror's_Edge, sim: 0.991) -> (http://zh.dbpedia.org/resource/死亡空间系列, http://dbpedia.org/resource/Dead_Space_(series), sim: 0.920)
+(http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Liu_Yandong, sim: 0.984) -> (http://zh.dbpedia.org/resource/李源潮, http://dbpedia.org/resource/Li_Yuanchao, sim: 0.982)
+(http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lin_Chia-lung, sim: 0.940) -> (http://zh.dbpedia.org/resource/李應元, http://dbpedia.org/resource/Lee_Ying-yuan, sim: 0.938)
+==========
+after force right (delete), right alignment: 5965/5965=1.000
+mwgm costs time: 9.739 s
+selecting potential alignment costs time: 14.028 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8245/8245=1.000
+after editing (->), right alignment: 8245/8245=1.000
+newly triples: 82949, 114607
+alignment_loss = 1.081, time = 0.573 s
+quick results: hits@[1, 5, 10, 50] = [65.467 77.733 81.267 90.467]%, time = 1.380 s 
+generating neighbors of 38960 entities costs 28.721 s.
+
+iteration 32
+epoch 311, avg. triple loss: 0.7548, cost time: 9.6414s
+epoch 312, avg. triple loss: 0.7537, cost time: 11.0437s
+epoch 313, avg. triple loss: 0.7515, cost time: 10.0006s
+epoch 314, avg. triple loss: 0.7507, cost time: 9.0916s
+epoch 315, avg. triple loss: 0.7494, cost time: 10.1386s
+epoch 316, avg. triple loss: 0.7492, cost time: 8.7270s
+epoch 317, avg. triple loss: 0.7488, cost time: 9.3272s
+epoch 318, avg. triple loss: 0.7478, cost time: 9.1559s
+epoch 319, avg. triple loss: 0.7472, cost time: 9.6657s
+epoch 320, avg. triple loss: 0.7468, cost time: 9.4798s
+quick results: hits@[1, 5, 10, 50] = [63.4   77.467 81.2   90.6  ]%, time = 1.322 s 
+after filtering by sim threshold, right alignment: 9182/279994=0.033
+after filtering by sim and nearest k, right alignment: 8522/83174=0.102
+graph via graph_tool <Graph object, directed, with 19969 vertices and 83174 edges at 0x7fb8359ac0f0>
+after mwgm, right alignment: 5940/8979=0.662
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.857) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.797)
+(http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/José_Luis_Rodríguez_Zapatero, sim: 0.960) -> (http://zh.dbpedia.org/resource/佩德羅·桑切斯, http://dbpedia.org/resource/Pedro_Sánchez_(Spanish_politician), sim: 0.972)
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.920) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.877)
+(http://zh.dbpedia.org/resource/嘉兴市, http://dbpedia.org/resource/Yinzhou_District,_Ningbo, sim: 0.807) -> (http://zh.dbpedia.org/resource/嘉兴市, http://dbpedia.org/resource/Jiaxing, sim: 0.636)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.947) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.885)
+(http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Desire_Z, sim: 0.947) -> (http://zh.dbpedia.org/resource/HTC_Sensation, http://dbpedia.org/resource/HTC_Sensation, sim: 0.923)
+(http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Nara_Prefecture, sim: 0.724) -> (http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Yodo_River, sim: 0.405)
+(http://zh.dbpedia.org/resource/勒布朗·詹姆斯, http://dbpedia.org/resource/Rick_Carlisle, sim: 0.958) -> (http://zh.dbpedia.org/resource/勒布朗·詹姆斯, http://dbpedia.org/resource/LeBron_James, sim: 0.927)
+(http://zh.dbpedia.org/resource/蘇格蘭足球代表隊, http://dbpedia.org/resource/Scotland_national_under-21_football_team, sim: 0.957) -> (http://zh.dbpedia.org/resource/蘇格蘭足球代表隊, http://dbpedia.org/resource/Scotland_national_football_team, sim: 0.971)
+(http://zh.dbpedia.org/resource/浩克_(漫畫), http://dbpedia.org/resource/She-Hulk, sim: 0.993) -> (http://zh.dbpedia.org/resource/浩克_(漫畫), http://dbpedia.org/resource/Hulk_(comics), sim: 0.992)
+==========
+after force right (delete), right alignment: 5940/5940=1.000
+mwgm costs time: 6.538 s
+selecting potential alignment costs time: 9.902 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8302/8302=1.000
+after editing (->), right alignment: 8302/8302=1.000
+newly triples: 83321, 115027
+alignment_loss = 1.080, time = 0.507 s
+quick results: hits@[1, 5, 10, 50] = [65.867 77.867 81.4   90.6  ]%, time = 1.549 s 
+generating neighbors of 38960 entities costs 26.965 s.
+
+iteration 33
+epoch 321, avg. triple loss: 0.7542, cost time: 9.7419s
+epoch 322, avg. triple loss: 0.7522, cost time: 9.2993s
+epoch 323, avg. triple loss: 0.7508, cost time: 9.3467s
+epoch 324, avg. triple loss: 0.7500, cost time: 9.4759s
+epoch 325, avg. triple loss: 0.7487, cost time: 9.7803s
+epoch 326, avg. triple loss: 0.7479, cost time: 9.3926s
+epoch 327, avg. triple loss: 0.7478, cost time: 9.4741s
+epoch 328, avg. triple loss: 0.7474, cost time: 9.4560s
+epoch 329, avg. triple loss: 0.7469, cost time: 8.8925s
+epoch 330, avg. triple loss: 0.7460, cost time: 9.6750s
+quick results: hits@[1, 5, 10, 50] = [63.933 77.8   81.2   90.6  ]%, time = 1.358 s 
+after filtering by sim threshold, right alignment: 9231/281639=0.033
+after filtering by sim and nearest k, right alignment: 8564/83628=0.102
+graph via graph_tool <Graph object, directed, with 20054 vertices and 83628 edges at 0x7fb8336d0470>
+after mwgm, right alignment: 5952/9032=0.659
+========== worng alignment
+(http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_Desire, sim: 0.923) -> (http://zh.dbpedia.org/resource/HTC_HD2, http://dbpedia.org/resource/HTC_HD2, sim: 0.903)
+(http://zh.dbpedia.org/resource/贝翠丝公主_(英国), http://dbpedia.org/resource/Friedrich_Josias,_Prince_of_Saxe-Coburg_and_Gotha, sim: 0.792) -> (http://zh.dbpedia.org/resource/贝翠丝公主_(英国), http://dbpedia.org/resource/Princess_Beatrice_of_the_United_Kingdom, sim: 0.988)
+(http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Phil_Neville, sim: 0.823) -> (http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Steve_McManaman, sim: 0.927)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.960) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.781)
+(http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_Adeodatus_I, sim: 0.792) -> (http://zh.dbpedia.org/resource/若望八世, http://dbpedia.org/resource/Pope_John_VIII, sim: 0.662)
+(http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Songshan_Station, sim: 0.878) -> (http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Taipei_Railway_Station, sim: 0.975)
+(http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Ock_Joo-hyun, sim: 0.807) -> (http://zh.dbpedia.org/resource/FIN.K.L, http://dbpedia.org/resource/Fin.K.L, sim: 0.946)
+(http://zh.dbpedia.org/resource/阿南德·阿玛尔, http://dbpedia.org/resource/Nambaryn_Enkhbayar, sim: 0.806) -> (http://zh.dbpedia.org/resource/阿南德·阿玛尔, http://dbpedia.org/resource/Anandyn_Amar, sim: 0.928)
+(http://zh.dbpedia.org/resource/未來軌跡, http://dbpedia.org/resource/Teppen_Tottande!, sim: 0.794) -> (http://zh.dbpedia.org/resource/未來軌跡, http://dbpedia.org/resource/Tsugi_no_Ashiato, sim: 0.959)
+(http://zh.dbpedia.org/resource/小龍女, http://dbpedia.org/resource/Wang_Chongyang, sim: 0.882) -> (http://zh.dbpedia.org/resource/小龍女, http://dbpedia.org/resource/Xiaolongnü, sim: 0.971)
+==========
+after force right (delete), right alignment: 5952/5952=1.000
+mwgm costs time: 8.370 s
+selecting potential alignment costs time: 12.120 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8342/8342=1.000
+after editing (->), right alignment: 8342/8342=1.000
+newly triples: 83592, 115407
+alignment_loss = 1.079, time = 0.491 s
+quick results: hits@[1, 5, 10, 50] = [66.133 78.267 81.4   90.667]%, time = 1.847 s 
+generating neighbors of 38960 entities costs 27.279 s.
+
+iteration 34
+epoch 331, avg. triple loss: 0.7533, cost time: 9.1823s
+epoch 332, avg. triple loss: 0.7511, cost time: 9.8937s
+epoch 333, avg. triple loss: 0.7506, cost time: 9.1507s
+epoch 334, avg. triple loss: 0.7491, cost time: 9.0805s
+epoch 335, avg. triple loss: 0.7491, cost time: 8.3624s
+epoch 336, avg. triple loss: 0.7471, cost time: 9.6652s
+epoch 337, avg. triple loss: 0.7468, cost time: 9.2084s
+epoch 338, avg. triple loss: 0.7470, cost time: 10.0721s
+epoch 339, avg. triple loss: 0.7460, cost time: 9.0250s
+epoch 340, avg. triple loss: 0.7463, cost time: 9.4623s
+quick results: hits@[1, 5, 10, 50] = [64.467 78.133 81.4   90.6  ]%, time = 1.887 s 
+after filtering by sim threshold, right alignment: 9274/283234=0.033
+after filtering by sim and nearest k, right alignment: 8608/84106=0.102
+graph via graph_tool <Graph object, directed, with 20132 vertices and 84106 edges at 0x7fb8359ac0f0>
+after mwgm, right alignment: 5946/9065=0.656
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.792) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.887) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.865)
+(http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Kawachinagano,_Osaka, sim: 0.815) -> (http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Nabari,_Mie, sim: 0.546)
+(http://zh.dbpedia.org/resource/強尼·艾薩克森, http://dbpedia.org/resource/Bobby_Jindal, sim: 0.835) -> (http://zh.dbpedia.org/resource/強尼·艾薩克森, http://dbpedia.org/resource/Johnny_Isakson, sim: 0.977)
+(http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Scratch_(programming_language), sim: 0.814) -> (http://zh.dbpedia.org/resource/迅雷, http://dbpedia.org/resource/Xunlei, sim: 0.880)
+(http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/List_of_Jewelpet_Kira_Deco!_episodes, sim: 0.803) -> (http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/Pokémon_(anime), sim: 0.651)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.959) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.947)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.789) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.348)
+(http://zh.dbpedia.org/resource/玛丽亚·特蕾西亚, http://dbpedia.org/resource/Marie_Antoinette, sim: 0.852) -> (http://zh.dbpedia.org/resource/玛丽亚·特蕾西亚, http://dbpedia.org/resource/Maria_Theresa, sim: 0.981)
+(http://zh.dbpedia.org/resource/怪醫黑傑克, http://dbpedia.org/resource/Hell_Teacher_Nūbē, sim: 0.754) -> (http://zh.dbpedia.org/resource/怪醫黑傑克, http://dbpedia.org/resource/Black_Jack_(manga), sim: 0.286)
+==========
+after force right (delete), right alignment: 5946/5946=1.000
+mwgm costs time: 7.898 s
+selecting potential alignment costs time: 12.269 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8398/8398=1.000
+after editing (->), right alignment: 8398/8398=1.000
+newly triples: 83908, 115897
+alignment_loss = 1.078, time = 0.558 s
+quick results: hits@[1, 5, 10, 50] = [66.4   78.267 81.533 90.667]%, time = 1.661 s 
+generating neighbors of 38960 entities costs 26.476 s.
+
+iteration 35
+epoch 341, avg. triple loss: 0.7535, cost time: 9.1014s
+epoch 342, avg. triple loss: 0.7499, cost time: 8.7759s
+epoch 343, avg. triple loss: 0.7499, cost time: 9.4239s
+epoch 344, avg. triple loss: 0.7478, cost time: 9.5503s
+epoch 345, avg. triple loss: 0.7482, cost time: 9.5635s
+epoch 346, avg. triple loss: 0.7467, cost time: 9.7162s
+epoch 347, avg. triple loss: 0.7466, cost time: 9.5988s
+epoch 348, avg. triple loss: 0.7464, cost time: 9.9939s
+epoch 349, avg. triple loss: 0.7462, cost time: 9.8186s
+epoch 350, avg. triple loss: 0.7450, cost time: 9.5213s
+quick results: hits@[1, 5, 10, 50] = [64.6   77.867 81.4   90.733]%, time = 1.653 s 
+after filtering by sim threshold, right alignment: 9313/284631=0.033
+after filtering by sim and nearest k, right alignment: 8642/84530=0.102
+graph via graph_tool <Graph object, directed, with 20191 vertices and 84530 edges at 0x7fb8eee94c50>
+after mwgm, right alignment: 6038/9105=0.663
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.865) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.807)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.787) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.967)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.947) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.882)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.948) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.978)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.962) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.788)
+(http://zh.dbpedia.org/resource/終極一家, http://dbpedia.org/resource/Why_Why_Love, sim: 0.951) -> (http://zh.dbpedia.org/resource/終極一家, http://dbpedia.org/resource/The_X-Family, sim: 0.989)
+(http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Nara_Prefecture, sim: 0.721) -> (http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Yodo_River, sim: 0.429)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.863) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.984)
+(http://zh.dbpedia.org/resource/让·卡西米尔-佩里埃, http://dbpedia.org/resource/Paul_Doumer, sim: 0.958) -> (http://zh.dbpedia.org/resource/让·卡西米尔-佩里埃, http://dbpedia.org/resource/Jean_Casimir-Perier, sim: 0.987)
+(http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Swindon_Town_F.C., sim: 0.932) -> (http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Doncaster_Rovers_F.C., sim: 0.962)
+==========
+after force right (delete), right alignment: 6038/6038=1.000
+mwgm costs time: 7.468 s
+selecting potential alignment costs time: 11.590 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8450/8450=1.000
+after editing (->), right alignment: 8450/8450=1.000
+newly triples: 84195, 116310
+alignment_loss = 1.078, time = 0.566 s
+quick results: hits@[1, 5, 10, 50] = [66.733 78.467 81.533 90.933]%, time = 1.613 s 
+generating neighbors of 38960 entities costs 25.616 s.
+
+iteration 36
+epoch 351, avg. triple loss: 0.7531, cost time: 8.9502s
+epoch 352, avg. triple loss: 0.7506, cost time: 8.7279s
+epoch 353, avg. triple loss: 0.7488, cost time: 9.2627s
+epoch 354, avg. triple loss: 0.7482, cost time: 9.4694s
+epoch 355, avg. triple loss: 0.7469, cost time: 11.0940s
+epoch 356, avg. triple loss: 0.7466, cost time: 9.5292s
+epoch 357, avg. triple loss: 0.7462, cost time: 9.8523s
+epoch 358, avg. triple loss: 0.7449, cost time: 9.1020s
+epoch 359, avg. triple loss: 0.7451, cost time: 10.1660s
+epoch 360, avg. triple loss: 0.7434, cost time: 9.0697s
+quick results: hits@[1, 5, 10, 50] = [64.8   78.267 81.467 90.867]%, time = 1.605 s 
+after filtering by sim threshold, right alignment: 9343/285920=0.033
+after filtering by sim and nearest k, right alignment: 8672/84934=0.102
+graph via graph_tool <Graph object, directed, with 20255 vertices and 84934 edges at 0x7fb8ef17e2e8>
+after mwgm, right alignment: 6055/9152=0.662
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.791) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.968)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.947) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.882)
+(http://zh.dbpedia.org/resource/约翰·戈顿, http://dbpedia.org/resource/Malcolm_Turnbull, sim: 0.947) -> (http://zh.dbpedia.org/resource/约翰·戈顿, http://dbpedia.org/resource/John_Gorton, sim: 0.980)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.947) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.978)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.963) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.790)
+(http://zh.dbpedia.org/resource/康諾的瑪嘉烈公主, http://dbpedia.org/resource/Ingrid_of_Sweden, sim: 0.784) -> (http://zh.dbpedia.org/resource/康諾的瑪嘉烈公主, http://dbpedia.org/resource/Princess_Margaret_of_Connaught, sim: 0.912)
+(http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/Birkbeck,_University_of_London, sim: 0.810) -> (http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/University_of_Westminster, sim: 0.660)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.948)
+(http://zh.dbpedia.org/resource/泰州市, http://dbpedia.org/resource/Xuancheng, sim: 0.707) -> (http://zh.dbpedia.org/resource/泰州市, http://dbpedia.org/resource/Taizhou,_Jiangsu, sim: 0.571)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.864) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.984)
+==========
+after force right (delete), right alignment: 6055/6055=1.000
+mwgm costs time: 8.760 s
+selecting potential alignment costs time: 11.952 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8495/8495=1.000
+after editing (->), right alignment: 8495/8495=1.000
+newly triples: 84494, 116626
+alignment_loss = 1.077, time = 0.580 s
+quick results: hits@[1, 5, 10, 50] = [67.133 78.667 81.867 90.867]%, time = 1.572 s 
+generating neighbors of 38960 entities costs 28.633 s.
+
+iteration 37
+epoch 361, avg. triple loss: 0.7514, cost time: 9.9840s
+epoch 362, avg. triple loss: 0.7485, cost time: 10.6681s
+epoch 363, avg. triple loss: 0.7484, cost time: 10.0794s
+epoch 364, avg. triple loss: 0.7476, cost time: 9.8621s
+epoch 365, avg. triple loss: 0.7469, cost time: 9.6470s
+epoch 366, avg. triple loss: 0.7459, cost time: 9.4332s
+epoch 367, avg. triple loss: 0.7447, cost time: 9.5861s
+epoch 368, avg. triple loss: 0.7448, cost time: 9.0132s
+epoch 369, avg. triple loss: 0.7448, cost time: 9.5616s
+epoch 370, avg. triple loss: 0.7442, cost time: 9.8450s
+quick results: hits@[1, 5, 10, 50] = [64.867 78.4   81.8   91.133]%, time = 1.340 s 
+after filtering by sim threshold, right alignment: 9368/287104=0.033
+after filtering by sim and nearest k, right alignment: 8699/85232=0.102
+graph via graph_tool <Graph object, directed, with 20303 vertices and 85232 edges at 0x7fb8eee94c50>
+after mwgm, right alignment: 6101/9190=0.664
+========== worng alignment
+(http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Vladimir_Nabokov, sim: 0.827) -> (http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Harold_Pinter, sim: 0.398)
+(http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Chesterfield_F.C., sim: 0.911) -> (http://zh.dbpedia.org/resource/唐卡斯特流浪足球俱乐部, http://dbpedia.org/resource/Doncaster_Rovers_F.C., sim: 0.963)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.896) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.928)
+(http://zh.dbpedia.org/resource/PortableApps.com, http://dbpedia.org/resource/Adobe_AIR, sim: 0.963) -> (http://zh.dbpedia.org/resource/PortableApps.com, http://dbpedia.org/resource/PortableApps.com, sim: 0.567)
+(http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Reach_for_the_Sky_(Mai_Kuraki_song), sim: 0.994) -> (http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Can't_Forget_Your_Love/Perfect_Crime:_Single_Edit, sim: 0.991)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.949)
+(http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/Toxic_(song), sim: 0.990) -> (http://zh.dbpedia.org/resource/伤心布兰妮, http://dbpedia.org/resource/From_the_Bottom_of_My_Broken_Heart, sim: 0.994)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.994) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.991)
+(http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Gijón, sim: 0.928) -> (http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Llanera,_Asturias, sim: 0.970)
+(http://zh.dbpedia.org/resource/忍者戰隊隱連者, http://dbpedia.org/resource/Kousoku_Sentai_Turboranger, sim: 0.990) -> (http://zh.dbpedia.org/resource/忍者戰隊隱連者, http://dbpedia.org/resource/Ninja_Sentai_Kakuranger, sim: 0.955)
+==========
+after force right (delete), right alignment: 6101/6101=1.000
+mwgm costs time: 6.805 s
+selecting potential alignment costs time: 10.048 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8535/8535=1.000
+after editing (->), right alignment: 8535/8535=1.000
+newly triples: 84733, 116962
+alignment_loss = 1.077, time = 0.511 s
+quick results: hits@[1, 5, 10, 50] = [67.067 78.733 82.2   91.   ]%, time = 1.426 s 
+generating neighbors of 38960 entities costs 30.539 s.
+
+iteration 38
+epoch 371, avg. triple loss: 0.7505, cost time: 9.2160s
+epoch 372, avg. triple loss: 0.7487, cost time: 9.3710s
+epoch 373, avg. triple loss: 0.7471, cost time: 9.6008s
+epoch 374, avg. triple loss: 0.7470, cost time: 8.7008s
+epoch 375, avg. triple loss: 0.7457, cost time: 10.0947s
+epoch 376, avg. triple loss: 0.7450, cost time: 9.3343s
+epoch 377, avg. triple loss: 0.7444, cost time: 10.1210s
+epoch 378, avg. triple loss: 0.7441, cost time: 9.2697s
+epoch 379, avg. triple loss: 0.7436, cost time: 9.5944s
+epoch 380, avg. triple loss: 0.7433, cost time: 9.6895s
+quick results: hits@[1, 5, 10, 50] = [64.8   78.667 81.933 91.067]%, time = 1.561 s 
+after filtering by sim threshold, right alignment: 9389/288106=0.033
+after filtering by sim and nearest k, right alignment: 8723/85585=0.102
+graph via graph_tool <Graph object, directed, with 20353 vertices and 85585 edges at 0x7fb8e2f8a630>
+after mwgm, right alignment: 6125/9218=0.664
+========== worng alignment
+(http://zh.dbpedia.org/resource/本篤十五世, http://dbpedia.org/resource/Pope_Pius_X, sim: 0.861) -> (http://zh.dbpedia.org/resource/本篤十五世, http://dbpedia.org/resource/Pope_Benedict_XV, sim: 0.910)
+(http://zh.dbpedia.org/resource/OS_X_Mountain_Lion, http://dbpedia.org/resource/IOS_9, sim: 0.929) -> (http://zh.dbpedia.org/resource/OS_X_Mountain_Lion, http://dbpedia.org/resource/OS_X_Mountain_Lion, sim: 0.993)
+(http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Phil_Neville, sim: 0.829) -> (http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Steve_McManaman, sim: 0.925)
+(http://zh.dbpedia.org/resource/杰西卡·麦尔白, http://dbpedia.org/resource/Travie_McCoy, sim: 0.711) -> (http://zh.dbpedia.org/resource/杰西卡·麦尔白, http://dbpedia.org/resource/Jessica_Mauboy, sim: 0.333)
+(http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/Birkbeck,_University_of_London, sim: 0.812) -> (http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/University_of_Westminster, sim: 0.658)
+(http://zh.dbpedia.org/resource/侯佩岑, http://dbpedia.org/resource/Ella_Chen, sim: 0.750) -> (http://zh.dbpedia.org/resource/侯佩岑, http://dbpedia.org/resource/Patty_Hou, sim: 0.598)
+(http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Nara_Prefecture, sim: 0.726) -> (http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Yodo_River, sim: 0.448)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.870) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.985)
+(http://zh.dbpedia.org/resource/小龍女, http://dbpedia.org/resource/Wang_Chongyang, sim: 0.897) -> (http://zh.dbpedia.org/resource/小龍女, http://dbpedia.org/resource/Xiaolongnü, sim: 0.976)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.971) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.969)
+==========
+after force right (delete), right alignment: 6125/6125=1.000
+mwgm costs time: 8.268 s
+selecting potential alignment costs time: 12.664 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8560/8560=1.000
+after editing (->), right alignment: 8560/8560=1.000
+newly triples: 84881, 117122
+alignment_loss = 1.076, time = 0.817 s
+quick results: hits@[1, 5, 10, 50] = [67.067 78.8   82.067 91.067]%, time = 1.423 s 
+generating neighbors of 38960 entities costs 28.809 s.
+
+iteration 39
+epoch 381, avg. triple loss: 0.7503, cost time: 9.7700s
+epoch 382, avg. triple loss: 0.7480, cost time: 9.4547s
+epoch 383, avg. triple loss: 0.7476, cost time: 10.3391s
+epoch 384, avg. triple loss: 0.7459, cost time: 8.9372s
+epoch 385, avg. triple loss: 0.7454, cost time: 9.8880s
+epoch 386, avg. triple loss: 0.7453, cost time: 9.3748s
+epoch 387, avg. triple loss: 0.7444, cost time: 8.9847s
+epoch 388, avg. triple loss: 0.7436, cost time: 9.4284s
+epoch 389, avg. triple loss: 0.7436, cost time: 9.9185s
+epoch 390, avg. triple loss: 0.7430, cost time: 9.5279s
+quick results: hits@[1, 5, 10, 50] = [65.  78.6 82.  91.2]%, time = 1.618 s 
+after filtering by sim threshold, right alignment: 9414/289236=0.033
+after filtering by sim and nearest k, right alignment: 8743/85886=0.102
+graph via graph_tool <Graph object, directed, with 20386 vertices and 85886 edges at 0x7fb8eee94c50>
+after mwgm, right alignment: 6144/9222=0.666
+========== worng alignment
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.945) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.883)
+(http://zh.dbpedia.org/resource/加布里埃尔·梅尔坎, http://dbpedia.org/resource/Qin_Sheng, sim: 0.960) -> (http://zh.dbpedia.org/resource/加布里埃尔·梅尔坎, http://dbpedia.org/resource/Gabriel_Melkam, sim: 0.748)
+(http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Vladimir_Nabokov, sim: 0.833) -> (http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Harold_Pinter, sim: 0.402)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.947) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.979)
+(http://zh.dbpedia.org/resource/胡启立, http://dbpedia.org/resource/Wu_Guanzheng, sim: 0.902) -> (http://zh.dbpedia.org/resource/胡启立, http://dbpedia.org/resource/Hu_Qili, sim: 0.901)
+(http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Deus_Ex_(series), sim: 0.966) -> (http://zh.dbpedia.org/resource/生化危機系列, http://dbpedia.org/resource/Resident_Evil, sim: 0.995)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.959) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.948)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.797) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.344)
+(http://zh.dbpedia.org/resource/唐中宗, http://dbpedia.org/resource/Emperor_Daizong_of_Tang, sim: 0.919) -> (http://zh.dbpedia.org/resource/唐中宗, http://dbpedia.org/resource/Emperor_Zhongzong_of_Tang, sim: 0.985)
+(http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Convair_F-102_Delta_Dagger, sim: 0.870) -> (http://zh.dbpedia.org/resource/擎天神系列運載火箭, http://dbpedia.org/resource/Atlas_(rocket_family), sim: 0.985)
+==========
+after force right (delete), right alignment: 6144/6144=1.000
+mwgm costs time: 6.682 s
+selecting potential alignment costs time: 14.212 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8592/8592=1.000
+after editing (->), right alignment: 8592/8592=1.000
+newly triples: 85073, 117386
+alignment_loss = 1.075, time = 0.635 s
+quick results: hits@[1, 5, 10, 50] = [67.4   78.867 82.067 91.133]%, time = 1.264 s 
+generating neighbors of 38960 entities costs 27.615 s.
+
+iteration 40
+epoch 391, avg. triple loss: 0.7489, cost time: 9.0521s
+epoch 392, avg. triple loss: 0.7474, cost time: 9.1529s
+epoch 393, avg. triple loss: 0.7463, cost time: 9.3862s
+epoch 394, avg. triple loss: 0.7458, cost time: 9.7514s
+epoch 395, avg. triple loss: 0.7447, cost time: 9.6240s
+epoch 396, avg. triple loss: 0.7446, cost time: 10.4030s
+epoch 397, avg. triple loss: 0.7438, cost time: 9.2838s
+epoch 398, avg. triple loss: 0.7435, cost time: 9.1971s
+epoch 399, avg. triple loss: 0.7427, cost time: 9.6145s
+epoch 400, avg. triple loss: 0.7421, cost time: 8.7007s
+quick results: hits@[1, 5, 10, 50] = [65.2   78.667 82.2   91.333]%, time = 1.435 s 
+after filtering by sim threshold, right alignment: 9444/290404=0.033
+after filtering by sim and nearest k, right alignment: 8774/86196=0.102
+graph via graph_tool <Graph object, directed, with 20436 vertices and 86196 edges at 0x7fb8bac96940>
+after mwgm, right alignment: 6230/9252=0.673
+========== worng alignment
+(http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/Alexis_de_Tocqueville, sim: 0.959) -> (http://zh.dbpedia.org/resource/约翰·杜威, http://dbpedia.org/resource/John_Dewey, sim: 0.511)
+(http://zh.dbpedia.org/resource/IOS_9, http://dbpedia.org/resource/IOS_8, sim: 0.978) -> (http://zh.dbpedia.org/resource/IOS_9, http://dbpedia.org/resource/IOS_9, sim: 0.987)
+(http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Vladimir_Nabokov, sim: 0.836) -> (http://zh.dbpedia.org/resource/哈罗德·品特, http://dbpedia.org/resource/Harold_Pinter, sim: 0.400)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.947) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.979)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.965) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.807)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.751) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.663)
+(http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/Birkbeck,_University_of_London, sim: 0.815) -> (http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/University_of_Westminster, sim: 0.665)
+(http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Songshan_Station, sim: 0.913) -> (http://zh.dbpedia.org/resource/台北車站, http://dbpedia.org/resource/Taipei_Railway_Station, sim: 0.984)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.795) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.343)
+(http://zh.dbpedia.org/resource/奧保鞏, http://dbpedia.org/resource/Hajime_Sugiyama, sim: 0.876) -> (http://zh.dbpedia.org/resource/奧保鞏, http://dbpedia.org/resource/Oku_Yasukata, sim: 0.927)
+==========
+after force right (delete), right alignment: 6230/6230=1.000
+mwgm costs time: 6.492 s
+selecting potential alignment costs time: 11.839 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8618/8618=1.000
+after editing (->), right alignment: 8618/8618=1.000
+newly triples: 85215, 117591
+alignment_loss = 1.075, time = 0.595 s
+quick results: hits@[1, 5, 10, 50] = [67.733 78.933 82.4   91.333]%, time = 1.555 s 
+generating neighbors of 38960 entities costs 28.253 s.
+
+iteration 41
+epoch 401, avg. triple loss: 0.7486, cost time: 9.6043s
+epoch 402, avg. triple loss: 0.7469, cost time: 9.4860s
+epoch 403, avg. triple loss: 0.7460, cost time: 10.7512s
+epoch 404, avg. triple loss: 0.7461, cost time: 9.5584s
+epoch 405, avg. triple loss: 0.7449, cost time: 9.7958s
+epoch 406, avg. triple loss: 0.7445, cost time: 9.7079s
+epoch 407, avg. triple loss: 0.7431, cost time: 10.0700s
+epoch 408, avg. triple loss: 0.7433, cost time: 9.8574s
+epoch 409, avg. triple loss: 0.7419, cost time: 9.6361s
+epoch 410, avg. triple loss: 0.7415, cost time: 9.1983s
+quick results: hits@[1, 5, 10, 50] = [65.533 78.6   82.4   91.4  ]%, time = 1.545 s 
+after filtering by sim threshold, right alignment: 9469/291517=0.032
+after filtering by sim and nearest k, right alignment: 8801/86502=0.102
+graph via graph_tool <Graph object, directed, with 20476 vertices and 86502 edges at 0x7fb83344f8d0>
+after mwgm, right alignment: 6269/9297=0.674
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.882) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.813)
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.791) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.969)
+(http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Ryo_Nishikido, sim: 0.949) -> (http://zh.dbpedia.org/resource/澀谷昴, http://dbpedia.org/resource/Subaru_Shibutani, sim: 0.884)
+(http://zh.dbpedia.org/resource/刺客教條：梟雄, http://dbpedia.org/resource/Tom_Clancy's_Ghost_Recon:_Future_Soldier, sim: 0.959) -> (http://zh.dbpedia.org/resource/刺客教條：梟雄, http://dbpedia.org/resource/Assassin's_Creed_Syndicate, sim: 0.970)
+(http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Taiyo_Sentai_Sun_Vulcan, sim: 0.971) -> (http://zh.dbpedia.org/resource/大戰隊風鏡V, http://dbpedia.org/resource/Dai_Sentai_Goggle-V, sim: 0.982)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.959) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.948)
+(http://zh.dbpedia.org/resource/徐向前, http://dbpedia.org/resource/Nie_Rongzhen, sim: 0.948) -> (http://zh.dbpedia.org/resource/徐向前, http://dbpedia.org/resource/Xu_Xiangqian, sim: 0.983)
+(http://zh.dbpedia.org/resource/終極一家, http://dbpedia.org/resource/Why_Why_Love, sim: 0.955) -> (http://zh.dbpedia.org/resource/終極一家, http://dbpedia.org/resource/The_X-Family, sim: 0.989)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.995) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.992)
+(http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Gijón, sim: 0.931) -> (http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Llanera,_Asturias, sim: 0.969)
+==========
+after force right (delete), right alignment: 6269/6269=1.000
+mwgm costs time: 10.468 s
+selecting potential alignment costs time: 15.957 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8650/8650=1.000
+after editing (->), right alignment: 8650/8650=1.000
+newly triples: 85452, 117864
+alignment_loss = 1.075, time = 0.554 s
+quick results: hits@[1, 5, 10, 50] = [67.8   78.933 82.467 91.267]%, time = 1.266 s 
+generating neighbors of 38960 entities costs 28.397 s.
+
+iteration 42
+epoch 411, avg. triple loss: 0.7475, cost time: 9.8201s
+epoch 412, avg. triple loss: 0.7468, cost time: 9.3005s
+epoch 413, avg. triple loss: 0.7460, cost time: 9.7327s
+epoch 414, avg. triple loss: 0.7449, cost time: 10.1359s
+epoch 415, avg. triple loss: 0.7440, cost time: 9.5235s
+epoch 416, avg. triple loss: 0.7425, cost time: 9.6816s
+epoch 417, avg. triple loss: 0.7427, cost time: 9.9904s
+epoch 418, avg. triple loss: 0.7425, cost time: 8.9901s
+epoch 419, avg. triple loss: 0.7413, cost time: 9.4097s
+epoch 420, avg. triple loss: 0.7408, cost time: 9.0759s
+quick results: hits@[1, 5, 10, 50] = [65.533 78.8   82.333 91.467]%, time = 1.335 s 
+after filtering by sim threshold, right alignment: 9497/292375=0.032
+after filtering by sim and nearest k, right alignment: 8827/86757=0.102
+graph via graph_tool <Graph object, directed, with 20519 vertices and 86757 edges at 0x7fb8baa79f60>
+after mwgm, right alignment: 6226/9320=0.668
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.884) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.814)
+(http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/James_Gosling, sim: 0.702) -> (http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/John_McCarthy_(computer_scientist), sim: 0.884)
+(http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Harrisburg,_Pennsylvania, sim: 0.894) -> (http://zh.dbpedia.org/resource/費城, http://dbpedia.org/resource/Philadelphia, sim: 0.869)
+(http://zh.dbpedia.org/resource/约翰·马歇尔, http://dbpedia.org/resource/William_H._Crawford, sim: 0.957) -> (http://zh.dbpedia.org/resource/约翰·马歇尔, http://dbpedia.org/resource/John_Marshall, sim: 0.987)
+(http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Ngo_Ka-nin, sim: 0.967) -> (http://zh.dbpedia.org/resource/張繼聰, http://dbpedia.org/resource/Louis_Cheung, sim: 0.814)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.759) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.671)
+(http://zh.dbpedia.org/resource/胡启立, http://dbpedia.org/resource/Wu_Guanzheng, sim: 0.902) -> (http://zh.dbpedia.org/resource/胡启立, http://dbpedia.org/resource/Hu_Qili, sim: 0.897)
+(http://zh.dbpedia.org/resource/烈火雄心3, http://dbpedia.org/resource/Tomorrow_Is_Another_Day_(TV_series), sim: 0.985) -> (http://zh.dbpedia.org/resource/烈火雄心3, http://dbpedia.org/resource/Burning_Flame_III, sim: 0.983)
+(http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/Birkbeck,_University_of_London, sim: 0.815) -> (http://zh.dbpedia.org/resource/威斯敏斯特大學, http://dbpedia.org/resource/University_of_Westminster, sim: 0.665)
+(http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/List_of_Jewelpet_Kira_Deco!_episodes, sim: 0.831) -> (http://zh.dbpedia.org/resource/神奇寶貝_(動畫), http://dbpedia.org/resource/Pokémon_(anime), sim: 0.709)
+==========
+after force right (delete), right alignment: 6226/6226=1.000
+mwgm costs time: 8.645 s
+selecting potential alignment costs time: 12.568 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8683/8683=1.000
+after editing (->), right alignment: 8683/8683=1.000
+newly triples: 85655, 118117
+alignment_loss = 1.074, time = 0.705 s
+quick results: hits@[1, 5, 10, 50] = [68.    79.133 82.733 91.533]%, time = 1.358 s 
+generating neighbors of 38960 entities costs 28.827 s.
+
+iteration 43
+epoch 421, avg. triple loss: 0.7475, cost time: 10.1637s
+epoch 422, avg. triple loss: 0.7464, cost time: 9.3961s
+epoch 423, avg. triple loss: 0.7449, cost time: 9.9216s
+epoch 424, avg. triple loss: 0.7443, cost time: 10.0760s
+epoch 425, avg. triple loss: 0.7445, cost time: 9.8983s
+epoch 426, avg. triple loss: 0.7427, cost time: 10.2224s
+epoch 427, avg. triple loss: 0.7419, cost time: 9.5625s
+epoch 428, avg. triple loss: 0.7419, cost time: 9.5605s
+epoch 429, avg. triple loss: 0.7414, cost time: 11.2685s
+epoch 430, avg. triple loss: 0.7411, cost time: 10.3886s
+quick results: hits@[1, 5, 10, 50] = [65.8   78.733 82.4   91.533]%, time = 1.532 s 
+after filtering by sim threshold, right alignment: 9520/293224=0.032
+after filtering by sim and nearest k, right alignment: 8845/86951=0.102
+graph via graph_tool <Graph object, directed, with 20567 vertices and 86951 edges at 0x7fb8b62ffdd8>
+after mwgm, right alignment: 6223/9344=0.666
+========== worng alignment
+(http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/Schutzstaffel, sim: 0.784) -> (http://zh.dbpedia.org/resource/聯邦大總統, http://dbpedia.org/resource/President_of_Germany_(1919–45), sim: 0.968)
+(http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/James_Gosling, sim: 0.702) -> (http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/John_McCarthy_(computer_scientist), sim: 0.884)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.947) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.979)
+(http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Kawachinagano,_Osaka, sim: 0.827) -> (http://zh.dbpedia.org/resource/名張市, http://dbpedia.org/resource/Nabari,_Mie, sim: 0.563)
+(http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Reach_for_the_Sky_(Mai_Kuraki_song), sim: 0.995) -> (http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Can't_Forget_Your_Love/Perfect_Crime:_Single_Edit, sim: 0.993)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.764) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.678)
+(http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Dalton_McGuinty, sim: 0.799) -> (http://zh.dbpedia.org/resource/艾丽斯·芒罗, http://dbpedia.org/resource/Alice_Munro, sim: 0.344)
+(http://zh.dbpedia.org/resource/伊利諾理工學院, http://dbpedia.org/resource/University_of_Illinois_system, sim: 0.720) -> (http://zh.dbpedia.org/resource/伊利諾理工學院, http://dbpedia.org/resource/Illinois_Institute_of_Technology, sim: 0.957)
+(http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Louisiana, sim: 0.927) -> (http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Mississippi, sim: 0.985)
+(http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Nara_Prefecture, sim: 0.717) -> (http://zh.dbpedia.org/resource/淀川, http://dbpedia.org/resource/Yodo_River, sim: 0.457)
+==========
+after force right (delete), right alignment: 6223/6223=1.000
+mwgm costs time: 8.033 s
+selecting potential alignment costs time: 11.451 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8721/8721=1.000
+after editing (->), right alignment: 8721/8721=1.000
+newly triples: 85871, 118399
+alignment_loss = 1.074, time = 0.653 s
+quick results: hits@[1, 5, 10, 50] = [67.8   79.467 82.733 91.533]%, time = 1.888 s 
+generating neighbors of 38960 entities costs 29.583 s.
+
+iteration 44
+epoch 431, avg. triple loss: 0.7475, cost time: 9.2547s
+epoch 432, avg. triple loss: 0.7456, cost time: 9.6315s
+epoch 433, avg. triple loss: 0.7448, cost time: 8.9186s
+epoch 434, avg. triple loss: 0.7437, cost time: 9.3207s
+epoch 435, avg. triple loss: 0.7432, cost time: 8.7418s
+epoch 436, avg. triple loss: 0.7424, cost time: 9.7195s
+epoch 437, avg. triple loss: 0.7422, cost time: 10.3383s
+epoch 438, avg. triple loss: 0.7417, cost time: 9.1974s
+epoch 439, avg. triple loss: 0.7412, cost time: 9.2534s
+epoch 440, avg. triple loss: 0.7405, cost time: 9.5180s
+quick results: hits@[1, 5, 10, 50] = [66.133 79.267 82.667 91.533]%, time = 1.547 s 
+after filtering by sim threshold, right alignment: 9542/294108=0.032
+after filtering by sim and nearest k, right alignment: 8868/87208=0.102
+graph via graph_tool <Graph object, directed, with 20609 vertices and 87208 edges at 0x7fb8baa79f60>
+after mwgm, right alignment: 6267/9342=0.671
+========== worng alignment
+(http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/James_Gosling, sim: 0.701) -> (http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/John_McCarthy_(computer_scientist), sim: 0.883)
+(http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_2), sim: 0.976) -> (http://zh.dbpedia.org/resource/生活大爆炸_(第四季), http://dbpedia.org/resource/The_Big_Bang_Theory_(season_4), sim: 0.997)
+(http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Reach_for_the_Sky_(Mai_Kuraki_song), sim: 0.995) -> (http://zh.dbpedia.org/resource/Can't_forget_your_love／PERFECT_CRIME_-Single_Edit-, http://dbpedia.org/resource/Can't_Forget_Your_Love/Perfect_Crime:_Single_Edit, sim: 0.994)
+(http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Wei_Jianxing, sim: 0.960) -> (http://zh.dbpedia.org/resource/李瑞环, http://dbpedia.org/resource/Li_Ruihuan, sim: 0.947)
+(http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Gijón, sim: 0.930) -> (http://zh.dbpedia.org/resource/利亚内拉, http://dbpedia.org/resource/Llanera,_Asturias, sim: 0.969)
+(http://zh.dbpedia.org/resource/意大利王國_(1861年–1946年), http://dbpedia.org/resource/Lazio, sim: 0.716) -> (http://zh.dbpedia.org/resource/意大利王國_(1861年–1946年), http://dbpedia.org/resource/Kingdom_of_Italy, sim: 0.923)
+(http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Lehigh_River, sim: 0.803) -> (http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Wharton_School_of_the_University_of_Pennsylvania, sim: 0.620)
+(http://zh.dbpedia.org/resource/A_COMPLETE_～ALL_SINGLES～, http://dbpedia.org/resource/Memorial_Address, sim: 0.966) -> (http://zh.dbpedia.org/resource/A_COMPLETE_～ALL_SINGLES～, http://dbpedia.org/resource/A_Complete:_All_Singles, sim: 0.960)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.970) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.976)
+(http://zh.dbpedia.org/resource/Wish_You_The_Best, http://dbpedia.org/resource/Touch_Me!, sim: 0.917) -> (http://zh.dbpedia.org/resource/Wish_You_The_Best, http://dbpedia.org/resource/Wish_You_the_Best, sim: 0.985)
+==========
+after force right (delete), right alignment: 6267/6267=1.000
+mwgm costs time: 9.063 s
+selecting potential alignment costs time: 12.810 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8740/8740=1.000
+after editing (->), right alignment: 8740/8740=1.000
+newly triples: 86015, 118547
+alignment_loss = 1.074, time = 0.546 s
+quick results: hits@[1, 5, 10, 50] = [68.067 79.467 82.8   91.6  ]%, time = 1.442 s 
+generating neighbors of 38960 entities costs 30.490 s.
+
+iteration 45
+epoch 441, avg. triple loss: 0.7467, cost time: 9.5144s
+epoch 442, avg. triple loss: 0.7449, cost time: 9.0715s
+epoch 443, avg. triple loss: 0.7440, cost time: 9.2141s
+epoch 444, avg. triple loss: 0.7427, cost time: 9.7529s
+epoch 445, avg. triple loss: 0.7425, cost time: 10.1187s
+epoch 446, avg. triple loss: 0.7422, cost time: 9.5205s
+epoch 447, avg. triple loss: 0.7416, cost time: 9.7535s
+epoch 448, avg. triple loss: 0.7409, cost time: 10.0829s
+epoch 449, avg. triple loss: 0.7406, cost time: 9.4833s
+epoch 450, avg. triple loss: 0.7402, cost time: 8.9988s
+quick results: hits@[1, 5, 10, 50] = [66.467 79.2   82.733 91.667]%, time = 1.188 s 
+after filtering by sim threshold, right alignment: 9561/294812=0.032
+after filtering by sim and nearest k, right alignment: 8895/87432=0.102
+graph via graph_tool <Graph object, directed, with 20667 vertices and 87432 edges at 0x7fb8331feac8>
+after mwgm, right alignment: 6385/9380=0.681
+========== worng alignment
+(http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Phil_Neville, sim: 0.835) -> (http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Steve_McManaman, sim: 0.925)
+(http://zh.dbpedia.org/resource/普宁市, http://dbpedia.org/resource/Heyuan, sim: 0.777) -> (http://zh.dbpedia.org/resource/普宁市, http://dbpedia.org/resource/Puning, sim: 0.496)
+(http://zh.dbpedia.org/resource/丹佛掘金, http://dbpedia.org/resource/Dallas_Mavericks, sim: 0.996) -> (http://zh.dbpedia.org/resource/丹佛掘金, http://dbpedia.org/resource/Denver_Nuggets, sim: 0.997)
+(http://zh.dbpedia.org/resource/保羅·基廷, http://dbpedia.org/resource/Peter_Costello, sim: 0.943) -> (http://zh.dbpedia.org/resource/保羅·基廷, http://dbpedia.org/resource/Paul_Keating, sim: 0.951)
+(http://zh.dbpedia.org/resource/提贝里乌斯, http://dbpedia.org/resource/Pope_Stephen_I, sim: 0.885) -> (http://zh.dbpedia.org/resource/提贝里乌斯, http://dbpedia.org/resource/Tiberius, sim: 0.976)
+(http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Wang_Dalei, sim: 0.995) -> (http://zh.dbpedia.org/resource/姜宁_(足球运动员), http://dbpedia.org/resource/Jiang_Ning, sim: 0.993)
+(http://zh.dbpedia.org/resource/金諪恩, http://dbpedia.org/resource/Park_Soo-jin, sim: 0.845) -> (http://zh.dbpedia.org/resource/金諪恩, http://dbpedia.org/resource/Kim_Jung-eun, sim: 0.746)
+(http://zh.dbpedia.org/resource/T_(东方神起专辑), http://dbpedia.org/resource/DDD_(song), sim: 0.868) -> (http://zh.dbpedia.org/resource/T_(东方神起专辑), http://dbpedia.org/resource/T_(TVXQ_album), sim: 0.972)
+(http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Lehigh_River, sim: 0.806) -> (http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Wharton_School_of_the_University_of_Pennsylvania, sim: 0.622)
+(http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS-NEWS, sim: 0.971) -> (http://zh.dbpedia.org/resource/TVBS歡樂台, http://dbpedia.org/resource/TVBS_Entertainment_Channel, sim: 0.976)
+==========
+after force right (delete), right alignment: 6385/6385=1.000
+mwgm costs time: 11.876 s
+selecting potential alignment costs time: 16.107 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8774/8774=1.000
+after editing (->), right alignment: 8774/8774=1.000
+newly triples: 86229, 118813
+alignment_loss = 1.073, time = 0.727 s
+quick results: hits@[1, 5, 10, 50] = [68.267 79.733 83.    91.733]%, time = 1.985 s 
+generating neighbors of 38960 entities costs 27.163 s.
+
+iteration 46
+epoch 451, avg. triple loss: 0.7462, cost time: 10.3321s
+epoch 452, avg. triple loss: 0.7447, cost time: 8.9821s
+epoch 453, avg. triple loss: 0.7435, cost time: 9.7569s
+epoch 454, avg. triple loss: 0.7427, cost time: 9.4853s
+epoch 455, avg. triple loss: 0.7420, cost time: 9.7415s
+epoch 456, avg. triple loss: 0.7416, cost time: 9.8001s
+epoch 457, avg. triple loss: 0.7412, cost time: 9.6852s
+epoch 458, avg. triple loss: 0.7403, cost time: 8.7828s
+epoch 459, avg. triple loss: 0.7399, cost time: 9.0739s
+epoch 460, avg. triple loss: 0.7396, cost time: 8.7940s
+quick results: hits@[1, 5, 10, 50] = [66.533 79.333 82.8   91.733]%, time = 1.367 s 
+after filtering by sim threshold, right alignment: 9590/295589=0.032
+after filtering by sim and nearest k, right alignment: 8912/87631=0.102
+graph via graph_tool <Graph object, directed, with 20696 vertices and 87631 edges at 0x7fb8331fe978>
+after mwgm, right alignment: 6285/9409=0.668
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.889) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.818)
+(http://zh.dbpedia.org/resource/鄭秀文, http://dbpedia.org/resource/Bobby_Au-yeung, sim: 0.711) -> (http://zh.dbpedia.org/resource/鄭秀文, http://dbpedia.org/resource/Sammi_Cheng, sim: 0.731)
+(http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/James_Gosling, sim: 0.705) -> (http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/John_McCarthy_(computer_scientist), sim: 0.883)
+(http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Phil_Neville, sim: 0.834) -> (http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Steve_McManaman, sim: 0.923)
+(http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Shoegazing, sim: 0.907) -> (http://zh.dbpedia.org/resource/夢幻流行, http://dbpedia.org/resource/Dream_pop, sim: 0.932)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.764) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.677)
+(http://zh.dbpedia.org/resource/奧保鞏, http://dbpedia.org/resource/Hajime_Sugiyama, sim: 0.876) -> (http://zh.dbpedia.org/resource/奧保鞏, http://dbpedia.org/resource/Oku_Yasukata, sim: 0.928)
+(http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Lehigh_River, sim: 0.806) -> (http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Wharton_School_of_the_University_of_Pennsylvania, sim: 0.625)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.971) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.967)
+(http://zh.dbpedia.org/resource/陳茵媺, http://dbpedia.org/resource/Moses_Chan, sim: 0.979) -> (http://zh.dbpedia.org/resource/陳茵媺, http://dbpedia.org/resource/Aimee_Chan, sim: 0.950)
+==========
+after force right (delete), right alignment: 6285/6285=1.000
+mwgm costs time: 7.722 s
+selecting potential alignment costs time: 11.369 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8794/8794=1.000
+after editing (->), right alignment: 8794/8794=1.000
+newly triples: 86359, 118981
+alignment_loss = 1.073, time = 0.480 s
+quick results: hits@[1, 5, 10, 50] = [68.2   79.867 83.    91.867]%, time = 1.524 s 
+generating neighbors of 38960 entities costs 28.554 s.
+
+iteration 47
+epoch 461, avg. triple loss: 0.7457, cost time: 9.9618s
+epoch 462, avg. triple loss: 0.7443, cost time: 9.3210s
+epoch 463, avg. triple loss: 0.7437, cost time: 9.9765s
+epoch 464, avg. triple loss: 0.7421, cost time: 9.4619s
+epoch 465, avg. triple loss: 0.7419, cost time: 9.0895s
+epoch 466, avg. triple loss: 0.7404, cost time: 8.7928s
+epoch 467, avg. triple loss: 0.7406, cost time: 9.6402s
+epoch 468, avg. triple loss: 0.7403, cost time: 8.9579s
+epoch 469, avg. triple loss: 0.7395, cost time: 9.2342s
+epoch 470, avg. triple loss: 0.7388, cost time: 9.4079s
+quick results: hits@[1, 5, 10, 50] = [66.533 79.667 82.933 91.733]%, time = 1.556 s 
+after filtering by sim threshold, right alignment: 9612/296262=0.032
+after filtering by sim and nearest k, right alignment: 8931/87822=0.102
+graph via graph_tool <Graph object, directed, with 20731 vertices and 87822 edges at 0x7fb8331fe978>
+after mwgm, right alignment: 6437/9422=0.683
+========== worng alignment
+(http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Detective_Investigation_Files, sim: 0.890) -> (http://zh.dbpedia.org/resource/律政新人王, http://dbpedia.org/resource/Survivor's_Law, sim: 0.818)
+(http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/James_Gosling, sim: 0.706) -> (http://zh.dbpedia.org/resource/约翰·麦卡锡, http://dbpedia.org/resource/John_McCarthy_(computer_scientist), sim: 0.883)
+(http://zh.dbpedia.org/resource/弗里德里希·谢林, http://dbpedia.org/resource/Otto_Weininger, sim: 0.971) -> (http://zh.dbpedia.org/resource/弗里德里希·谢林, http://dbpedia.org/resource/Friedrich_Wilhelm_Joseph_Schelling, sim: 0.996)
+(http://zh.dbpedia.org/resource/SKE48, http://dbpedia.org/resource/Not_Yet_(band), sim: 0.958) -> (http://zh.dbpedia.org/resource/SKE48, http://dbpedia.org/resource/SKE48, sim: 0.951)
+(http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Lạng_Sơn_Province, sim: 0.948) -> (http://zh.dbpedia.org/resource/北𣴓省, http://dbpedia.org/resource/Bắc_Kạn_Province, sim: 0.980)
+(http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Phil_Neville, sim: 0.834) -> (http://zh.dbpedia.org/resource/史蒂夫·麦克马纳曼, http://dbpedia.org/resource/Steve_McManaman, sim: 0.924)
+(http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Black-headed_gull, sim: 0.766) -> (http://zh.dbpedia.org/resource/家燕, http://dbpedia.org/resource/Barn_swallow, sim: 0.679)
+(http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Louisiana, sim: 0.928) -> (http://zh.dbpedia.org/resource/密西西比州, http://dbpedia.org/resource/Mississippi, sim: 0.987)
+(http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Lehigh_River, sim: 0.808) -> (http://zh.dbpedia.org/resource/沃顿商学院, http://dbpedia.org/resource/Wharton_School_of_the_University_of_Pennsylvania, sim: 0.626)
+(http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Pedro_Aleixo, sim: 0.972) -> (http://zh.dbpedia.org/resource/奧古斯托·拉德馬克, http://dbpedia.org/resource/Augusto_Hamann_Rademaker_Grünewald, sim: 0.969)
+==========
+after force right (delete), right alignment: 6437/6437=1.000
+mwgm costs time: 9.548 s
+selecting potential alignment costs time: 13.969 s
+update wrongly:  0 greedy update wrongly:  0
+after editing (<-), right alignment: 8826/8826=1.000
+after editing (->), right alignment: 8826/8826=1.000
+newly triples: 86622, 119262
+alignment_loss = 1.073, time = 0.537 s
+quick results: hits@[1, 5, 10, 50] = [68.2   80.    82.933 91.867]%, time = 1.607 s 
+generating neighbors of 38960 entities costs 27.618 s.
+
+iteration 48
+epoch 471, avg. triple loss: 0.7454, cost time: 9.1810s
+epoch 472, avg. triple loss: 0.7438, cost time: 9.2561s
+epoch 473, avg. triple loss: 0.7429, cost time: 9.0709s
+epoch 474, avg. triple loss: 0.7422, cost time: 9.5142s
+epoch 475, avg. triple loss: 0.7415, cost time: 9.6240s
+epoch 476, avg. triple loss: 0.7412, cost time: 9.0538s
+epoch 477, avg. triple loss: 0.7408, cost time: 9.1053s
+epoch 478, avg. triple loss: 0.7400, cost time: 8.9356s
+epoch 479, avg. triple loss: 0.7397, cost time: 9.8962s
+epoch 480, avg. triple loss: 0.7392, cost time: 9.0377s
+quick results: hits@[1, 5, 10, 50] = [66.333 79.667 82.933 91.867]%, time = 1.694 s 
+
+ == should early stop == 
+
+Training ends. Total time = 6791.192 s.
+accurate results: hits@[1, 5, 10, 50] = [65.724 78.39  82.429 92.686]%, mr = 82.551, mrr = 0.719268, time = 6.725 s 
+accurate results with csls: csls=10, hits@[1, 5, 10, 50] = [68.762 81.905 86.095 94.467]%, mr = 36.267, mrr = 0.751063, time = 11.536 s 
+Results saved!
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg1_ent_ids saved.
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg2_ent_ids saved.
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg1_rel_ids saved.
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg2_rel_ids saved.
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg1_attr_ids saved.
+../../output/results/BootEA/ZH_EN_15K/721_5fold/1/20220416171451/kg2_attr_ids saved.
+Embeddings saved!
+Total run time = 6891.669 s.
