@@ -7,6 +7,8 @@ from openea.modules.load.kgs import read_kgs_from_folder
 from main_from_args import get_model
 import random
 import numpy as np
+import pandas as pd
+import pickle
 import time
 
 app = Flask(__name__)
@@ -29,7 +31,6 @@ def load_vec(filename):
     return source_data_dict
 
 
-
 @app.route("/")
 def hello_world():
     if 'num' not in session:
@@ -43,8 +44,22 @@ def hello_world():
 def start():
     global dict1, dict2
     start = time.time()
-    dict1 = load_vec('vec/zh_vec.txt')
-    dict2 = load_vec('vec/en_vec.txt')
+    if len(dict1) == 0 or len(dict2) == 0:
+        # pandas load vec/zh_vec.txt
+        # zh = pd.read_csv('vec/zh_vec.txt', sep=' ', header=None, engine='python')
+        # zh['vec'] = zh.iloc[:, 1:-1].apply(np.array, axis=1)
+        # dict1 = zh.set_index(0).to_dict()['vec']
+        # # pandas load vec/en_vec.txt
+        # en = pd.read_csv('vec/en_vec.txt', sep=' ', header=None, engine='python')
+        # en['vec'] = en.iloc[:, 1:-1].apply(np.array, axis=1)
+        # dict2 = en.set_index(0).to_dict()['vec']
+        
+        # pickle load vec
+        with open('vec/zh_vec.pkl', 'rb') as f:
+            dict1 = pickle.load(f)
+        with open('vec/en_vec.pkl', 'rb') as f:
+            dict2 = pickle.load(f)
+
     end = time.time()
     print("加载词向量用时：{}s".format(end-start)) # 加载中英文词向量, 数据集为ZH_EN_15K.
 
@@ -80,8 +95,8 @@ def start():
         'model': model,
         'run': model.run()
     }
-    # 初始化第一轮迭代
-    next(model_dict[session['task_id']]['run'])
+    # TODO: 初始化第一轮迭代
+    # next(model_dict[session['task_id']]['run'])
 
     return {
         'code': 0,
@@ -203,6 +218,11 @@ def get_sem_sim_by_ids():
             return None
         vec1 = dict1[word1]
         vec2 = dict2[word2]
+        # get min nparray size of vec1 and vec2
+        min_size = min(vec1.shape[0], vec2.shape[0])
+        # slice vec1 and vec2 to min size
+        vec1 = vec1[:min_size]
+        vec2 = vec2[:min_size]
         return float(np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2)))
 
     id1 = int(request.args.get('id1', 0))
