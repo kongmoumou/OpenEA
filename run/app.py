@@ -1,9 +1,13 @@
+from warnings import simplefilter
+simplefilter(action='ignore', category=FutureWarning)
 from flask import Flask, session, request
 from flask_cors import CORS
 from openea.modules.args.args_hander import load_args
 from openea.modules.load.kgs import read_kgs_from_folder
 from main_from_args import get_model
 import random
+import numpy as np
+import time
 
 app = Flask(__name__)
 CORS(app)
@@ -11,6 +15,20 @@ app.secret_key = "ea-key"
 
 task_count = 0
 model_dict = {}
+dict1 = {}
+dict2 = {}
+def load_vec(filename):
+    source_data = open(filename, 'r')
+    source_data_dict = {}
+    for i, line in enumerate(source_data):
+        line = line.split(' ')
+        word = line[0]
+        word_vec_list = [eval(x) for x in line[1:-1]]
+        source_data_dict[word] = np.array(word_vec_list)
+
+    return source_data_dict
+
+
 
 @app.route("/")
 def hello_world():
@@ -23,6 +41,13 @@ def hello_world():
 
 @app.route("/start", methods=['POST'])
 def start():
+    global dict1, dict2
+    start = time.time()
+    dict1 = load_vec('vec/zh_vec.txt')
+    dict2 = load_vec('vec/en_vec.txt')
+    end = time.time()
+    print("加载词向量用时：{}s".format(end-start)) # 加载中英文词向量, 数据集为ZH_EN_15K.
+
     if model_dict.get(session.get('task_id')):
         return {
             'code': 0,
@@ -159,4 +184,31 @@ def get_sim_by_ids():
 
     return {
         'sim': sim_mat[index1][index2].item()
+    }
+
+@app.route("/sem_sim", methods=['GET'])
+def get_sem_sim_by_ids():
+    if model_dict.get(session.get('task_id')) is None:
+        return {
+            'code': 1,
+            'msg': 'no model'
+        }
+    def similarity(word1, word2):
+        if word1 not in dict1.keys():
+            print("向量1不存在")
+            return None
+        if word2 not in dict2.keys():
+            print("向量2不存在")
+            return None
+        vec1 = dict1[word1]
+        vec2 = dict2[word2]
+        return float(np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2)))
+
+    id1 = int(request.args.get('id1', 0))
+    id2 = int(request.args.get('id2', 0))
+    model = model_dict[session['task_id']]['model']
+    name_ent1 = model.kgs.kg1.entities_id_name_dict[id1].split('/')[-1]
+    name_ent2 = model.kgs.kg2.entities_id_name_dict[id2].split('/')[-1]
+    return {
+        'sim': similarity(name_ent1, name_ent2)
     }
