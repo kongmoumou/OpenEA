@@ -66,7 +66,16 @@ def greedy_alignment(embed1, embed2, top_k, nums_threads, metric, normalize, csl
     for i in range(len(hits)):
         hits[i] = round(hits[i], 3)
     cost = time.time() - t
+    top_index_value = None
     if accurate:
+        # get top 5 index and its value of numpy sim_mat desc
+        top_index = np.argsort(-sim_mat, axis=1)[:, :5]
+        # top_index = np.argsort(sim_mat, axis=1)[:, -5:]
+        # get value from top_index in sim_mat and order by desc
+        top_value = -np.sort(-sim_mat[np.arange(num).reshape(-1, 1), top_index], axis=1)
+        # top_value = sim_mat[np.arange(num).reshape(-1, 1), top_index]
+        # zip nest array of top_index and top_value
+        top_index_value = zip(top_index.tolist(), top_value.tolist())
         if csls_k > 0:
             print("accurate results with csls: csls={}, hits@{} = {}%, mr = {:.3f}, mrr = {:.6f}, time = {:.3f} s ".
                   format(csls_k, top_k, hits, mr, mrr, cost))
@@ -79,9 +88,9 @@ def greedy_alignment(embed1, embed2, top_k, nums_threads, metric, normalize, csl
         else:
             print("quick results: hits@{} = {}%, time = {:.3f} s ".format(top_k, hits, cost))
     hits1 = hits[0]
-    del sim_mat
+    # del sim_mat
     gc.collect()
-    return alignment_rest, hits1, mr, mrr
+    return alignment_rest, hits1, mr, mrr, top_index_value
 
 
 def stable_alignment(embed1, embed2, metric, normalize, csls_k, nums_threads, cut=100, sim_mat=None):
@@ -150,14 +159,14 @@ def calculate_rank(idx, sim_mat, top_k, accurate, total_num):
     hits = [0] * len(top_k)
     hits1_rest = set()
     for i in range(len(idx)):
-        gold = idx[i]
+        gold = idx[i] # 正确对齐 idx
         if accurate:
             rank = (-sim_mat[i, :]).argsort()
         else:
             rank = np.argpartition(-sim_mat[i, :], np.array(top_k) - 1)
         hits1_rest.add((gold, rank[0]))
         assert gold in rank
-        rank_index = np.where(rank == gold)[0][0]
+        rank_index = np.where(rank == gold)[0][0] # 正确对齐的排名
         mr += (rank_index + 1)
         mrr += 1 / (rank_index + 1)
         for j in range(len(top_k)):

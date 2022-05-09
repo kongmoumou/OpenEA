@@ -19,7 +19,7 @@ from openea.modules.utils.util import load_session
 def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
                             kg1_entity_ids = unaligned_entities1, kg2_entity_ids = unaligned_entities2,
-                            kg1_dict = kg1_dict, kg2_dict = kg2_dict)
+                            kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=True, correct=False)
     if curr_labeled_alignment is not None:
         labeled_alignment = update_labeled_alignment_x(labeled_alignment, curr_labeled_alignment, sim_mat)
         labeled_alignment = update_labeled_alignment_y(labeled_alignment, sim_mat)
@@ -104,7 +104,7 @@ def calculate_likelihood_mat(ref_ent1, ref_ent2, labeled_alignment):
     return ref_mat
 
 
-def generate_supervised_triples(rt_dict1, hr_dict1, rt_dict2, hr_dict2, ents1, ents2):
+def generate_supervised_triples(rt_dict1, hr_dict1, rt_dict2, hr_dict2, ents1, ents2): # 交换对齐「头尾」实体生成新训练三元组
     assert len(ents1) == len(ents2)
     newly_triples1, newly_triples2 = list(), list()
     for i in range(len(ents1)):
@@ -280,6 +280,7 @@ class BootEA(AlignE):
         sub_num = self.args.sub_epoch
         iter_nums = self.args.max_epoch // sub_num
         for i in range(1, iter_nums + 1):
+        # for i in range(1, 2):
             print("\niteration", i)
             self.launch_training_k_epo(i, sub_num, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                                        neighbors2)
