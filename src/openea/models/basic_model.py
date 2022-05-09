@@ -129,12 +129,23 @@ class BasicModel:
 
     def test(self, save=True):
         embeds1, embeds2, mapping = self._eval_test_embeddings()
-        rest_12, _, _ = test(embeds1, embeds2, mapping, self.args.top_k, self.args.test_threads_num,
+        rest_12, _, _, top = test(embeds1, embeds2, mapping, self.args.top_k, self.args.test_threads_num,
                              metric=self.args.eval_metric, normalize=self.args.eval_norm, csls_k=0, accurate=True)
-        test(embeds1, embeds2, mapping, self.args.top_k, self.args.test_threads_num,
+        _, _, _, top_csls = test(embeds1, embeds2, mapping, self.args.top_k, self.args.test_threads_num,
              metric=self.args.eval_metric, normalize=self.args.eval_norm, csls_k=self.args.csls, accurate=True)
         if save:
-            ent_ids_rest_12 = [(self.kgs.test_entities1[i], self.kgs.test_entities2[j]) for i, j in rest_12]
+            import json
+            # make dir if out_folder is not exist
+            if not os.path.exists(self.out_folder):
+                os.makedirs(self.out_folder)
+            with open(self.out_folder + 'sim_top', 'w', encoding='utf8') as file:
+                json.dump([[self.kgs.test_entities1[idx], [*map(lambda x: self.kgs.test_entities2[x], i)], j]
+                           for idx, (i, j) in enumerate(top)], file, indent=2, ensure_ascii=False)
+            with open(self.out_folder + 'sim_top_csls', 'w', encoding='utf8') as file:
+                json.dump([[self.kgs.test_entities1[idx], [*map(lambda x: self.kgs.test_entities2[x], i)], j]
+                           for idx, (i, j) in enumerate(top_csls)], file, indent=2, ensure_ascii=False)
+            ent_ids_rest_12 = [
+                (self.kgs.test_entities1[i], self.kgs.test_entities2[j]) for i, j in rest_12]
             rd.save_results(self.out_folder, ent_ids_rest_12)
 
     def retest(self):

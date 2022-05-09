@@ -54,8 +54,9 @@ def start():
             'msg': 'model already init'
         }
 
+    dataset = request.json.get('dataset', 'ZH_EN_15K')
     args = load_args('./args/bootea_args_15K.json')  # json 读参数
-    args.training_data = args.training_data + 'D_Y_15K_V1' + '/'
+    args.training_data = args.training_data + dataset + '/'
     args.dataset_division = '721_5fold/1/'
     print(args.embedding_module)
     print(args)
