@@ -29,8 +29,9 @@ def start():
             'msg': 'model already init'
         }
 
+    dataset = request.json.get('dataset', 'ZH_EN_15K')
     args = load_args('./args/bootea_args_15K.json')  # json 读参数
-    args.training_data = args.training_data + 'D_Y_15K_V1' + '/'
+    args.training_data = args.training_data + dataset + '/'
     args.dataset_division = '721_5fold/1/'
     print(args.embedding_module)
     print(args)
@@ -159,4 +160,26 @@ def get_sim_by_ids():
 
     return {
         'sim': sim_mat[index1][index2].item()
+    }
+
+@app.route("/sim_matrix", methods=['GET'])
+def get_sim_matrix():
+    if model_dict.get(session.get('task_id')) is None:
+        return {
+            'code': 1,
+            'msg': 'no model'
+        }
+
+    id1 = int(request.args.get('id1', 0))
+    id2 = int(request.args.get('id2', 0))
+    model = model_dict[session['task_id']]['model']
+    sim_mat = model.sim_mat
+    ref_ent1 = model.ref_ent1
+    ref_ent2 = model.ref_ent2
+
+    index1 = ref_ent1.index(id1)
+    index2 = ref_ent2.index(id2)
+
+    return {
+        'sim_matrix': sim_mat[index1][index2].item()
     }
