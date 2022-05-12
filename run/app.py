@@ -55,9 +55,9 @@ def start():
         # dict2 = en.set_index(0).to_dict()['vec']
         
         # pickle load vec
-        with open('vec/zh_vec.pkl', 'rb') as f:
+        with open('vec/zh_vec_v2.pkl', 'rb') as f:
             dict1 = pickle.load(f)
-        with open('vec/en_vec.pkl', 'rb') as f:
+        with open('vec/en_vec_v2.pkl', 'rb') as f:
             dict2 = pickle.load(f)
 
     end = time.time()
