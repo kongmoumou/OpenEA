@@ -69,7 +69,7 @@ def force_right_alignment(aligned_pairs, correct=True, right_count=0, sim_mat=No
         should_check = False
         if range is not None:
             # 错误对齐 且 在范围内
-            if x != y and (range[0] <= sim_mat[x][y] <= range[1]):
+            if x != y and (range[0] <= sim_mat[x][y] < range[1]):
                 should_check = True
         else:
             # 错误对齐
@@ -90,10 +90,10 @@ def force_right_alignment(aligned_pairs, correct=True, right_count=0, sim_mat=No
             # 需要更正 & 只更正 top
             if correct and count < right_count:
                 if is_top and only_top:
-                    aligned_pairs.add((x, y))
+                    aligned_pairs.add((x, x))
                     count += 1
                 elif not only_top:
-                    aligned_pairs.add((x, y))
+                    aligned_pairs.add((x, x))
                     count += 1
                 else:
                     remove_count += 1
