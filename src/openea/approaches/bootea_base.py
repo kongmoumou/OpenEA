@@ -277,8 +277,8 @@ class BootEABase(AlignE):
         labeled_align = set()
         sub_num = self.args.sub_epoch
         iter_nums = self.args.max_epoch // sub_num
-        # for i in range(1, iter_nums + 1):
-        for i in range(1, 2):
+        for i in range(1, iter_nums + 1):
+        # for i in range(1, 2):
             print("\niteration", i)
             self.launch_training_k_epo(i, sub_num, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                                        neighbors2)
