@@ -10,19 +10,41 @@ from openea.modules.finding.evaluation import early_stop
 import openea.modules.train.batch as bat
 from openea.approaches.aligne import AlignE
 from openea.modules.utils.util import task_divide
-from openea.modules.bootstrapping.alignment_finder import find_potential_alignment_mwgm, check_new_alignment
+from openea.modules.bootstrapping.alignment_finder import find_potential_alignment_mwgm, check_new_alignment, force_right_alignment
 from openea.modules.base.optimizers import generate_optimizer
 from openea.modules.load.kg import KG
 from openea.modules.utils.util import load_session
 
 
-def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict):
+def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict, force_right=False, right_count=0,
+happy_align=None, verify_range=None, 
+):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
                             kg1_entity_ids = unaligned_entities1, kg2_entity_ids = unaligned_entities2,
-                            kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=True, correct=False)
+                            # kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=force_right, correct=True)
+                            kg1_dict = kg1_dict, kg2_dict = kg2_dict)
     if curr_labeled_alignment is not None:
         labeled_alignment = update_labeled_alignment_x(labeled_alignment, curr_labeled_alignment, sim_mat)
         labeled_alignment = update_labeled_alignment_y(labeled_alignment, sim_mat)
+
+        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.7, 0.8])
+        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.8, 0.9])
+        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.9, 1.0])
+
+        if force_right:
+            labeled_alignment = force_right_alignment(labeled_alignment, correct=True, right_count=right_count, sim_mat=sim_mat, range=verify_range)
+            check_new_alignment(labeled_alignment, context=f"after force right alignment({right_count})")
+            print(f"new happy align: {len(labeled_alignment - happy_align)}")
+            for align in labeled_alignment:
+                happy_align.add(align)
+            check_new_alignment(happy_align, context=f"happy align({len(happy_align)})")
+        # elif happy_align is not None and labeled_alignment is not None:
+        happy_align_x = (x for x, y in happy_align)
+        for i, j in labeled_alignment.copy():
+            if i in happy_align_x:
+                labeled_alignment.remove((i, j))
+        labeled_alignment = happy_align.union(labeled_alignment)
+
         del curr_labeled_alignment
     if labeled_alignment is not None:
         newly_aligned_entities1 = [unaligned_entities1[pair[0]] for pair in labeled_alignment]
@@ -31,7 +53,8 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
         newly_aligned_entities1, newly_aligned_entities2 = None, None
     del sim_mat
     gc.collect()
-    return labeled_alignment, newly_aligned_entities1, newly_aligned_entities2
+    check_new_alignment(labeled_alignment, context="merge labeled alignment")
+    return labeled_alignment, newly_aligned_entities1, newly_aligned_entities2, happy_align
 
 
 def update_labeled_alignment_x(pre_labeled_alignment, curr_labeled_alignment, sim_mat):
@@ -170,6 +193,9 @@ class BootEA(AlignE):
         self.ref_ent1 = self.kgs.valid_entities1 + self.kgs.test_entities1
         self.ref_ent2 = self.kgs.valid_entities2 + self.kgs.test_entities2
 
+        # self.args.setdefault('iter_gap', -1)
+        # self.args.setdefault('total_right', 0)
+
         # customize parameters
         assert self.args.init == 'normal'
         assert self.args.alignment_module == 'swapping'
@@ -277,8 +303,14 @@ class BootEA(AlignE):
         training_batch_queue = manager.Queue()
         neighbors1, neighbors2 = None, None
         labeled_align = set()
+        happy_align = set()
         sub_num = self.args.sub_epoch
         iter_nums = self.args.max_epoch // sub_num
+
+        if hasattr(self.args, "min_iter"):
+            print(f'=== min iter count: {self.args.min_iter} ===')
+            iter_nums = self.args.min_iter
+
         for i in range(1, iter_nums + 1):
         # for i in range(1, 2):
             print("\niteration", i)
@@ -287,13 +319,20 @@ class BootEA(AlignE):
             if i * sub_num >= self.args.start_valid: # > 100 验证 default，第一次迭代不验证， 第 10 次开始验证
                 flag = self.valid(self.args.stop_metric)
                 self.flag1, self.flag2, self.early_stop = early_stop(self.flag1, self.flag2, flag) # 结果连续下降两次终止迭代
-                if self.early_stop or i == iter_nums:
+                if hasattr(self.args, "min_iter"):
+                    if i == iter_nums:
+                        break
+                elif self.early_stop:
                     break
-            labeled_align, entities1, entities2 = bootstrapping(self.eval_ref_sim_mat(),
+            labeled_align, entities1, entities2, happy_align = bootstrapping(self.eval_ref_sim_mat(),
                                                                 self.ref_ent1, self.ref_ent2, labeled_align,
                                                                 self.args.sim_th, self.args.k,
                                                                 kg1_dict=self.kgs.kg1.entities_id_name_dict,
-                                                                kg2_dict=self.kgs.kg2.entities_id_name_dict)
+                                                                kg2_dict=self.kgs.kg2.entities_id_name_dict,
+                                                                force_right=i <= self.args.interact_iter,
+                                                                right_count=self.args.total_right,
+                                                                happy_align=happy_align,
+                                                                verify_range=self.args.verify_range,)
             self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, 1)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:

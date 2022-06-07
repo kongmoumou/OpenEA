@@ -9,31 +9,36 @@ def find_potential_alignment_greedily(sim_mat, sim_th):
     return find_alignment(sim_mat, sim_th, 1)
 
 
-def find_potential_alignment_mwgm(sim_mat, sim_th, k, 
-    kg1_entity_ids, kg2_entity_ids,
-    kg1_dict, kg2_dict,
-    heuristic=True,
-    force_right=False,
-    correct=True,
-    ):
+def find_potential_alignment_mwgm(sim_mat, sim_th, k,
+                                  kg1_entity_ids=None, kg2_entity_ids=None,
+                                  kg1_dict=None, kg2_dict=None,
+                                  heuristic=True,
+                                  force_right=False,
+                                  correct=True,
+                                  ):
     t = time.time()
     potential_aligned_pairs = find_alignment(sim_mat, sim_th, k)
     if potential_aligned_pairs is None:
         return None
     t1 = time.time()
     if heuristic:
-        selected_aligned_pairs = mwgm(potential_aligned_pairs, sim_mat, mwgm_graph_tool)
+        selected_aligned_pairs = mwgm(
+            potential_aligned_pairs, sim_mat, mwgm_graph_tool)
     else:
-        selected_aligned_pairs = mwgm(potential_aligned_pairs, sim_mat, mwgm_igraph)
+        selected_aligned_pairs = mwgm(
+            potential_aligned_pairs, sim_mat, mwgm_igraph)
     check_new_alignment(selected_aligned_pairs, context="after mwgm")
     if force_right:
         # 输出错误对齐
-        print_wrong_alignment(selected_aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dict, kg2_dict, sim_mat)
+        print_wrong_alignment(selected_aligned_pairs, kg1_entity_ids,
+                              kg2_entity_ids, kg1_dict, kg2_dict, sim_mat)
         # TODO: only for test
         force_right_alignment(selected_aligned_pairs, correct)
-        check_new_alignment(selected_aligned_pairs, context=f"after force right {'(delete)' if not correct else ''}")
+        check_new_alignment(
+            selected_aligned_pairs, context=f"after force right {'(delete)' if not correct else ''}")
     print("mwgm costs time: {:.3f} s".format(time.time() - t1))
-    print("selecting potential alignment costs time: {:.3f} s".format(time.time() - t))
+    print("selecting potential alignment costs time: {:.3f} s".format(
+        time.time() - t))
     return selected_aligned_pairs
 
 def print_wrong_alignment(aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dict, kg2_dict, sim_mat):
@@ -51,12 +56,41 @@ def print_wrong_alignment(aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dic
     print('==========')
 
 
-def force_right_alignment(aligned_pairs, correct=True):
+def force_right_alignment(aligned_pairs, correct=True, right_count=0, sim_mat=None, range=None):
+    count = 0
+    top_5_count = 0
+    total = 0
     for x, y in aligned_pairs.copy():
+        if range is not None:
+            if x != y and (range[0] <= sim_mat[x][y] <= range[1]): # 只修正相似度阈值内的对齐
+                # sort sim_mat[x] desc and check if y is in the top 5
+                rank = np.argpartition(-sim_mat[x], 5)
+                if x in rank[0:5]:
+                    top_5_count += 1
+                aligned_pairs.remove((x, y))
+                if correct and count < right_count:
+                    aligned_pairs.add((x, x))
+                    count += 1
+                else:
+                    break    
+            continue
+
         if x != y: # 强制正确
+            # sort sim_mat[x] desc and check if y is in the top 5
+            rank = np.argpartition(-sim_mat[x], 5)
+            if x in rank[0:5]:
+                top_5_count += 1
             aligned_pairs.remove((x, y))
-            if correct:
+            if correct and count < right_count:
                 aligned_pairs.add((x, x))
+                count += 1
+            else:
+                break
+
+    if range is not None:
+        print(f'修正[{range[0]},{range[1]})个数: {count}, top 5: {top_5_count} ({top_5_count / (count or 1) * 100:.2f}%)')
+    else:
+        print(f'修正个数: {count}, top 5: {top_5_count} ({top_5_count / (count or 1) * 100:.2f}%)')
     return aligned_pairs
 
 
@@ -172,10 +206,23 @@ def mwgm_igraph(pairs, sim_mat):
     return matched_pairs
 
 
-def check_new_alignment(aligned_pairs, context="check alignment"):
+def check_new_alignment(aligned_pairs, context="check alignment", sim_mat=None, range=None):
     if aligned_pairs is None or len(aligned_pairs) == 0:
         print("{}, empty aligned pairs".format(context))
         return
+
+    if range is not None:
+        num = 0
+        filter_pairs_len = 0
+        for x, y in aligned_pairs:
+            if range[0] <= sim_mat[x][y] < range[1]:
+                filter_pairs_len += 1
+                if x == y: # IMPORTANT: 逐行读取数据保证了对齐实体在相似度矩阵对角线上
+                    num += 1
+        ratio = num / (filter_pairs_len or 1)
+        print(f"{context}, range: [{range[0]},{range[1]}), right alignment: {num}/{filter_pairs_len}={ratio:.3f}")
+        return
+
     num = 0
     for x, y in aligned_pairs:
         if x == y: # IMPORTANT: 逐行读取数据保证了对齐实体在相似度矩阵对角线上
