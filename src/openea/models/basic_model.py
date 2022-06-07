@@ -115,8 +115,11 @@ class BasicModel:
         return embeds1, embeds2, mapping
 
     def _eval_test_embeddings(self):
-        embeds1 = tf.nn.embedding_lookup(self.ent_embeds, self.kgs.test_entities1).eval(session=self.session)
-        embeds2 = tf.nn.embedding_lookup(self.ent_embeds, self.kgs.test_entities2).eval(session=self.session)
+        # embeds1 = tf.nn.embedding_lookup(self.ent_embeds, self.kgs.test_entities1).eval(session=self.session)
+        # embeds2 = tf.nn.embedding_lookup(self.ent_embeds, self.kgs.test_entities2).eval(session=self.session)
+
+        embeds1 = tf.nn.embedding_lookup(self.ent_embeds, self.ref_ent1).eval(session=self.session)
+        embeds2 = tf.nn.embedding_lookup(self.ent_embeds, self.ref_ent2).eval(session=self.session)
         mapping = self.mapping_mat.eval(session=self.session) if self.mapping_mat is not None else None
         return embeds1, embeds2, mapping
 
@@ -139,13 +142,13 @@ class BasicModel:
             if not os.path.exists(self.out_folder):
                 os.makedirs(self.out_folder)
             with open(self.out_folder + 'sim_top', 'w', encoding='utf8') as file:
-                json.dump([[self.kgs.test_entities1[idx], [*map(lambda x: self.kgs.test_entities2[x], i)], j]
+                json.dump([[self.ref_ent1[idx], [*map(lambda x: self.ref_ent2[x], i)], j]
                            for idx, (i, j) in enumerate(top)], file, indent=2, ensure_ascii=False)
             with open(self.out_folder + 'sim_top_csls', 'w', encoding='utf8') as file:
-                json.dump([[self.kgs.test_entities1[idx], [*map(lambda x: self.kgs.test_entities2[x], i)], j]
+                json.dump([[self.ref_ent1[idx], [*map(lambda x: self.ref_ent2[x], i)], j]
                            for idx, (i, j) in enumerate(top_csls)], file, indent=2, ensure_ascii=False)
             ent_ids_rest_12 = [
-                (self.kgs.test_entities1[i], self.kgs.test_entities2[j]) for i, j in rest_12]
+                (self.ref_ent1[i], self.ref_ent2[j]) for i, j in rest_12]
             rd.save_results(self.out_folder, ent_ids_rest_12)
 
     def retest(self):
