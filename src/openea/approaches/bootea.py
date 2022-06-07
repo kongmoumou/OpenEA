@@ -17,38 +17,51 @@ from openea.modules.utils.util import load_session
 
 
 def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict, force_right=False, right_count=0,
-happy_align=None, verify_range=None, 
-):
+                  happy_align=None, verify_range=None, only_top=False
+                  ):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
-                            kg1_entity_ids = unaligned_entities1, kg2_entity_ids = unaligned_entities2,
-                            # kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=force_right, correct=True)
-                            kg1_dict = kg1_dict, kg2_dict = kg2_dict)
+                                                           kg1_entity_ids=unaligned_entities1, kg2_entity_ids=unaligned_entities2,
+                                                           # kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=force_right, correct=True)
+                                                           kg1_dict=kg1_dict, kg2_dict=kg2_dict)
     if curr_labeled_alignment is not None:
-        labeled_alignment = update_labeled_alignment_x(labeled_alignment, curr_labeled_alignment, sim_mat)
-        labeled_alignment = update_labeled_alignment_y(labeled_alignment, sim_mat)
+        labeled_alignment = update_labeled_alignment_x(
+            labeled_alignment, curr_labeled_alignment, sim_mat)
+        labeled_alignment = update_labeled_alignment_y(
+            labeled_alignment, sim_mat)
 
-        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.7, 0.8])
-        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.8, 0.9])
-        check_new_alignment(labeled_alignment, context=f"中间对齐范围", sim_mat=sim_mat, range=[0.9, 1.0])
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+                            sim_mat=sim_mat, range=[0.7, 0.8])
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+                            sim_mat=sim_mat, range=[0.8, 0.9])
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+                            sim_mat=sim_mat, range=[0.9, 1.0])
 
-        if force_right:
-            labeled_alignment = force_right_alignment(labeled_alignment, correct=True, right_count=right_count, sim_mat=sim_mat, range=verify_range)
-            check_new_alignment(labeled_alignment, context=f"after force right alignment({right_count})")
-            print(f"new happy align: {len(labeled_alignment - happy_align)}")
-            for align in labeled_alignment:
-                happy_align.add(align)
-            check_new_alignment(happy_align, context=f"happy align({len(happy_align)})")
-        # elif happy_align is not None and labeled_alignment is not None:
+        # 删除已验证的对齐
         happy_align_x = (x for x, y in happy_align)
         for i, j in labeled_alignment.copy():
             if i in happy_align_x:
                 labeled_alignment.remove((i, j))
+        if force_right:
+            # 验证中间对齐
+            labeled_alignment = force_right_alignment(
+                labeled_alignment, correct=True, right_count=right_count, sim_mat=sim_mat, range=verify_range, only_top=only_top)
+            check_new_alignment(
+                labeled_alignment, context=f"after force right alignment({right_count})")
+            print(f"new happy align: {len(labeled_alignment - happy_align)}")
+            # 添加进已验证对齐
+            for align in labeled_alignment:
+                happy_align.add(align)
+            check_new_alignment(
+                happy_align, context=f"happy align({len(happy_align)})")
+        # 合并
         labeled_alignment = happy_align.union(labeled_alignment)
 
         del curr_labeled_alignment
     if labeled_alignment is not None:
-        newly_aligned_entities1 = [unaligned_entities1[pair[0]] for pair in labeled_alignment]
-        newly_aligned_entities2 = [unaligned_entities2[pair[1]] for pair in labeled_alignment]
+        newly_aligned_entities1 = [unaligned_entities1[pair[0]]
+                                   for pair in labeled_alignment]
+        newly_aligned_entities2 = [unaligned_entities2[pair[1]]
+                                   for pair in labeled_alignment]
     else:
         newly_aligned_entities1, newly_aligned_entities2 = None, None
     del sim_mat
@@ -330,9 +343,10 @@ class BootEA(AlignE):
                                                                 kg1_dict=self.kgs.kg1.entities_id_name_dict,
                                                                 kg2_dict=self.kgs.kg2.entities_id_name_dict,
                                                                 force_right=i <= self.args.interact_iter,
-                                                                right_count=self.args.total_right,
+                                                                right_count=self.args.max_correct,
                                                                 happy_align=happy_align,
-                                                                verify_range=self.args.verify_range,)
+                                                                verify_range=self.args.verify_range,
+                                                                only_top=self.args.only_top)
             self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, 1)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:

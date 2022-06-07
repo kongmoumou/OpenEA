@@ -56,41 +56,54 @@ def print_wrong_alignment(aligned_pairs, kg1_entity_ids, kg2_entity_ids, kg1_dic
     print('==========')
 
 
-def force_right_alignment(aligned_pairs, correct=True, right_count=0, sim_mat=None, range=None):
+def force_right_alignment(aligned_pairs, correct=True, right_count=0, sim_mat=None, range=None, only_top=False):
     count = 0
+    remove_count = 0
     top_5_count = 0
     total = 0
-    for x, y in aligned_pairs.copy():
-        if range is not None:
-            if x != y and (range[0] <= sim_mat[x][y] <= range[1]): # 只修正相似度阈值内的对齐
-                # sort sim_mat[x] desc and check if y is in the top 5
-                rank = np.argpartition(-sim_mat[x], 5)
-                if x in rank[0:5]:
-                    top_5_count += 1
-                aligned_pairs.remove((x, y))
-                if correct and count < right_count:
-                    aligned_pairs.add((x, x))
-                    count += 1
-                else:
-                    break    
-            continue
 
-        if x != y: # 强制正确
+    check_new_alignment(aligned_pairs, context=f"验证前",
+                            sim_mat=sim_mat, range=range)
+
+    for x, y in aligned_pairs.copy():
+        should_check = False
+        if range is not None:
+            # 错误对齐 且 在范围内
+            if x != y and (range[0] <= sim_mat[x][y] <= range[1]):
+                should_check = True
+        else:
+            # 错误对齐
+            if x != y: # 强制正确
+                should_check = True
+
+        if should_check: #需要检查
+            total += 1
             # sort sim_mat[x] desc and check if y is in the top 5
+            is_top = False
             rank = np.argpartition(-sim_mat[x], 5)
             if x in rank[0:5]:
+                is_top = True
                 top_5_count += 1
+
             aligned_pairs.remove((x, y))
+
+            # 需要更正 & 只更正 top
             if correct and count < right_count:
-                aligned_pairs.add((x, x))
-                count += 1
+                if is_top and only_top:
+                    aligned_pairs.add((x, y))
+                    count += 1
+                elif not only_top:
+                    aligned_pairs.add((x, y))
+                    count += 1
+                else:
+                    remove_count += 1
             else:
                 break
 
     if range is not None:
-        print(f'修正[{range[0]},{range[1]})个数: {count}, top 5: {top_5_count} ({top_5_count / (count or 1) * 100:.2f}%)')
+        print(f'修正[{range[0]},{range[1]})个数: {count}, 删除个数: {remove_count}, top 5: {top_5_count} ({top_5_count / (total or 1) * 100:.2f}%)')
     else:
-        print(f'修正个数: {count}, top 5: {top_5_count} ({top_5_count / (count or 1) * 100:.2f}%)')
+        print(f'修正个数: {count}, 删除个数: {remove_count}, top 5: {top_5_count} ({top_5_count / (total or 1) * 100:.2f}%)')
     return aligned_pairs
 
 
