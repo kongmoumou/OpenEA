@@ -1,6 +1,7 @@
 from openea.approaches.aligne import AlignE
 from openea.approaches.bootea import BootEA
 from openea.approaches.bootea_pro import BootEAPro
+from openea.approaches.bootea_base import BootEABase
 from openea.approaches.jape import JAPE
 from openea.approaches.attr2vec import Attr2Vec
 from openea.approaches.mtranse import MTransE
