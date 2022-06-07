@@ -17,6 +17,7 @@ from openea.models.neural import ProjE
 from openea.approaches import AlignE
 from openea.approaches import BootEA
 from openea.approaches import BootEAPro
+from openea.approaches import BootEABase
 from openea.approaches import JAPE
 from openea.approaches import Attr2Vec
 from openea.approaches import MTransE
@@ -59,6 +60,7 @@ class ModelFamily(object):
     AlignE = AlignE
     BootEA = BootEA
     BootEAPro = BootEAPro
+    BootEABase = BootEABase
     GCN_Align = GCN_Align
     GMNN = GMNN
     KDCoE = KDCoE
@@ -77,12 +79,26 @@ class ModelFamily(object):
 def get_model(model_name):
     return getattr(ModelFamily, model_name)
 
+import argparse
+
+parser = argparse.ArgumentParser(description='OpenEA')
+parser.add_argument('--verify-range', type=float, nargs=2, default=[0.7, 0.8])
+parser.add_argument('--interact-iter', type=int, default=10)
+parser.add_argument('-m', '--embedding_module', type=str, required=False)
 
 if __name__ == '__main__':
     t = time.time()
     args = load_args(sys.argv[1]) # json 读参数
     args.training_data = args.training_data + sys.argv[2] + '/'
     args.dataset_division = sys.argv[3]
+    # 最小迭代次数，当前终止条件准确度连续下降两次不太可靠
+    # args.min_iter = int(sys.argv[4])
+
+    extra_args = parser.parse_args(sys.argv[4:])
+    for k, v in extra_args.__dict__.items():
+        if v is not None:
+            args.__setattr__(k, v)
+
     print(args.embedding_module)
     print(args)
     remove_unlinked = False
