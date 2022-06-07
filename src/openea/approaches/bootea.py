@@ -29,11 +29,11 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
         labeled_alignment = update_labeled_alignment_y(
             labeled_alignment, sim_mat)
 
-        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率(验证前)",
                             sim_mat=sim_mat, range=[0.7, 0.8])
-        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率(验证前)",
                             sim_mat=sim_mat, range=[0.8, 0.9])
-        check_new_alignment(labeled_alignment, context=f"中间对齐准确率",
+        check_new_alignment(labeled_alignment, context=f"中间对齐准确率(验证前)",
                             sim_mat=sim_mat, range=[0.9, 1.0])
 
         # 删除已验证的对齐
@@ -46,7 +46,7 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
             labeled_alignment = force_right_alignment(
                 labeled_alignment, correct=True, right_count=right_count, sim_mat=sim_mat, range=verify_range, only_top=only_top)
             check_new_alignment(
-                labeled_alignment, context=f"after force right alignment({right_count})")
+                labeled_alignment, context=f"模拟验证对齐后({right_count})")
             print(f"new happy align: {len(labeled_alignment - happy_align)}")
             # 添加进已验证对齐
             for align in labeled_alignment:
@@ -262,6 +262,7 @@ class BootEA(AlignE):
     def launch_training_k_epo(self, iter, iter_nums, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                               neighbors2):
         for i in range(1, iter_nums + 1):
+        # for i in range(1, 2):
             epoch = (iter - 1) * iter_nums + i
             self.launch_triple_training_1epo(epoch, triple_steps, steps_tasks, training_batch_queue, neighbors1,
                                              neighbors2)
