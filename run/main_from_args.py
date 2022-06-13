@@ -1,6 +1,7 @@
 import argparse
 import sys
 import time
+import json
 from numpy import require
 
 from openea.modules.args.args_hander import check_args, load_args
@@ -84,7 +85,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='OpenEA')
 parser.add_argument('--verify-range', type=float, nargs=2, required=False)
-parser.add_argument('--interact-iter', type=int, default=10)
+parser.add_argument('--interact-iter', type=int, default=0)
 parser.add_argument('--only-top', type=bool, default=False)
 # 单次迭代验证最大数
 parser.add_argument('--max-correct', type=int, default=1000)
@@ -106,7 +107,8 @@ if __name__ == '__main__':
             args.__setattr__(k, v)
 
     print(args.embedding_module)
-    print(args.__dict__)
+    print('模型参数设置')
+    print(json.dumps(args.__dict__, indent=2))
     remove_unlinked = False
     if args.embedding_module == "RSN4EA":
         remove_unlinked = True
