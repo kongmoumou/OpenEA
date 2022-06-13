@@ -15,9 +15,40 @@ from openea.modules.base.optimizers import generate_optimizer
 from openea.modules.load.kg import KG
 from openea.modules.utils.util import load_session
 
+# 添加语义度量
+import pickle
+zh_vec_dict = {}
+en_vec_dict = {}
+vec_path = './vec'
+# pickle load vec
+with open(f'{vec_path}/zh_vec_v2.pkl', 'rb') as f:
+    zh_vec_dict = pickle.load(f)
+with open(f'{vec_path}/en_vec_v2.pkl', 'rb') as f:
+    en_vec_dict = pickle.load(f)
+
+def cal_sem_sim(word1, word2):
+    if word1 not in zh_vec_dict.keys():
+        print("向量1不存在")
+        return None
+    if word2 not in en_vec_dict.keys():
+        print("向量2不存在")
+        return None
+    vec1 = zh_vec_dict[word1]
+    vec2 = en_vec_dict[word2]
+    # get min nparray size of vec1 and vec2
+    min_size = min(vec1.shape[0], vec2.shape[0])
+    # slice vec1 and vec2 to min size
+    vec1 = vec1[:min_size]
+    vec2 = vec2[:min_size]
+    return float(np.dot(vec1, vec2)/(np.linalg.norm(vec1)*np.linalg.norm(vec2)))
+
+
+def normalize_name(full_name):
+    return full_name.split('/')[-1]
+
 
 def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict, force_right=False, right_count=0,
-                  happy_align=None, verify_range=None, only_top=False
+                  happy_align=None, verify_range=None, only_top=False, sem_th = 0.95
                   ):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
                                                            kg1_entity_ids=unaligned_entities1, kg2_entity_ids=unaligned_entities2,
@@ -35,6 +66,18 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
                             sim_mat=sim_mat, range=[0.8, 0.9])
         check_new_alignment(labeled_alignment, context=f"中间对齐准确率(验证前)",
                             sim_mat=sim_mat, range=[0.9, 1.0])
+
+        check_new_alignment(labeled_alignment, context=f"过滤语义前")
+        # 根据语义相似度过滤中间对齐（保留大于阈值的）
+        remove_count = 0
+        if sem_th:
+            for i, j in labeled_alignment.copy():
+                ent1_sem_vec = normalize_name(kg1_dict[unaligned_entities1[i]])
+                ent2_sem_vec = normalize_name(kg2_dict[unaligned_entities2[j]])
+                if cal_sem_sim(ent1_sem_vec, ent2_sem_vec) < sem_th:
+                    labeled_alignment.remove((i, j))
+                    remove_count += 1
+        check_new_alignment(labeled_alignment, context=f"过滤语义后, 删除 {remove_count} 个")
 
         # 删除已验证的对齐
         happy_align_x = (x for x, y in happy_align)
