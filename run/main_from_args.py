@@ -86,6 +86,9 @@ import argparse
 parser = argparse.ArgumentParser(description='OpenEA')
 parser.add_argument('--verify-range', type=float, nargs=2, required=False)
 parser.add_argument('--interact-iter', type=int, default=0)
+parser.add_argument('--measure-iter', type=int, default=0)
+parser.add_argument('--sem-th', type=float, default=0.9)
+parser.add_argument('--align-epoch', type=int, default=1)
 parser.add_argument('--only-top', type=bool, default=False)
 # 单次迭代验证最大数
 parser.add_argument('--max-correct', type=int, default=1000)

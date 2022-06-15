@@ -47,8 +47,8 @@ def normalize_name(full_name):
     return full_name.split('/')[-1]
 
 
-def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict, kg2_dict, force_right=False, right_count=0,
-                  happy_align=None, verify_range=None, only_top=False, sem_th = 0.95
+def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict=None, kg2_dict=None, force_right=False, right_count=0,
+                  happy_align=None, verify_range=None, only_top=False, sem_th = 0.99, measure_filter=False
                   ):
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
                                                            kg1_entity_ids=unaligned_entities1, kg2_entity_ids=unaligned_entities2,
@@ -67,17 +67,17 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
         check_new_alignment(labeled_alignment, context=f"中间对齐准确率(验证前)",
                             sim_mat=sim_mat, range=[0.9, 1.0])
 
-        check_new_alignment(labeled_alignment, context=f"过滤语义前")
         # 根据语义相似度过滤中间对齐（保留大于阈值的）
-        remove_count = 0
-        if sem_th:
+        if measure_filter and sem_th:
+            remove_count = 0
+            check_new_alignment(labeled_alignment, context=f"过滤语义前")
             for i, j in labeled_alignment.copy():
                 ent1_sem_vec = normalize_name(kg1_dict[unaligned_entities1[i]])
                 ent2_sem_vec = normalize_name(kg2_dict[unaligned_entities2[j]])
                 if cal_sem_sim(ent1_sem_vec, ent2_sem_vec) < sem_th:
                     labeled_alignment.remove((i, j))
                     remove_count += 1
-        check_new_alignment(labeled_alignment, context=f"过滤语义后, 删除 {remove_count} 个")
+            check_new_alignment(labeled_alignment, context=f"过滤语义后, 删除 {remove_count} 个")
 
         # 删除已验证的对齐
         happy_align_x = (x for x, y in happy_align)
@@ -202,7 +202,7 @@ def generate_newly_triples(ent1, ent2, rt_dict1, hr_dict1):
     return newly_triples
 
 
-def generate_pos_batch(triples1, triples2, step, batch_size):
+def generate_pos_batch(triples1, triples2, step, batch_size): # 按比例划分训练三元组
     num1 = int(len(triples1) / (len(triples1) + len(triples2)) * batch_size)
     num2 = batch_size - num1
     start1 = step * num1
@@ -387,11 +387,13 @@ class BootEA(AlignE):
                                                                 kg1_dict=self.kgs.kg1.entities_id_name_dict,
                                                                 kg2_dict=self.kgs.kg2.entities_id_name_dict,
                                                                 force_right=i <= self.args.interact_iter,
+                                                                measure_filter=i <= self.args.measure_iter,
+                                                                sem_th=self.args.sem_th,
                                                                 right_count=self.args.max_correct,
                                                                 happy_align=happy_align,
                                                                 verify_range=self.args.verify_range,
                                                                 only_top=self.args.only_top)
-            self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, 1)
+            self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, self.args.align_epoch)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:
                 self.valid(self.args.stop_metric)
