@@ -15,9 +15,10 @@ def find_potential_alignment_mwgm(sim_mat, sim_th, k,
                                   heuristic=True,
                                   force_right=False,
                                   correct=True,
+                                  provide_align_pairs=None
                                   ):
     t = time.time()
-    potential_aligned_pairs = find_alignment(sim_mat, sim_th, k)
+    potential_aligned_pairs = provide_align_pairs if provide_align_pairs else find_alignment(sim_mat, sim_th, k)
     if potential_aligned_pairs is None:
         return None
     t1 = time.time()

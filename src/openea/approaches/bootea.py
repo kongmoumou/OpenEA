@@ -10,7 +10,7 @@ from openea.modules.finding.evaluation import early_stop
 import openea.modules.train.batch as bat
 from openea.approaches.aligne import AlignE
 from openea.modules.utils.util import task_divide
-from openea.modules.bootstrapping.alignment_finder import find_potential_alignment_mwgm, check_new_alignment, force_right_alignment
+from openea.modules.bootstrapping.alignment_finder import find_potential_alignment_mwgm, check_new_alignment, force_right_alignment, find_alignment
 from openea.modules.base.optimizers import generate_optimizer
 from openea.modules.load.kg import KG
 from openea.modules.utils.util import load_session
@@ -46,14 +46,35 @@ def cal_sem_sim(word1, word2):
 def normalize_name(full_name):
     return full_name.split('/')[-1]
 
+def filter_align_by_sem(align_pairs, entities1, kg1_dict, entities2, kg2_dict, sem_th):
+    filtered_align_pairs = align_pairs.copy()
+
+    remove_count = 0
+    check_new_alignment(filtered_align_pairs, context=f"过滤语义前")
+    for i, j in filtered_align_pairs.copy():
+        ent1_sem_vec = normalize_name(kg1_dict[entities1[i]])
+        ent2_sem_vec = normalize_name(kg2_dict[entities2[j]])
+        if cal_sem_sim(ent1_sem_vec, ent2_sem_vec) < sem_th:
+            filtered_align_pairs.remove((i, j))
+            remove_count += 1
+    check_new_alignment(filtered_align_pairs, context=f"过滤语义后, 删除 {remove_count} 个")
+
+    return filtered_align_pairs
+
 
 def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_alignment, sim_th, k, kg1_dict=None, kg2_dict=None, force_right=False, right_count=0,
-                  happy_align=None, verify_range=None, only_top=False, sem_th = 0.99, measure_filter=False
+                  happy_align=None, verify_range=None, only_top=False, sem_th = 0.99, measure_filter=False,
+                  filter_mode='post'
                   ):
+    potential_aligned_pairs = None
+    if measure_filter and sem_th and filter_mode == 'pre':
+        potential_aligned_pairs = find_alignment(sim_mat, sim_th, k)
+        potential_aligned_pairs = filter_align_by_sem(potential_aligned_pairs, unaligned_entities1, kg1_dict, unaligned_entities2, kg2_dict, sem_th)
+    
     curr_labeled_alignment = find_potential_alignment_mwgm(sim_mat, sim_th, k,
                                                            kg1_entity_ids=unaligned_entities1, kg2_entity_ids=unaligned_entities2,
                                                            # kg1_dict = kg1_dict, kg2_dict = kg2_dict, force_right=force_right, correct=True)
-                                                           kg1_dict=kg1_dict, kg2_dict=kg2_dict)
+                                                           kg1_dict=kg1_dict, kg2_dict=kg2_dict, provide_align_pairs=potential_aligned_pairs,)
     if curr_labeled_alignment is not None:
         labeled_alignment = update_labeled_alignment_x(
             labeled_alignment, curr_labeled_alignment, sim_mat)
@@ -68,16 +89,8 @@ def bootstrapping(sim_mat, unaligned_entities1, unaligned_entities2, labeled_ali
                             sim_mat=sim_mat, range=[0.9, 1.0])
 
         # 根据语义相似度过滤中间对齐（保留大于阈值的）
-        if measure_filter and sem_th:
-            remove_count = 0
-            check_new_alignment(labeled_alignment, context=f"过滤语义前")
-            for i, j in labeled_alignment.copy():
-                ent1_sem_vec = normalize_name(kg1_dict[unaligned_entities1[i]])
-                ent2_sem_vec = normalize_name(kg2_dict[unaligned_entities2[j]])
-                if cal_sem_sim(ent1_sem_vec, ent2_sem_vec) < sem_th:
-                    labeled_alignment.remove((i, j))
-                    remove_count += 1
-            check_new_alignment(labeled_alignment, context=f"过滤语义后, 删除 {remove_count} 个")
+        if measure_filter and sem_th and filter_mode == 'post':
+            labeled_alignment = filter_align_by_sem(labeled_alignment, unaligned_entities1, kg1_dict, unaligned_entities2, kg2_dict, sem_th)
 
         # 删除已验证的对齐
         happy_align_x = (x for x, y in happy_align)
@@ -392,7 +405,8 @@ class BootEA(AlignE):
                                                                 right_count=self.args.max_correct,
                                                                 happy_align=happy_align,
                                                                 verify_range=self.args.verify_range,
-                                                                only_top=self.args.only_top)
+                                                                only_top=self.args.only_top,
+                                                                filter_mode=self.args.filter_mode)
             self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, self.args.align_epoch)
             # self.likelihood(labeled_align)
             if i * sub_num >= self.args.start_valid:
