@@ -220,7 +220,7 @@ class BootEA_RotatE(BasicModel):
                     break
             if i * sub_num >= self.args.start_bp:
                 print("bootstrapping")
-                labeled_align, entities1, entities2 = bootstrapping(self.eval_ref_sim_mat(),
+                labeled_align, entities1, entities2, _ = bootstrapping(self.eval_ref_sim_mat(),
                                                                     self.ref_ent1, self.ref_ent2, labeled_align,
                                                                     self.args.sim_th, self.args.k)
                 self.train_alignment(self.kgs.kg1, self.kgs.kg2, entities1, entities2, self.args.align_times)
